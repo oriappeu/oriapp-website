@@ -419,7 +419,7 @@ section { padding: 104px 0; }
 /* ── Questions ─────────────────────────────────────────────────────────── */
 .faq-list { max-width: 820px; display: grid; gap: 12px; }
 .faq-item { border-radius: var(--radius-row); background: var(--glass-soft); border: 1px solid var(--line-soft); }
-.faq-item[open] { border-color: var(--line); }
+.faq-item[open] { border-color: var(--line); transition: border-color 240ms ease; }
 .faq-item summary {
   list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 18px;
   padding: 20px 22px; font-family: var(--display); font-weight: 600; font-size: 18px; line-height: 1.35; letter-spacing: -0.01em;
@@ -432,14 +432,27 @@ section { padding: 104px 0; }
   content: ''; position: absolute; left: 0; right: 0; top: 6px; height: 2px; border-radius: 2px; background: var(--gold);
   transition: transform 200ms var(--ease-out);
 }
-.faq-item summary i::after { transform: rotate(90deg); }
+.faq-item summary i::after { transform: rotate(90deg); transition: transform 300ms var(--ease-out); }
 .faq-item[open] summary i::after { transform: rotate(0deg); }
 .faq-item p { padding: 0 22px 22px; color: var(--sub); max-width: 700px; }
-.faq-item[open] p { animation: faq-open 240ms var(--ease-out); }
-@keyframes faq-open { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
-@keyframes faq-fade { from { opacity: 0; } to { opacity: 1; } }
+/* Opening and closing (main.js adds .faq-anim and drives .is-open, so without
+   script a question still opens, just at once). The answer's height slides
+   through a 0fr → 1fr grid row - an accordion, the one place height may
+   animate - while the text fades and settles. Transitions, not keyframes,
+   so a quick second tap reverses from where it is. */
+.faq-anim .faq-body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 340ms var(--ease-out); }
+.faq-anim .faq-body > div { overflow: hidden; min-height: 0; }
+.faq-anim p { opacity: 0; transform: translateY(-8px); transition: opacity 200ms ease, transform 340ms var(--ease-out); }
+.faq-anim.is-open .faq-body { grid-template-rows: 1fr; }
+.faq-anim.is-open p { opacity: 1; transform: none; transition: opacity 300ms ease 60ms, transform 340ms var(--ease-out); }
+.faq-anim summary i::after { transform: rotate(90deg); }
+.faq-anim.is-open summary i::after { transform: rotate(0deg); }
 @media (hover: hover) and (pointer: fine) { .faq-item:hover { border-color: rgba(233, 196, 100, 0.32); } }
-@media (prefers-reduced-motion: reduce) { .faq-item[open] p { animation: faq-fade 200ms ease; } }
+/* Reduced motion: no sliding - the answer only fades. */
+@media (prefers-reduced-motion: reduce) {
+  .faq-anim .faq-body { transition: none; }
+  .faq-anim p, .faq-anim.is-open p { transform: none; transition: opacity 200ms ease; }
+}
 @media (max-width: 520px) { .faq-item summary { font-size: 17px; padding: 18px; } .faq-item p { padding: 0 18px 20px; } }
 /* The questions' own page. */
 .faq-page section { padding-top: 72px; }

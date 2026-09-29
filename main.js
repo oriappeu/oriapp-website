@@ -213,6 +213,40 @@ if (finePointer && !reduce) {
   }
 }
 
+// ── Questions ───────────────────────────────────────────────────────────────
+// A <details> opens and closes at once; here it slides. Opening: set `open` so
+// the answer exists, read its layout once (so the browser has the collapsed
+// row as a starting point), then add .is-open and the row grows from 0 in the
+// same frame. Closing: drop .is-open, and only take `open` away once the row
+// has shrunk. A tap mid-way simply reverses (styles.css uses transitions).
+document.querySelectorAll('.faq-item').forEach((item) => {
+  const summary = item.querySelector('summary');
+  const body = item.querySelector('.faq-body');
+  if (!summary || !body) return;
+  item.classList.add('faq-anim');
+  if (item.open) item.classList.add('is-open');
+  let closing = 0;
+  summary.addEventListener('click', (e) => {
+    e.preventDefault();
+    clearTimeout(closing);
+    if (item.classList.contains('is-open')) {
+      item.classList.remove('is-open');
+      if (reduce) { item.open = false; return; }
+      const finish = () => { if (!item.classList.contains('is-open')) item.open = false; };
+      body.addEventListener('transitionend', function done(ev) {
+        if (ev.target !== body) return;
+        body.removeEventListener('transitionend', done);
+        finish();
+      });
+      closing = setTimeout(finish, 450); // in case transitionend never comes
+    } else {
+      item.open = true;
+      void body.offsetHeight; // commit the collapsed state before growing
+      item.classList.add('is-open');
+    }
+  });
+});
+
 // ── Try it ──────────────────────────────────────────────────────────────────
 // A small working model of the app. One state object, one render; CSS draws
 // every state from the attributes set here. Step 1: low energy re-plans the

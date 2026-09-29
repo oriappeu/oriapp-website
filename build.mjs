@@ -80,7 +80,7 @@ for (const page of PAGES) {
       // The questions: native <details>, so they open without script and for every reader.
       faq_page: `${lang.root}faq.html`,
       faq_items: faqItems(t).map(({ q, a }) =>
-        `<details class="faq-item reveal"><summary><span>${q}</span><i aria-hidden="true"></i></summary><p>${a}</p></details>`).join('\n          '),
+        `<details class="faq-item reveal"><summary><span>${q}</span><i aria-hidden="true"></i></summary><div class="faq-body"><div><p>${a}</p></div></div></details>`).join('\n          '),
       // The same questions for search engines (schema.org FAQPage).
       faq_schema: JSON.stringify({
         '@context': 'https://schema.org',
