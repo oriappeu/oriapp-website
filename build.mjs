@@ -10,7 +10,8 @@
 //
 // Placeholders: {{a.b}} is a text from the language file (it may carry inline
 // HTML, e.g. the gold phrase of a headline); {{@name}} is filled in here -
-// lang, locale, canonical, alternates, switch, home, privacy, og_image, i18n.
+// lang, locale, canonical, alternates, switch, home, privacy, faq_page,
+// faq_items, faq_schema, og_image, i18n.
 // A missing text, or a key one language has and another lacks, stops the build.
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { dirname } from 'node:path';
@@ -25,6 +26,7 @@ const LANGS = [
 const PAGES = [
   { src: 'src/index.html', path: '' },
   { src: 'src/privacy.html', path: 'privacy.html' },
+  { src: 'src/faq.html', path: 'faq.html' },
 ];
 
 const words = Object.fromEntries(LANGS.map((l) => [l.code, JSON.parse(readFileSync(`i18n/${l.code}.json`, 'utf8'))]));
@@ -76,7 +78,8 @@ for (const page of PAGES) {
       // The form's messages, for main.js. `<` is escaped so no text can close the script tag.
       i18n: JSON.stringify(t.js).replace(/</g, '\\u003c'),
       // The questions: native <details>, so they open without script and for every reader.
-      faq: faqItems(t).map(({ q, a }) =>
+      faq_page: `${lang.root}faq.html`,
+      faq_items: faqItems(t).map(({ q, a }) =>
         `<details class="faq-item reveal"><summary><span>${q}</span><i aria-hidden="true"></i></summary><p>${a}</p></details>`).join('\n          '),
       // The same questions for search engines (schema.org FAQPage).
       faq_schema: JSON.stringify({

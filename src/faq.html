@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="{{@lang}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{faq.title}}</title>
+  <meta name="description" content="{{faq.description}}">
+  <meta name="theme-color" content="#0F0C14">
+  <link rel="canonical" href="{{@canonical}}">
+  {{@alternates}}
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{@canonical}}">
+  <meta property="og:site_name" content="Ori">
+  <meta property="og:locale" content="{{@locale}}">
+  <meta property="og:title" content="{{faq.title}}">
+  <meta property="og:description" content="{{faq.description}}">
+  <meta property="og:image" content="{{@og_image}}">
+
+  <link rel="icon" href="/assets/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/assets/icon-180.png">
+  <link rel="stylesheet" href="/styles.css">
+  <script>if ('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
+  <script type="application/ld+json">{{@faq_schema}}</script>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="3be86478-1afd-4b48-8b94-6532dd16d602" data-domains="oriapp.eu"></script>
+</head>
+<body>
+  <div class="aura" aria-hidden="true"><span class="g1"></span><span class="g2"></span><span class="g3"></span></div>
+  <header class="nav">
+    <div class="wrap">
+      <a class="brand" href="{{@home}}"><img src="/assets/icon-192.png" alt="" width="32" height="32"><span>Ori</span></a>
+      <nav class="nav-links" aria-label="{{nav.sections}}">
+        <a href="{{@home}}">{{privacy.back}}</a>
+        {{@switch}}
+        <a class="btn btn-primary" href="{{@home}}#join">{{nav.cta}}</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="faq-page">
+    <section>
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">{{faq.eyebrow}}</span>
+          <h1 class="split">{{faq.h2}}</h1>
+        </div>
+        <div class="faq-list">
+          {{@faq_items}}
+        </div>
+        <div class="faq-more reveal">
+          <h2>{{faq.cta_h}}</h2>
+          <p>{{faq.cta_p}}</p>
+          <a class="btn btn-primary" href="{{@home}}#join">{{form.button}}</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>Ori © 2026</span>
+      <nav aria-label="{{footer.label}}">
+        <a href="{{@home}}">{{privacy.home}}</a>
+        <a href="{{@privacy}}">{{footer.privacy}}</a>
+        <a href="mailto:oriapp.eu@gmail.com">{{footer.contact}}</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="/main.js" defer></script>
+</body>
+</html>

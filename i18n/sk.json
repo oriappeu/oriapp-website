@@ -11,6 +11,7 @@
     "how": "Ako to funguje",
     "why": "Prečo to funguje",
     "who": "Pre koho",
+    "faq": "Otázky",
     "lang": "Jazyk",
     "cta": "Chcem prístup"
   },
@@ -163,6 +164,8 @@
   },
   "quote": "Plán ti postaví AI.<span>Vďaka Ori ho budeš mať aj <em class=\"gold\">v šiestom mesiaci.</em></span>",
   "faq": {
+    "title": "Časté otázky - Ori",
+    "description": "Odpovede na najčastejšie otázky o Ori: kedy vyjde, koľko bude stáť, na čom pobeží a čo sa deje s tvojimi dátami.",
     "eyebrow": "Časté otázky",
     "h2": "Kým sa <span class=\"gold\">zapíšeš.</span>",
     "items": [
@@ -206,7 +209,9 @@
         "q": "Môžem mať viac cieľov naraz?",
         "a": "Áno. Ori ich naplánuje spolu, aby sa nebili o ten istý čas a neprekročili tvoju kapacitu."
       }
-    ]
+    ],
+    "cta_h": "Chýba ti tu odpoveď?",
+    "cta_p": "Napíš nám na <a href=\"mailto:oriapp.eu@gmail.com\">oriapp.eu@gmail.com</a> - odpovedáme my, nie robot."
   },
   "join": {
     "eyebrow": "Predbežný prístup",

@@ -11,6 +11,7 @@
     "how": "How it works",
     "why": "Why it works",
     "who": "Who it's for",
+    "faq": "FAQ",
     "lang": "Language",
     "cta": "Join the waitlist"
   },
@@ -163,6 +164,8 @@
   },
   "quote": "AI can build your plan.<span>Ori is why you still have it in <em class=\"gold\">month six.</em></span>",
   "faq": {
+    "title": "Questions - Ori",
+    "description": "Answers to the common questions about Ori: when it launches, what it costs, what it runs on and what happens to your data.",
     "eyebrow": "Questions",
     "h2": "Before you <span class=\"gold\">sign up.</span>",
     "items": [
@@ -206,7 +209,9 @@
         "q": "Can I have more than one goal at a time?",
         "a": "Yes. Ori plans them together, so they don't fight over the same time or go beyond your capacity."
       }
-    ]
+    ],
+    "cta_h": "Didn't find your answer?",
+    "cta_p": "Write to us at <a href=\"mailto:oriapp.eu@gmail.com\">oriapp.eu@gmail.com</a> - a person answers, not a bot."
   },
   "join": {
     "eyebrow": "Early access",
