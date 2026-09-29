@@ -12,6 +12,11 @@ const SUPABASE_ANON_KEY = 'sb_publishable_M6IB1lkNmyhZiFri3_kiOA_kBcR6xkP';
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
+// The form speaks the page's language: build.mjs writes its messages into the
+// page from i18n/<lang>.json.
+let T = {};
+try { T = JSON.parse(document.getElementById('i18n')?.textContent || '{}'); } catch { T = {}; }
+
 async function join(email) {
   const res = await fetch(`${SUPABASE_URL}/rest/v1/waitlist`, {
     method: 'POST',
@@ -43,28 +48,26 @@ function attach(form) {
     const email = input.value.trim().toLowerCase();
     if (!EMAIL.test(email)) {
       note.classList.remove('ok');
-      note.textContent = 'That doesn’t look like an email address.';
+      note.textContent = T.invalid;
       input.focus();
       return;
     }
     button.disabled = true;
-    button.textContent = 'Joining…';
+    button.textContent = T.joining;
     let outcome = 'failed';
     try { outcome = await join(email); } catch { outcome = 'failed'; }
     if (outcome === 'failed') {
       button.disabled = false;
       button.textContent = original.button;
       note.classList.remove('ok');
-      note.textContent = 'Something went wrong. Check your connection and try again.';
+      note.textContent = T.failed;
       return;
     }
     input.value = '';
     input.disabled = true;
-    button.textContent = outcome === 'already' ? 'Already on the list' : 'You’re on the list';
+    button.textContent = outcome === 'already' ? T.btn_already : T.btn_joined;
     note.classList.add('ok');
-    note.textContent = outcome === 'already'
-      ? 'You’re already on the waitlist - we’ll be in touch.'
-      : 'Thank you. We’ll email you once when your spot is ready.';
+    note.textContent = outcome === 'already' ? T.note_already : T.note_joined;
   });
 }
 
@@ -164,7 +167,7 @@ onScroll();
 if (finePointer && !reduce) {
   // Cards: the light follows the pointer. Set on the card itself, never on a
   // parent, so only that card restyles.
-  document.querySelectorAll('.card, .principle, .persona, .setup').forEach((card) => {
+  document.querySelectorAll('.card, .principle, .persona, .setup, .founder').forEach((card) => {
     card.addEventListener('pointermove', (e) => {
       const r = card.getBoundingClientRect();
       card.style.setProperty('--mx', `${e.clientX - r.left}px`);

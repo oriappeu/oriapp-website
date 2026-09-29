@@ -1,0 +1,164 @@
+{
+  "meta": {
+    "title": "Ori - Dosiahni svoje ciele. Nie na úkor svojho života.",
+    "description": "Ori je AI kouč osobného rozvoja. Plán ti dnes napíše akákoľvek AI - Ori je tu pre týždeň, keď sa ten plán rozpadne. Všimne si, prispôsobí cestu tvojej skutočnej kapacite a pomôže ti znovu sa rozbehnúť. Bez kopy nesplnených úloh, bez výčitiek.",
+    "og_description": "Plán ti postaví AI. Vďaka Ori ho budeš mať aj v šiestom mesiaci.",
+    "schema": "AI kouč osobného rozvoja, ktorý plánuje podľa tvojej skutočnej kapacity a prestavia cestu, keď sa táto kapacita zmení."
+  },
+  "nav": {
+    "brand": "Ori, späť hore",
+    "sections": "Sekcie",
+    "how": "Ako to funguje",
+    "why": "Prečo to funguje",
+    "who": "Pre koho",
+    "lang": "Jazyk",
+    "cta": "Chcem prístup"
+  },
+  "hero": {
+    "eyebrow": "Tvoj AI kouč osobného rozvoja",
+    "h1": "Dosiahni svoje ciele. Nie na úkor <span class=\"gold\">svojho života.</span>",
+    "lede": "Plán ti dnes napíše akákoľvek AI. Ori je tu pre týždeň, keď sa ten plán rozpadne - všimne si, že ti do toho vstúpil život, prispôsobí cestu tomu, čo naozaj zvládneš, a pomôže ti znovu sa rozbehnúť. Žiadna kopa nesplnených úloh. Žiadne výčitky.",
+    "note": "Prístup otvárame najskôr v Česku a na Slovensku. Ozveme sa, keď na teba príde rad - <a href=\"{{@privacy}}\">súkromie</a>."
+  },
+  "form": {
+    "honeypot": "Nechaj prázdne",
+    "placeholder": "tvoj@email.sk",
+    "label": "Tvoja e-mailová adresa",
+    "button": "Chcem byť medzi prvými"
+  },
+  "phone": {
+    "label": "Ukážka, ako Ori preplánuje deň",
+    "day": "Štvrtok",
+    "goal": "Zabehnúť polmaratón",
+    "on_track": "Podľa plánu",
+    "says": "Náročný týždeň v práci. Dlhý beh sa presúva na sobotu ráno - dnes večer ti sériu udrží 15 minút mobility.",
+    "long_run": "Dlhý beh · 60 min",
+    "long_run_now": "Dnes, 18:00",
+    "long_run_later": "Presunuté na sobotu, 9:00",
+    "mobility": "Mobilita · 15 min",
+    "mobility_note": "Namiesto toho menší krok",
+    "read": "Prečítať 20 strán",
+    "read_note": "Zvyk · po večeri",
+    "milestone": "Míľnik 2 · Zvládnuť 10 km",
+    "milestone_note": "Hotové 3 zo 4 tréningov"
+  },
+  "trust": {
+    "label": "Overené s"
+  },
+  "problem": {
+    "eyebrow": "Problém",
+    "h2": "Plán si dnes spraví každý. Dotiahne ho <span class=\"gold\">skoro nikto.</span>",
+    "c1_h": "Plán je dnes zadarmo",
+    "c1_p": "Akákoľvek AI ti za pár sekúnd napíše dôveryhodný plán. To už nie je tá ťažká časť.",
+    "c2_h": "Život ho rozbije",
+    "c2_p": "Nával v práci, zlý týždeň, jeden vynechaný tréning. Plán počíta s verziou teba, ktorá je stále rovnaká - a tá neexistuje.",
+    "c3_h": "Začať odznova stojí najviac",
+    "c3_p": "Každá aplikácia čaká, kým sa vrátiš a postavíš sa kope nesplnených úloh. Väčšina ľudí sa už nevráti.",
+    "statement": "Viac času trávime organizovaním svojho života než jeho zlepšovaním."
+  },
+  "band": {
+    "notice": "Všimnúť si",
+    "read": "Pochopiť",
+    "reshape": "Upraviť",
+    "resume": "Pokračovať",
+    "same": "Rovnaký cieľ, iná cesta"
+  },
+  "how": {
+    "eyebrow": "Ako Ori funguje",
+    "h2": "Plán vie zostaviť každá aplikácia. Ori je tu pre <span class=\"gold\">týždeň, keď sa rozpadne.</span>",
+    "setup_tag": "Nastavenie · raz",
+    "setup_h": "Dvadsať minút a plánovanie preberá Ori",
+    "setup_p": "Tvoj cieľ, odkiaľ začínaš, prečo je pre teba dôležitý a koľko času máš naozaj. Ori z toho zostaví cestu po míľnikoch a naplánuje ti kroky na najbližšie dni podľa tvojho skutočného kalendára.",
+    "s1_num": "01 - Všimne si",
+    "s1_h": "Ori príde za tebou",
+    "s1_p": "Pár dní je ticho. Ori si to všimne. Nemusíš nikomu hlásiť, že sa ti nedarí.",
+    "s2_num": "02 - Pochopí",
+    "s2_h": "Tvoja kapacita, nie plán",
+    "s2_p": "Vynechané kroky a chýbajúce check-iny hovoria samy za seba. Jedna otázka to potvrdí.",
+    "s3_num": "03 - Upraví",
+    "s3_h": "Menší, alebo iný",
+    "s3_p": "Ori nemení len dátum, ale aj rozsah a samotnú činnosť. Namiesto hlbokej práce menší krok, ktorý dáš.",
+    "s4_num": "04 - Pokračuješ",
+    "s4_h": "Nie od nuly",
+    "s4_p": "Nadviažeš tam, kde si. Rovnaký cieľ, iná cesta, žiadne výčitky.",
+    "loop": "S každým kolom sa Ori lepšie učí tvoje skutočné tempo. V šiestom mesiaci je to iný produkt ako prvý deň."
+  },
+  "why": {
+    "eyebrow": "Prečo Ori funguje",
+    "h2": "Staviame na <span class=\"gold\">zmene správania,</span> nie na závislosti od aplikácie.",
+    "lede": "Keď sa zmení tvoja kapacita, mení sa plán - nie cieľ.",
+    "p1_h": "Úlohu zmenšíme, nie len presunieme",
+    "p1_p": "Presunutá úloha je rovnaký múr, len o deň neskôr. Menšiu úlohu spravíš - a práve to, že niečo spravíš, znovu rozbehne zvyk.",
+    "p2_h": "Kopu nesplneného nikdy neuvidíš",
+    "p2_p": "Návrat po zlom týždni nie je problém motivácie, ale hanby. Ori sa ozve prvý, takže ten ťažký návrat vôbec nepríde.",
+    "p3_h": "Najprv prečo, potom čo",
+    "p3_p": "Vášeň, alebo tlak? Ambícia, alebo kapacita? Úvodný rozhovor tvaruje celú cestu, pretože plán postavený na zlej motivácii zomrie v treťom týždni.",
+    "p4_h": "Rozvrh určuje energia",
+    "p4_p": "Nielen voľné okno v kalendári. Prevencia vyhorenia je tu pravidlo plánovania, nie wellness sekcia.",
+    "statement": "Bežné aplikácie vyhrávajú, keď v nich trávíš čas. Ori vyhráva, keď robíš to podstatné mimo neho."
+  },
+  "who": {
+    "eyebrow": "Pre koho je Ori",
+    "h2": "Pre ľudí, ktorí chcú systém, ktorý sa prispôsobí im - nie naopak.",
+    "a_who": "Mladí profesionáli · 25–35",
+    "a_h": "Ambiciózni, ale o šiestej večer už bez síl rozhodovať",
+    "a_1": "Po práci ich vyčerpá každé ďalšie rozhodnutie.",
+    "a_2": "Vedľajší projekt nerozbehnú, lebo už len vymyslieť, kde začať, je vyčerpávajúce.",
+    "a_3": "Chcú dostať ďalší krok naservírovaný - a taký veľký, na aký ten večer naozaj majú.",
+    "b_who": "Ťahúni",
+    "b_h": "Výkonní ľudia, ktorí už raz vyhoreli",
+    "b_1": "Vedia veci dotiahnuť - a predsa nedávno kvôli vyhoreniu alebo času odložili osobný projekt.",
+    "b_2": "Hľadajú systém, ktorý prežije aj týždne, keď nemôžu podávať výkon.",
+    "b_3": "V dobrých dňoch chcú postrčiť, v zlých ochrániť."
+  },
+  "team": {
+    "eyebrow": "Kto za Ori stojí",
+    "h2": "Staviame ho, pretože sme ten problém <span class=\"gold\">sami zažili.</span>",
+    "lede": "Obaja sme naň narazili na vlastnej koži, keď sme ťahali niekoľko projektov naraz. A obaja už máme za sebou cestu od nápadu k prvým platiacim zákazníkom.",
+    "damian": "Produktová stratégia, obchod, marketing a financovanie.",
+    "jindrich": "Vízia produktu, AI, dizajn a UX/UI."
+  },
+  "quote": "Plán ti postaví AI.<span>Vďaka Ori ho budeš mať aj <em class=\"gold\">v šiestom mesiaci.</em></span>",
+  "join": {
+    "eyebrow": "Predbežný prístup",
+    "h2": "Začni s cieľom, ktorý stále odkladáš.",
+    "lede": "Ori práve testujeme. Zapíš sa a ozveme sa ti, keď pre teba bude miesto.",
+    "note": "Tvoj e-mail použijeme len na to, aby sme ti písali o Ori - <a href=\"{{@privacy}}\">súkromie</a>."
+  },
+  "footer": {
+    "label": "Päta stránky",
+    "privacy": "Súkromie",
+    "contact": "Kontakt"
+  },
+  "js": {
+    "invalid": "Toto nevyzerá ako e-mailová adresa.",
+    "joining": "Zapisujem…",
+    "failed": "Niečo sa pokazilo. Skontroluj pripojenie a skús to znova.",
+    "btn_joined": "Si na zozname",
+    "btn_already": "Už si na zozname",
+    "note_joined": "Vďaka! Ozveme sa, keď pre teba bude miesto.",
+    "note_already": "Na zozname už si - ozveme sa."
+  },
+  "privacy": {
+    "title": "Súkromie - Ori",
+    "description": "Ako Ori narába s e-mailom, ktorý nám dáš pri zápise na čakaciu listinu.",
+    "back": "Späť na Ori",
+    "home": "Domov",
+    "eyebrow": "Súkromie",
+    "h1": "Tento web a čakacia listina",
+    "updated": "Naposledy upravené: 29. septembra 2026",
+    "collect_h": "Čo ukladáme",
+    "collect_p": "Keď sa zapíšeš na čakaciu listinu, uložíme si tvoju e-mailovú adresu a čas zápisu. Nič viac - formulár iné polia nemá a tento web nepoužíva analytické ani reklamné cookies.",
+    "why_h": "Prečo",
+    "why_p1": "Aby sme ti dali vedieť, keď bude pre teba prístup k Ori pripravený, a o spustení Ori. Tvoju adresu nepredávame ani nezdieľame a nepošleme ti nič, čo so Ori nesúvisí.",
+    "why_p2": "Spracúvame ju na základe tvojho súhlasu (čl. 6 ods. 1 písm. a) GDPR), ktorý môžeš kedykoľvek odvolať.",
+    "where_h": "Kde je uložená",
+    "where_p": "V databáze, ktorú pre nás prevádzkuje Supabase, náš poskytovateľ databázy. Písma stránky sa načítavajú priamo z tohto webu, takže tvoju návštevu nevidí nikto tretí.",
+    "long_h": "Ako dlho",
+    "long_p": "Kým nás nepožiadaš o vymazanie, alebo kým ju nepotrebujeme na pozvanie - po verejnom spustení Ori zoznam vymažeme.",
+    "rights_h": "Tvoje práva",
+    "rights_p": "Môžeš sa nás opýtať, čo o tebe máme, požiadať o opravu alebo o vymazanie - napíš na <a href=\"mailto:oriapp.eu@gmail.com\">oriapp.eu@gmail.com</a> z adresy, ktorú máme na zozname, a my to urobíme. Ak si myslíš, že sme s tvojimi údajmi naložili zle, napíš nám prosím najprv na rovnakú adresu - pozrieme sa na to a napravíme to. Vždy máš aj právo podať sťažnosť dozornému orgánu - na Slovensku je to Úrad na ochranu osobných údajov SR, v Česku Úřad pro ochranu osobních údajů.",
+    "app_h": "Aplikácia Ori",
+    "app_p": "Táto stránka sa týka len tohto webu a čakacej listiny. Keď začneš používať samotnú aplikáciu Ori, platia jej vlastné zásady ochrany súkromia, ktoré uvidíš pri založení účtu."
+  }
+}

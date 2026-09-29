@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="{{@lang}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{privacy.title}}</title>
+  <meta name="description" content="{{privacy.description}}">
+  <meta name="theme-color" content="#0F0C14">
+  <link rel="canonical" href="{{@canonical}}">
+  {{@alternates}}
+  <link rel="icon" href="/assets/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/assets/icon-180.png">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="aura" aria-hidden="true"><span class="g1"></span><span class="g2"></span><span class="g3"></span></div>
+  <header class="nav">
+    <div class="wrap">
+      <a class="brand" href="{{@home}}"><img src="/assets/icon-192.png" alt="" width="32" height="32"><span>Ori</span></a>
+      <nav class="nav-links" aria-label="{{nav.sections}}">
+        {{@switch}}
+        <a class="btn btn-glass" href="{{@home}}">{{privacy.back}}</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="legal">
+    <div class="wrap">
+      <span class="eyebrow">{{privacy.eyebrow}}</span>
+      <h1>{{privacy.h1}}</h1>
+      <p>{{privacy.updated}}</p>
+
+      <h2>{{privacy.collect_h}}</h2>
+      <p>{{privacy.collect_p}}</p>
+
+      <h2>{{privacy.why_h}}</h2>
+      <p>{{privacy.why_p1}}</p>
+      <p>{{privacy.why_p2}}</p>
+
+      <h2>{{privacy.where_h}}</h2>
+      <p>{{privacy.where_p}}</p>
+
+      <h2>{{privacy.long_h}}</h2>
+      <p>{{privacy.long_p}}</p>
+
+      <h2>{{privacy.rights_h}}</h2>
+      <p>{{privacy.rights_p}}</p>
+
+      <h2>{{privacy.app_h}}</h2>
+      <p>{{privacy.app_p}}</p>
+
+      <h2>{{footer.contact}}</h2>
+      <p>Ori · <a href="mailto:oriapp.eu@gmail.com">oriapp.eu@gmail.com</a></p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>Ori © 2026</span>
+      <nav aria-label="{{footer.label}}"><a href="{{@home}}">{{privacy.home}}</a><a href="mailto:oriapp.eu@gmail.com">{{footer.contact}}</a></nav>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,6 +1,22 @@
 /* Ori — oriapp.eu. The app's own design system (AURA, dark), on a page.
    Tokens mirror .tastemaker/style-lock.md in the app repository. */
 
+/* Fonts are served from this site, not from Google: no third party sees a
+   visit. Manrope is one variable file for every weight; latin-ext carries
+   the Czech and Slovak letters. */
+@font-face { font-family: "Manrope"; font-style: normal; font-weight: 400 700; font-display: swap;
+  src: url(/fonts/manrope-latin-ext.woff2) format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Manrope"; font-style: normal; font-weight: 400 700; font-display: swap;
+  src: url(/fonts/manrope-latin.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Sora"; font-style: normal; font-weight: 600; font-display: swap;
+  src: url(/fonts/sora-600-latin-ext.woff2) format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Sora"; font-style: normal; font-weight: 600; font-display: swap;
+  src: url(/fonts/sora-600-latin.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
 :root {
   --bg: #0F0C14;
   --text: #FFFFFF;
@@ -123,7 +139,19 @@ p { margin: 0; }
 .nav-links a.btn-primary, .nav-links a.btn-primary:hover { color: var(--on-gold); }
 .nav-links a.btn-glass { color: var(--text); }
 .nav .btn { padding: 11px 18px; font-size: 14px; }
-@media (max-width: 820px) { .nav-links a:not(.btn) { display: none; } }
+@media (max-width: 820px) { .nav-links > a:not(.btn) { display: none; } }
+/* The language switch stays on a phone too. */
+.lang { display: flex; align-items: center; gap: 2px; padding: 3px; border-radius: 999px; background: var(--glass-soft); border: 1px solid var(--line-soft); }
+.nav-links .lang a { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; line-height: 1; padding: 7px 9px; border-radius: 999px; color: var(--label); transition: color 160ms ease, background-color 160ms ease; }
+.nav-links .lang a:hover { color: var(--text); }
+.nav-links .lang a[aria-current="page"] { color: var(--text); background: rgba(255, 255, 255, 0.1); }
+@media (max-width: 480px) {
+  .nav .wrap { padding: 0 16px; gap: 10px; }
+  .nav-links { gap: 8px; }
+  .nav .btn { padding: 10px 13px; font-size: 13px; }
+  .nav-links .lang a { padding: 7px 7px; }
+}
+@media (max-width: 360px) { .brand span { display: none; } }
 
 /* ── Sections ──────────────────────────────────────────────────────────── */
 section { padding: 104px 0; }
@@ -219,6 +247,29 @@ section { padding: 104px 0; }
 .persona li { color: var(--sub); padding-left: 22px; position: relative; margin-bottom: 10px; }
 .persona li::before { content: ''; position: absolute; left: 0; top: 11px; width: 8px; height: 2px; background: rgba(255,255,255,0.4); border-radius: 2px; }
 
+/* ── Validated with ────────────────────────────────────────────────────── */
+.trust { padding: 0 0 24px; }
+.trust .wrap { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 14px 30px; }
+.trust-label { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--label); }
+.trust-name { font-family: var(--display); font-weight: 600; font-size: 20px; letter-spacing: -0.01em; color: rgba(255, 255, 255, 0.72); }
+.trust-sep { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); opacity: 0.8; }
+@media (max-width: 520px) {
+  .trust .wrap { gap: 8px 16px; }
+  .trust-label { flex-basis: 100%; text-align: center; }
+  .trust-name { font-size: 17px; }
+}
+
+/* ── Team ──────────────────────────────────────────────────────────────── */
+.founder { padding: 30px; display: flex; gap: 22px; align-items: flex-start; }
+.founder .avatar {
+  flex: none; width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center;
+  font-family: var(--display); font-weight: 600; font-size: 20px; letter-spacing: 0.02em; color: var(--gold);
+  background: rgba(233, 196, 100, 0.08); border: 1.5px solid rgba(233, 196, 100, 0.45);
+}
+.founder .role { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--label); margin-bottom: 6px; }
+.founder h3 { font-size: 22px; margin-bottom: 8px; }
+.founder p:not(.role) { color: var(--sub); }
+
 /* ── Quote ─────────────────────────────────────────────────────────────── */
 .quote { text-align: center; }
 .quote blockquote { margin: 0 auto; max-width: 900px; font-family: var(--display); font-weight: 600; font-size: clamp(30px, 4.6vw, 54px); line-height: 1.12; letter-spacing: -0.025em; }
@@ -283,22 +334,22 @@ footer a:hover { color: var(--text); }
 /* Nav: denser glass once the page has moved; links underline from the left. */
 .nav { transition: background-color 200ms ease, border-color 200ms ease; }
 .nav.scrolled { background: rgba(15, 12, 20, 0.86); border-bottom-color: var(--line); }
-.nav-links a:not(.btn) { position: relative; transition: color 160ms ease; }
-.nav-links a:not(.btn)::after {
+.nav-links > a:not(.btn) { position: relative; transition: color 160ms ease; }
+.nav-links > a:not(.btn)::after {
   content: ''; position: absolute; left: 0; right: 0; bottom: -6px; height: 1px;
   background: currentColor; transform: scaleX(0); transform-origin: 0 50%;
   transition: transform 240ms var(--ease-out);
 }
 
 /* Cards: a soft light follows the pointer; the card lifts a little. */
-.card, .principle, .persona, .setup { position: relative; overflow: hidden; }
-.card::before, .principle::before, .persona::before, .setup::before {
+.card, .principle, .persona, .setup, .founder { position: relative; overflow: hidden; }
+.card::before, .principle::before, .persona::before, .setup::before, .founder::before {
   content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
   background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(205, 180, 232, 0.14), transparent 60%);
   opacity: 0; transition: opacity 240ms ease;
 }
-.card > *, .principle > *, .persona > *, .setup > * { position: relative; }
-.card, .principle, .persona {
+.card > *, .principle > *, .persona > *, .setup > *, .founder > * { position: relative; }
+.card, .principle, .persona, .founder {
   transition: opacity 700ms var(--ease-out), transform 700ms var(--ease-out), border-color 240ms ease;
   transition-delay: calc(var(--i, 0) * 70ms);
 }
@@ -351,9 +402,9 @@ footer a:hover { color: var(--text); }
 .aura span { will-change: transform; }
 
 @media (hover: hover) and (pointer: fine) {
-  .nav-links a:not(.btn):hover::after { transform: scaleX(1); }
-  .card:hover, .principle:hover, .persona:hover { transform: translateY(-4px); border-color: rgba(255, 255, 255, 0.2); transition-delay: 0ms; }
-  .card:hover::before, .principle:hover::before, .persona:hover::before, .setup:hover::before { opacity: 1; }
+  .nav-links > a:not(.btn):hover::after { transform: scaleX(1); }
+  .card:hover, .principle:hover, .persona:hover, .founder:hover { transform: translateY(-4px); border-color: rgba(255, 255, 255, 0.2); transition-delay: 0ms; }
+  .card:hover::before, .principle:hover::before, .persona:hover::before, .setup:hover::before, .founder:hover::before { opacity: 1; }
   .band:hover .band-track { animation-play-state: paused; }
 }
 
@@ -366,8 +417,8 @@ footer a:hover { color: var(--text); }
   .progress-bar { display: none; }
   .band-track { animation: none; }
   .story .ori-says, .story .row.quick, .story .row.habit, .story .progress { transform: none; }
-  .card, .principle, .persona { transition: opacity 300ms ease, border-color 240ms ease; }
-  .card:hover, .principle:hover, .persona:hover { transform: none; }
+  .card, .principle, .persona, .founder { transition: opacity 300ms ease, border-color 240ms ease; }
+  .card:hover, .principle:hover, .persona:hover, .founder:hover { transform: none; }
 }
 
 /* ── Gold, sparingly ───────────────────────────────────────────────────── */
@@ -390,5 +441,5 @@ footer a:hover { color: var(--text); }
 .statement::before { content: ''; display: block; width: 44px; height: 2px; border-radius: 2px; background: var(--gold); margin-bottom: 22px; }
 /* On hover a card's border warms toward gold. */
 @media (hover: hover) and (pointer: fine) {
-  .card:hover, .principle:hover, .persona:hover { border-color: rgba(233, 196, 100, 0.32); }
+  .card:hover, .principle:hover, .persona:hover, .founder:hover { border-color: rgba(233, 196, 100, 0.32); }
 }

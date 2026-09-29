@@ -1,5 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://oriapp.eu/</loc><lastmod>2026-09-29</lastmod></url>
-  <url><loc>https://oriapp.eu/privacy.html</loc><lastmod>2026-09-29</lastmod></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://oriapp.eu/</loc>
+    <lastmod>2026-09-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://oriapp.eu/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://oriapp.eu/sk/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://oriapp.eu/en/"/>
+  </url>
+  <url>
+    <loc>https://oriapp.eu/sk/</loc>
+    <lastmod>2026-09-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://oriapp.eu/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://oriapp.eu/sk/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://oriapp.eu/en/"/>
+  </url>
+  <url>
+    <loc>https://oriapp.eu/en/</loc>
+    <lastmod>2026-09-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://oriapp.eu/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://oriapp.eu/sk/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://oriapp.eu/en/"/>
+  </url>
+  <url>
+    <loc>https://oriapp.eu/privacy.html</loc>
+    <lastmod>2026-09-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://oriapp.eu/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://oriapp.eu/sk/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://oriapp.eu/en/privacy.html"/>
+  </url>
+  <url>
+    <loc>https://oriapp.eu/sk/privacy.html</loc>
+    <lastmod>2026-09-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://oriapp.eu/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://oriapp.eu/sk/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://oriapp.eu/en/privacy.html"/>
+  </url>
+  <url>
+    <loc>https://oriapp.eu/en/privacy.html</loc>
+    <lastmod>2026-09-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://oriapp.eu/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://oriapp.eu/sk/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://oriapp.eu/en/privacy.html"/>
+  </url>
 </urlset>
