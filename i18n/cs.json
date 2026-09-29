@@ -119,6 +119,52 @@
     "jindrich": "Vize produktu, AI, design a UX/UI."
   },
   "quote": "Plán ti postaví AI.<span>Díky Ori ho budeš mít i <em class=\"gold\">v šestém měsíci.</em></span>",
+  "faq": {
+    "eyebrow": "Časté otázky",
+    "h2": "Než se <span class=\"gold\">zapíšeš.</span>",
+    "items": [
+      {
+        "q": "Kdy Ori vyjde a kdy dostanu přístup?",
+        "a": "Ori je teď v testovací fázi a přesné datum spuštění ještě nemáme. Přístup budeme otevírat postupně, nejdřív v Česku a na Slovensku - kdo je na čekací listině, dostane ho mezi prvními."
+      },
+      {
+        "q": "Kolik to bude stát?",
+        "a": "Ceny ještě dolaďujeme. Jakmile budou jasné, lidé z čekací listiny se je dozví jako první."
+      },
+      {
+        "q": "Na čem Ori poběží?",
+        "a": "Na Androidu i na iPhonu. Testeři ho už teď používají na obou."
+      },
+      {
+        "q": "V jakém jazyce aplikace je?",
+        "a": "Zatím v angličtině. Češtinu a slovenštinu chystáme."
+      },
+      {
+        "q": "Čím se liší od ChatGPT, Notionu nebo Todoistu?",
+        "a": "ChatGPT ti napíše plán, ale už nehlídá, jestli ho zvládáš. Notion a Todoist jsou seznamy, které si spravuješ ty. Ori plán rozloží do tvého kalendáře, všimne si, když se začne rozpadat, a přestaví ho podle toho, na co zrovna máš - nejen o den dál, ale menší nebo jinak."
+      },
+      {
+        "q": "Co o mně Ori ví a co s tím dělá?",
+        "a": "Jen to, co potřebuje k plánování: tvoje cíle, plán, co z něj máš hotové a jak ti to šlo. V aplikaci máš přehled o tom, co o tobě Ori ví, můžeš si svá data stáhnout a kdykoli je smazat i s celým účtem. Data neprodáváme a netrénujeme na nich AI."
+      },
+      {
+        "q": "Kolik času mi to denně zabere?",
+        "a": "Nastavení zabere jednou zhruba dvacet minut. Pak ti stačí ráno mrknout, co tě ten den čeká. Zbytek času patří samotným krokům - a ty Ori dimenzuje podle toho, kolik času a energie opravdu máš."
+      },
+      {
+        "q": "Na jaké cíle se Ori hodí?",
+        "a": "Na cíle, ke kterým vede pravidelná práce po týdny nebo měsíce: udělat jazykovou zkoušku, uběhnout půlmaraton, rozjet vedlejší projekt, naučit se novou dovednost. Když je cíl zatím mlhavý („být fit“), Ori ti pomůže udělat z něj konkrétní. Nehodí se na řízení týmových projektů ani jako náhrada terapie či lékařské péče."
+      },
+      {
+        "q": "Co když na týden nebo dva úplně vypadnu?",
+        "a": "Nic se neděje, s tím Ori počítá. Všimne si, že je ticho, ozve se první a plán přestaví - bez hromady nesplněných úkolů. Navážeš tam, kde jsi: stejný cíl, jen jiná cesta."
+      },
+      {
+        "q": "Můžu mít víc cílů najednou?",
+        "a": "Ano. Ori je naplánuje dohromady, aby se nepraly o stejný čas a nepřesáhly tvoji kapacitu."
+      }
+    ]
+  },
   "join": {
     "eyebrow": "Předběžný přístup",
     "h2": "Začni s cílem, který pořád odkládáš.",
@@ -148,12 +194,14 @@
     "h1": "Tento web a čekací listina",
     "updated": "Naposledy upraveno: 29. září 2026",
     "collect_h": "Co ukládáme",
-    "collect_p": "Když se zapíšeš na čekací listinu, uložíme si tvou e-mailovou adresu a čas zápisu. Nic dalšího - formulář jiná pole nemá a tento web nepoužívá analytické ani reklamní cookies.",
+    "collect_p": "Když se zapíšeš na čekací listinu, uložíme si tvou e-mailovou adresu a čas zápisu. Nic dalšího - formulář jiná pole nemá.",
     "why_h": "Proč",
     "why_p1": "Abychom ti dali vědět, až pro tebe bude přístup k Ori připravený, a o spuštění Ori. Tvou adresu neprodáváme ani nesdílíme a nepošleme ti nic, co s Ori nesouvisí.",
     "why_p2": "Zpracováváme ji na základě tvého souhlasu (čl. 6 odst. 1 písm. a) GDPR), který můžeš kdykoli odvolat.",
+    "visits_h": "Návštěvnost",
+    "visits_p": "Návštěvy webu počítáme službou Umami, která je stavěná s ohledem na soukromí: vidíme, které stránky se zobrazily, odkud návštěva přišla (třeba z odkazu na LinkedInu), zemi a typ zařízení. Nepoužívá žádné cookies, nevytváří o tobě profil a neukládá tvou IP adresu, takže z ní nepoznáme, kdo jsi. Počítáme také, kolik lidí se zapsalo na čekací listinu - bez samotných adres. Děláme to na základě našeho oprávněného zájmu vědět, jestli web funguje (čl. 6 odst. 1 písm. f) GDPR).",
     "where_h": "Kde je uložená",
-    "where_p": "V databázi, kterou pro nás provozuje Supabase, náš poskytovatel databáze. Písma stránky se načítají přímo z tohoto webu, takže tvou návštěvu nevidí nikdo třetí.",
+    "where_p": "V databázi, kterou pro nás provozuje Supabase, náš poskytovatel databáze. Písma stránky se načítají přímo z tohoto webu.",
     "long_h": "Jak dlouho",
     "long_p": "Dokud nás nepožádáš o smazání, nebo dokud ji nepotřebujeme k pozvání - po veřejném spuštění Ori seznam smažeme.",
     "rights_h": "Tvoje práva",

@@ -119,6 +119,52 @@
     "jindrich": "Product vision, AI, design and UX/UI."
   },
   "quote": "AI can build your plan.<span>Ori is why you still have it in <em class=\"gold\">month six.</em></span>",
+  "faq": {
+    "eyebrow": "Questions",
+    "h2": "Before you <span class=\"gold\">sign up.</span>",
+    "items": [
+      {
+        "q": "When does Ori launch, and when do I get access?",
+        "a": "Ori is in testing now and there's no exact launch date yet. We'll open access step by step, in the Czech Republic and Slovakia first - people on the waitlist get it among the first."
+      },
+      {
+        "q": "How much will it cost?",
+        "a": "We're still settling the pricing. As soon as it's clear, the waitlist hears first."
+      },
+      {
+        "q": "What does Ori run on?",
+        "a": "Android and iPhone. Our testers already use it on both."
+      },
+      {
+        "q": "What language is the app in?",
+        "a": "English for now. Czech and Slovak are on the way."
+      },
+      {
+        "q": "How is it different from ChatGPT, Notion or Todoist?",
+        "a": "ChatGPT writes you a plan, then stops watching whether it's working. Notion and Todoist are lists you manage yourself. Ori lays the plan into your calendar, notices when it starts to break, and rebuilds it around what you have in you right now - not just a day later, but smaller or different."
+      },
+      {
+        "q": "What does Ori know about me, and what does it do with it?",
+        "a": "Only what it needs to plan: your goals, your plan, what you've done and how it went. In the app you can see what Ori knows about you, download your data, and delete it along with your whole account at any time. We don't sell your data and we don't train AI on it."
+      },
+      {
+        "q": "How much time does it take a day?",
+        "a": "Setting up takes about twenty minutes, once. After that, a glance in the morning at what the day holds is enough. The rest of the time belongs to the steps themselves - and Ori sizes them to the time and energy you really have."
+      },
+      {
+        "q": "What kind of goals is Ori for?",
+        "a": "Goals that take regular work over weeks or months: passing a language exam, running a half-marathon, starting a side project, learning a new skill. If a goal is still vague (\"get fit\"), Ori helps you make it concrete. It isn't for managing team projects, and it isn't a replacement for therapy or medical care."
+      },
+      {
+        "q": "What if I drop out completely for a week or two?",
+        "a": "That's fine - Ori expects it. It notices the silence, reaches out first and rebuilds the plan, with no backlog waiting for you. You carry on from where you are: same goal, different path."
+      },
+      {
+        "q": "Can I have more than one goal at a time?",
+        "a": "Yes. Ori plans them together, so they don't fight over the same time or go beyond your capacity."
+      }
+    ]
+  },
   "join": {
     "eyebrow": "Early access",
     "h2": "Start the goal you keep postponing.",
@@ -148,12 +194,14 @@
     "h1": "This website and the waitlist",
     "updated": "Last updated: 29 September 2026",
     "collect_h": "What we collect",
-    "collect_p": "When you join the waitlist, we keep your email address and the time you joined. Nothing else - the form has no other fields, and this website uses no analytics or advertising cookies.",
+    "collect_p": "When you join the waitlist, we keep your email address and the time you joined. Nothing else - the form has no other fields.",
     "why_h": "Why",
     "why_p1": "To tell you when early access to Ori is ready for you, and about Ori's launch. We don't sell or share your address, and we don't send you anything unrelated to Ori.",
     "why_p2": "We process it because you asked us to (your consent, GDPR Art. 6(1)(a)). You can withdraw that at any time.",
+    "visits_h": "Visits",
+    "visits_p": "We count visits to this website with Umami, an analytics service built for privacy: we see which pages were viewed, where a visit came from (a link on LinkedIn, say), the country and the type of device. It uses no cookies, builds no profile of you and does not store your IP address, so we can't tell from it who you are. We also count how many people join the waitlist - without the addresses themselves. We do this on the basis of our legitimate interest in knowing whether the website works (GDPR Art. 6(1)(f)).",
     "where_h": "Where it is kept",
-    "where_p": "In a database run for us by Supabase, our database provider. The page's fonts are served by this website itself, so no third party sees your visit.",
+    "where_p": "In a database run for us by Supabase, our database provider. The page's fonts are served by this website itself.",
     "long_h": "How long",
     "long_p": "Until you ask us to remove it, or until we no longer need it to invite you - after Ori's public launch we clear the list.",
     "rights_h": "Your rights",

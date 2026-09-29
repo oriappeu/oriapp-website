@@ -52,6 +52,9 @@ for (const { code } of LANGS) {
 
 const lookup = (o, key) => key.split('.').reduce((v, k) => (v == null ? v : v[k]), o);
 const url = (lang, page) => `${lang.root}${page.path}`;
+// faq.items is a list in the JSON (the typography pass turns it into an object keyed 0, 1, 2…).
+const faqItems = (t) => Object.values(t.faq.items);
+const plain = (html) => html.replace(/<[^>]*>/g, '').replace(/ /g, ' ');
 
 for (const page of PAGES) {
   const template = readFileSync(page.src, 'utf8');
@@ -72,6 +75,18 @@ for (const page of PAGES) {
         `<a href="${url(l, page)}" hreflang="${l.code}" lang="${l.code}" title="${l.name}"${l === lang ? ' aria-current="page"' : ''}>${l.label}</a>`).join('')}</div>`,
       // The form's messages, for main.js. `<` is escaped so no text can close the script tag.
       i18n: JSON.stringify(t.js).replace(/</g, '\\u003c'),
+      // The questions: native <details>, so they open without script and for every reader.
+      faq: faqItems(t).map(({ q, a }) =>
+        `<details class="faq-item reveal"><summary><span>${q}</span><i aria-hidden="true"></i></summary><p>${a}</p></details>`).join('\n          '),
+      // The same questions for search engines (schema.org FAQPage).
+      faq_schema: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        inLanguage: lang.code,
+        mainEntity: faqItems(t).map(({ q, a }) => ({
+          '@type': 'Question', name: plain(q), acceptedAnswer: { '@type': 'Answer', text: plain(a) },
+        })),
+      }).replace(/</g, '\\u003c'),
     };
     const fill = (html) => html.replace(/\{\{\s*(@?[\w.]+)\s*\}\}/g, (_, key) => {
       const value = key.startsWith('@') ? special[key.slice(1)] : lookup(t, key);

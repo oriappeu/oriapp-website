@@ -68,6 +68,11 @@ function attach(form) {
     button.textContent = outcome === 'already' ? T.btn_already : T.btn_joined;
     note.classList.add('ok');
     note.textContent = outcome === 'already' ? T.note_already : T.note_joined;
+    // Counted in Umami as an event - which form and which language, never the address.
+    try {
+      window.umami?.track(outcome === 'already' ? 'waitlist-already' : 'waitlist-joined',
+        { form: form.id, lang: document.documentElement.lang });
+    } catch { /* counting must never break the form */ }
   });
 }
 

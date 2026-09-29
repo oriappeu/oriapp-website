@@ -46,7 +46,10 @@
     "url": "{{@canonical}}"
   }
   </script>
+  <script type="application/ld+json">{{@faq_schema}}</script>
   <script id="i18n" type="application/json">{{@i18n}}</script>
+  <!-- Visits, counted without cookies (Umami). data-domains: a local preview is not counted. -->
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="3be86478-1afd-4b48-8b94-6532dd16d602" data-domains="oriapp.eu"></script>
 </head>
 <body>
   <div class="progress-bar" aria-hidden="true"></div>
@@ -126,7 +129,9 @@
     <section class="trust" aria-label="{{trust.label}}">
       <div class="wrap reveal">
         <span class="trust-label">{{trust.label}}</span>
-        <span class="trust-name">JIC</span>
+        <span class="trust-logo" role="img" aria-label="JIC">
+          <svg viewBox="160 400 680 200" aria-hidden="true"><path d="M160 560h160V400h40v200H160zM480 400h40v200h-40zM640 400h200v40H680v120h160v40H640z" fill="currentColor"/></svg>
+        </span>
         <span class="trust-sep" aria-hidden="true"></span>
         <span class="trust-name">Red Bull Basement 2026</span>
       </div>
@@ -314,6 +319,19 @@
     <section class="quote">
       <div class="wrap reveal">
         <blockquote>{{quote}}</blockquote>
+      </div>
+    </section>
+
+    <!-- ── Questions ────────────────────────────────────────────────────── -->
+    <section id="faq">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">{{faq.eyebrow}}</span>
+          <h2 class="split">{{faq.h2}}</h2>
+        </div>
+        <div class="faq-list">
+          {{@faq}}
+        </div>
       </div>
     </section>
 
