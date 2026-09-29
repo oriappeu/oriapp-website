@@ -88,11 +88,17 @@ const finePointer = matchMedia('(hover: hover) and (pointer: fine)').matches;
 
 // Headlines: wrap each word so it can rise from behind its own mask. The text
 // stays one readable string for assistive tech.
+// A word inside a `.gold` phrase keeps its gold.
 document.querySelectorAll('.split').forEach((el) => {
-  const text = el.textContent.trim();
+  const text = el.textContent.replace(/\s+/g, ' ').trim();
+  const words = [];
+  el.childNodes.forEach((node) => {
+    const gold = node.nodeType === 1 && node.classList.contains('gold');
+    for (const word of node.textContent.split(/\s+/)) if (word) words.push({ word, gold });
+  });
   el.setAttribute('aria-label', text);
-  el.innerHTML = text.split(/\s+/).map((word, i) =>
-    `<span class="w" aria-hidden="true"><span style="--w:${i}">${word}</span></span>`).join(' ');
+  el.innerHTML = words.map(({ word, gold }, i) =>
+    `<span class="w" aria-hidden="true"><span${gold ? ' class="gold"' : ''} style="--w:${i}">${word}</span></span>`).join(' ');
 });
 
 // A grid's cards arrive one after another.

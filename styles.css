@@ -10,7 +10,8 @@
   --line-soft: rgba(255, 255, 255, 0.08);
   --glass: rgba(255, 255, 255, 0.065);
   --glass-soft: rgba(255, 255, 255, 0.04);
-  --gold: #E9C464;          /* progress and celebration only */
+  --gold: #E9C464;          /* in the app: progress and celebration only. Here also the key phrase of a headline and a few small details (founder, 2026-09-29). */
+  --gold-text: linear-gradient(100deg, #F6DE95 0%, #E9C464 45%, #D2A548 100%);
   --on-gold: #16121C;
   --lavender: #CDB4E8;      /* Ori's own voice */
   --ok: #7FE39B;
@@ -113,7 +114,7 @@ p { margin: 0; }
   -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--line-soft);
 }
-.nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 68px; gap: 16px; }
+.nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 72px; gap: 16px; max-width: none; padding: 0 clamp(24px, 4vw, 56px); }
 .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--display); font-weight: 600; font-size: 20px; }
 .brand img { width: 32px; height: 32px; border-radius: 9px; }
 .nav-links { display: flex; align-items: center; gap: 28px; font-size: 15px; font-weight: 600; }
@@ -367,4 +368,27 @@ footer a:hover { color: var(--text); }
   .story .ori-says, .story .row.quick, .story .row.habit, .story .progress { transform: none; }
   .card, .principle, .persona { transition: opacity 300ms ease, border-color 240ms ease; }
   .card:hover, .principle:hover, .persona:hover { transform: none; }
+}
+
+/* ── Gold, sparingly ───────────────────────────────────────────────────── */
+/* The key phrase of a headline. */
+.gold {
+  background: var(--gold-text);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: var(--gold);
+  font-style: normal;
+}
+.quote blockquote span .gold { display: inline; }
+/* A section's eyebrow gets a short gold rule in front (Ori's lavender ones do not). */
+.eyebrow:not(.voice) { display: inline-flex; align-items: center; gap: 12px; }
+.eyebrow:not(.voice)::before { content: ''; width: 22px; height: 1.5px; border-radius: 2px; background: var(--gold); }
+/* Card and step numbers. */
+.card .num { color: var(--gold); opacity: 0.9; }
+/* The running band's separators. */
+.band-track span i { color: var(--gold); font-size: 0.55em; vertical-align: middle; }
+/* A statement line opens with a short gold rule. */
+.statement::before { content: ''; display: block; width: 44px; height: 2px; border-radius: 2px; background: var(--gold); margin-bottom: 22px; }
+/* On hover a card's border warms toward gold. */
+@media (hover: hover) and (pointer: fine) {
+  .card:hover, .principle:hover, .persona:hover { border-color: rgba(233, 196, 100, 0.32); }
 }
