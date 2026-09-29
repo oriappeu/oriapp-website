@@ -212,3 +212,55 @@ if (finePointer && !reduce) {
     });
   }
 }
+
+// ── Try it ──────────────────────────────────────────────────────────────────
+// A small working model of the app. One state object, one render; CSS draws
+// every state from the attributes set here. Step 1: low energy re-plans the
+// day. Step 2: ticking the smaller step fills the milestone. Step 3: the
+// roadmap shows the goal still on track.
+const demo = document.querySelector('.demo');
+if (demo) {
+  const section = document.getElementById('try');
+  const steps = [...document.querySelectorAll('.try-steps li')];
+  const quickSlot = demo.querySelector('.d-quick-slot');
+  const fresh = () => ({ energy: 'mid', ticked: false, tab: 'today', sawRoad: false });
+  let state = fresh();
+
+  const render = () => {
+    const step = state.energy !== 'low' ? 1 : !state.ticked ? 2 : !state.sawRoad ? 3 : 4;
+    demo.dataset.energy = state.energy;
+    demo.dataset.tab = state.tab;
+    demo.dataset.step = String(step);
+    demo.classList.toggle('ticked', state.ticked);
+    section.classList.toggle('finished', step === 4);
+    steps.forEach((li) => {
+      const n = Number(li.dataset.step);
+      li.classList.toggle('done', n < step);
+      li.classList.toggle('current', n === step);
+    });
+    demo.querySelectorAll('[data-set-energy]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.setEnergy === state.energy)));
+    demo.querySelectorAll('[data-set-tab]').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.setTab === state.tab)));
+    demo.querySelector('.demo-check').setAttribute('aria-checked', String(state.ticked));
+    // What is hidden cannot be reached with the keyboard either.
+    demo.querySelectorAll('[data-screen]').forEach((s) => { s.inert = s.dataset.screen !== state.tab; });
+    quickSlot.inert = state.energy !== 'low';
+  };
+
+  demo.addEventListener('click', (e) => {
+    const button = e.target.closest('button');
+    if (!button) return;
+    if (button.dataset.setEnergy) {
+      state.energy = button.dataset.setEnergy;
+      // Back to a normal day: the original plan returns, the small step with it.
+      if (state.energy !== 'low') state.ticked = false;
+    } else if (button.classList.contains('demo-check')) {
+      state.ticked = !state.ticked;
+    } else if (button.dataset.setTab) {
+      state.tab = button.dataset.setTab;
+      if (state.tab === 'road' && state.ticked) state.sawRoad = true;
+    }
+    render();
+  });
+  section.querySelector('.try-reset')?.addEventListener('click', () => { state = fresh(); render(); });
+  render();
+}

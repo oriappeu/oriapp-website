@@ -222,6 +222,99 @@
       </div>
     </section>
 
+    <!-- ── Try it: a small working model of the app ─────────────────────── -->
+    <section id="try">
+      <div class="wrap">
+        <div class="try-copy">
+          <div class="section-head reveal">
+            <span class="eyebrow">{{demo.eyebrow}}</span>
+            <h2 class="split">{{demo.h2}}</h2>
+            <p class="lede">{{demo.lede}}</p>
+          </div>
+          <ol class="try-steps reveal">
+            <li data-step="1"><span class="n">1</span><span>{{demo.step1}}</span></li>
+            <li data-step="2"><span class="n">2</span><span>{{demo.step2}}</span></li>
+            <li data-step="3"><span class="n">3</span><span>{{demo.step3}}</span></li>
+          </ol>
+          <p class="try-done" aria-live="polite"><span>{{demo.done}}</span> <button type="button" class="try-reset">{{demo.reset}}</button></p>
+        </div>
+
+        <div class="device reveal" role="group" aria-label="{{demo.label}}">
+          <div class="demo" data-energy="mid" data-tab="today" data-step="1">
+            <div class="demo-screen" data-screen="today" role="tabpanel" id="demo-today" aria-labelledby="demo-tab-today">
+              <div class="phone-head"><b>{{demo.day}}</b><span>{{demo.goal}}</span></div>
+              <p class="demo-q">{{demo.energy_q}}</p>
+              <div class="demo-energy" role="group" aria-label="{{demo.energy_q}}">
+                <button type="button" data-set-energy="low" aria-pressed="false">{{demo.low}}</button>
+                <button type="button" data-set-energy="mid" aria-pressed="true">{{demo.mid}}</button>
+                <button type="button" data-set-energy="high" aria-pressed="false">{{demo.high}}</button>
+              </div>
+              <div class="demo-says" aria-live="polite">
+                <b>Ori</b>
+                <span class="v v-mid">{{demo.says_mid}}</span>
+                <span class="v v-high">{{demo.says_high}}</span>
+                <span class="v v-low">{{demo.says_low}}</span>
+                <span class="v v-done">{{demo.says_done}}</span>
+              </div>
+              <div class="row d-session">
+                <span class="bar" style="background: var(--learning)"></span>
+                <div><div class="t">{{demo.session}}</div><div class="m"><span class="now">{{demo.session_now}}</span><span class="later">{{demo.session_later}}</span></div></div>
+                <span class="time">18:30</span>
+              </div>
+              <div class="d-quick-slot"><div>
+                <div class="row d-quick">
+                  <span class="bar" style="background: var(--learning)"></span>
+                  <div><div class="t">{{demo.quick}}</div><div class="m">{{demo.quick_note}}</div></div>
+                  <button type="button" class="demo-check" role="checkbox" aria-checked="false" aria-label="{{demo.quick_done}}">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                  </button>
+                </div>
+              </div></div>
+              <div class="row">
+                <span class="bar" style="background: var(--rest)"></span>
+                <div><div class="t">{{demo.habit}}</div><div class="m">{{demo.habit_note}}</div></div>
+                <span class="time">21:00</span>
+              </div>
+              <div class="progress demo-ms">
+                <svg viewBox="0 0 46 46" aria-hidden="true">
+                  <circle cx="23" cy="23" r="19" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="4"/>
+                  <circle class="d-ring" cx="23" cy="23" r="19" fill="none" stroke="#E9C464" stroke-width="4" stroke-linecap="round"
+                          stroke-dasharray="119.4" transform="rotate(-90 23 23)"/>
+                </svg>
+                <p class="t"><b>{{demo.ms2}}</b><br><span class="c2">{{demo.ms_2of4}}</span><span class="c3">{{demo.ms_3of4}}</span></p>
+              </div>
+            </div>
+
+            <div class="demo-screen" data-screen="road" role="tabpanel" id="demo-road" aria-labelledby="demo-tab-road">
+              <div class="phone-head"><b>{{demo.road_title}}</b><span>{{demo.goal}}</span></div>
+              <ol class="demo-road">
+                <li class="done"><i></i><div><b>{{demo.ms1}}</b><span>{{demo.ms1_note}}</span></div></li>
+                <li class="now"><i></i><div><b>{{demo.ms2}}</b><span class="c2">{{demo.ms_2of4}}</span><span class="c3">{{demo.ms_3of4}}</span></div></li>
+                <li><i></i><div><b>{{demo.ms3}}</b><span>{{demo.ms3_note}}</span></div></li>
+                <li><i></i><div><b>{{demo.ms4}}</b><span>{{demo.ms4_note}}</span></div></li>
+              </ol>
+              <div class="demo-says"><b>Ori</b><span>{{demo.road_says}}</span></div>
+              <p class="gps">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                {{demo.on_track}}
+              </p>
+            </div>
+
+            <div class="demo-tabs" role="tablist" aria-label="Ori">
+              <button type="button" role="tab" id="demo-tab-today" aria-controls="demo-today" aria-selected="true" data-set-tab="today">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+                {{demo.tab_today}}
+              </button>
+              <button type="button" role="tab" id="demo-tab-road" aria-controls="demo-road" aria-selected="false" data-set-tab="road">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l2.9 6.2 6.6.8-4.9 4.6 1.3 6.6L12 17l-5.9 3.2 1.3-6.6L2.5 9l6.6-.8z"/></svg>
+                {{demo.tab_road}}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ── Why it works ─────────────────────────────────────────────────── -->
     <section id="why">
       <div class="wrap">

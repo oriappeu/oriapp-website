@@ -247,6 +247,160 @@ section { padding: 104px 0; }
 .persona li { color: var(--sub); padding-left: 22px; position: relative; margin-bottom: 10px; }
 .persona li::before { content: ''; position: absolute; left: 0; top: 11px; width: 8px; height: 2px; background: rgba(255,255,255,0.4); border-radius: 2px; }
 
+/* ── Try it: a working model of the app in a phone ─────────────────────── */
+#try .wrap { display: grid; grid-template-columns: 1fr auto; gap: 72px; align-items: center; }
+@media (max-width: 960px) { #try .wrap { grid-template-columns: minmax(0, 1fr); gap: 40px; } #try .device { justify-self: center; } }
+.try-copy .section-head { margin-bottom: 30px; }
+.try-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; max-width: 520px; }
+.try-steps li {
+  display: flex; align-items: center; gap: 14px; padding: 14px 16px; border-radius: var(--radius-row);
+  background: var(--glass-soft); border: 1px solid var(--line-soft); color: var(--sub);
+  transition: border-color 240ms ease, color 240ms ease;
+}
+.try-steps .n {
+  flex: none; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center;
+  font: 600 13px var(--display); color: var(--label); border: 1.5px solid var(--line);
+  transition: background-color 240ms ease, border-color 240ms ease, color 240ms ease;
+}
+.try-steps li.current { color: var(--text); border-color: rgba(233, 196, 100, 0.4); }
+.try-steps li.current .n { border-color: var(--gold); color: var(--gold); }
+.try-steps li.done { color: var(--label); }
+.try-steps li.done .n { background: var(--gold); border-color: var(--gold); color: var(--on-gold); }
+.try-done {
+  margin-top: 18px; color: var(--sub); opacity: 0; transform: translateY(6px); visibility: hidden;
+  transition: opacity 300ms var(--ease-out), transform 300ms var(--ease-out), visibility 0s linear 300ms;
+}
+#try.finished .try-done { opacity: 1; transform: none; visibility: visible; transition-delay: 0s; }
+.try-reset { font: 700 15px var(--body); color: var(--text); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+
+.device {
+  width: 340px; max-width: 100%; padding: 10px; border-radius: 50px;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.05) 40%, rgba(255, 255, 255, 0.1));
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 30px 90px -30px rgba(191, 140, 214, 0.45);
+}
+.demo {
+  position: relative; height: 640px; border-radius: 41px; overflow: hidden;
+  background: radial-gradient(120% 60% at 20% 0%, rgba(191, 140, 214, 0.2), transparent 60%), var(--bg);
+}
+.demo-screen {
+  position: absolute; inset: 0 0 68px; padding: 30px 18px 14px; display: flex; flex-direction: column;
+  transition: opacity 220ms var(--ease-out), transform 220ms var(--ease-out), visibility 0s linear 0s;
+}
+.demo[data-tab="today"] [data-screen="road"], .demo[data-tab="road"] [data-screen="today"] {
+  opacity: 0; visibility: hidden; pointer-events: none; transform: translateX(10px);
+  transition: opacity 160ms ease, transform 160ms ease, visibility 0s linear 160ms;
+}
+.demo[data-tab="road"] [data-screen="today"] { transform: translateX(-10px); }
+.demo .phone-head { margin-bottom: 14px; }
+.demo .row { margin-bottom: 8px; padding: 11px 13px; }
+.demo-q { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--label); margin-bottom: 8px; }
+
+/* Energy: the selected level is gold, as in the app. */
+.demo-energy { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 12px; }
+.demo-energy button {
+  position: relative; font: 700 13px var(--body); color: var(--sub); padding: 9px 0; cursor: pointer;
+  background: var(--glass-soft); border: 1px solid var(--line-soft); border-radius: 999px;
+  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease, transform 120ms ease;
+}
+.demo-energy button[aria-pressed="true"] { background: var(--gold); border-color: var(--gold); color: var(--on-gold); }
+.demo-energy button:active { transform: scale(0.96); }
+
+/* Ori's line: four versions in one cell, the right one fades in. */
+.demo-says {
+  display: grid; grid-template-rows: auto 1fr; margin-bottom: 12px; padding: 12px 14px; border-radius: var(--radius-row);
+  background: rgba(205, 180, 232, 0.09); border: 1px solid rgba(205, 180, 232, 0.22);
+  font-size: 13px; line-height: 1.45; color: #EDE3F7;
+}
+.demo-says b { grid-row: 1; color: var(--lavender); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; }
+.demo-says .v { grid-row: 2; grid-column: 1; opacity: 0; transform: translateY(4px); transition: opacity 260ms var(--ease-out), transform 260ms var(--ease-out); }
+.demo[data-energy="mid"] .v-mid, .demo[data-energy="high"] .v-high,
+.demo[data-energy="low"]:not(.ticked) .v-low, .demo[data-energy="low"].ticked .v-done { opacity: 1; transform: none; }
+
+/* Low energy: the long block is struck and moved, a smaller step slides in. */
+.demo .d-session { transition: opacity 300ms ease; }
+.demo .d-session .t { position: relative; display: inline-block; }
+.demo .d-session .t::after {
+  content: ''; position: absolute; left: 0; right: 0; top: 55%; height: 1.5px; background: rgba(255, 255, 255, 0.5);
+  transform: scaleX(0); transform-origin: 0 50%; transition: transform 400ms var(--ease-in-out);
+}
+.demo .d-session .later { display: none; }
+.demo[data-energy="low"] .d-session { opacity: 0.6; }
+.demo[data-energy="low"] .d-session .t::after { transform: scaleX(1); }
+.demo[data-energy="low"] .d-session .now, .demo[data-energy="low"] .d-session .time { display: none; }
+.demo[data-energy="low"] .d-session .later { display: inline; }
+.d-quick-slot { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 320ms var(--ease-out); }
+.d-quick-slot > div { overflow: hidden; min-height: 0; }
+.demo .d-quick { opacity: 0; transform: translateY(-6px); transition: opacity 260ms var(--ease-out), transform 260ms var(--ease-out); }
+.demo[data-energy="low"] .d-quick-slot { grid-template-rows: 1fr; }
+.demo[data-energy="low"] .d-quick { opacity: 1; transform: none; transition-delay: 140ms; }
+.demo-check {
+  position: relative; margin-left: auto; flex: none; width: 26px; height: 26px; padding: 0; border-radius: 50%; cursor: pointer;
+  display: grid; place-items: center; color: var(--on-gold); background: transparent; border: 1.8px solid rgba(255, 255, 255, 0.4);
+  transition: background-color 160ms ease, border-color 160ms ease, transform 120ms ease;
+}
+.demo-check svg { width: 14px; height: 14px; opacity: 0; transform: scale(0.6); transition: opacity 160ms ease, transform 220ms var(--ease-out); }
+.demo-check:active { transform: scale(0.92); }
+.demo.ticked .demo-check { background: var(--gold); border-color: var(--gold); }
+.demo.ticked .demo-check svg { opacity: 1; transform: none; }
+.demo.ticked .d-quick .t { color: var(--sub); }
+
+/* The milestone: 2 of 4, then 3 of 4 once the step is ticked. */
+.demo .demo-ms { margin-top: auto; }
+.demo .d-ring { stroke-dashoffset: 59.7; transition: stroke-dashoffset 900ms var(--ease-out); }
+.demo.ticked .d-ring { stroke-dashoffset: 29.85; }
+.demo .c3, .demo.ticked .c2 { display: none; }
+.demo.ticked .c3 { display: inline; }
+
+/* The roadmap. */
+.demo-road { list-style: none; margin: 4px 0 0; padding: 0; }
+.demo-road li { position: relative; display: flex; gap: 14px; padding-bottom: 24px; }
+.demo-road li:not(:last-child)::before { content: ''; position: absolute; left: 8px; top: 22px; bottom: 2px; width: 2px; border-radius: 2px; background: rgba(255, 255, 255, 0.12); }
+.demo-road li.done::before { background: rgba(233, 196, 100, 0.55); }
+.demo-road i { flex: none; width: 18px; height: 18px; margin-top: 1px; border-radius: 50%; border: 2px solid rgba(255, 255, 255, 0.25); }
+.demo-road li.done i { background: var(--gold); border-color: var(--gold); }
+.demo-road li.now i { border-color: var(--gold); background: radial-gradient(circle, var(--gold) 0 3px, transparent 3.5px); }
+.demo-road b { display: block; font-size: 14px; font-weight: 700; }
+.demo-road span { font-size: 12px; color: var(--label); }
+.demo-road li.now span { color: var(--gold); }
+.demo [data-screen="road"] .gps { margin: auto 0 0; }
+
+/* The tab bar. */
+.demo-tabs {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 68px; padding-bottom: 6px;
+  display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line-soft);
+  background: rgba(15, 12, 20, 0.7); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+}
+.demo-tabs button {
+  position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+  font: 700 11px var(--body); letter-spacing: 0.02em; color: var(--label); background: none; border: 0; cursor: pointer;
+  transition: color 160ms ease;
+}
+.demo-tabs svg { width: 21px; height: 21px; }
+.demo-tabs button[aria-selected="true"] { color: var(--text); }
+.demo-tabs button[aria-selected="true"] svg { color: var(--gold); }
+
+/* The next thing to tap pulses a gold ring. */
+.demo[data-step="1"] [data-set-energy="low"]::after,
+.demo[data-step="2"] .demo-check::after,
+.demo[data-step="3"] [data-set-tab="road"]::after {
+  content: ''; position: absolute; inset: -4px; border-radius: 999px; border: 2px solid var(--gold);
+  pointer-events: none; animation: hint 1.6s var(--ease-out) infinite;
+}
+.demo[data-step="3"] [data-set-tab="road"]::after { inset: 8px 24%; border-radius: 16px; }
+@keyframes hint { from { opacity: 0.9; transform: scale(0.92); } to { opacity: 0; transform: scale(1.22); } }
+@media (hover: hover) and (pointer: fine) {
+  .demo-energy button:not([aria-pressed="true"]):hover { color: var(--text); border-color: var(--line); }
+  .demo-tabs button:hover { color: var(--text); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .demo-screen, .demo[data-tab="today"] [data-screen="road"], .demo[data-tab="road"] [data-screen="today"] { transform: none; }
+  .demo .d-quick, .demo-says .v, .try-done { transform: none; }
+  .demo[data-step="1"] [data-set-energy="low"]::after, .demo[data-step="2"] .demo-check::after,
+  .demo[data-step="3"] [data-set-tab="road"]::after { animation: none; opacity: 0.8; }
+}
+@media (max-width: 400px) { .device { padding: 8px; border-radius: 44px; } .demo { height: 620px; border-radius: 36px; } }
+
 /* ── Validated with ────────────────────────────────────────────────────── */
 .trust { padding: 0 0 24px; }
 .trust .wrap { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 14px 30px; }
