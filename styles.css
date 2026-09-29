@@ -50,9 +50,9 @@ a { color: inherit; }
 /* ── The aura: fixed glows the glass reads through ─────────────────────── */
 .aura { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
 .aura span { position: absolute; border-radius: 50%; filter: blur(90px); }
-.aura .g1 { width: 720px; height: 720px; top: -260px; left: -180px; background: rgba(191, 140, 214, 0.28); }
-.aura .g2 { width: 560px; height: 560px; top: 30%; right: -220px; background: rgba(233, 150, 180, 0.16); }
-.aura .g3 { width: 640px; height: 640px; bottom: -300px; left: 20%; background: rgba(140, 110, 200, 0.17); }
+.aura .g1 { width: 720px; height: 720px; top: -260px; left: -180px; background: rgba(191, 140, 214, 0.21); }
+.aura .g2 { width: 560px; height: 560px; top: 30%; right: -220px; background: rgba(233, 150, 180, 0.12); }
+.aura .g3 { width: 640px; height: 640px; bottom: -300px; left: 20%; background: rgba(140, 110, 200, 0.13); }
 
 .wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
 
