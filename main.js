@@ -11,6 +11,17 @@ const SUPABASE_URL = 'https://sdtxwrooupkrpociynlb.supabase.co';
 const SUPABASE_ANON_KEY = 'sb_publishable_M6IB1lkNmyhZiFri3_kiOA_kBcR6xkP';
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+const LANG = ['cs', 'sk', 'en'].includes(document.documentElement.lang) ? document.documentElement.lang : 'cs';
+
+// After a new address is in, the backend is told to send the thank-you email
+// (backend/lib/waitlistWelcome.js in oriappeu/Ori-app-). The ping carries
+// nothing - the backend emails only addresses on the list it has never
+// thanked - and nothing waits for it: keepalive lets it finish even if the
+// page closes, and the backend also sweeps on a timer if it never arrives.
+const BACKEND_URL = 'https://ori-backend-yu2e.onrender.com';
+function requestWelcome() {
+  try { fetch(`${BACKEND_URL}/api/waitlist/welcome`, { method: 'POST', keepalive: true }).catch(() => {}); } catch { /* never block the form */ }
+}
 
 // The form speaks the page's language: build.mjs writes its messages into the
 // page from i18n/<lang>.json.
@@ -26,7 +37,8 @@ async function join(email) {
       'Content-Type': 'application/json',
       Prefer: 'return=minimal',
     },
-    body: JSON.stringify({ email }),
+    // The page's language decides the thank-you email's (cs, sk or en).
+    body: JSON.stringify({ email, lang: LANG }),
   });
   if (res.ok) return 'joined';
   const body = await res.json().catch(() => null);
@@ -63,6 +75,7 @@ function attach(form) {
       note.textContent = T.failed;
       return;
     }
+    if (outcome === 'joined') requestWelcome();
     input.value = '';
     input.disabled = true;
     button.textContent = outcome === 'already' ? T.btn_already : T.btn_joined;
