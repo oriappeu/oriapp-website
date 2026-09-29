@@ -69,6 +69,15 @@ function attach(form) {
 
 document.querySelectorAll('form.waitlist').forEach(attach);
 
+// A reload always starts at the top of the page, even when the address still
+// carries a section from a menu click (#how). A link shared straight to a
+// section (oriapp.eu/#join) still opens there the first time.
+const navEntry = performance.getEntriesByType?.('navigation')?.[0];
+if (navEntry?.type === 'reload') {
+  if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+  window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+}
+
 // ── Motion ──────────────────────────────────────────────────────────────────
 // Every effect below has a job (styles.css says which). Reduced motion keeps
 // the page still; pointer effects wait for a real mouse.
