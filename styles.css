@@ -26,6 +26,9 @@
   --max: 1120px;
   --display: 'Sora', system-ui, sans-serif;
   --body: 'Manrope', system-ui, sans-serif;
+  /* Motion — strong curves (the built-in ones are too weak). */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 * { box-sizing: border-box; }
@@ -237,11 +240,124 @@ footer a:hover { color: var(--text); }
 .legal ul { padding-left: 20px; }
 .legal a { color: var(--text); }
 
-/* ── The one arrival: fade + 12px, 200ms (style lock, rule 13) ─────────── */
-.reveal { opacity: 0; transform: translateY(12px); transition: opacity 200ms ease-out, transform 200ms ease-out; }
+/* ════════════════════════════════════════════════════════════════════════
+   Motion. The page is seen rarely and exists to explain, so it may move more
+   than the app does — but every effect has a job, only transform and opacity
+   animate, hover effects need a real pointer, and reduced motion keeps the
+   fades and drops the travel.
+   ════════════════════════════════════════════════════════════════════════ */
+
+/* Scroll progress — a progress bar, so it may be gold. */
+.progress-bar {
+  position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 20;
+  background: var(--gold); transform-origin: 0 50%; transform: scaleX(0);
+  pointer-events: none;
+}
+
+/* Sections and cards arrive once, as they come into view; a grid's cards
+   one after another (--i is set per child by main.js). */
+.reveal {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 700ms var(--ease-out), transform 700ms var(--ease-out);
+  transition-delay: calc(var(--i, 0) * 70ms);
+}
 .reveal.in { opacity: 1; transform: none; }
+
+/* Headlines rise word by word from behind a mask. */
+.split .w { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.08em; margin-bottom: -0.08em; }
+.split .w > span {
+  display: inline-block; transform: translateY(105%);
+  transition: transform 800ms var(--ease-out);
+  transition-delay: calc(var(--w, 0) * 45ms);
+}
+.split.in .w > span { transform: none; }
+
+/* Nav: denser glass once the page has moved; links underline from the left. */
+.nav { transition: background-color 200ms ease, border-color 200ms ease; }
+.nav.scrolled { background: rgba(15, 12, 20, 0.86); border-bottom-color: var(--line); }
+.nav-links a:not(.btn) { position: relative; transition: color 160ms ease; }
+.nav-links a:not(.btn)::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: -6px; height: 1px;
+  background: currentColor; transform: scaleX(0); transform-origin: 0 50%;
+  transition: transform 240ms var(--ease-out);
+}
+
+/* Cards: a soft light follows the pointer; the card lifts a little. */
+.card, .principle, .persona, .setup { position: relative; overflow: hidden; }
+.card::before, .principle::before, .persona::before, .setup::before {
+  content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(205, 180, 232, 0.14), transparent 60%);
+  opacity: 0; transition: opacity 240ms ease;
+}
+.card > *, .principle > *, .persona > *, .setup > * { position: relative; }
+.card, .principle, .persona {
+  transition: opacity 700ms var(--ease-out), transform 700ms var(--ease-out), border-color 240ms ease;
+  transition-delay: calc(var(--i, 0) * 70ms);
+}
+
+/* Buttons lean toward the pointer (main.js sets --tx/--ty). */
+.btn-primary { transform: translate(var(--tx, 0px), var(--ty, 0px)); transition: transform 300ms var(--ease-out), opacity 120ms ease; }
+.btn-primary:active { transform: translate(var(--tx, 0px), var(--ty, 0px)) scale(0.97); }
+
+/* The hero's phone tilts toward the pointer (main.js sets --rx/--ry). */
+.hero-visual { perspective: 1200px; }
+.phone { transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); transition: transform 500ms var(--ease-out); will-change: transform; }
+
+/* The phone's story: the long run is struck and moved, Ori says why, a quick
+   win takes its place, the milestone ring fills. Plays once, on first sight. */
+.story .ori-says, .story .row.quick, .story .row.habit, .story .progress { opacity: 0; transform: translateY(10px); }
+.story .ori-says, .story .row.quick, .story .row.habit, .story .progress {
+  transition: opacity 500ms var(--ease-out), transform 500ms var(--ease-out);
+}
+.story .row.moved { opacity: 1; }
+.story .row.moved .t { text-decoration: none; position: relative; display: inline-block; }
+.story .row.moved .t::after {
+  content: ''; position: absolute; left: 0; right: 0; top: 55%; height: 1.5px;
+  background: rgba(255, 255, 255, 0.5); transform: scaleX(0); transform-origin: 0 50%;
+  transition: transform 500ms var(--ease-in-out);
+}
+.story .row.moved .m .later { display: none; }
+.story .ring { stroke-dashoffset: 119.4; transition: stroke-dashoffset 1200ms var(--ease-out); }
+
+.story.s1 .row.moved .t::after { transform: scaleX(1); }
+.story.s1 .row.moved { opacity: 0.6; transition: opacity 400ms ease 300ms; }
+.story.s1 .row.moved .m .now { display: none; }
+.story.s1 .row.moved .m .later { display: inline; }
+.story.s2 .ori-says { opacity: 1; transform: none; }
+.story.s3 .row.quick { opacity: 1; transform: none; }
+.story.s3 .row.habit { opacity: 1; transform: none; transition-delay: 120ms; }
+.story.s4 .progress { opacity: 1; transform: none; }
+.story.s4 .ring { stroke-dashoffset: 29.8; }
+
+/* The band: the loop, running. Constant motion is linear. */
+.band { overflow: hidden; border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); padding: 22px 0; }
+.band-track { display: flex; width: max-content; animation: band 36s linear infinite; }
+.band-track span {
+  font-family: var(--display); font-weight: 600; font-size: clamp(26px, 3.4vw, 40px); letter-spacing: -0.02em;
+  white-space: nowrap; padding-right: 48px; color: rgba(255, 255, 255, 0.86);
+}
+.band-track span i { font-style: normal; color: var(--lavender); padding-right: 48px; }
+@keyframes band { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* Glows drift with the scroll (main.js moves them). */
+.aura span { will-change: transform; }
+
+@media (hover: hover) and (pointer: fine) {
+  .nav-links a:not(.btn):hover::after { transform: scaleX(1); }
+  .card:hover, .principle:hover, .persona:hover { transform: translateY(-4px); border-color: rgba(255, 255, 255, 0.2); transition-delay: 0ms; }
+  .card:hover::before, .principle:hover::before, .persona:hover::before, .setup:hover::before { opacity: 1; }
+  .band:hover .band-track { animation-play-state: paused; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .reveal { opacity: 1; transform: none; transition: none; }
-  .btn { transition: none; }
+  .reveal, .reveal.in { transform: none; transition: opacity 300ms ease; transition-delay: 0ms; }
+  .split .w > span { transform: none; transition: none; }
+  .phone { transform: none !important; transition: none; }
+  .btn-primary { transform: none !important; }
+  .progress-bar { display: none; }
+  .band-track { animation: none; }
+  .story .ori-says, .story .row.quick, .story .row.habit, .story .progress { transform: none; }
+  .card, .principle, .persona { transition: opacity 300ms ease, border-color 240ms ease; }
+  .card:hover, .principle:hover, .persona:hover { transform: none; }
 }

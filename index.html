@@ -3,21 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ori — Achieve your goals without sacrificing your life</title>
-  <meta name="description" content="Ori is an AI self-development coach. Any AI can write you a plan; Ori is built for the week it breaks — it notices, reshapes the path to your real capacity, and gets you moving again. No backlog, no guilt.">
+  <title>Ori - Achieve your goals without sacrificing your life</title>
+  <meta name="description" content="Ori is an AI self-development coach. Any AI can write you a plan; Ori is built for the week it breaks - it notices, reshapes the path to your real capacity, and gets you moving again. No backlog, no guilt.">
   <meta name="theme-color" content="#0F0C14">
   <link rel="canonical" href="https://oriapp.eu/">
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://oriapp.eu/">
   <meta property="og:site_name" content="Ori">
-  <meta property="og:title" content="Ori — Achieve your goals without sacrificing your life">
+  <meta property="og:title" content="Ori - Achieve your goals without sacrificing your life">
   <meta property="og:description" content="AI can build your plan. Ori is why you still have it in month six.">
   <meta property="og:image" content="https://oriapp.eu/assets/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Ori — Achieve your goals without sacrificing your life">
+  <meta name="twitter:title" content="Ori - Achieve your goals without sacrificing your life">
   <meta name="twitter:description" content="AI can build your plan. Ori is why you still have it in month six.">
   <meta name="twitter:image" content="https://oriapp.eu/assets/og-image.png">
 
@@ -44,6 +44,7 @@
   </script>
 </head>
 <body>
+  <div class="progress-bar" aria-hidden="true"></div>
   <div class="aura" aria-hidden="true"><span class="g1"></span><span class="g2"></span><span class="g3"></span></div>
 
   <header class="nav">
@@ -67,18 +68,18 @@
       <div class="wrap">
         <div>
           <span class="eyebrow voice">Your AI self-development coach</span>
-          <h1>Achieve your goals without sacrificing your life.</h1>
-          <p class="lede">Any AI can write you a plan. Ori is built for the week it breaks — it notices when life gets in the way, reshapes the path to what you can really do, and gets you moving again. No backlog. No guilt.</p>
+          <h1 class="split">Achieve your goals without sacrificing your life.</h1>
+          <p class="lede">Any AI can write you a plan. Ori is built for the week it breaks - it notices when life gets in the way, reshapes the path to what you can really do, and gets you moving again. No backlog. No guilt.</p>
           <form class="waitlist" id="form-hero" novalidate>
             <label class="hp" aria-hidden="true">Leave this empty <input type="text" name="company" tabindex="-1" autocomplete="off"></label>
             <input type="email" name="email" placeholder="you@example.com" autocomplete="email" required aria-label="Your email address">
             <button class="btn btn-primary" type="submit">Join the waitlist</button>
           </form>
-          <p class="form-note" role="status" aria-live="polite">Early access opens in the Czech Republic and Slovakia first. One email when your spot is ready — <a href="privacy.html">privacy</a>.</p>
+          <p class="form-note" role="status" aria-live="polite">Early access opens in the Czech Republic and Slovakia first. One email when your spot is ready - <a href="privacy.html">privacy</a>.</p>
         </div>
 
         <div class="hero-visual reveal" aria-label="An example of Ori re-planning a day">
-          <div class="phone glass">
+          <div class="phone glass story">
             <div class="phone-head"><b>Thursday</b><span>Run a half-marathon</span></div>
             <div class="gps">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
@@ -86,18 +87,18 @@
             </div>
             <div class="ori-says">
               <b>Ori</b>
-              Heavy week at work. Your long run moved to Saturday morning — tonight, a 15-minute mobility session keeps the streak alive.
+              Heavy week at work. Your long run moved to Saturday morning - tonight, a 15-minute mobility session keeps the streak alive.
             </div>
             <div class="row moved">
               <span class="bar" style="background: var(--health)"></span>
-              <div><div class="t">Long run · 60 min</div><div class="m">Moved to Saturday, 09:00</div></div>
+              <div><div class="t">Long run · 60 min</div><div class="m"><span class="now">Today, 18:00</span><span class="later">Moved to Saturday, 09:00</span></div></div>
             </div>
-            <div class="row">
+            <div class="row quick">
               <span class="bar" style="background: var(--health)"></span>
               <div><div class="t">Mobility · 15 min</div><div class="m">A quick win instead</div></div>
               <span class="time">20:30</span>
             </div>
-            <div class="row">
+            <div class="row habit">
               <span class="bar" style="background: var(--learning)"></span>
               <div><div class="t">Read 20 pages</div><div class="m">Habit · after dinner</div></div>
               <span class="time">21:00</span>
@@ -105,7 +106,7 @@
             <div class="progress">
               <svg viewBox="0 0 46 46" aria-hidden="true">
                 <circle cx="23" cy="23" r="19" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="4"/>
-                <circle cx="23" cy="23" r="19" fill="none" stroke="#E9C464" stroke-width="4" stroke-linecap="round"
+                <circle class="ring" cx="23" cy="23" r="19" fill="none" stroke="#E9C464" stroke-width="4" stroke-linecap="round"
                         stroke-dasharray="119.4" stroke-dashoffset="29.8" transform="rotate(-90 23 23)"/>
               </svg>
               <p class="t"><b>Milestone 2 · Build to 10 km</b><br>3 of 4 sessions done</p>
@@ -120,7 +121,7 @@
       <div class="wrap">
         <div class="section-head reveal">
           <span class="eyebrow">The problem</span>
-          <h2>Everyone can make a plan now. Almost nobody finishes one.</h2>
+          <h2 class="split">Everyone can make a plan now. Almost nobody finishes one.</h2>
         </div>
         <div class="grid-3">
           <article class="card glass reveal">
@@ -143,12 +144,20 @@
       </div>
     </section>
 
+    <!-- ── The loop, running ─────────────────────────────────────────── -->
+    <div class="band" aria-hidden="true">
+      <div class="band-track">
+        <span>Notice <i>·</i></span><span>Read <i>·</i></span><span>Reshape <i>·</i></span><span>Resume <i>·</i></span><span>Same goal, different path <i>·</i></span>
+        <span>Notice <i>·</i></span><span>Read <i>·</i></span><span>Reshape <i>·</i></span><span>Resume <i>·</i></span><span>Same goal, different path <i>·</i></span>
+      </div>
+    </div>
+
     <!-- ── How it works ─────────────────────────────────────────────────── -->
     <section id="how">
       <div class="wrap">
         <div class="section-head reveal">
           <span class="eyebrow">How Ori works</span>
-          <h2>Every app can build the plan. Ori is built for the week it breaks.</h2>
+          <h2 class="split">Every app can build the plan. Ori is built for the week it breaks.</h2>
         </div>
 
         <div class="setup glass reveal">
@@ -162,25 +171,25 @@
         <div class="grid-4">
           <article class="card glass-soft step reveal">
             <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg></div>
-            <span class="num">01 — Notice</span>
+            <span class="num">01 - Notice</span>
             <h3>Ori comes to you</h3>
             <p>You went quiet. Ori sees it. You never have to report your own failure.</p>
           </article>
           <article class="card glass-soft step reveal">
             <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></div>
-            <span class="num">02 — Read</span>
+            <span class="num">02 - Read</span>
             <h3>Capacity, not the plan</h3>
             <p>Skipped sessions and missing check-ins are the reading. One question confirms it.</p>
           </article>
           <article class="card glass-soft step reveal">
             <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h10M4 17h6M18 4v16M15 17l3 3 3-3"/></svg></div>
-            <span class="num">03 — Reshape</span>
+            <span class="num">03 - Reshape</span>
             <h3>Smaller, or different</h3>
             <p>Ori changes the scope and the activity itself, not only the date. A quick win instead of deep work.</p>
           </article>
           <article class="card glass-soft step reveal">
             <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-            <span class="num">04 — Resume</span>
+            <span class="num">04 - Resume</span>
             <h3>Not from zero</h3>
             <p>You carry on from where you are. Same goal, different path, no guilt.</p>
           </article>
@@ -197,14 +206,14 @@
       <div class="wrap">
         <div class="section-head reveal">
           <span class="eyebrow">Why Ori works</span>
-          <h2>Built on behaviour change, not engagement.</h2>
-          <p class="lede">When your capacity changes, the plan changes — not the goal.</p>
+          <h2 class="split">Built on behaviour change, not engagement.</h2>
+          <p class="lede">When your capacity changes, the plan changes - not the goal.</p>
         </div>
         <div class="grid-2">
           <article class="principle glass reveal">
             <div class="dot" style="background: var(--health)"></div>
             <h3>We shrink the task, we don't just move it</h3>
-            <p>A rescheduled task is the same wall a day later. A smaller one gets done — and doing something is what restarts the habit.</p>
+            <p>A rescheduled task is the same wall a day later. A smaller one gets done - and doing something is what restarts the habit.</p>
           </article>
           <article class="principle glass reveal">
             <div class="dot" style="background: var(--rest)"></div>
@@ -231,7 +240,7 @@
       <div class="wrap">
         <div class="section-head reveal">
           <span class="eyebrow">Who it's for</span>
-          <h2>For people who want a system that adapts to them — not the other way around.</h2>
+          <h2 class="split">For people who want a system that adapts to them - not the other way around.</h2>
         </div>
         <div class="grid-2">
           <article class="persona glass reveal">
@@ -247,7 +256,7 @@
             <p class="who">Achievers</p>
             <h3>High performers who've burned out before</h3>
             <ul>
-              <li>A track record of delivering — and a personal project recently dropped to burnout or time.</li>
+              <li>A track record of delivering - and a personal project recently dropped to burnout or time.</li>
               <li>Looking for a system that survives the weeks they can't deliver.</li>
               <li>Want to be pushed on good days and protected on bad ones.</li>
             </ul>
@@ -268,14 +277,14 @@
       <div class="wrap">
         <div class="cta glass reveal">
           <span class="eyebrow voice">Early access</span>
-          <h2>Start the goal you keep postponing.</h2>
+          <h2 class="split">Start the goal you keep postponing.</h2>
           <p class="lede">Ori is in testing now. Join the waitlist and we'll email you once when your spot is ready.</p>
           <form class="waitlist" id="form-cta" novalidate>
             <label class="hp" aria-hidden="true">Leave this empty <input type="text" name="company" tabindex="-1" autocomplete="off"></label>
             <input type="email" name="email" placeholder="you@example.com" autocomplete="email" required aria-label="Your email address">
             <button class="btn btn-primary" type="submit">Join the waitlist</button>
           </form>
-          <p class="form-note" role="status" aria-live="polite">We only use your email to tell you about Ori — <a href="privacy.html">privacy</a>.</p>
+          <p class="form-note" role="status" aria-live="polite">We only use your email to tell you about Ori - <a href="privacy.html">privacy</a>.</p>
         </div>
       </div>
     </section>

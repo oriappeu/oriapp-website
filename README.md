@@ -1,6 +1,6 @@
 # oriapp.eu
 
-The public website for Ori — one static page, no build step, served by GitHub Pages.
+The public website for Ori - one static page, no build step, served by GitHub Pages.
 
 | File | What it is |
 |---|---|
@@ -12,7 +12,7 @@ The public website for Ori — one static page, no build step, served by GitHub 
 | `assets/` | icons and the social preview image |
 
 **The waitlist** writes to the `waitlist` table of the Supabase project `rqluecojhplvfiytybty`
-with its public anon key — the same table the previous site used, so no signup was lost.
+with its public anon key - the same table the previous site used, so no signup was lost.
 
 **Preview locally:** open `index.html` in a browser, or `npx serve .` in this folder.
 
