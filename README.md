@@ -11,8 +11,7 @@ The public website for Ori - one static page, no build step, served by GitHub Pa
 | `404.html`, `robots.txt`, `sitemap.xml` | the usual |
 | `assets/` | icons and the social preview image |
 
-**The waitlist** writes to the `waitlist` table of the Supabase project `rqluecojhplvfiytybty`
-with its public anon key - the same table the previous site used, so no signup was lost.
+**The waitlist** writes to the `waitlist` table of Ori's live Supabase project with its public key, which may only add an address. The table is defined in the app repository (`supabase/migrations/20260929170000_website_waitlist.sql`); `tests/waitlist-check.mjs` there proves what the key can and cannot do.
 
 **Preview locally:** open `index.html` in a browser, or `npx serve .` in this folder.
 

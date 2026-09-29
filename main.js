@@ -1,13 +1,14 @@
 // oriapp.eu - the waitlist and the one arrival.
 //
-// The waitlist writes to the same `waitlist` table in the same Supabase project
-// the previous site used, so no signup is lost in the move. Plain fetch against
+// The waitlist writes to the `waitlist` table of Ori's own Supabase project
+// (migration 20260929170000_website_waitlist.sql in oriappeu/Ori-app-): the
+// public key may add an address and do nothing else. Plain fetch against
 // Supabase's REST API - no client library to download for one insert. The key
-// below is the project's PUBLIC anon key (it was on the old site too); what it
-// may do is decided by the table's row-level security, not by hiding it.
+// below is the project's PUBLIC key (the same one every copy of the app
+// carries); what it may do is decided by row-level security, not by hiding it.
 
-const SUPABASE_URL = 'https://rqluecojhplvfiytybty.supabase.co';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJxbHVlY29qaHBsdmZpeXR5YnR5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg4NjM5ODksImV4cCI6MjA5NDQzOTk4OX0.qmZxISA7qnGnnLT7mCyJc7yOCJVsDywzzk21lt9jIPY';
+const SUPABASE_URL = 'https://sdtxwrooupkrpociynlb.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_M6IB1lkNmyhZiFri3_kiOA_kBcR6xkP';
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
