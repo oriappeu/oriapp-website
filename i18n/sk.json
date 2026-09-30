@@ -222,6 +222,7 @@
   "footer": {
     "label": "Päta stránky",
     "privacy": "Súkromie",
+    "app_privacy": "Súkromie v aplikácii",
     "contact": "Kontakt"
   },
   "js": {

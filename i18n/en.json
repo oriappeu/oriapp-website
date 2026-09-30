@@ -222,6 +222,7 @@
   "footer": {
     "label": "Footer",
     "privacy": "Privacy",
+    "app_privacy": "App privacy",
     "contact": "Contact"
   },
   "js": {

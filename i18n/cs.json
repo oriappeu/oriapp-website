@@ -222,6 +222,7 @@
   "footer": {
     "label": "Patička",
     "privacy": "Soukromí",
+    "app_privacy": "Soukromí v aplikaci",
     "contact": "Kontakt"
   },
   "js": {
