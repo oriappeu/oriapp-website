@@ -379,7 +379,10 @@ section[id] { scroll-margin-top: 56px; }
 .person:nth-child(2) { margin-top: 36px; }
 .photo { aspect-ratio: 4 / 5; border-radius: var(--r-card); overflow: hidden; border: 1px solid var(--line); background: #1a1520; max-width: 100%; }
 .photo img { width: 100%; height: 100%; object-fit: cover; }
-.person figcaption { margin-top: 10px; font-size: 13px; color: var(--label); }
+.person figcaption { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 10px; font-size: 13px; color: var(--label); }
+.in-link { flex: none; width: 34px; height: 34px; display: grid; place-items: center; border-radius: 50%; background: var(--glass-soft); border: 1px solid var(--line-soft); color: var(--sub); transition: color 160ms ease, border-color 160ms ease, background-color 160ms ease; }
+.in-link svg { width: 15px; height: 15px; fill: currentColor; }
+.in-link:hover { color: var(--text); border-color: rgba(233, 196, 100, 0.45); background: var(--glass); }
 .person figcaption b { display: block; font: 600 15px var(--display); color: var(--text); }
 .story-copy h2 { margin-bottom: 22px; }
 .story-copy p { color: var(--sub); margin-bottom: 16px; max-width: 560px; }

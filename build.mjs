@@ -48,6 +48,11 @@ function modifiedDate() {
 }
 const MODIFIED = modifiedDate();
 
+const LINKEDIN_MARK = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452z"/></svg>';
+const profileLink = (key, name, t) => (PROFILES[key]?.[0]
+  ? `<a class="in-link" href="${PROFILES[key][0]}" target="_blank" rel="me noopener" aria-label="${name}: ${t.kdo.linkedin}" title="LinkedIn">${LINKEDIN_MARK}</a>`
+  : '');
+
 const words = Object.fromEntries(LANGS.map((l) => [l.code, JSON.parse(readFileSync(`i18n/${l.code}.json`, 'utf8'))]));
 
 // Czech and Slovak typography: a one-letter preposition or conjunction never
@@ -93,6 +98,9 @@ for (const page of PAGES) {
         ...LANGS.map((l) => `<link rel="alternate" hreflang="${l.code}" href="${ORIGIN}${url(l, page)}">`),
         `<link rel="alternate" hreflang="x-default" href="${ORIGIN}${url(LANGS.find((l) => l.code === 'en'), page)}">`,
       ].join('\n  '),
+      // The founders' LinkedIn buttons under their photos; the same profiles.json feeds the structured data.
+      linkedin_damian: profileLink('damian', 'Damian Knoth', t),
+      linkedin_jindrich: profileLink('jindrich', 'Jindřich Novák', t),
       og_alternates: LANGS.filter((l) => l !== lang).map((l) => `<meta property="og:locale:alternate" content="${l.locale}">`).join('\n  '),
       // Structured data for the home and FAQ pages (structured-data.mjs).
       jsonld: page.kind ? structuredData({
