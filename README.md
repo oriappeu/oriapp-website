@@ -9,6 +9,8 @@ Czech is the default at `/`, Slovak at `/sk/`, English at `/en/`.
 | `src/_top.html`, `src/_footer.html` | the top bar and footer every page shares (`{{>top}}`, `{{>footer}}`) |
 | `i18n/cs.json`, `sk.json`, `en.json` | every word on the site, one file per language |
 | `build.mjs` | writes the finished pages from the two above |
+| `structured-data.mjs`, `profiles.json` | the schema.org markup for the home and FAQ pages, and the founders' profile links it uses |
+| `llms.txt` | a plain-language summary of Ori for AI crawlers (hand-written, English) |
 | `index.html`, `faq.html`, `privacy.html`, `sk/…`, `en/…`, `sitemap.xml` | **generated** - never edit by hand |
 | `styles.css` | the app's design system (AURA, dark), as a stylesheet |
 | `main.js` | the waitlist form and all the motion |
@@ -40,6 +42,25 @@ a file: `npx serve .` in this folder.
 
 **Publishing:** every push to `main` goes live. The custom domain is set by the `CNAME` file
 (`oriapp.eu`) and in Settings → Pages.
+
+**Structured data (SEO):** every home and FAQ page carries a block of schema.org labels in its head
+(who Ori is, the app, the founders, the FAQ) plus hreflang tags (English is the fallback language),
+`og:locale:alternate` and a robots meta. `structured-data.mjs` builds the block from the same word files
+as the page, so it cannot drift from what the page says; `node build.mjs` regenerates it. It makes the site
+understandable and quotable for Google and AI search; it does not raise rankings by itself.
+Validate after a change: https://validator.schema.org and https://search.google.com/test/rich-results.
+- **Add a profile** (company LinkedIn page, Instagram, TikTok...): put the URL in `profiles.json` under
+  `organization`, `damian` or `jindrich`, then build. It appears as `sameAs`. Use the exact same name and
+  one-line description on every profile.
+- **Later additions** (the marketing package's list): store links (`downloadUrl`, `installUrl`) once the app
+  is in a store; `offers` (price) and `aggregateRating` once they exist; the legal entity (`legalName`,
+  IČO, address) once incorporated; a 512 px logo is already used; a domain email instead of Gmail.
+- `dateModified` and the sitemap's `lastmod` are the date the content last changed (today while there are
+  uncommitted edits, else the last commit that touched it).
+- `llms.txt` is edited by hand; keep it in line with the site when facts change.
+- The marketing package `oriapp-seo.zip` (2026-10-01) was the starting point; it was rewritten against the
+  redesigned site (it still carried the old slogan, "check-ins" and a line that Ori is not for team projects).
+  The zip is git-ignored and is not part of the site.
 
 **Going back to the previous design:** the site as it was before the redesign (cards, eyebrows, the
 marquee) is the tag `pre-redesign`. To restore it without losing history:

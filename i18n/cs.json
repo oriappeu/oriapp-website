@@ -2,8 +2,29 @@
   "meta": {
     "title": "Ori: cíl, který přežije i špatný týden",
     "description": "Ori je AI kouč osobního rozvoje. Rozloží tvůj cíl do kalendáře a když přijde špatný týden, plán přestaví. Zapsání nic nestojí, začínáme v Česku a na Slovensku.",
-    "og_description": "Plán ti postaví AI. Ori ho udrží, když se rozpadne.",
-    "schema": "AI kouč osobního rozvoje, který rozloží cíl do kalendáře a přestaví plán, když se změní tvoje kapacita."
+    "og_description": "Plán ti postaví AI. Ori ho udrží, když se rozpadne."
+  },
+  "seo": {
+    "org_description": "Ori je startup z Česka, který vyvíjí AI kouče osobního rozvoje. Aplikace rozloží cíl do kalendáře a když se plán začne rozpadat, přestaví ho podle skutečné kapacity a energie uživatele.",
+    "app_alt": "AI kouč osobního rozvoje a adaptivní plánovač cílů",
+    "app_description": "Ori je AI kouč osobního rozvoje pro Android a iPhone. Z cíle sestaví cestu po milnících a kroky naplánuje do skutečného kalendáře. Když se plán začne rozpadat, Ori si toho všimne, ozve se první a úkoly zmenší nebo změní podle aktuální kapacity a energie, nejen přesune. Aplikace je v testovací fázi, přístup se otevírá postupně přes čekací listinu, nejdřív v Česku a na Slovensku.",
+    "features": [
+      "Dvacetiminutové nastavení, které z cíle udělá cestu po milnících",
+      "Kroky plánuje podle tvého skutečného kalendáře",
+      "Všimne si, když je ticho, a ozve se první",
+      "Pozná tvoji kapacitu z vynechaných kroků",
+      "Úkoly zmenší nebo změní, ne jen přesune",
+      "Po špatném týdnu na tebe nečeká hromada nesplněných úkolů",
+      "Plánuje podle energie, aby předcházel vyhoření",
+      "Víc cílů naplánovaných dohromady v rámci tvé kapacity",
+      "Postupně se učí tvoje skutečné tempo",
+      "Přehled o tvých datech, jejich stažení a smazání kdykoli"
+    ],
+    "audience": "Lidé, kterým do plánů pořád leze život: mladí profesionálové (25 až 35) a výkonní lidé, kteří už zažili vyhoření.",
+    "keywords": "AI kouč, osobní rozvoj, aplikace na cíle, plánování cílů, adaptivní plán, návyky, prevence vyhoření, dosažení cílů",
+    "damian": "Spoluzakladatel a CEO Ori. Produktová strategie, obchod, marketing a financování.",
+    "jindrich": "Spoluzakladatel a CTO Ori. Vize produktu, AI, design a UX/UI.",
+    "crumb_faq": "Časté otázky"
   },
   "nav": {
     "brand": "Ori, zpět nahoru",

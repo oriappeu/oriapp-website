@@ -6,16 +6,19 @@
   <title>Ori: cíl, který přežije i špatný týden</title>
   <meta name="description" content="Ori je AI kouč osobního rozvoje. Rozloží tvůj cíl do kalendáře a když přijde špatný týden, plán přestaví. Zapsání nic nestojí, začínáme v Česku a na Slovensku.">
   <meta name="theme-color" content="#0F0C14">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="https://oriapp.eu/">
   <link rel="alternate" hreflang="cs" href="https://oriapp.eu/">
   <link rel="alternate" hreflang="sk" href="https://oriapp.eu/sk/">
   <link rel="alternate" hreflang="en" href="https://oriapp.eu/en/">
-  <link rel="alternate" hreflang="x-default" href="https://oriapp.eu/">
+  <link rel="alternate" hreflang="x-default" href="https://oriapp.eu/en/">
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://oriapp.eu/">
   <meta property="og:site_name" content="Ori">
   <meta property="og:locale" content="cs_CZ">
+  <meta property="og:locale:alternate" content="sk_SK">
+  <meta property="og:locale:alternate" content="en_GB">
   <meta property="og:title" content="Ori: cíl, který přežije i špatný týden">
   <meta property="og:description" content="Plán ti postaví AI. Ori ho udrží, když se rozpadne.">
   <meta property="og:image" content="https://oriapp.eu/assets/og-cs.png">
@@ -39,16 +42,186 @@
   <script>document.documentElement.classList.add('js'); if ('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
 
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Ori",
-    "applicationCategory": "LifestyleApplication",
-    "operatingSystem": "Android, iOS, Web",
-    "inLanguage": "cs",
-    "description": "AI kouč osobního rozvoje, který rozloží cíl do kalendáře a přestaví plán, když se změní tvoje kapacita.",
-    "url": "https://oriapp.eu/"
-  }
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://oriapp.eu/#organization",
+      "name": "Ori",
+      "alternateName": [
+        "Ori app",
+        "Ori AI coach"
+      ],
+      "url": "https://oriapp.eu/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://oriapp.eu/#logo",
+        "url": "https://oriapp.eu/assets/icon-512.png",
+        "width": 512,
+        "height": 512,
+        "caption": "Ori"
+      },
+      "image": {
+        "@id": "https://oriapp.eu/#logo"
+      },
+      "description": "Ori je startup z Česka, který vyvíjí AI kouče osobního rozvoje. Aplikace rozloží cíl do kalendáře a když se plán začne rozpadat, přestaví ho podle skutečné kapacity a energie uživatele.",
+      "slogan": "Cíl, který přežije i špatný týden.",
+      "email": "oriapp.eu@gmail.com",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "email": "oriapp.eu@gmail.com",
+        "availableLanguage": [
+          "cs",
+          "sk",
+          "en"
+        ]
+      },
+      "foundingDate": "2026",
+      "founder": [
+        {
+          "@id": "https://oriapp.eu/#damian-knoth"
+        },
+        {
+          "@id": "https://oriapp.eu/#jindrich-novak"
+        }
+      ],
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "Czech Republic",
+          "identifier": "CZ"
+        },
+        {
+          "@type": "Country",
+          "name": "Slovakia",
+          "identifier": "SK"
+        }
+      ],
+      "knowsAbout": [
+        "AI coaching",
+        "personal development",
+        "goal setting",
+        "habit formation",
+        "behaviour change",
+        "burnout prevention",
+        "adaptive planning"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://oriapp.eu/#website",
+      "url": "https://oriapp.eu/",
+      "name": "Ori",
+      "alternateName": "oriapp.eu",
+      "publisher": {
+        "@id": "https://oriapp.eu/#organization"
+      },
+      "inLanguage": [
+        "cs",
+        "sk",
+        "en"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://oriapp.eu/#webpage",
+      "url": "https://oriapp.eu/",
+      "name": "Ori: cíl, který přežije i špatný týden",
+      "description": "Ori je AI kouč osobního rozvoje. Rozloží tvůj cíl do kalendáře a když přijde špatný týden, plán přestaví. Zapsání nic nestojí, začínáme v Česku a na Slovensku.",
+      "inLanguage": "cs",
+      "isPartOf": {
+        "@id": "https://oriapp.eu/#website"
+      },
+      "about": {
+        "@id": "https://oriapp.eu/#app"
+      },
+      "mainEntity": {
+        "@id": "https://oriapp.eu/#app"
+      },
+      "publisher": {
+        "@id": "https://oriapp.eu/#organization"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://oriapp.eu/assets/og-cs.png",
+        "width": 1200,
+        "height": 630
+      },
+      "dateModified": "2026-10-01",
+      "keywords": "AI kouč, osobní rozvoj, aplikace na cíle, plánování cílů, adaptivní plán, návyky, prevence vyhoření, dosažení cílů"
+    },
+    {
+      "@type": "MobileApplication",
+      "@id": "https://oriapp.eu/#app",
+      "name": "Ori",
+      "alternateName": "AI kouč osobního rozvoje a adaptivní plánovač cílů",
+      "description": "Ori je AI kouč osobního rozvoje pro Android a iPhone. Z cíle sestaví cestu po milnících a kroky naplánuje do skutečného kalendáře. Když se plán začne rozpadat, Ori si toho všimne, ozve se první a úkoly zmenší nebo změní podle aktuální kapacity a energie, nejen přesune. Aplikace je v testovací fázi, přístup se otevírá postupně přes čekací listinu, nejdřív v Česku a na Slovensku.",
+      "url": "https://oriapp.eu/",
+      "image": "https://oriapp.eu/assets/og-cs.png",
+      "applicationCategory": "LifestyleApplication",
+      "applicationSubCategory": "AI kouč osobního rozvoje a adaptivní plánovač cílů",
+      "operatingSystem": "Android, iOS",
+      "inLanguage": "en",
+      "countriesSupported": [
+        "CZ",
+        "SK"
+      ],
+      "featureList": [
+        "Dvacetiminutové nastavení, které z cíle udělá cestu po milnících",
+        "Kroky plánuje podle tvého skutečného kalendáře",
+        "Všimne si, když je ticho, a ozve se první",
+        "Pozná tvoji kapacitu z vynechaných kroků",
+        "Úkoly zmenší nebo změní, ne jen přesune",
+        "Po špatném týdnu na tebe nečeká hromada nesplněných úkolů",
+        "Plánuje podle energie, aby předcházel vyhoření",
+        "Víc cílů naplánovaných dohromady v rámci tvé kapacity",
+        "Postupně se učí tvoje skutečné tempo",
+        "Přehled o tvých datech, jejich stažení a smazání kdykoli"
+      ],
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Lidé, kterým do plánů pořád leze život: mladí profesionálové (25 až 35) a výkonní lidé, kteří už zažili vyhoření."
+      },
+      "keywords": "AI kouč, osobní rozvoj, aplikace na cíle, plánování cílů, adaptivní plán, návyky, prevence vyhoření, dosažení cílů",
+      "creator": {
+        "@id": "https://oriapp.eu/#organization"
+      },
+      "publisher": {
+        "@id": "https://oriapp.eu/#organization"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://oriapp.eu/#damian-knoth",
+      "name": "Damian Knoth",
+      "jobTitle": "CEO",
+      "description": "Spoluzakladatel a CEO Ori. Produktová strategie, obchod, marketing a financování.",
+      "image": "https://oriapp.eu/img/founder-b.jpg",
+      "worksFor": {
+        "@id": "https://oriapp.eu/#organization"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/damian-knoth/"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://oriapp.eu/#jindrich-novak",
+      "name": "Jindřich Novák",
+      "jobTitle": "CTO",
+      "description": "Spoluzakladatel a CTO Ori. Vize produktu, AI, design a UX/UI.",
+      "image": "https://oriapp.eu/img/founder-a.jpg",
+      "worksFor": {
+        "@id": "https://oriapp.eu/#organization"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/jind%C5%99ich-nov%C3%A1k-1148b139a/"
+      ]
+    }
+  ]
+}
   </script>
   <script id="i18n" type="application/json">{"invalid":"Tohle nevypadá jako e-mailová adresa.","joining":"Zapisuji…","failed":"Něco se pokazilo. Zkontroluj připojení a zkus to znovu.","btn_joined":"Jsi na seznamu","btn_already":"Už jsi na seznamu","note_joined":"Díky! Za chvíli ti přijde krátký e-mail.","note_already":"Na seznamu už jsi - ozveme se."}</script>
   <!-- Visits, counted without cookies (Umami). data-domains: a local preview is not counted. -->

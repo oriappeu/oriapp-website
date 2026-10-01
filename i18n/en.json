@@ -2,8 +2,29 @@
   "meta": {
     "title": "Ori: a goal that survives a bad week",
     "description": "Ori is an AI self-development coach. It lays your goal into your calendar and, when a bad week hits, rebuilds the plan. Joining the waitlist costs nothing, and we start in the Czech Republic and Slovakia.",
-    "og_description": "AI can build your plan. Ori keeps it alive when it falls apart.",
-    "schema": "An AI self-development coach that lays a goal into your calendar and rebuilds the plan when your capacity changes."
+    "og_description": "AI can build your plan. Ori keeps it alive when it falls apart."
+  },
+  "seo": {
+    "org_description": "Ori is a startup from the Czech Republic building an AI self-development coach. The app lays a goal into your calendar and, when the plan starts to break, rebuilds it around the user's real capacity and energy.",
+    "app_alt": "AI self-development coach and adaptive goal planner",
+    "app_description": "Ori is an AI self-development coach for Android and iPhone. It turns a goal into a route of milestones and plans the steps into your real calendar. When the plan starts to break, Ori notices, reaches out first, and makes tasks smaller or different based on current capacity and energy, not just later. The app is in testing; access opens step by step through a waitlist, first in the Czech Republic and Slovakia.",
+    "features": [
+      "A twenty-minute setup that turns a goal into a route of milestones",
+      "Plans the steps around your real calendar",
+      "Notices when you go quiet and reaches out first",
+      "Reads your capacity from skipped steps",
+      "Makes tasks smaller or different, not just later",
+      "No pile of unfinished tasks waiting after a bad week",
+      "Plans by energy, to prevent burnout",
+      "Several goals planned together within your capacity",
+      "Gradually learns your real pace",
+      "See your data, download it and delete it at any time"
+    ],
+    "audience": "People whose plans keep running into real life: young professionals (25 to 35) and high performers who have burned out before.",
+    "keywords": "AI coach, personal development, goal app, goal planning, adaptive plan, habits, burnout prevention, achieving goals",
+    "damian": "Co-founder and CEO of Ori. Product strategy, business development, marketing and fundraising.",
+    "jindrich": "Co-founder and CTO of Ori. Product vision, AI, design and UX/UI.",
+    "crumb_faq": "FAQ"
   },
   "nav": {
     "brand": "Ori, back to top",

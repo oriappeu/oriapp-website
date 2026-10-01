@@ -1,0 +1,65 @@
+# Ori
+
+> Ori is an AI self-development coach for Android and iPhone. Any AI can write a plan; Ori keeps it alive when life gets in the way. It lays a goal into the user's calendar and, when a week goes wrong, rebuilds the plan around their real capacity and energy (smaller or different tasks, not just later ones), so they carry on without a pile of missed tasks.
+
+Ori is built by a Czech startup founded in 2026 by Damian Knoth (CEO) and Jindřich Novák (CTO). The app is in testing. Early access opens through a waitlist, first in the Czech Republic and Slovakia. The website is available in Czech (default), Slovak and English.
+
+## Key facts
+
+- Category: AI coach for personal development / adaptive goal planner
+- Platforms: Android and iPhone (testers use both)
+- App language: English for now; Czech and Slovak in preparation
+- Status: in testing, no public launch date yet; join the waitlist at https://oriapp.eu/en/#zapis
+- Pricing: not set yet; waitlist members hear first
+- Markets: Czech Republic and Slovakia first
+- Validated with: JIC and Red Bull Basement 2026
+- Founders: Damian Knoth (https://www.linkedin.com/in/damian-knoth/), Jindřich Novák (https://www.linkedin.com/in/jind%C5%99ich-nov%C3%A1k-1148b139a/)
+- Contact: oriapp.eu@gmail.com (answered by the founders, not a bot)
+
+## How Ori works
+
+1. Setup (once, about 20 minutes): the user describes their goal, starting point, why it matters and how much time they really have. Ori turns this into a roadmap of milestones and plans the next few days of steps around the user's actual calendar.
+2. Every day: one concrete step, sized to the time and energy the user has. A one-tap energy check (low, medium, high) adjusts what Ori offers.
+3. Notice: when the user goes quiet for a few days, Ori notices and reaches out first. The user never has to report failure.
+4. Reshape: Ori changes the scope and the activity itself, not only the date (for example a 15-minute quick win instead of a 60-minute deep session).
+5. Resume: the user continues from where they are. Same goal, different path, no pile of missed tasks.
+
+Every cycle teaches Ori the user's real pace, so the plan gets more accurate over months.
+
+## Design principles
+
+- Shrink the task, don't just move it: a rescheduled task is the same wall a day later; a smaller one gets done and restarts the habit.
+- The user never faces a backlog: returning after a bad week is a shame problem, not a motivation problem, so Ori reaches out first.
+- Why before what: the intake explores motivation (passion vs. pressure, ambition vs. capacity), because a plan built on the wrong motivation fails in week three.
+- Energy sets the schedule: burnout prevention is a scheduling rule, not a wellness add-on.
+- Built on behaviour change, not engagement: Ori succeeds when the user is doing the thing outside the app.
+
+## Who Ori is for
+
+People whose plans keep running into real life: young professionals (25 to 35) who are ambitious but out of decisions by 6 pm, and high performers who have burned out before and want a system that pushes on good days and protects on bad ones.
+
+Good fit: goals that take regular work over weeks or months, such as passing a language exam, running a half-marathon, starting a side project or learning a new skill. Several goals can be planned together within the user's capacity. Ori is not a replacement for therapy or medical care.
+
+## How Ori compares
+
+- ChatGPT and other general AI assistants: write a plan but don't track whether it is working or adapt it over time.
+- Notion, Todoist and other to-do apps: lists the user manages manually; missed tasks pile up.
+- Ori: lays the plan into the calendar, notices when it starts to break, and rebuilds it around current capacity.
+
+## Privacy
+
+Ori stores only what it needs to plan: goals, the plan, progress and how it went. Users can see what Ori knows about them, download their data, and delete it with their account at any time. Ori does not sell user data and does not train AI on it.
+
+## Pages
+
+- [Home (English)](https://oriapp.eu/en/): what Ori is, how it works, the first week, the founders
+- [FAQ (English)](https://oriapp.eu/en/faq.html): launch, pricing, platforms, language, comparisons, data, time commitment
+- [Domů (čeština)](https://oriapp.eu/): Czech homepage
+- [Časté otázky (čeština)](https://oriapp.eu/faq.html): Czech FAQ
+- [Domov (slovenčina)](https://oriapp.eu/sk/): Slovak homepage
+- [Časté otázky (slovenčina)](https://oriapp.eu/sk/faq.html): Slovak FAQ
+
+## Optional
+
+- [Privacy policy (English)](https://oriapp.eu/en/privacy.html)
+- [App privacy policy](https://oriapp.eu/app-privacy.html)

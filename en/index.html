@@ -6,16 +6,19 @@
   <title>Ori: a goal that survives a bad week</title>
   <meta name="description" content="Ori is an AI self-development coach. It lays your goal into your calendar and, when a bad week hits, rebuilds the plan. Joining the waitlist costs nothing, and we start in the Czech Republic and Slovakia.">
   <meta name="theme-color" content="#0F0C14">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="https://oriapp.eu/en/">
   <link rel="alternate" hreflang="cs" href="https://oriapp.eu/">
   <link rel="alternate" hreflang="sk" href="https://oriapp.eu/sk/">
   <link rel="alternate" hreflang="en" href="https://oriapp.eu/en/">
-  <link rel="alternate" hreflang="x-default" href="https://oriapp.eu/">
+  <link rel="alternate" hreflang="x-default" href="https://oriapp.eu/en/">
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://oriapp.eu/en/">
   <meta property="og:site_name" content="Ori">
   <meta property="og:locale" content="en_GB">
+  <meta property="og:locale:alternate" content="cs_CZ">
+  <meta property="og:locale:alternate" content="sk_SK">
   <meta property="og:title" content="Ori: a goal that survives a bad week">
   <meta property="og:description" content="AI can build your plan. Ori keeps it alive when it falls apart.">
   <meta property="og:image" content="https://oriapp.eu/assets/og-image.png">
@@ -39,16 +42,186 @@
   <script>document.documentElement.classList.add('js'); if ('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
 
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Ori",
-    "applicationCategory": "LifestyleApplication",
-    "operatingSystem": "Android, iOS, Web",
-    "inLanguage": "en",
-    "description": "An AI self-development coach that lays a goal into your calendar and rebuilds the plan when your capacity changes.",
-    "url": "https://oriapp.eu/en/"
-  }
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://oriapp.eu/#organization",
+      "name": "Ori",
+      "alternateName": [
+        "Ori app",
+        "Ori AI coach"
+      ],
+      "url": "https://oriapp.eu/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://oriapp.eu/#logo",
+        "url": "https://oriapp.eu/assets/icon-512.png",
+        "width": 512,
+        "height": 512,
+        "caption": "Ori"
+      },
+      "image": {
+        "@id": "https://oriapp.eu/#logo"
+      },
+      "description": "Ori is a startup from the Czech Republic building an AI self-development coach. The app lays a goal into your calendar and, when the plan starts to break, rebuilds it around the user's real capacity and energy.",
+      "slogan": "A goal that survives a bad week.",
+      "email": "oriapp.eu@gmail.com",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "email": "oriapp.eu@gmail.com",
+        "availableLanguage": [
+          "cs",
+          "sk",
+          "en"
+        ]
+      },
+      "foundingDate": "2026",
+      "founder": [
+        {
+          "@id": "https://oriapp.eu/#damian-knoth"
+        },
+        {
+          "@id": "https://oriapp.eu/#jindrich-novak"
+        }
+      ],
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "Czech Republic",
+          "identifier": "CZ"
+        },
+        {
+          "@type": "Country",
+          "name": "Slovakia",
+          "identifier": "SK"
+        }
+      ],
+      "knowsAbout": [
+        "AI coaching",
+        "personal development",
+        "goal setting",
+        "habit formation",
+        "behaviour change",
+        "burnout prevention",
+        "adaptive planning"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://oriapp.eu/#website",
+      "url": "https://oriapp.eu/",
+      "name": "Ori",
+      "alternateName": "oriapp.eu",
+      "publisher": {
+        "@id": "https://oriapp.eu/#organization"
+      },
+      "inLanguage": [
+        "cs",
+        "sk",
+        "en"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://oriapp.eu/en/#webpage",
+      "url": "https://oriapp.eu/en/",
+      "name": "Ori: a goal that survives a bad week",
+      "description": "Ori is an AI self-development coach. It lays your goal into your calendar and, when a bad week hits, rebuilds the plan. Joining the waitlist costs nothing, and we start in the Czech Republic and Slovakia.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://oriapp.eu/#website"
+      },
+      "about": {
+        "@id": "https://oriapp.eu/#app"
+      },
+      "mainEntity": {
+        "@id": "https://oriapp.eu/#app"
+      },
+      "publisher": {
+        "@id": "https://oriapp.eu/#organization"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://oriapp.eu/assets/og-image.png",
+        "width": 1200,
+        "height": 630
+      },
+      "dateModified": "2026-10-01",
+      "keywords": "AI coach, personal development, goal app, goal planning, adaptive plan, habits, burnout prevention, achieving goals"
+    },
+    {
+      "@type": "MobileApplication",
+      "@id": "https://oriapp.eu/#app",
+      "name": "Ori",
+      "alternateName": "AI self-development coach and adaptive goal planner",
+      "description": "Ori is an AI self-development coach for Android and iPhone. It turns a goal into a route of milestones and plans the steps into your real calendar. When the plan starts to break, Ori notices, reaches out first, and makes tasks smaller or different based on current capacity and energy, not just later. The app is in testing; access opens step by step through a waitlist, first in the Czech Republic and Slovakia.",
+      "url": "https://oriapp.eu/",
+      "image": "https://oriapp.eu/assets/og-image.png",
+      "applicationCategory": "LifestyleApplication",
+      "applicationSubCategory": "AI self-development coach and adaptive goal planner",
+      "operatingSystem": "Android, iOS",
+      "inLanguage": "en",
+      "countriesSupported": [
+        "CZ",
+        "SK"
+      ],
+      "featureList": [
+        "A twenty-minute setup that turns a goal into a route of milestones",
+        "Plans the steps around your real calendar",
+        "Notices when you go quiet and reaches out first",
+        "Reads your capacity from skipped steps",
+        "Makes tasks smaller or different, not just later",
+        "No pile of unfinished tasks waiting after a bad week",
+        "Plans by energy, to prevent burnout",
+        "Several goals planned together within your capacity",
+        "Gradually learns your real pace",
+        "See your data, download it and delete it at any time"
+      ],
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "People whose plans keep running into real life: young professionals (25 to 35) and high performers who have burned out before."
+      },
+      "keywords": "AI coach, personal development, goal app, goal planning, adaptive plan, habits, burnout prevention, achieving goals",
+      "creator": {
+        "@id": "https://oriapp.eu/#organization"
+      },
+      "publisher": {
+        "@id": "https://oriapp.eu/#organization"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://oriapp.eu/#damian-knoth",
+      "name": "Damian Knoth",
+      "jobTitle": "CEO",
+      "description": "Co-founder and CEO of Ori. Product strategy, business development, marketing and fundraising.",
+      "image": "https://oriapp.eu/img/founder-b.jpg",
+      "worksFor": {
+        "@id": "https://oriapp.eu/#organization"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/damian-knoth/"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://oriapp.eu/#jindrich-novak",
+      "name": "Jindřich Novák",
+      "jobTitle": "CTO",
+      "description": "Co-founder and CTO of Ori. Product vision, AI, design and UX/UI.",
+      "image": "https://oriapp.eu/img/founder-a.jpg",
+      "worksFor": {
+        "@id": "https://oriapp.eu/#organization"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/jind%C5%99ich-nov%C3%A1k-1148b139a/"
+      ]
+    }
+  ]
+}
   </script>
   <script id="i18n" type="application/json">{"invalid":"That doesn’t look like an email address.","joining":"Joining…","failed":"Something went wrong. Check your connection and try again.","btn_joined":"You’re on the list","btn_already":"Already on the list","note_joined":"Thank you. A short email is on its way.","note_already":"You’re already on the waitlist - we’ll be in touch."}</script>
   <!-- Visits, counted without cookies (Umami). data-domains: a local preview is not counted. -->

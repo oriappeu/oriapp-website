@@ -12,10 +12,12 @@
 // Placeholders: {{a.b}} is a text from the language file (it may carry inline
 // HTML, e.g. the gold phrase of a headline); {{@name}} is filled in here -
 // lang, locale, canonical, alternates, switch, home, privacy, faq_page,
-// faq_items, faq_schema, og_image, i18n.
+// faq_items, jsonld, og_alternates, og_image, i18n.
 // A missing text, or a key one language has and another lacks, stops the build.
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { dirname } from 'node:path';
+import { execSync } from 'node:child_process';
+import { structuredData } from './structured-data.mjs';
 
 const ORIGIN = 'https://oriapp.eu';
 const LANGS = [
@@ -25,10 +27,26 @@ const LANGS = [
 ];
 // `path` is where the page sits inside a language's root.
 const PAGES = [
-  { src: 'src/index.html', path: '' },
+  { src: 'src/index.html', path: '', kind: 'home' },
   { src: 'src/privacy.html', path: 'privacy.html' },
-  { src: 'src/faq.html', path: 'faq.html' },
+  { src: 'src/faq.html', path: 'faq.html', kind: 'faq' },
 ];
+
+// Founders' own profile links (LinkedIn and the like) for the structured data's sameAs.
+const PROFILES = JSON.parse(readFileSync('profiles.json', 'utf8'));
+
+// When the content last changed: today if there are uncommitted edits to what the pages
+// are made of, else the date of the last commit that touched it. Honest for crawlers
+// (a rebuild that changes nothing does not claim a change).
+function modifiedDate() {
+  const today = new Date().toISOString().slice(0, 10);
+  const content = 'src i18n img profiles.json structured-data.mjs';
+  try {
+    if (execSync(`git status --porcelain -- ${content}`, { encoding: 'utf8' }).trim()) return today;
+    return execSync(`git log -1 --format=%cs -- ${content}`, { encoding: 'utf8' }).trim() || today;
+  } catch { return today; }
+}
+const MODIFIED = modifiedDate();
 
 const words = Object.fromEntries(LANGS.map((l) => [l.code, JSON.parse(readFileSync(`i18n/${l.code}.json`, 'utf8'))]));
 
@@ -59,7 +77,6 @@ const lookup = (o, key) => key.split('.').reduce((v, k) => (v == null ? v : v[k]
 const url = (lang, page) => `${lang.root}${page.path}`;
 // faq.items is a list in the JSON (the typography pass turns it into an object keyed 0, 1, 2…).
 const faqItems = (t) => Object.values(t.faq.items);
-const plain = (html) => html.replace(/<[^>]*>/g, '').replace(/ /g, ' ');
 
 for (const page of PAGES) {
   const template = readFileSync(page.src, 'utf8');
@@ -74,8 +91,14 @@ for (const page of PAGES) {
       og_image: ORIGIN + lang.og,
       alternates: [
         ...LANGS.map((l) => `<link rel="alternate" hreflang="${l.code}" href="${ORIGIN}${url(l, page)}">`),
-        `<link rel="alternate" hreflang="x-default" href="${ORIGIN}${url(LANGS[0], page)}">`,
+        `<link rel="alternate" hreflang="x-default" href="${ORIGIN}${url(LANGS.find((l) => l.code === 'en'), page)}">`,
       ].join('\n  '),
+      og_alternates: LANGS.filter((l) => l !== lang).map((l) => `<meta property="og:locale:alternate" content="${l.locale}">`).join('\n  '),
+      // Structured data for the home and FAQ pages (structured-data.mjs).
+      jsonld: page.kind ? structuredData({
+        kind: page.kind, origin: ORIGIN, pageUrl: ORIGIN + url(lang, page), lang, t, ogImage: ORIGIN + lang.og,
+        modified: MODIFIED, profiles: PROFILES, languages: LANGS.map((l) => l.code),
+      }) : '',
       switch: `<div class="lang" role="group" aria-label="${t.nav.lang}">${LANGS.map((l) =>
         `<a href="${url(l, page)}" hreflang="${l.code}" lang="${l.code}" title="${l.name}"${l === lang ? ' aria-current="page"' : ''}>${l.label}</a>`).join('')}</div>`,
       // The form's messages, for main.js. `<` is escaped so no text can close the script tag.
@@ -93,15 +116,6 @@ for (const page of PAGES) {
       band_text: Object.values(t.band.items).join(', '),
       faq_items: faqItems(t).map(({ q, a }) =>
         `<details class="faq-item reveal"><summary><span>${q}</span><i aria-hidden="true"></i></summary><div class="faq-body"><div><p>${a}</p></div></div></details>`).join('\n          '),
-      // The same questions for search engines (schema.org FAQPage).
-      faq_schema: JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'FAQPage',
-        inLanguage: lang.code,
-        mainEntity: faqItems(t).map(({ q, a }) => ({
-          '@type': 'Question', name: plain(q), acceptedAnswer: { '@type': 'Answer', text: plain(a) },
-        })),
-      }).replace(/</g, '\\u003c'),
     };
     const fill = (html) => html.replace(/\{\{\s*(@?[\w.]+)\s*\}\}/g, (_, key) => {
       const value = key.startsWith('@') ? special[key.slice(1)] : lookup(t, key);
@@ -122,12 +136,12 @@ for (const page of PAGES) {
 }
 
 // The sitemap names every page in every language, each with its siblings.
-const today = new Date().toISOString().slice(0, 10);
 const entries = PAGES.flatMap((page) => LANGS.map((lang) => [
   '  <url>',
   `    <loc>${ORIGIN}${url(lang, page)}</loc>`,
-  `    <lastmod>${today}</lastmod>`,
+  `    <lastmod>${MODIFIED}</lastmod>`,
   ...LANGS.map((l) => `    <xhtml:link rel="alternate" hreflang="${l.code}" href="${ORIGIN}${url(l, page)}"/>`),
+  `    <xhtml:link rel="alternate" hreflang="x-default" href="${ORIGIN}${url(LANGS.find((l) => l.code === 'en'), page)}"/>`,
   '  </url>',
 ].join('\n')));
 writeFileSync('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>
