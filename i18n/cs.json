@@ -18,7 +18,7 @@
     "who": "Pro lidi, kterým do plánů pořád leze život.",
     "h1": "Cíl, který přežije i <span class=\"gold\">špatný týden.</span>",
     "lede": "Řekneš Ori, čeho chceš dosáhnout. Za dvacet minut máš cestu k cíli rozloženou do svého kalendáře. A když přijde týden, kdy nestíháš, Ori plán přestaví. Nečeká, až se vrátíš k hromadě úkolů.",
-    "note": "Zapsání nic nestojí. Začínáme v Česku a na Slovensku. Hned ti přijde krátký e-mail od Damiana. <a href=\"{{@privacy}}\">Soukromí</a>",
+    "note": "Zapsání nic nestojí. Začínáme v Česku a na Slovensku. Hned ti přijde krátký e-mail od Damiana. <a href=\"{{@privacy}}\">Zásady ochrany soukromí</a>",
     "proof_a": "Ověřeno s",
     "proof_b": "a Red Bull Basement 2026"
   },
@@ -197,13 +197,13 @@
   "join": {
     "h2": "Začni cíl, který tentokrát <span class=\"gold\">přežije.</span>",
     "lede": "Ori je v testovací fázi. Zapiš se a hned ti přijde krátký e-mail od Damiana. Až na tebe přijde řada, ozveme se znovu.",
-    "note": "Jeden e-mail teď, jeden, až bude místo. Nic dalšího. <a href=\"{{@privacy}}\">Soukromí</a>",
+    "note": "Jeden e-mail teď, jeden, až bude místo. Nic dalšího. <a href=\"{{@privacy}}\">Zásady ochrany soukromí</a>",
     "ps": "P.S. Ten první e-mail má jednu otázku. Odpovědi čteme oba."
   },
   "footer": {
     "label": "Patička",
-    "privacy": "Soukromí",
-    "app_privacy": "Soukromí v aplikaci",
+    "privacy": "Zásady ochrany soukromí",
+    "app_privacy": "Zásady ochrany soukromí v aplikaci",
     "faq": "Otázky",
     "contact": "Kontakt"
   },
@@ -266,7 +266,7 @@
     "cta_p": "Napiš nám na <a href=\"mailto:oriapp.eu@gmail.com\">oriapp.eu@gmail.com</a> - odpovídáme my, ne robot."
   },
   "privacy": {
-    "title": "Soukromí - Ori",
+    "title": "Zásady ochrany soukromí - Ori",
     "description": "Jak Ori nakládá s e-mailem, který nám dáš při zápisu na čekací listinu.",
     "back": "Zpět na Ori",
     "home": "Domů",
