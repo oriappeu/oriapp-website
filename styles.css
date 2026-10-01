@@ -215,7 +215,6 @@ section[id] { scroll-margin-top: 56px; }
 .recog li strong { color: var(--text); font-weight: 600; }
 .statement { margin-top: 52px; font: 600 clamp(24px, 3vw, 36px)/1.25 var(--display); letter-spacing: -0.015em; max-width: 860px; text-wrap: balance; }
 .statement span { color: var(--sub); }
-.small { margin-top: 22px; font-size: 14px; color: var(--label); max-width: 640px; }
 
 /* The week plays once when it comes into view: each day arrives, Tuesday is
    ticked, Wednesday's chip is struck, the pile builds, Sunday starts over. */

@@ -79,8 +79,7 @@
       "<strong>Aplikácia čaká, kým sa vrátiš ku kope nesplnených úloh.</strong> Tak sa radšej nevrátiš.",
       "<strong>Tento cieľ začínaš tento rok už tretíkrát.</strong>"
     ],
-    "statement": "Nie si človek, ktorý veci nedotiahne. <span>Len tvoj plán počítal s tým, že budeš každý týždeň rovnaký.</span>",
-    "small": "Ori sa nehodí na riadenie firemných projektov a nenahradí terapiu ani lekára."
+    "statement": "Nie si človek, ktorý veci nedotiahne. <span>Len tvoj plán počítal s tým, že budeš každý týždeň rovnaký.</span>"
   },
   "band": {
     "label": "Čo tento rok rozbilo plán:",
@@ -252,7 +251,7 @@
       },
       {
         "q": "Na aké ciele sa Ori hodí?",
-        "a": "Na ciele, ku ktorým vedie pravidelná práca počas týždňov alebo mesiacov: spraviť jazykovú skúšku, zabehnúť polmaratón, rozbehnúť vedľajší projekt, naučiť sa novú zručnosť. Keď je cieľ zatiaľ hmlistý („byť fit“), Ori ti pomôže spraviť z neho konkrétny. Nehodí sa na riadenie tímových projektov ani ako náhrada terapie či lekárskej starostlivosti."
+        "a": "Na ciele, ku ktorým vedie pravidelná práca počas týždňov alebo mesiacov: spraviť jazykovú skúšku, zabehnúť polmaratón, rozbehnúť vedľajší projekt, naučiť sa novú zručnosť. Keď je cieľ zatiaľ hmlistý („byť fit“), Ori ti pomôže spraviť z neho konkrétny. Ori nenahrádza terapiu ani lekársku starostlivosť."
       },
       {
         "q": "Čo keď na týždeň alebo dva úplne vypadnem?",

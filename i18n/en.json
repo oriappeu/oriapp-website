@@ -79,8 +79,7 @@
       "<strong>The app waits until you come back to a pile of unfinished tasks.</strong> So you would rather not come back.",
       "<strong>This is the third time this year you're starting this goal.</strong>"
     ],
-    "statement": "You're not someone who doesn't finish things. <span>Your plan just assumed you'd be the same person every week.</span>",
-    "small": "Ori isn't built for running company projects, and it doesn't replace therapy or a doctor."
+    "statement": "You're not someone who doesn't finish things. <span>Your plan just assumed you'd be the same person every week.</span>"
   },
   "band": {
     "label": "What broke the plan this year:",
@@ -252,7 +251,7 @@
       },
       {
         "q": "What kind of goals is Ori for?",
-        "a": "Goals that take regular work over weeks or months: passing a language exam, running a half-marathon, starting a side project, learning a new skill. If a goal is still vague (\"get fit\"), Ori helps you make it concrete. It isn't for managing team projects, and it isn't a replacement for therapy or medical care."
+        "a": "Goals that take regular work over weeks or months: passing a language exam, running a half-marathon, starting a side project, learning a new skill. If a goal is still vague (\"get fit\"), Ori helps you make it concrete. It isn't a replacement for therapy or medical care."
       },
       {
         "q": "What if I drop out completely for a week or two?",
