@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ori - Dosiahni svoje ciele. Nie na úkor svojho života.</title>
-  <meta name="description" content="Ori je AI kouč osobného rozvoja. Plán ti dnes napíše akákoľvek AI - Ori je tu pre týždeň, keď sa ten plán rozpadne. Všimne si, prispôsobí cestu tvojej skutočnej kapacite a pomôže ti znovu sa rozbehnúť. Bez kopy nesplnených úloh, bez výčitiek.">
+  <title>Ori: cieľ, ktorý prežije aj zlý týždeň</title>
+  <meta name="description" content="Ori je AI kouč osobného rozvoja. Rozloží tvoj cieľ do kalendára a keď príde zlý týždeň, plán prestavia. Zápis nič nestojí, začíname v Česku a na Slovensku.">
   <meta name="theme-color" content="#0F0C14">
   <link rel="canonical" href="https://oriapp.eu/sk/">
   <link rel="alternate" hreflang="cs" href="https://oriapp.eu/">
@@ -17,14 +17,14 @@
   <meta property="og:url" content="https://oriapp.eu/sk/">
   <meta property="og:site_name" content="Ori">
   <meta property="og:locale" content="sk_SK">
-  <meta property="og:title" content="Ori - Dosiahni svoje ciele. Nie na úkor svojho života.">
-  <meta property="og:description" content="Plán ti postaví AI. Vďaka Ori ho budeš mať aj v šiestom mesiaci.">
+  <meta property="og:title" content="Ori: cieľ, ktorý prežije aj zlý týždeň">
+  <meta property="og:description" content="Plán ti postaví AI. Ori ho udrží, keď sa rozpadne.">
   <meta property="og:image" content="https://oriapp.eu/assets/og-sk.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Ori - Dosiahni svoje ciele. Nie na úkor svojho života.">
-  <meta name="twitter:description" content="Plán ti postaví AI. Vďaka Ori ho budeš mať aj v šiestom mesiaci.">
+  <meta name="twitter:title" content="Ori: cieľ, ktorý prežije aj zlý týždeň">
+  <meta name="twitter:description" content="Plán ti postaví AI. Ori ho udrží, keď sa rozpadne.">
   <meta name="twitter:image" content="https://oriapp.eu/assets/og-sk.png">
 
   <link rel="icon" href="/assets/favicon.ico" sizes="any">
@@ -35,8 +35,9 @@
   <link rel="preload" href="/fonts/sora-600-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/styles.css">
-  <!-- A reload starts at the top: the browser must not restore the old position. -->
-  <script>if ('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
+  <!-- `js` gates every hidden-until-seen state, so without script the page simply reads.
+       A reload starts at the top: the browser must not restore the old position. -->
+  <script>document.documentElement.classList.add('js'); if ('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
 
   <script type="application/ld+json">
   {
@@ -46,7 +47,7 @@
     "applicationCategory": "LifestyleApplication",
     "operatingSystem": "Android, iOS, Web",
     "inLanguage": "sk",
-    "description": "AI kouč osobného rozvoja, ktorý plánuje podľa tvojej skutočnej kapacity a prestavia cestu, keď sa táto kapacita zmení.",
+    "description": "AI kouč osobného rozvoja, ktorý rozloží cieľ do kalendára a prestavia plán, keď sa zmení tvoja kapacita.",
     "url": "https://oriapp.eu/sk/"
   }
   </script>
@@ -55,73 +56,56 @@
   <script defer src="https://cloud.umami.is/script.js" data-website-id="3be86478-1afd-4b48-8b94-6532dd16d602" data-domains="oriapp.eu"></script>
 </head>
 <body>
-  <div class="progress-bar" aria-hidden="true"></div>
-  <div class="aura" aria-hidden="true"><span class="g1"></span><span class="g2"></span><span class="g3"></span></div>
+<div class="progress-bar" aria-hidden="true"></div>
+<div class="aura" aria-hidden="true"><span class="g1"></span><span class="g2"></span><span class="g3"></span></div>
 
-  <header class="nav">
-    <div class="wrap">
-      <a class="brand" href="#top" aria-label="Ori, späť hore">
-        <img src="/assets/icon-192.png" alt="" width="32" height="32">
-        <span>Ori</span>
-      </a>
-      <nav class="nav-links" aria-label="Sekcie">
-        <a href="#how">Ako to funguje</a>
-        <a href="#why">Prečo to funguje</a>
-        <a href="#who">Pre koho</a>
-        <a href="/sk/faq.html">Otázky</a>
-        <div class="lang" role="group" aria-label="Jazyk"><a href="/" hreflang="cs" lang="cs" title="Čeština">CS</a><a href="/sk/" hreflang="sk" lang="sk" title="Slovenčina" aria-current="page">SK</a><a href="/en/" hreflang="en" lang="en" title="English">EN</a></div>
-        <a class="btn btn-primary" href="#join">Chcem prístup</a>
-      </nav>
-    </div>
-  </header>
+<header class="nav">
+  <div class="bar">
+    <a class="brand" href="/sk/" aria-label="Ori, späť hore">
+      <img src="/assets/icon-192.png" alt="" width="32" height="32">
+      <span>Ori</span>
+    </a>
+    <nav class="links" aria-label="Sekcie">
+      <a href="/sk/#jak">Ako to funguje</a>
+      <a href="/sk/#kdo">Kto za tým stojí</a>
+      <a href="/sk/faq.html">Otázky</a>
+      <div class="lang" role="group" aria-label="Jazyk"><a href="/" hreflang="cs" lang="cs" title="Čeština">CS</a><a href="/sk/" hreflang="sk" lang="sk" title="Slovenčina" aria-current="page">SK</a><a href="/en/" hreflang="en" lang="en" title="English">EN</a></div>
+      <a class="btn btn-primary" href="/sk/#zapis">Chcem prístup</a>
+    </nav>
+  </div>
+</header>
 
   <main id="top">
     <!-- ── Hero ─────────────────────────────────────────────────────────── -->
     <section class="hero">
       <div class="wrap">
-        <div>
-          <span class="eyebrow voice">Tvoj AI kouč osobného rozvoja</span>
-          <h1 class="split">Dosiahni svoje ciele. Nie na úkor <span class="gold">svojho života.</span></h1>
-          <p class="lede">Plán ti dnes napíše akákoľvek AI. Ori je tu pre týždeň, keď sa ten plán rozpadne - všimne si, že ti do toho vstúpil život, prispôsobí cestu tomu, čo naozaj zvládneš, a pomôže ti znovu sa rozbehnúť. Žiadna kopa nesplnených úloh. Žiadne výčitky.</p>
-          <form class="waitlist" id="form-hero" novalidate>
+        <div class="hero-copy">
+          <p class="who reveal" style="--i:0">Pre ľudí, ktorým do plánov stále lezie život.</p>
+          <h1 class="split">Cieľ, ktorý prežije aj <span class="gold">zlý týždeň.</span></h1>
+          <p class="lede reveal" style="--i:2">Povieš Ori, čo chceš dosiahnuť. Za dvadsať minút máš cestu k cieľu rozloženú do svojho kalendára. A keď príde týždeň, v ktorom nestíhaš, Ori plán prestavia. Nečaká, kým sa vrátiš ku kope úloh.</p>
+          <form class="waitlist reveal" style="--i:3" id="form-hero" novalidate>
             <label class="hp" aria-hidden="true">Nechaj prázdne <input type="text" name="company" tabindex="-1" autocomplete="off"></label>
-            <input type="email" name="email" placeholder="tvoj@email.sk" autocomplete="email" required aria-label="Tvoja e-mailová adresa">
+            <input type="email" id="email-hero" name="email" placeholder="tvoj@email.sk" autocomplete="email" required aria-label="Tvoja e-mailová adresa">
             <button class="btn btn-primary" type="submit">Chcem byť medzi prvými</button>
           </form>
-          <p class="form-note" role="status" aria-live="polite">Prístup otvárame najskôr v Česku a na Slovensku. Ozveme sa, keď na teba príde rad - <a href="/sk/privacy.html">súkromie</a>.</p>
+          <p class="form-note reveal" style="--i:4" role="status" aria-live="polite">Zápis nič nestojí. Začíname v Česku a na Slovensku. Hneď ti príde krátky e-mail od Damiana. <a href="/sk/privacy.html">Súkromie</a></p>
+          <p class="proof reveal" style="--i:5">
+            <span>Overené s</span>
+            <svg viewBox="160 400 680 200" aria-label="JIC" role="img"><path d="M160 560h160V400h40v200H160zM480 400h40v200h-40zM640 400h200v40H680v120h160v40H640z" fill="currentColor"/></svg>
+            <span>a Red Bull Basement 2026</span>
+          </p>
         </div>
 
-        <div class="hero-visual reveal" aria-label="Ukážka, ako Ori preplánuje deň">
+        <div class="hero-visual reveal" style="--i:2" aria-label="Ukážka, ako Ori preplánuje deň">
           <div class="phone glass story">
             <div class="phone-head"><b>Štvrtok</b><span>Zabehnúť polmaratón</span></div>
-            <div class="gps">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-              Podľa plánu
-            </div>
-            <div class="ori-says">
-              <b>Ori</b>
-              Náročný týždeň v práci. Dlhý beh sa presúva na sobotu ráno - dnes večer ti sériu udrží 15 minút mobility.
-            </div>
-            <div class="row moved">
-              <span class="bar" style="background: var(--health)"></span>
-              <div><div class="t">Dlhý beh · 60 min</div><div class="m"><span class="now">Dnes, 18:00</span><span class="later">Presunuté na sobotu, 9:00</span></div></div>
-            </div>
-            <div class="row quick">
-              <span class="bar" style="background: var(--health)"></span>
-              <div><div class="t">Mobilita · 15 min</div><div class="m">Namiesto toho menší krok</div></div>
-              <span class="time">20:30</span>
-            </div>
-            <div class="row habit">
-              <span class="bar" style="background: var(--learning)"></span>
-              <div><div class="t">Prečítať 20 strán</div><div class="m">Zvyk · po večeri</div></div>
-              <span class="time">21:00</span>
-            </div>
+            <div class="gps"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Podľa plánu</div>
+            <div class="ori-says"><b>Ori</b>Náročný týždeň v práci. Dlhý beh sa presúva na sobotu ráno. Dnes večer stačí 15 minút mobility a séria zostane.</div>
+            <div class="row moved"><span class="bar" style="background: var(--health)"></span><div><div class="t">Dlhý beh · 60 min</div><div class="m"><span class="now">Dnes, 18:00</span><span class="later">Presunuté na sobotu, 9:00</span></div></div></div>
+            <div class="row quick"><span class="bar" style="background: var(--health)"></span><div><div class="t">Mobilita · 15 min</div><div class="m">Namiesto toho menší krok</div></div><span class="time">20:30</span></div>
+            <div class="row habit"><span class="bar" style="background: var(--learning)"></span><div><div class="t">Prečítať 20 strán</div><div class="m">Zvyk · po večeri</div></div><span class="time">21:00</span></div>
             <div class="progress">
-              <svg viewBox="0 0 46 46" aria-hidden="true">
-                <circle cx="23" cy="23" r="19" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="4"/>
-                <circle class="ring" cx="23" cy="23" r="19" fill="none" stroke="#E9C464" stroke-width="4" stroke-linecap="round"
-                        stroke-dasharray="119.4" stroke-dashoffset="29.8" transform="rotate(-90 23 23)"/>
-              </svg>
+              <svg viewBox="0 0 46 46" aria-hidden="true"><circle cx="23" cy="23" r="19" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="4"/><circle class="ring" cx="23" cy="23" r="19" fill="none" stroke="#E9C464" stroke-width="4" stroke-linecap="round" stroke-dasharray="119.4" stroke-dashoffset="29.8" transform="rotate(-90 23 23)"/></svg>
               <p class="t"><b>Míľnik 2 · Zvládnuť 10 km</b><br>Hotové 3 zo 4 tréningov</p>
             </div>
           </div>
@@ -129,120 +113,78 @@
       </div>
     </section>
 
-    <!-- ── Validated with ───────────────────────────────────────────────── -->
-    <section class="trust" aria-label="Overené s">
-      <div class="wrap reveal">
-        <span class="trust-label">Overené s</span>
-        <span class="trust-logo" role="img" aria-label="JIC">
-          <svg viewBox="160 400 680 200" aria-hidden="true"><path d="M160 560h160V400h40v200H160zM480 400h40v200h-40zM640 400h200v40H680v120h160v40H640z" fill="currentColor"/></svg>
-        </span>
-        <span class="trust-sep" aria-hidden="true"></span>
-        <span class="trust-name">Red Bull Basement 2026</span>
-      </div>
-    </section>
-
-    <!-- ── The problem ──────────────────────────────────────────────────── -->
-    <section id="problem">
+    <!-- ── Do you recognise this? A week, then the lines you may know ───── -->
+    <section id="poznavas">
       <div class="wrap">
-        <div class="section-head reveal">
-          <span class="eyebrow">Problém</span>
-          <h2 class="split">Plán si dnes spraví každý. Dotiahne ho <span class="gold">skoro nikto.</span></h2>
+        <h2 class="reveal">Spoznávaš sa?</h2>
+        <div class="week-wrap glass reveal" id="week" role="img" aria-label="Týždeň, v ktorom sa plán rozpadne: v pondelok nový plán, v stredu ho rozbije porada, do nedele z neho zostane kopa a nový plán.">
+          <div class="week" aria-hidden="true">
+            <div class="day">
+              <b>Po</b>
+              <div class="slot"><div class="chip fresh"><i></i><div><span class="t">Angličtina</span><span class="m">45 min</span></div></div></div>
+              <p>Nový plán. Tentoraz to vyjde.</p>
+            </div>
+            <div class="day">
+              <b>Ut</b>
+              <div class="slot"><div class="chip done"><i></i><div><span class="t">Angličtina</span><span class="m">45 min</span></div><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div></div>
+              <p>Ide to.</p>
+            </div>
+            <div class="day turn">
+              <b>St</b>
+              <div class="slot"><div class="chip cut"><i></i><div><span class="t">Angličtina</span><span class="m">45 min</span></div></div></div>
+              <p>Porada sa predĺžila. Tak zajtra.</p>
+            </div>
+            <div class="day">
+              <b>Št</b>
+              <div class="slot">
+                <div class="chip carried"><i></i><div><span class="t">Angličtina</span><span class="m">zo stredy</span></div></div>
+                <div class="chip"><i></i><div><span class="t">Angličtina</span><span class="m">45 min</span></div></div>
+              </div>
+              <p>Zajtra to bude 90 minút.</p>
+            </div>
+            <div class="day">
+              <b>Pi</b>
+              <div class="slot">
+                <div class="chip carried dim"><i></i><div><span class="t">Angličtina</span><span class="m">zo stredy</span></div></div>
+                <div class="chip carried dim"><i></i><div><span class="t">Angličtina</span><span class="m">zo štvrtka</span></div></div>
+                <div class="chip dim"><i></i><div><span class="t">Angličtina</span><span class="m">45 min</span></div></div>
+              </div>
+              <p>Kamaráti. Otvárať to nemá zmysel.</p>
+            </div>
+            <div class="day">
+              <b>So</b>
+              <div class="slot"><div class="pile"><div class="chip front"><i></i><div><span class="t">4 resty</span><span class="m">Angličtina</span></div></div></div></div>
+              <p>Kopa.</p>
+            </div>
+            <div class="day">
+              <b>Ne</b>
+              <div class="slot"><div class="chip fresh"><i></i><div><span class="t">Nový plán</span><span class="m">Angličtina</span></div></div></div>
+              <p>Tentoraz to vyjde.</p>
+            </div>
+          </div>
         </div>
-        <div class="grid-3">
-          <article class="card glass reveal">
-            <span class="num">01</span>
-            <h3>Plán je dnes zadarmo</h3>
-            <p>Akákoľvek AI ti za pár sekúnd napíše dôveryhodný plán. To už nie je tá ťažká časť.</p>
-          </article>
-          <article class="card glass reveal">
-            <span class="num">02</span>
-            <h3>Život ho rozbije</h3>
-            <p>Nával v práci, zlý týždeň, jeden vynechaný tréning. Plán počíta s verziou teba, ktorá je stále rovnaká - a tá neexistuje.</p>
-          </article>
-          <article class="card glass reveal">
-            <span class="num">03</span>
-            <h3>Začať odznova stojí najviac</h3>
-            <p>Každá aplikácia čaká, kým sa vrátiš a postavíš sa kope nesplnených úloh. Väčšina ľudí sa už nevráti.</p>
-          </article>
-        </div>
-        <p class="statement reveal">Viac času trávime organizovaním svojho života než jeho zlepšovaním.</p>
+        <ul class="recog reveal">
+        <li><strong>V nedeľu večer si napíšeš plán na týždeň.</strong> V stredu sa predĺži porada a je po ňom.</li>
+        <li><strong>Po práci nemáš silu ani rozhodnúť, čím začať.</strong> Tak otvoríš Instagram.</li>
+        <li><strong>Jeden vynechaný tréning.</strong> O týždeň je z neho vynechaný mesiac.</li>
+        <li><strong>Aplikácia čaká, kým sa vrátiš ku kope nesplnených úloh.</strong> Tak sa radšej nevrátiš.</li>
+        <li><strong>Tento cieľ začínaš tento rok už tretíkrát.</strong></li>
+        </ul>
+        <p class="statement reveal">Nie si človek, ktorý veci nedotiahne. <span>Len tvoj plán počítal s tým, že budeš každý týždeň rovnaký.</span></p>
+        <p class="small reveal">Ori sa nehodí na riadenie firemných projektov a nenahradí terapiu ani lekára.</p>
       </div>
     </section>
 
-    <!-- ── The loop, running ─────────────────────────────────────────── -->
-    <div class="band" aria-hidden="true">
-      <div class="band-track">
-        <span>Všimnúť si <i>◆</i></span><span>Pochopiť <i>◆</i></span><span>Upraviť <i>◆</i></span><span>Pokračovať <i>◆</i></span><span>Rovnaký cieľ, iná cesta <i>◆</i></span>
-        <span>Všimnúť si <i>◆</i></span><span>Pochopiť <i>◆</i></span><span>Upraviť <i>◆</i></span><span>Pokračovať <i>◆</i></span><span>Rovnaký cieľ, iná cesta <i>◆</i></span>
-      </div>
+    <!-- ── What broke the plan this year ────────────────────────────────── -->
+    <div class="band reveal">
+      <p class="band-label" aria-hidden="true">Čo tento rok rozbilo plán:</p>
+      <p class="sr-only">Čo tento rok rozbilo plán: porada sa predĺžila, choroba, skúšky, kamaráti, návšteva, sťahovanie, nový projekt v práci, dovolenka, deti, jednoducho nič.</p>
+      <div class="band-mask" aria-hidden="true"><div class="pills"><span>porada sa predĺžila</span><span>choroba</span><span>skúšky</span><span>kamaráti</span><span>návšteva</span><span>sťahovanie</span><span>nový projekt v práci</span><span>dovolenka</span><span>deti</span><span>jednoducho nič</span><span class="dup">porada sa predĺžila</span><span class="dup">choroba</span><span class="dup">skúšky</span><span class="dup">kamaráti</span><span class="dup">návšteva</span><span class="dup">sťahovanie</span><span class="dup">nový projekt v práci</span><span class="dup">dovolenka</span><span class="dup">deti</span><span class="dup">jednoducho nič</span></div></div>
     </div>
 
-    <!-- ── How it works ─────────────────────────────────────────────────── -->
-    <section id="how">
+    <!-- ── How it works: the model of the app, and the words ────────────── -->
+    <section id="jak">
       <div class="wrap">
-        <div class="section-head reveal">
-          <span class="eyebrow">Ako Ori funguje</span>
-          <h2 class="split">Plán vie zostaviť každá aplikácia. Ori je tu pre <span class="gold">týždeň, keď sa rozpadne.</span></h2>
-        </div>
-
-        <div class="setup glass reveal">
-          <span class="tag">Nastavenie · raz</span>
-          <div>
-            <h3>Dvadsať minút a plánovanie preberá Ori</h3>
-            <p>Tvoj cieľ, odkiaľ začínaš, prečo je pre teba dôležitý a koľko času máš naozaj. Ori z toho zostaví cestu po míľnikoch a naplánuje ti kroky na najbližšie dni podľa tvojho skutočného kalendára.</p>
-          </div>
-        </div>
-
-        <div class="grid-4">
-          <article class="card glass-soft step reveal">
-            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg></div>
-            <span class="num">01 - Všimne si</span>
-            <h3>Ori príde za tebou</h3>
-            <p>Pár dní je ticho. Ori si to všimne. Nemusíš nikomu hlásiť, že sa ti nedarí.</p>
-          </article>
-          <article class="card glass-soft step reveal">
-            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></div>
-            <span class="num">02 - Pochopí</span>
-            <h3>Tvoja kapacita, nie plán</h3>
-            <p>Vynechané kroky a chýbajúce check-iny hovoria samy za seba. Jedna otázka to potvrdí.</p>
-          </article>
-          <article class="card glass-soft step reveal">
-            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h10M4 17h6M18 4v16M15 17l3 3 3-3"/></svg></div>
-            <span class="num">03 - Upraví</span>
-            <h3>Menší, alebo iný</h3>
-            <p>Ori nemení len dátum, ale aj rozsah a samotnú činnosť. Namiesto hlbokej práce menší krok, ktorý dáš.</p>
-          </article>
-          <article class="card glass-soft step reveal">
-            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-            <span class="num">04 - Pokračuješ</span>
-            <h3>Nie od nuly</h3>
-            <p>Nadviažeš tam, kde si. Rovnaký cieľ, iná cesta, žiadne výčitky.</p>
-          </article>
-        </div>
-        <p class="loop-note reveal">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg>
-          S každým kolom sa Ori lepšie učí tvoje skutočné tempo. V šiestom mesiaci je to iný produkt ako prvý deň.
-        </p>
-      </div>
-    </section>
-
-    <!-- ── Try it: a small working model of the app ─────────────────────── -->
-    <section id="try">
-      <div class="wrap">
-        <div class="try-copy">
-          <div class="section-head reveal">
-            <span class="eyebrow">Vyskúšaj si to</span>
-            <h2 class="split">Skús si, ako Ori <span class="gold">preplánuje deň.</span></h2>
-            <p class="lede">Toto je zjednodušená ukážka aplikácie. Povedz Ori, že dnes nemáš energiu, a sleduj, čo sa stane.</p>
-          </div>
-          <ol class="try-steps reveal">
-            <li data-step="1"><span class="n">1</span><span>Ťukni na „Málo“ - dnes nemáš energiu.</span></li>
-            <li data-step="2"><span class="n">2</span><span>Odškrtni menší krok, ktorý Ori navrhol.</span></li>
-            <li data-step="3"><span class="n">3</span><span>Otvor Roadmapu a pozri sa, čo to urobilo s tvojím cieľom.</span></li>
-          </ol>
-          <p class="try-done" aria-live="polite"><span>Presne toto robí Ori každý deň - namiesto teba.</span> <button type="button" class="try-reset">Skúsiť znova</button></p>
-        </div>
-
         <div class="device reveal" role="group" aria-label="Interaktívna ukážka aplikácie Ori">
           <div class="demo" data-energy="mid" data-tab="today" data-step="1">
             <div class="demo-screen" data-screen="today" role="tabpanel" id="demo-today" aria-labelledby="demo-tab-today">
@@ -256,39 +198,22 @@
               <div class="demo-says" aria-live="polite">
                 <b>Ori</b>
                 <span class="v v-mid">Dnes ťa čaká jeden dlhší blok. Daj vedieť, ako na tom si.</span>
-                <span class="v v-high">Paráda. Plán platí - ideme podľa neho.</span>
-                <span class="v v-low">Rozumiem. Dlhší blok presúvam na sobotu ráno. Dnes stačí 10 minút slovíčok - séria zostane.</span>
-                <span class="v v-done">Hotovo. Séria pokračuje - 6 dní v rade.</span>
+                <span class="v v-high">Paráda. Plán platí, ideme podľa neho.</span>
+                <span class="v v-low">Rozumiem. Dlhší blok presúvam na sobotu ráno. Dnes stačí 10 minút slovíčok a séria zostane.</span>
+                <span class="v v-done">Hotovo. Séria pokračuje, 6 dní v rade.</span>
               </div>
-              <div class="row d-session">
-                <span class="bar" style="background: var(--learning)"></span>
-                <div><div class="t">Počúvanie a gramatika · 45 min</div><div class="m"><span class="now">Hlavný krok dňa</span><span class="later">Presunuté na sobotu, 9:00</span></div></div>
-                <span class="time">18:30</span>
-              </div>
+              <div class="row d-session"><span class="bar" style="background: var(--learning)"></span><div><div class="t">Počúvanie a gramatika · 45 min</div><div class="m"><span class="now">Hlavný krok dňa</span><span class="later">Presunuté na sobotu, 9:00</span></div></div><span class="time">18:30</span></div>
               <div class="d-quick-slot"><div>
-                <div class="row d-quick">
-                  <span class="bar" style="background: var(--learning)"></span>
-                  <div><div class="t">Slovíčka · 10 min</div><div class="m">Namiesto toho menší krok</div></div>
-                  <button type="button" class="demo-check" role="checkbox" aria-checked="false" aria-label="Označiť ako hotové">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-                  </button>
+                <div class="row d-quick"><span class="bar" style="background: var(--learning)"></span><div><div class="t">Slovíčka · 10 min</div><div class="m">Namiesto toho menší krok</div></div>
+                  <button type="button" class="demo-check" role="checkbox" aria-checked="false" aria-label="Označiť ako hotové"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></button>
                 </div>
               </div></div>
-              <div class="row">
-                <span class="bar" style="background: var(--rest)"></span>
-                <div><div class="t">Podcast v angličtine</div><div class="m">Zvyk · pred spaním</div></div>
-                <span class="time">21:00</span>
-              </div>
+              <div class="row"><span class="bar" style="background: var(--rest)"></span><div><div class="t">Podcast v angličtine</div><div class="m">Zvyk · pred spaním</div></div><span class="time">21:00</span></div>
               <div class="progress demo-ms">
-                <svg viewBox="0 0 46 46" aria-hidden="true">
-                  <circle cx="23" cy="23" r="19" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="4"/>
-                  <circle class="d-ring" cx="23" cy="23" r="19" fill="none" stroke="#E9C464" stroke-width="4" stroke-linecap="round"
-                          stroke-dasharray="119.4" transform="rotate(-90 23 23)"/>
-                </svg>
+                <svg viewBox="0 0 46 46" aria-hidden="true"><circle cx="23" cy="23" r="19" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="4"/><circle class="d-ring" cx="23" cy="23" r="19" fill="none" stroke="#E9C464" stroke-width="4" stroke-linecap="round" stroke-dasharray="119.4" transform="rotate(-90 23 23)"/></svg>
                 <p class="t"><b>Míľnik 2 · Gramatika B1</b><br><span class="c2">Hotové 2 zo 4 krokov</span><span class="c3">Hotové 3 zo 4 krokov</span></p>
               </div>
             </div>
-
             <div class="demo-screen" data-screen="road" role="tabpanel" id="demo-road" aria-labelledby="demo-tab-road">
               <div class="phone-head"><b>Roadmapa</b><span>Angličtina B2</span></div>
               <ol class="demo-road">
@@ -297,158 +222,114 @@
                 <li><i></i><div><b>Míľnik 3 · Rozprávanie s lektorom</b><span>Od novembra</span></div></li>
                 <li><i></i><div><b>Skúška B2</b><span>Cieľ · jún 2027</span></div></li>
               </ol>
-              <div class="demo-says"><b>Ori</b><span>Dnešok posunul len jeden blok. Cieľ zostáva na jún - a séria beží ďalej.</span></div>
-              <p class="gps">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-                Podľa plánu - aj po dnešku
-              </p>
+              <div class="demo-says"><b>Ori</b><span>Dnešok posunul len jeden blok. Cieľ zostáva na jún a séria beží ďalej.</span></div>
+              <p class="gps"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Podľa plánu, aj po dnešku</p>
             </div>
-
             <div class="demo-tabs" role="tablist" aria-label="Ori">
-              <button type="button" role="tab" id="demo-tab-today" aria-controls="demo-today" aria-selected="true" data-set-tab="today">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
-                Dnes
-              </button>
-              <button type="button" role="tab" id="demo-tab-road" aria-controls="demo-road" aria-selected="false" data-set-tab="road">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l2.9 6.2 6.6.8-4.9 4.6 1.3 6.6L12 17l-5.9 3.2 1.3-6.6L2.5 9l6.6-.8z"/></svg>
-                Roadmapa
-              </button>
+              <button type="button" role="tab" id="demo-tab-today" aria-controls="demo-today" aria-selected="true" data-set-tab="today"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>Dnes</button>
+              <button type="button" role="tab" id="demo-tab-road" aria-controls="demo-road" aria-selected="false" data-set-tab="road"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l2.9 6.2 6.6.8-4.9 4.6 1.3 6.6L12 17l-5.9 3.2 1.3-6.6L2.5 9l6.6-.8z"/></svg>Roadmapa</button>
             </div>
+          </div>
+        </div>
+
+        <div class="copy">
+          <h2 class="reveal">Keď zídeš z trasy, Ori ju prepočíta.</h2>
+          <p class="lede reveal">Bežná aplikácia ti úlohu presunie na zajtra. Zajtra tam je znova, len väčšia. Ori robí to, čo navigácia v aute. Všimne si, že si mimo trasy, a nájde novú. Menší krok namiesto veľkého. Sobota namiesto štvrtka. Rovnaký cieľ.</p>
+          <div class="points reveal">
+            <p><b>Všimne si sám.</b>Keď pár dní mlčíš, Ori sa ozve prvý. Nemusíš hlásiť, že sa nedarí.</p>
+            <p><b>Zmenší, alebo zmení.</b>Nemení len dátum. Zmenší rozsah alebo vyberie inú činnosť, ktorú dnes zvládneš.</p>
+            <p><b>Nadviažeš, kde si.</b>Rovnaký cieľ, nová cesta. Kopa nesplnených úloh sa nikdy neobjaví.</p>
+          </div>
+          <div class="try reveal">
+            <h3>Skús si to.</h3>
+            <ol class="try-steps">
+              <li data-step="1"><span class="n">1</span><span>Ťukni na „Málo“. Dnes nemáš energiu.</span></li>
+              <li data-step="2"><span class="n">2</span><span>Odškrtni menší krok, ktorý Ori navrhol.</span></li>
+              <li data-step="3"><span class="n">3</span><span>Otvor Roadmapu. Cieľ je stále podľa plánu.</span></li>
+            </ol>
+            <p class="try-done" aria-live="polite"><span>Presne toto robí Ori každý deň. Namiesto teba.</span> <button type="button" class="try-reset">Skúsiť znova</button></p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ── Why it works ─────────────────────────────────────────────────── -->
-    <section id="why">
+    <!-- ── The first week, on real screens ──────────────────────────────── -->
+    <section id="tyden">
       <div class="wrap">
-        <div class="section-head reveal">
-          <span class="eyebrow">Prečo Ori funguje</span>
-          <h2 class="split">Staviame na <span class="gold">zmene správania,</span> nie na závislosti od aplikácie.</h2>
-          <p class="lede">Keď sa zmení tvoja kapacita, mení sa plán - nie cieľ.</p>
-        </div>
-        <div class="grid-2">
-          <article class="principle glass reveal">
-            <div class="dot" style="background: var(--health)"></div>
-            <h3>Úlohu zmenšíme, nie len presunieme</h3>
-            <p>Presunutá úloha je rovnaký múr, len o deň neskôr. Menšiu úlohu spravíš - a práve to, že niečo spravíš, znovu rozbehne zvyk.</p>
-          </article>
-          <article class="principle glass reveal">
-            <div class="dot" style="background: var(--rest)"></div>
-            <h3>Kopu nesplneného nikdy neuvidíš</h3>
-            <p>Návrat po zlom týždni nie je problém motivácie, ale hanby. Ori sa ozve prvý, takže ten ťažký návrat vôbec nepríde.</p>
-          </article>
-          <article class="principle glass reveal">
-            <div class="dot" style="background: var(--creation)"></div>
-            <h3>Najprv prečo, potom čo</h3>
-            <p>Vášeň, alebo tlak? Ambícia, alebo kapacita? Úvodný rozhovor tvaruje celú cestu, pretože plán postavený na zlej motivácii zomrie v treťom týždni.</p>
-          </article>
-          <article class="principle glass reveal">
-            <div class="dot" style="background: var(--work)"></div>
-            <h3>Rozvrh určuje energia</h3>
-            <p>Nielen voľné okno v kalendári. Prevencia vyhorenia je tu pravidlo plánovania, nie wellness sekcia.</p>
-          </article>
-        </div>
-        <p class="statement reveal">Bežné aplikácie vyhrávajú, keď v nich trávíš čas. Ori vyhráva, keď robíš to podstatné mimo neho.</p>
-      </div>
-    </section>
-
-    <!-- ── Who it's for ─────────────────────────────────────────────────── -->
-    <section id="who">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <span class="eyebrow">Pre koho je Ori</span>
-          <h2 class="split">Pre ľudí, ktorí chcú systém, ktorý sa prispôsobí im - nie naopak.</h2>
-        </div>
-        <div class="grid-2">
-          <article class="persona glass reveal">
-            <p class="who">Mladí profesionáli · 25–35</p>
-            <h3>Ambiciózni, ale o šiestej večer už bez síl rozhodovať</h3>
-            <ul>
-              <li>Po práci ich vyčerpá každé ďalšie rozhodnutie.</li>
-              <li>Vedľajší projekt nerozbehnú, lebo už len vymyslieť, kde začať, je vyčerpávajúce.</li>
-              <li>Chcú dostať ďalší krok naservírovaný - a taký veľký, na aký ten večer naozaj majú.</li>
-            </ul>
-          </article>
-          <article class="persona glass reveal">
-            <p class="who">Ťahúni</p>
-            <h3>Výkonní ľudia, ktorí už raz vyhoreli</h3>
-            <ul>
-              <li>Vedia veci dotiahnuť - a predsa nedávno kvôli vyhoreniu alebo času odložili osobný projekt.</li>
-              <li>Hľadajú systém, ktorý prežije aj týždne, keď nemôžu podávať výkon.</li>
-              <li>V dobrých dňoch chcú postrčiť, v zlých ochrániť.</li>
-            </ul>
-          </article>
+        <h2 class="reveal">Tvoj prvý týždeň s Ori.</h2>
+        <p class="lede reveal">Snímky sú zo skutočnej aplikácie, ktorú teraz testujeme. Zatiaľ je po anglicky, čeština a slovenčina sa chystajú.</p>
+        <div class="tl" id="route">
+          <div class="tl-row reveal">
+            <div><span class="when">Deň 1</span><h3>Dvadsať minút. Potom plánuje Ori.</h3><p>Povieš Ori svoj cieľ a prečo ho chceš. Ori sa dopytuje, kým nie je konkrétny. Dostaneš cestu po míľnikoch a prvé kroky rovno v kalendári.</p></div>
+            <div class="shot"><img src="/img/day1.webp" width="600" height="800" alt="Obrazovka cieľa v Ori: Run a 5K, termín 29. decembra 2026, stav Podľa plánu a roadmapa s míľnikmi" loading="lazy"></div>
+          </div>
+          <div class="tl-row reveal">
+            <div><span class="when">Deň 2 až 4</span><h3>Každý deň jeden konkrétny krok.</h3><p>Vieš, koľko minút to zaberie a čo presne urobiť. Kroky sedia do tvojho skutočného týždňa, nie do toho ideálneho.</p></div>
+            <div class="shot"><img src="/img/day2.webp" width="600" height="385" alt="Kalendár v Ori s krokom Easy run 1 naplánovaným na 19:40, 30 minút" loading="lazy"></div>
+          </div>
+          <div class="tl-row reveal">
+            <div><span class="when">Deň 5</span><h3>Málo energie? Ťukneš a Ori to vie.</h3><p>Jedno ťuknutie a Ori vie, koľko máš dnes síl. Podľa toho upraví, čo ti dnes ponúkne. Nič nevysvetľuješ, nič nepíšeš.</p></div>
+            <div class="shot"><img src="/img/day5.webp" width="600" height="608" alt="Ori s vybranou nízkou energiou, dnešný krok je upravený podľa nej" loading="lazy"></div>
+          </div>
+          <div class="tl-row reveal">
+            <div><span class="when">Deň 8</span><h3>Týždeň ticha? Ori to uvidí.</h3><p>Ori si všimne týždeň ticha a navrhne jeden malý krok, ktorým sa znova rozbehneš.</p></div>
+            <div class="shot"><img src="/img/day8.webp" width="600" height="223" alt="Správa od Ori: týždeň bez tréningu, jeden malý krok dnes stačí na reštart" loading="lazy"></div>
+          </div>
+          <div class="tl-row text-only reveal">
+            <div><span class="when">Ďalej</span><h3>Ori sa učí tvoje tempo.</h3><p>Šiesty mesiac vyzerá inak než prvý deň. Ty tiež.</p></div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- ── Who is behind it ─────────────────────────────────────────────── -->
-    <section id="team">
+    <section id="kdo">
       <div class="wrap">
-        <div class="section-head reveal">
-          <span class="eyebrow">Kto za Ori stojí</span>
-          <h2 class="split">Staviame ho, pretože sme ten problém <span class="gold">sami zažili.</span></h2>
-          <p class="lede">Obaja sme naň narazili na vlastnej koži, keď sme ťahali niekoľko projektov naraz. A obaja už máme za sebou cestu od nápadu k prvým platiacim zákazníkom.</p>
+        <div class="photos reveal">
+          <figure class="person"><div class="photo"><img src="/img/founder-b.jpg" width="720" height="900" alt="Damian Knoth" loading="lazy"></div><figcaption><b>Damian Knoth</b>spoluzakladateľ</figcaption></figure>
+          <figure class="person"><div class="photo"><img src="/img/founder-a.jpg" width="720" height="900" alt="Jindřich Novák" loading="lazy"></div><figcaption><b>Jindřich Novák</b>spoluzakladateľ</figcaption></figure>
         </div>
-        <div class="grid-2">
-          <article class="founder glass reveal">
-            <div class="avatar" aria-hidden="true">DK</div>
-            <div>
-              <p class="role">CEO</p>
-              <h3>Damian Knoth</h3>
-              <p>Produktová stratégia, obchod, marketing a financovanie.</p>
-            </div>
-          </article>
-          <article class="founder glass reveal">
-            <div class="avatar" aria-hidden="true">JN</div>
-            <div>
-              <p class="role">CTO</p>
-              <h3>Jindřich Novák</h3>
-              <p>Vízia produktu, AI, dizajn a UX/UI.</p>
-            </div>
-          </article>
+        <div class="story-copy">
+          <h2 class="reveal">Staviame to, lebo nám to chýbalo.</h2>
+          <div class="reveal">
+            <p>Sme dvaja študenti. Obaja sme si už párkrát rozbehli vedľajší projekt a obaja sme narazili na to isté. Plán bol hotový za večer. Rozpadol sa prvý týždeň, keď prišlo čokoľvek iné.</p>
+            <p>Hľadali sme aplikáciu, ktorá s tým počíta. Žiadna nám nesedela. Keď sme o tom hovorili s kamarátmi, hovorili, že niečo také potrebujú tiež. Tak sme si povedali, že do toho jednoducho ideme.</p>
+            <p>Podporilo nás viac ľudí, než sme čakali. Nápad sme prebrali s ľuďmi z odboru a overili ho cez JIC a Red Bull Basement. Teraz Ori testujeme s prvou skupinou ľudí.</p>
+            <div class="sign"><b>Damian Knoth a Jindřich Novák</b><span>zakladatelia Ori</span></div>
+          </div>
         </div>
       </div>
     </section>
-
-    <!-- ── Quote ────────────────────────────────────────────────────────── -->
-    <section class="quote">
-      <div class="wrap reveal">
-        <blockquote>Plán ti postaví AI.<span>Vďaka Ori ho budeš mať aj <em class="gold">v šiestom mesiaci.</em></span></blockquote>
-      </div>
-    </section>
-
 
     <!-- ── Join ─────────────────────────────────────────────────────────── -->
-    <section id="join">
+    <section id="zapis">
       <div class="wrap">
         <div class="cta glass reveal">
-          <span class="eyebrow voice">Predbežný prístup</span>
-          <h2 class="split">Začni s cieľom, ktorý stále odkladáš.</h2>
-          <p class="lede">Ori práve testujeme. Zapíš sa a ozveme sa ti, keď pre teba bude miesto.</p>
+          <h2 class="split">Začni cieľ, ktorý tentoraz <span class="gold">prežije.</span></h2>
+          <p class="lede">Ori je v testovacej fáze. Zapíš sa a hneď ti príde krátky e-mail od Damiana. Keď na teba príde rad, ozveme sa znova.</p>
           <form class="waitlist" id="form-cta" novalidate>
             <label class="hp" aria-hidden="true">Nechaj prázdne <input type="text" name="company" tabindex="-1" autocomplete="off"></label>
-            <input type="email" name="email" placeholder="tvoj@email.sk" autocomplete="email" required aria-label="Tvoja e-mailová adresa">
+            <input type="email" id="email-cta" name="email" placeholder="tvoj@email.sk" autocomplete="email" required aria-label="Tvoja e-mailová adresa">
             <button class="btn btn-primary" type="submit">Chcem byť medzi prvými</button>
           </form>
-          <p class="form-note" role="status" aria-live="polite">Tvoj e-mail použijeme len na to, aby sme ti písali o Ori - <a href="/sk/privacy.html">súkromie</a>.</p>
+          <p class="form-note" role="status" aria-live="polite">Jeden e-mail teraz, jeden, keď bude miesto. Nič ďalšie. <a href="/sk/privacy.html">Súkromie</a></p>
+          <p class="ps">P.S. Ten prvý e-mail má jednu otázku. Odpovede čítame obaja.</p>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="wrap">
-      <span>Ori © 2026</span>
-      <nav aria-label="Päta stránky">
-        <a href="/sk/faq.html">Otázky</a>
-        <a href="/sk/privacy.html">Súkromie</a>
-        <a href="/app-privacy.html">Súkromie v aplikácii</a>
-        <a href="mailto:oriapp.eu@gmail.com">Kontakt</a>
-      </nav>
-    </div>
-  </footer>
+<footer>
+  <div class="wrap">
+    <span>Ori © 2026</span>
+    <nav aria-label="Päta stránky">
+      <a href="/sk/privacy.html">Súkromie</a>
+      <a href="/app-privacy.html">Súkromie v aplikácii</a>
+      <a href="/sk/faq.html">Otázky</a>
+      <a href="mailto:oriapp.eu@gmail.com">Kontakt</a>
+    </nav>
+  </div>
+</footer>
 
   <script src="/main.js" defer></script>
 </body>

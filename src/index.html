@@ -31,8 +31,9 @@
   <link rel="preload" href="/fonts/sora-600-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/styles.css">
-  <!-- A reload starts at the top: the browser must not restore the old position. -->
-  <script>if ('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
+  <!-- `js` gates every hidden-until-seen state, so without script the page simply reads.
+       A reload starts at the top: the browser must not restore the old position. -->
+  <script>document.documentElement.classList.add('js'); if ('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
 
   <script type="application/ld+json">
   {
@@ -51,73 +52,39 @@
   <script defer src="https://cloud.umami.is/script.js" data-website-id="3be86478-1afd-4b48-8b94-6532dd16d602" data-domains="oriapp.eu"></script>
 </head>
 <body>
-  <div class="progress-bar" aria-hidden="true"></div>
-  <div class="aura" aria-hidden="true"><span class="g1"></span><span class="g2"></span><span class="g3"></span></div>
-
-  <header class="nav">
-    <div class="wrap">
-      <a class="brand" href="#top" aria-label="{{nav.brand}}">
-        <img src="/assets/icon-192.png" alt="" width="32" height="32">
-        <span>Ori</span>
-      </a>
-      <nav class="nav-links" aria-label="{{nav.sections}}">
-        <a href="#how">{{nav.how}}</a>
-        <a href="#why">{{nav.why}}</a>
-        <a href="#who">{{nav.who}}</a>
-        <a href="{{@faq_page}}">{{nav.faq}}</a>
-        {{@switch}}
-        <a class="btn btn-primary" href="#join">{{nav.cta}}</a>
-      </nav>
-    </div>
-  </header>
+{{>top}}
 
   <main id="top">
     <!-- ── Hero ─────────────────────────────────────────────────────────── -->
     <section class="hero">
       <div class="wrap">
-        <div>
-          <span class="eyebrow voice">{{hero.eyebrow}}</span>
+        <div class="hero-copy">
+          <p class="who reveal" style="--i:0">{{hero.who}}</p>
           <h1 class="split">{{hero.h1}}</h1>
-          <p class="lede">{{hero.lede}}</p>
-          <form class="waitlist" id="form-hero" novalidate>
+          <p class="lede reveal" style="--i:2">{{hero.lede}}</p>
+          <form class="waitlist reveal" style="--i:3" id="form-hero" novalidate>
             <label class="hp" aria-hidden="true">{{form.honeypot}} <input type="text" name="company" tabindex="-1" autocomplete="off"></label>
-            <input type="email" name="email" placeholder="{{form.placeholder}}" autocomplete="email" required aria-label="{{form.label}}">
+            <input type="email" id="email-hero" name="email" placeholder="{{form.placeholder}}" autocomplete="email" required aria-label="{{form.label}}">
             <button class="btn btn-primary" type="submit">{{form.button}}</button>
           </form>
-          <p class="form-note" role="status" aria-live="polite">{{hero.note}}</p>
+          <p class="form-note reveal" style="--i:4" role="status" aria-live="polite">{{hero.note}}</p>
+          <p class="proof reveal" style="--i:5">
+            <span>{{hero.proof_a}}</span>
+            <svg viewBox="160 400 680 200" aria-label="JIC" role="img"><path d="M160 560h160V400h40v200H160zM480 400h40v200h-40zM640 400h200v40H680v120h160v40H640z" fill="currentColor"/></svg>
+            <span>{{hero.proof_b}}</span>
+          </p>
         </div>
 
-        <div class="hero-visual reveal" aria-label="{{phone.label}}">
+        <div class="hero-visual reveal" style="--i:2" aria-label="{{phone.label}}">
           <div class="phone glass story">
             <div class="phone-head"><b>{{phone.day}}</b><span>{{phone.goal}}</span></div>
-            <div class="gps">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-              {{phone.on_track}}
-            </div>
-            <div class="ori-says">
-              <b>Ori</b>
-              {{phone.says}}
-            </div>
-            <div class="row moved">
-              <span class="bar" style="background: var(--health)"></span>
-              <div><div class="t">{{phone.long_run}}</div><div class="m"><span class="now">{{phone.long_run_now}}</span><span class="later">{{phone.long_run_later}}</span></div></div>
-            </div>
-            <div class="row quick">
-              <span class="bar" style="background: var(--health)"></span>
-              <div><div class="t">{{phone.mobility}}</div><div class="m">{{phone.mobility_note}}</div></div>
-              <span class="time">20:30</span>
-            </div>
-            <div class="row habit">
-              <span class="bar" style="background: var(--learning)"></span>
-              <div><div class="t">{{phone.read}}</div><div class="m">{{phone.read_note}}</div></div>
-              <span class="time">21:00</span>
-            </div>
+            <div class="gps"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>{{phone.on_track}}</div>
+            <div class="ori-says"><b>Ori</b>{{phone.says}}</div>
+            <div class="row moved"><span class="bar" style="background: var(--health)"></span><div><div class="t">{{phone.long_run}}</div><div class="m"><span class="now">{{phone.long_run_now}}</span><span class="later">{{phone.long_run_later}}</span></div></div></div>
+            <div class="row quick"><span class="bar" style="background: var(--health)"></span><div><div class="t">{{phone.mobility}}</div><div class="m">{{phone.mobility_note}}</div></div><span class="time">20:30</span></div>
+            <div class="row habit"><span class="bar" style="background: var(--learning)"></span><div><div class="t">{{phone.read}}</div><div class="m">{{phone.read_note}}</div></div><span class="time">21:00</span></div>
             <div class="progress">
-              <svg viewBox="0 0 46 46" aria-hidden="true">
-                <circle cx="23" cy="23" r="19" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="4"/>
-                <circle class="ring" cx="23" cy="23" r="19" fill="none" stroke="#E9C464" stroke-width="4" stroke-linecap="round"
-                        stroke-dasharray="119.4" stroke-dashoffset="29.8" transform="rotate(-90 23 23)"/>
-              </svg>
+              <svg viewBox="0 0 46 46" aria-hidden="true"><circle cx="23" cy="23" r="19" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="4"/><circle class="ring" cx="23" cy="23" r="19" fill="none" stroke="#E9C464" stroke-width="4" stroke-linecap="round" stroke-dasharray="119.4" stroke-dashoffset="29.8" transform="rotate(-90 23 23)"/></svg>
               <p class="t"><b>{{phone.milestone}}</b><br>{{phone.milestone_note}}</p>
             </div>
           </div>
@@ -125,120 +92,74 @@
       </div>
     </section>
 
-    <!-- ── Validated with ───────────────────────────────────────────────── -->
-    <section class="trust" aria-label="{{trust.label}}">
-      <div class="wrap reveal">
-        <span class="trust-label">{{trust.label}}</span>
-        <span class="trust-logo" role="img" aria-label="JIC">
-          <svg viewBox="160 400 680 200" aria-hidden="true"><path d="M160 560h160V400h40v200H160zM480 400h40v200h-40zM640 400h200v40H680v120h160v40H640z" fill="currentColor"/></svg>
-        </span>
-        <span class="trust-sep" aria-hidden="true"></span>
-        <span class="trust-name">Red Bull Basement 2026</span>
-      </div>
-    </section>
-
-    <!-- ── The problem ──────────────────────────────────────────────────── -->
-    <section id="problem">
+    <!-- ── Do you recognise this? A week, then the lines you may know ───── -->
+    <section id="poznavas">
       <div class="wrap">
-        <div class="section-head reveal">
-          <span class="eyebrow">{{problem.eyebrow}}</span>
-          <h2 class="split">{{problem.h2}}</h2>
+        <h2 class="reveal">{{week.h2}}</h2>
+        <div class="week-wrap glass reveal" id="week" role="img" aria-label="{{week.label}}">
+          <div class="week" aria-hidden="true">
+            <div class="day">
+              <b>{{week.days.0}}</b>
+              <div class="slot"><div class="chip fresh"><i></i><div><span class="t">{{week.chip}}</span><span class="m">{{week.min}}</span></div></div></div>
+              <p>{{week.captions.0}}</p>
+            </div>
+            <div class="day">
+              <b>{{week.days.1}}</b>
+              <div class="slot"><div class="chip done"><i></i><div><span class="t">{{week.chip}}</span><span class="m">{{week.min}}</span></div><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div></div>
+              <p>{{week.captions.1}}</p>
+            </div>
+            <div class="day turn">
+              <b>{{week.days.2}}</b>
+              <div class="slot"><div class="chip cut"><i></i><div><span class="t">{{week.chip}}</span><span class="m">{{week.min}}</span></div></div></div>
+              <p>{{week.captions.2}}</p>
+            </div>
+            <div class="day">
+              <b>{{week.days.3}}</b>
+              <div class="slot">
+                <div class="chip carried"><i></i><div><span class="t">{{week.chip}}</span><span class="m">{{week.from_wed}}</span></div></div>
+                <div class="chip"><i></i><div><span class="t">{{week.chip}}</span><span class="m">{{week.min}}</span></div></div>
+              </div>
+              <p>{{week.captions.3}}</p>
+            </div>
+            <div class="day">
+              <b>{{week.days.4}}</b>
+              <div class="slot">
+                <div class="chip carried dim"><i></i><div><span class="t">{{week.chip}}</span><span class="m">{{week.from_wed}}</span></div></div>
+                <div class="chip carried dim"><i></i><div><span class="t">{{week.chip}}</span><span class="m">{{week.from_thu}}</span></div></div>
+                <div class="chip dim"><i></i><div><span class="t">{{week.chip}}</span><span class="m">{{week.min}}</span></div></div>
+              </div>
+              <p>{{week.captions.4}}</p>
+            </div>
+            <div class="day">
+              <b>{{week.days.5}}</b>
+              <div class="slot"><div class="pile"><div class="chip front"><i></i><div><span class="t">{{week.pile}}</span><span class="m">{{week.chip}}</span></div></div></div></div>
+              <p>{{week.captions.5}}</p>
+            </div>
+            <div class="day">
+              <b>{{week.days.6}}</b>
+              <div class="slot"><div class="chip fresh"><i></i><div><span class="t">{{week.fresh}}</span><span class="m">{{week.chip}}</span></div></div></div>
+              <p>{{week.captions.6}}</p>
+            </div>
+          </div>
         </div>
-        <div class="grid-3">
-          <article class="card glass reveal">
-            <span class="num">01</span>
-            <h3>{{problem.c1_h}}</h3>
-            <p>{{problem.c1_p}}</p>
-          </article>
-          <article class="card glass reveal">
-            <span class="num">02</span>
-            <h3>{{problem.c2_h}}</h3>
-            <p>{{problem.c2_p}}</p>
-          </article>
-          <article class="card glass reveal">
-            <span class="num">03</span>
-            <h3>{{problem.c3_h}}</h3>
-            <p>{{problem.c3_p}}</p>
-          </article>
-        </div>
-        <p class="statement reveal">{{problem.statement}}</p>
+        <ul class="recog reveal">
+        {{@recog_items}}
+        </ul>
+        <p class="statement reveal">{{week.statement}}</p>
+        <p class="small reveal">{{week.small}}</p>
       </div>
     </section>
 
-    <!-- ── The loop, running ─────────────────────────────────────────── -->
-    <div class="band" aria-hidden="true">
-      <div class="band-track">
-        <span>{{band.notice}} <i>◆</i></span><span>{{band.read}} <i>◆</i></span><span>{{band.reshape}} <i>◆</i></span><span>{{band.resume}} <i>◆</i></span><span>{{band.same}} <i>◆</i></span>
-        <span>{{band.notice}} <i>◆</i></span><span>{{band.read}} <i>◆</i></span><span>{{band.reshape}} <i>◆</i></span><span>{{band.resume}} <i>◆</i></span><span>{{band.same}} <i>◆</i></span>
-      </div>
+    <!-- ── What broke the plan this year ────────────────────────────────── -->
+    <div class="band reveal">
+      <p class="band-label" aria-hidden="true">{{band.label}}</p>
+      <p class="sr-only">{{band.label}} {{@band_text}}.</p>
+      <div class="band-mask" aria-hidden="true"><div class="pills">{{@band_items}}</div></div>
     </div>
 
-    <!-- ── How it works ─────────────────────────────────────────────────── -->
-    <section id="how">
+    <!-- ── How it works: the model of the app, and the words ────────────── -->
+    <section id="jak">
       <div class="wrap">
-        <div class="section-head reveal">
-          <span class="eyebrow">{{how.eyebrow}}</span>
-          <h2 class="split">{{how.h2}}</h2>
-        </div>
-
-        <div class="setup glass reveal">
-          <span class="tag">{{how.setup_tag}}</span>
-          <div>
-            <h3>{{how.setup_h}}</h3>
-            <p>{{how.setup_p}}</p>
-          </div>
-        </div>
-
-        <div class="grid-4">
-          <article class="card glass-soft step reveal">
-            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg></div>
-            <span class="num">{{how.s1_num}}</span>
-            <h3>{{how.s1_h}}</h3>
-            <p>{{how.s1_p}}</p>
-          </article>
-          <article class="card glass-soft step reveal">
-            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></div>
-            <span class="num">{{how.s2_num}}</span>
-            <h3>{{how.s2_h}}</h3>
-            <p>{{how.s2_p}}</p>
-          </article>
-          <article class="card glass-soft step reveal">
-            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h10M4 17h6M18 4v16M15 17l3 3 3-3"/></svg></div>
-            <span class="num">{{how.s3_num}}</span>
-            <h3>{{how.s3_h}}</h3>
-            <p>{{how.s3_p}}</p>
-          </article>
-          <article class="card glass-soft step reveal">
-            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-            <span class="num">{{how.s4_num}}</span>
-            <h3>{{how.s4_h}}</h3>
-            <p>{{how.s4_p}}</p>
-          </article>
-        </div>
-        <p class="loop-note reveal">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg>
-          {{how.loop}}
-        </p>
-      </div>
-    </section>
-
-    <!-- ── Try it: a small working model of the app ─────────────────────── -->
-    <section id="try">
-      <div class="wrap">
-        <div class="try-copy">
-          <div class="section-head reveal">
-            <span class="eyebrow">{{demo.eyebrow}}</span>
-            <h2 class="split">{{demo.h2}}</h2>
-            <p class="lede">{{demo.lede}}</p>
-          </div>
-          <ol class="try-steps reveal">
-            <li data-step="1"><span class="n">1</span><span>{{demo.step1}}</span></li>
-            <li data-step="2"><span class="n">2</span><span>{{demo.step2}}</span></li>
-            <li data-step="3"><span class="n">3</span><span>{{demo.step3}}</span></li>
-          </ol>
-          <p class="try-done" aria-live="polite"><span>{{demo.done}}</span> <button type="button" class="try-reset">{{demo.reset}}</button></p>
-        </div>
-
         <div class="device reveal" role="group" aria-label="{{demo.label}}">
           <div class="demo" data-energy="mid" data-tab="today" data-step="1">
             <div class="demo-screen" data-screen="today" role="tabpanel" id="demo-today" aria-labelledby="demo-tab-today">
@@ -256,35 +177,18 @@
                 <span class="v v-low">{{demo.says_low}}</span>
                 <span class="v v-done">{{demo.says_done}}</span>
               </div>
-              <div class="row d-session">
-                <span class="bar" style="background: var(--learning)"></span>
-                <div><div class="t">{{demo.session}}</div><div class="m"><span class="now">{{demo.session_now}}</span><span class="later">{{demo.session_later}}</span></div></div>
-                <span class="time">18:30</span>
-              </div>
+              <div class="row d-session"><span class="bar" style="background: var(--learning)"></span><div><div class="t">{{demo.session}}</div><div class="m"><span class="now">{{demo.session_now}}</span><span class="later">{{demo.session_later}}</span></div></div><span class="time">18:30</span></div>
               <div class="d-quick-slot"><div>
-                <div class="row d-quick">
-                  <span class="bar" style="background: var(--learning)"></span>
-                  <div><div class="t">{{demo.quick}}</div><div class="m">{{demo.quick_note}}</div></div>
-                  <button type="button" class="demo-check" role="checkbox" aria-checked="false" aria-label="{{demo.quick_done}}">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-                  </button>
+                <div class="row d-quick"><span class="bar" style="background: var(--learning)"></span><div><div class="t">{{demo.quick}}</div><div class="m">{{demo.quick_note}}</div></div>
+                  <button type="button" class="demo-check" role="checkbox" aria-checked="false" aria-label="{{demo.quick_done}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></button>
                 </div>
               </div></div>
-              <div class="row">
-                <span class="bar" style="background: var(--rest)"></span>
-                <div><div class="t">{{demo.habit}}</div><div class="m">{{demo.habit_note}}</div></div>
-                <span class="time">21:00</span>
-              </div>
+              <div class="row"><span class="bar" style="background: var(--rest)"></span><div><div class="t">{{demo.habit}}</div><div class="m">{{demo.habit_note}}</div></div><span class="time">21:00</span></div>
               <div class="progress demo-ms">
-                <svg viewBox="0 0 46 46" aria-hidden="true">
-                  <circle cx="23" cy="23" r="19" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="4"/>
-                  <circle class="d-ring" cx="23" cy="23" r="19" fill="none" stroke="#E9C464" stroke-width="4" stroke-linecap="round"
-                          stroke-dasharray="119.4" transform="rotate(-90 23 23)"/>
-                </svg>
+                <svg viewBox="0 0 46 46" aria-hidden="true"><circle cx="23" cy="23" r="19" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="4"/><circle class="d-ring" cx="23" cy="23" r="19" fill="none" stroke="#E9C464" stroke-width="4" stroke-linecap="round" stroke-dasharray="119.4" transform="rotate(-90 23 23)"/></svg>
                 <p class="t"><b>{{demo.ms2}}</b><br><span class="c2">{{demo.ms_2of4}}</span><span class="c3">{{demo.ms_3of4}}</span></p>
               </div>
             </div>
-
             <div class="demo-screen" data-screen="road" role="tabpanel" id="demo-road" aria-labelledby="demo-tab-road">
               <div class="phone-head"><b>{{demo.road_title}}</b><span>{{demo.goal}}</span></div>
               <ol class="demo-road">
@@ -294,157 +198,103 @@
                 <li><i></i><div><b>{{demo.ms4}}</b><span>{{demo.ms4_note}}</span></div></li>
               </ol>
               <div class="demo-says"><b>Ori</b><span>{{demo.road_says}}</span></div>
-              <p class="gps">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-                {{demo.on_track}}
-              </p>
+              <p class="gps"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>{{demo.on_track}}</p>
             </div>
-
             <div class="demo-tabs" role="tablist" aria-label="Ori">
-              <button type="button" role="tab" id="demo-tab-today" aria-controls="demo-today" aria-selected="true" data-set-tab="today">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
-                {{demo.tab_today}}
-              </button>
-              <button type="button" role="tab" id="demo-tab-road" aria-controls="demo-road" aria-selected="false" data-set-tab="road">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l2.9 6.2 6.6.8-4.9 4.6 1.3 6.6L12 17l-5.9 3.2 1.3-6.6L2.5 9l6.6-.8z"/></svg>
-                {{demo.tab_road}}
-              </button>
+              <button type="button" role="tab" id="demo-tab-today" aria-controls="demo-today" aria-selected="true" data-set-tab="today"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>{{demo.tab_today}}</button>
+              <button type="button" role="tab" id="demo-tab-road" aria-controls="demo-road" aria-selected="false" data-set-tab="road"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l2.9 6.2 6.6.8-4.9 4.6 1.3 6.6L12 17l-5.9 3.2 1.3-6.6L2.5 9l6.6-.8z"/></svg>{{demo.tab_road}}</button>
             </div>
+          </div>
+        </div>
+
+        <div class="copy">
+          <h2 class="reveal">{{jak.h2}}</h2>
+          <p class="lede reveal">{{jak.lede}}</p>
+          <div class="points reveal">
+            <p><b>{{jak.p1_h}}</b>{{jak.p1_p}}</p>
+            <p><b>{{jak.p2_h}}</b>{{jak.p2_p}}</p>
+            <p><b>{{jak.p3_h}}</b>{{jak.p3_p}}</p>
+          </div>
+          <div class="try reveal">
+            <h3>{{jak.try_h}}</h3>
+            <ol class="try-steps">
+              <li data-step="1"><span class="n">1</span><span>{{jak.step1}}</span></li>
+              <li data-step="2"><span class="n">2</span><span>{{jak.step2}}</span></li>
+              <li data-step="3"><span class="n">3</span><span>{{jak.step3}}</span></li>
+            </ol>
+            <p class="try-done" aria-live="polite"><span>{{jak.done}}</span> <button type="button" class="try-reset">{{jak.reset}}</button></p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ── Why it works ─────────────────────────────────────────────────── -->
-    <section id="why">
+    <!-- ── The first week, on real screens ──────────────────────────────── -->
+    <section id="tyden">
       <div class="wrap">
-        <div class="section-head reveal">
-          <span class="eyebrow">{{why.eyebrow}}</span>
-          <h2 class="split">{{why.h2}}</h2>
-          <p class="lede">{{why.lede}}</p>
-        </div>
-        <div class="grid-2">
-          <article class="principle glass reveal">
-            <div class="dot" style="background: var(--health)"></div>
-            <h3>{{why.p1_h}}</h3>
-            <p>{{why.p1_p}}</p>
-          </article>
-          <article class="principle glass reveal">
-            <div class="dot" style="background: var(--rest)"></div>
-            <h3>{{why.p2_h}}</h3>
-            <p>{{why.p2_p}}</p>
-          </article>
-          <article class="principle glass reveal">
-            <div class="dot" style="background: var(--creation)"></div>
-            <h3>{{why.p3_h}}</h3>
-            <p>{{why.p3_p}}</p>
-          </article>
-          <article class="principle glass reveal">
-            <div class="dot" style="background: var(--work)"></div>
-            <h3>{{why.p4_h}}</h3>
-            <p>{{why.p4_p}}</p>
-          </article>
-        </div>
-        <p class="statement reveal">{{why.statement}}</p>
-      </div>
-    </section>
-
-    <!-- ── Who it's for ─────────────────────────────────────────────────── -->
-    <section id="who">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <span class="eyebrow">{{who.eyebrow}}</span>
-          <h2 class="split">{{who.h2}}</h2>
-        </div>
-        <div class="grid-2">
-          <article class="persona glass reveal">
-            <p class="who">{{who.a_who}}</p>
-            <h3>{{who.a_h}}</h3>
-            <ul>
-              <li>{{who.a_1}}</li>
-              <li>{{who.a_2}}</li>
-              <li>{{who.a_3}}</li>
-            </ul>
-          </article>
-          <article class="persona glass reveal">
-            <p class="who">{{who.b_who}}</p>
-            <h3>{{who.b_h}}</h3>
-            <ul>
-              <li>{{who.b_1}}</li>
-              <li>{{who.b_2}}</li>
-              <li>{{who.b_3}}</li>
-            </ul>
-          </article>
+        <h2 class="reveal">{{tyden.h2}}</h2>
+        <p class="lede reveal">{{tyden.lede}}</p>
+        <div class="tl" id="route">
+          <div class="tl-row reveal">
+            <div><span class="when">{{tyden.rows.0.when}}</span><h3>{{tyden.rows.0.h}}</h3><p>{{tyden.rows.0.p}}</p></div>
+            <div class="shot"><img src="/img/day1.webp" width="600" height="800" alt="{{tyden.rows.0.alt}}" loading="lazy"></div>
+          </div>
+          <div class="tl-row reveal">
+            <div><span class="when">{{tyden.rows.1.when}}</span><h3>{{tyden.rows.1.h}}</h3><p>{{tyden.rows.1.p}}</p></div>
+            <div class="shot"><img src="/img/day2.webp" width="600" height="385" alt="{{tyden.rows.1.alt}}" loading="lazy"></div>
+          </div>
+          <div class="tl-row reveal">
+            <div><span class="when">{{tyden.rows.2.when}}</span><h3>{{tyden.rows.2.h}}</h3><p>{{tyden.rows.2.p}}</p></div>
+            <div class="shot"><img src="/img/day5.webp" width="600" height="608" alt="{{tyden.rows.2.alt}}" loading="lazy"></div>
+          </div>
+          <div class="tl-row reveal">
+            <div><span class="when">{{tyden.rows.3.when}}</span><h3>{{tyden.rows.3.h}}</h3><p>{{tyden.rows.3.p}}</p></div>
+            <div class="shot"><img src="/img/day8.webp" width="600" height="223" alt="{{tyden.rows.3.alt}}" loading="lazy"></div>
+          </div>
+          <div class="tl-row text-only reveal">
+            <div><span class="when">{{tyden.rows.4.when}}</span><h3>{{tyden.rows.4.h}}</h3><p>{{tyden.rows.4.p}}</p></div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- ── Who is behind it ─────────────────────────────────────────────── -->
-    <section id="team">
+    <section id="kdo">
       <div class="wrap">
-        <div class="section-head reveal">
-          <span class="eyebrow">{{team.eyebrow}}</span>
-          <h2 class="split">{{team.h2}}</h2>
-          <p class="lede">{{team.lede}}</p>
+        <div class="photos reveal">
+          <figure class="person"><div class="photo"><img src="/img/founder-b.jpg" width="720" height="900" alt="{{kdo.photo_d}}" loading="lazy"></div><figcaption><b>{{kdo.photo_d}}</b>{{kdo.caption}}</figcaption></figure>
+          <figure class="person"><div class="photo"><img src="/img/founder-a.jpg" width="720" height="900" alt="{{kdo.photo_j}}" loading="lazy"></div><figcaption><b>{{kdo.photo_j}}</b>{{kdo.caption}}</figcaption></figure>
         </div>
-        <div class="grid-2">
-          <article class="founder glass reveal">
-            <div class="avatar" aria-hidden="true">DK</div>
-            <div>
-              <p class="role">CEO</p>
-              <h3>Damian Knoth</h3>
-              <p>{{team.damian}}</p>
-            </div>
-          </article>
-          <article class="founder glass reveal">
-            <div class="avatar" aria-hidden="true">JN</div>
-            <div>
-              <p class="role">CTO</p>
-              <h3>Jindřich Novák</h3>
-              <p>{{team.jindrich}}</p>
-            </div>
-          </article>
+        <div class="story-copy">
+          <h2 class="reveal">{{kdo.h2}}</h2>
+          <div class="reveal">
+            <p>{{kdo.p1}}</p>
+            <p>{{kdo.p2}}</p>
+            <p>{{kdo.p3}}</p>
+            <div class="sign"><b>{{kdo.sign}}</b><span>{{kdo.role}}</span></div>
+          </div>
         </div>
       </div>
     </section>
-
-    <!-- ── Quote ────────────────────────────────────────────────────────── -->
-    <section class="quote">
-      <div class="wrap reveal">
-        <blockquote>{{quote}}</blockquote>
-      </div>
-    </section>
-
 
     <!-- ── Join ─────────────────────────────────────────────────────────── -->
-    <section id="join">
+    <section id="zapis">
       <div class="wrap">
         <div class="cta glass reveal">
-          <span class="eyebrow voice">{{join.eyebrow}}</span>
           <h2 class="split">{{join.h2}}</h2>
           <p class="lede">{{join.lede}}</p>
           <form class="waitlist" id="form-cta" novalidate>
             <label class="hp" aria-hidden="true">{{form.honeypot}} <input type="text" name="company" tabindex="-1" autocomplete="off"></label>
-            <input type="email" name="email" placeholder="{{form.placeholder}}" autocomplete="email" required aria-label="{{form.label}}">
+            <input type="email" id="email-cta" name="email" placeholder="{{form.placeholder}}" autocomplete="email" required aria-label="{{form.label}}">
             <button class="btn btn-primary" type="submit">{{form.button}}</button>
           </form>
           <p class="form-note" role="status" aria-live="polite">{{join.note}}</p>
+          <p class="ps">{{join.ps}}</p>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="wrap">
-      <span>Ori © 2026</span>
-      <nav aria-label="{{footer.label}}">
-        <a href="{{@faq_page}}">{{nav.faq}}</a>
-        <a href="{{@privacy}}">{{footer.privacy}}</a>
-        <a href="/app-privacy.html">{{footer.app_privacy}}</a>
-        <a href="mailto:oriapp.eu@gmail.com">{{footer.contact}}</a>
-      </nav>
-    </div>
-  </footer>
+{{>footer}}
 
   <script src="/main.js" defer></script>
 </body>

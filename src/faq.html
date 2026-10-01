@@ -20,28 +20,17 @@
   <link rel="icon" href="/assets/favicon.ico" sizes="any">
   <link rel="apple-touch-icon" href="/assets/icon-180.png">
   <link rel="stylesheet" href="/styles.css">
-  <script>if ('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
+  <script>document.documentElement.classList.add('js'); if ('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
   <script type="application/ld+json">{{@faq_schema}}</script>
   <script defer src="https://cloud.umami.is/script.js" data-website-id="3be86478-1afd-4b48-8b94-6532dd16d602" data-domains="oriapp.eu"></script>
 </head>
 <body>
-  <div class="aura" aria-hidden="true"><span class="g1"></span><span class="g2"></span><span class="g3"></span></div>
-  <header class="nav">
-    <div class="wrap">
-      <a class="brand" href="{{@home}}"><img src="/assets/icon-192.png" alt="" width="32" height="32"><span>Ori</span></a>
-      <nav class="nav-links" aria-label="{{nav.sections}}">
-        <a href="{{@home}}">{{privacy.back}}</a>
-        {{@switch}}
-        <a class="btn btn-primary" href="{{@home}}#join">{{nav.cta}}</a>
-      </nav>
-    </div>
-  </header>
+{{>top}}
 
   <main class="faq-page">
     <section>
       <div class="wrap">
-        <div class="section-head reveal">
-          <span class="eyebrow">{{faq.eyebrow}}</span>
+        <div class="section-head">
           <h1 class="split">{{faq.h2}}</h1>
         </div>
         <div class="faq-list">
@@ -50,23 +39,13 @@
         <div class="faq-more reveal">
           <h2>{{faq.cta_h}}</h2>
           <p>{{faq.cta_p}}</p>
-          <a class="btn btn-primary" href="{{@home}}#join">{{form.button}}</a>
+          <a class="btn btn-primary" href="{{@home}}#zapis">{{form.button}}</a>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="wrap">
-      <span>Ori © 2026</span>
-      <nav aria-label="{{footer.label}}">
-        <a href="{{@home}}">{{privacy.home}}</a>
-        <a href="{{@privacy}}">{{footer.privacy}}</a>
-        <a href="/app-privacy.html">{{footer.app_privacy}}</a>
-        <a href="mailto:oriapp.eu@gmail.com">{{footer.contact}}</a>
-      </nav>
-    </div>
-  </footer>
+{{>footer}}
 
   <script src="/main.js" defer></script>
 </body>

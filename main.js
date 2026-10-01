@@ -1,4 +1,4 @@
-// oriapp.eu - the waitlist and the one arrival.
+// oriapp.eu - the sign-up form and the page's motion.
 //
 // The waitlist writes to the `waitlist` table of Ori's own Supabase project
 // (migration 20260929170000_website_waitlist.sql in oriappeu/Ori-app-): the
@@ -51,7 +51,7 @@ function attach(form) {
   const input = form.querySelector('input[type="email"]');
   const button = form.querySelector('button[type="submit"]');
   const note = form.nextElementSibling;
-  const original = { note: note?.innerHTML ?? '', button: button.textContent };
+  const original = { button: button.textContent };
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -92,8 +92,8 @@ function attach(form) {
 document.querySelectorAll('form.waitlist').forEach(attach);
 
 // A reload always starts at the top of the page, even when the address still
-// carries a section from a menu click (#how). A link shared straight to a
-// section (oriapp.eu/#join) still opens there the first time.
+// carries a section from a menu click (#jak). A link shared straight to a
+// section (oriapp.eu/#zapis) still opens there the first time.
 const navEntry = performance.getEntriesByType?.('navigation')?.[0];
 if (navEntry?.type === 'reload') {
   if (location.hash) history.replaceState(null, '', location.pathname + location.search);
@@ -106,10 +106,11 @@ if (navEntry?.type === 'reload') {
 
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const finePointer = matchMedia('(hover: hover) and (pointer: fine)').matches;
+const hasIO = 'IntersectionObserver' in window;
 
 // Headlines: wrap each word so it can rise from behind its own mask. The text
-// stays one readable string for assistive tech.
-// A word inside a `.gold` phrase keeps its gold.
+// stays one readable string for assistive tech. A word inside a `.gold` phrase
+// keeps its gold.
 document.querySelectorAll('.split').forEach((el) => {
   const text = el.textContent.replace(/\s+/g, ' ').trim();
   const words = [];
@@ -122,24 +123,16 @@ document.querySelectorAll('.split').forEach((el) => {
     `<span class="w" aria-hidden="true"><span${gold ? ' class="gold"' : ''} style="--w:${i}">${word}</span></span>`).join(' ');
 });
 
-// A grid's cards arrive one after another.
-document.querySelectorAll('.grid-2, .grid-3, .grid-4').forEach((grid) => {
-  [...grid.children].forEach((child, i) => child.style.setProperty('--i', i));
-});
-
 // Arrivals: once each, as they come into view.
 const arriving = document.querySelectorAll('.reveal, .split');
-if ('IntersectionObserver' in window) {
+if (hasIO) {
   const seen = new IntersectionObserver((entries) => {
     for (const entry of entries) {
       if (!entry.isIntersecting) continue;
-      const el = entry.target;
-      el.classList.add('in');
-      seen.unobserve(el);
-      // Once it has arrived, a hover must not wait for the stagger delay.
-      setTimeout(() => el.style.setProperty('--i', 0), 1200);
+      entry.target.classList.add('in');
+      seen.unobserve(entry.target);
     }
-  }, { rootMargin: '0px 0px -10% 0px' });
+  }, { rootMargin: '0px 0px -8% 0px' });
   arriving.forEach((el) => seen.observe(el));
 } else {
   arriving.forEach((el) => el.classList.add('in'));
@@ -153,7 +146,7 @@ if (story) {
     if (reduce) { story.classList.add(...beats); return; }
     beats.forEach((beat, i) => setTimeout(() => story.classList.add(beat), 350 + i * 520));
   };
-  if ('IntersectionObserver' in window) {
+  if (hasIO) {
     const once = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) { play(); once.disconnect(); }
     }, { threshold: 0.5 });
@@ -161,12 +154,45 @@ if (story) {
   } else play();
 }
 
-// Scroll: the progress bar, the nav's glass, the glows' slow drift.
+// The week where the plan breaks. On a wide screen it plays once, a day after
+// another, when it comes into view; on a phone, where the days stack, each day
+// arrives as it is scrolled to.
+const week = document.getElementById('week');
+if (week) {
+  const days = [...week.querySelectorAll('.day')];
+  if (reduce || !hasIO) {
+    days.forEach((d) => d.classList.add('in'));
+  } else if (matchMedia('(max-width: 720px)').matches) {
+    const each = new IntersectionObserver((entries) => {
+      for (const entry of entries) if (entry.isIntersecting) { entry.target.classList.add('in'); each.unobserve(entry.target); }
+    }, { threshold: 0.6 });
+    days.forEach((d) => each.observe(d));
+  } else {
+    const whole = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return;
+      whole.disconnect();
+      days.forEach((d, i) => setTimeout(() => d.classList.add('in'), 200 + i * 430));
+    }, { threshold: 0.4 });
+    whole.observe(week);
+  }
+}
+
+// Scroll: the progress bar, the top bar's glass, the glows' slow drift, and the
+// route down the first-week timeline (a gold line that follows the reader).
 const bar = document.querySelector('.progress-bar');
 const nav = document.querySelector('.nav');
 const glows = [...document.querySelectorAll('.aura span')];
 const drift = [0.08, -0.05, 0.04];
+const route = document.getElementById('route');
+const stops = route ? [...route.querySelectorAll('.tl-row')] : [];
 let ticking = false;
+function updateRoute() {
+  if (!route) return;
+  const r = route.getBoundingClientRect();
+  const line = window.innerHeight * 0.62;
+  route.style.setProperty('--p', Math.max(0, Math.min(1, (line - r.top) / r.height)).toFixed(4));
+  stops.forEach((row) => row.classList.toggle('reached', row.getBoundingClientRect().top + 18 < line));
+}
 function onScroll() {
   if (ticking) return;
   ticking = true;
@@ -176,24 +202,17 @@ function onScroll() {
     if (bar) bar.style.transform = `scaleX(${max > 0 ? Math.min(1, y / max) : 0})`;
     nav?.classList.toggle('scrolled', y > 8);
     if (!reduce) glows.forEach((g, i) => { g.style.transform = `translate3d(0, ${y * drift[i]}px, 0)`; });
+    updateRoute();
     ticking = false;
   });
 }
 window.addEventListener('scroll', onScroll, { passive: true });
+window.addEventListener('resize', onScroll);
+window.addEventListener('load', onScroll);
 onScroll();
 
 if (finePointer && !reduce) {
-  // Cards: the light follows the pointer. Set on the card itself, never on a
-  // parent, so only that card restyles.
-  document.querySelectorAll('.card, .principle, .persona, .setup, .founder').forEach((card) => {
-    card.addEventListener('pointermove', (e) => {
-      const r = card.getBoundingClientRect();
-      card.style.setProperty('--mx', `${e.clientX - r.left}px`);
-      card.style.setProperty('--my', `${e.clientY - r.top}px`);
-    });
-  });
-
-  // Buttons lean toward the pointer — a few pixels, no more.
+  // Buttons lean toward the pointer: a few pixels, no more.
   document.querySelectorAll('.btn-primary').forEach((btn) => {
     btn.addEventListener('pointermove', (e) => {
       const r = btn.getBoundingClientRect();
@@ -210,7 +229,7 @@ if (finePointer && !reduce) {
 
   // The phone tilts toward the pointer while it is over the hero.
   const hero = document.querySelector('.hero');
-  const phone = document.querySelector('.phone');
+  const phone = document.querySelector('.hero .phone');
   if (hero && phone) {
     hero.addEventListener('pointermove', (e) => {
       const r = phone.getBoundingClientRect();
@@ -267,7 +286,7 @@ document.querySelectorAll('.faq-item').forEach((item) => {
 // roadmap shows the goal still on track.
 const demo = document.querySelector('.demo');
 if (demo) {
-  const section = document.getElementById('try');
+  const section = document.getElementById('jak');
   const steps = [...document.querySelectorAll('.try-steps li')];
   const quickSlot = demo.querySelector('.d-quick-slot');
   const fresh = () => ({ energy: 'mid', ticked: false, tab: 'today', sawRoad: false });

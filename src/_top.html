@@ -1,0 +1,18 @@
+<div class="progress-bar" aria-hidden="true"></div>
+<div class="aura" aria-hidden="true"><span class="g1"></span><span class="g2"></span><span class="g3"></span></div>
+
+<header class="nav">
+  <div class="bar">
+    <a class="brand" href="{{@home}}" aria-label="{{nav.brand}}">
+      <img src="/assets/icon-192.png" alt="" width="32" height="32">
+      <span>Ori</span>
+    </a>
+    <nav class="links" aria-label="{{nav.sections}}">
+      <a href="{{@home}}#jak">{{nav.how}}</a>
+      <a href="{{@home}}#kdo">{{nav.kdo}}</a>
+      <a href="{{@faq_page}}">{{nav.faq}}</a>
+      {{@switch}}
+      <a class="btn btn-primary" href="{{@home}}#zapis">{{nav.cta}}</a>
+    </nav>
+  </div>
+</header>

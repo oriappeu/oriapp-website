@@ -15,23 +15,31 @@
   <link rel="icon" href="/assets/favicon.ico" sizes="any">
   <link rel="apple-touch-icon" href="/assets/icon-180.png">
   <link rel="stylesheet" href="/styles.css">
+  <script>document.documentElement.classList.add('js');</script>
   <script defer src="https://cloud.umami.is/script.js" data-website-id="3be86478-1afd-4b48-8b94-6532dd16d602" data-domains="oriapp.eu"></script>
 </head>
 <body>
-  <div class="aura" aria-hidden="true"><span class="g1"></span><span class="g2"></span><span class="g3"></span></div>
-  <header class="nav">
-    <div class="wrap">
-      <a class="brand" href="/sk/"><img src="/assets/icon-192.png" alt="" width="32" height="32"><span>Ori</span></a>
-      <nav class="nav-links" aria-label="Sekcie">
-        <div class="lang" role="group" aria-label="Jazyk"><a href="/privacy.html" hreflang="cs" lang="cs" title="Čeština">CS</a><a href="/sk/privacy.html" hreflang="sk" lang="sk" title="Slovenčina" aria-current="page">SK</a><a href="/en/privacy.html" hreflang="en" lang="en" title="English">EN</a></div>
-        <a class="btn btn-glass" href="/sk/">Späť na Ori</a>
-      </nav>
-    </div>
-  </header>
+<div class="progress-bar" aria-hidden="true"></div>
+<div class="aura" aria-hidden="true"><span class="g1"></span><span class="g2"></span><span class="g3"></span></div>
+
+<header class="nav">
+  <div class="bar">
+    <a class="brand" href="/sk/" aria-label="Ori, späť hore">
+      <img src="/assets/icon-192.png" alt="" width="32" height="32">
+      <span>Ori</span>
+    </a>
+    <nav class="links" aria-label="Sekcie">
+      <a href="/sk/#jak">Ako to funguje</a>
+      <a href="/sk/#kdo">Kto za tým stojí</a>
+      <a href="/sk/faq.html">Otázky</a>
+      <div class="lang" role="group" aria-label="Jazyk"><a href="/privacy.html" hreflang="cs" lang="cs" title="Čeština">CS</a><a href="/sk/privacy.html" hreflang="sk" lang="sk" title="Slovenčina" aria-current="page">SK</a><a href="/en/privacy.html" hreflang="en" lang="en" title="English">EN</a></div>
+      <a class="btn btn-primary" href="/sk/#zapis">Chcem prístup</a>
+    </nav>
+  </div>
+</header>
 
   <main class="legal">
     <div class="wrap">
-      <span class="eyebrow">Súkromie</span>
       <h1>Tento web a čakacia listina</h1>
       <p>Naposledy upravené: 29. septembra 2026</p>
 
@@ -62,11 +70,18 @@
     </div>
   </main>
 
-  <footer>
-    <div class="wrap">
-      <span>Ori © 2026</span>
-      <nav aria-label="Päta stránky"><a href="/sk/">Domov</a><a href="/sk/faq.html">Otázky</a><a href="mailto:oriapp.eu@gmail.com">Kontakt</a></nav>
-    </div>
-  </footer>
+<footer>
+  <div class="wrap">
+    <span>Ori © 2026</span>
+    <nav aria-label="Päta stránky">
+      <a href="/sk/privacy.html">Súkromie</a>
+      <a href="/app-privacy.html">Súkromie v aplikácii</a>
+      <a href="/sk/faq.html">Otázky</a>
+      <a href="mailto:oriapp.eu@gmail.com">Kontakt</a>
+    </nav>
+  </div>
+</footer>
+
+  <script src="/main.js" defer></script>
 </body>
 </html>
