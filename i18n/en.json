@@ -1,25 +1,26 @@
 {
   "meta": {
-    "title": "Ori - Achieve your goals without sacrificing your life",
-    "description": "Ori is an AI self-development coach. Any AI can write you a plan; Ori is built for the week it breaks - it notices, reshapes the path to your real capacity, and gets you moving again. No backlog, no guilt.",
-    "og_description": "AI can build your plan. Ori is why you still have it in month six.",
-    "schema": "An AI self-development coach that plans around your real capacity and rebuilds the path when that capacity changes."
+    "title": "Ori: a goal that survives a bad week",
+    "description": "Ori is an AI self-development coach. It lays your goal into your calendar and, when a bad week hits, rebuilds the plan. Joining the waitlist costs nothing, and we start in the Czech Republic and Slovakia.",
+    "og_description": "AI can build your plan. Ori keeps it alive when it falls apart.",
+    "schema": "An AI self-development coach that lays a goal into your calendar and rebuilds the plan when your capacity changes."
   },
   "nav": {
     "brand": "Ori, back to top",
     "sections": "Sections",
     "how": "How it works",
-    "why": "Why it works",
-    "who": "Who it's for",
+    "kdo": "Who's behind it",
     "faq": "FAQ",
     "lang": "Language",
     "cta": "Join the waitlist"
   },
   "hero": {
-    "eyebrow": "Your AI self-development coach",
-    "h1": "Achieve your goals without sacrificing <span class=\"gold\">your life.</span>",
-    "lede": "Any AI can write you a plan. Ori is built for the week it breaks - it notices when life gets in the way, reshapes the path to what you can really do, and gets you moving again. No backlog. No guilt.",
-    "note": "Early access opens in the Czech Republic and Slovakia first. We'll write when your spot is ready - <a href=\"{{@privacy}}\">privacy</a>."
+    "who": "For people whose plans keep running into real life.",
+    "h1": "A goal that survives <span class=\"gold\">a bad week.</span>",
+    "lede": "Tell Ori what you want to achieve. In twenty minutes you have the route to it laid into your calendar. And when a week comes that you can't keep up with, Ori rebuilds the plan. It doesn't wait for you to come back to a pile of tasks.",
+    "note": "Joining costs nothing. We start in the Czech Republic and Slovakia. A short email from Damian arrives right away. <a href=\"{{@privacy}}\">Privacy</a>",
+    "proof_a": "Validated with",
+    "proof_b": "and Red Bull Basement 2026"
   },
   "form": {
     "honeypot": "Leave this empty",
@@ -32,80 +33,100 @@
     "day": "Thursday",
     "goal": "Run a half-marathon",
     "on_track": "On track",
-    "says": "Heavy week at work. Your long run moved to Saturday morning - tonight, a 15-minute mobility session keeps the streak alive.",
+    "says": "Heavy week at work. Your long run moves to Saturday morning. Tonight, 15 minutes of mobility keeps the streak alive.",
     "long_run": "Long run · 60 min",
     "long_run_now": "Today, 18:00",
     "long_run_later": "Moved to Saturday, 09:00",
     "mobility": "Mobility · 15 min",
-    "mobility_note": "A quick win instead",
+    "mobility_note": "A smaller step instead",
     "read": "Read 20 pages",
     "read_note": "Habit · after dinner",
     "milestone": "Milestone 2 · Build to 10 km",
     "milestone_note": "3 of 4 sessions done"
   },
-  "trust": {
-    "label": "Validated with"
-  },
-  "problem": {
-    "eyebrow": "The problem",
-    "h2": "Everyone can make a plan now. Almost nobody <span class=\"gold\">finishes one.</span>",
-    "c1_h": "The plan became free",
-    "c1_p": "Any AI writes a credible roadmap in seconds. That stopped being the hard part.",
-    "c2_h": "Real life breaks it",
-    "c2_p": "A crunch at work, a bad week, one skipped session. The plan assumes a constant version of you that does not exist.",
-    "c3_h": "Restarting costs everything",
-    "c3_p": "Every tool waits for you to come back and face an untouched backlog. Most people never come back.",
-    "statement": "We spend more time managing our lives than improving them."
+  "week": {
+    "h2": "Sound familiar?",
+    "label": "A week where the plan falls apart: a new plan on Monday, a meeting breaks it on Wednesday, by Sunday there is a pile and a new plan.",
+    "days": [
+      "Mo",
+      "Tu",
+      "We",
+      "Th",
+      "Fr",
+      "Sa",
+      "Su"
+    ],
+    "captions": [
+      "New plan. This time it will work.",
+      "Going well.",
+      "The meeting ran long. Tomorrow, then.",
+      "Tomorrow it will be 90 minutes.",
+      "Friends. No point even opening it.",
+      "The pile.",
+      "This time it will work."
+    ],
+    "chip": "English",
+    "min": "45 min",
+    "from_wed": "from Wed",
+    "from_thu": "from Thu",
+    "done": "done",
+    "pile": "4 behind",
+    "fresh": "New plan",
+    "items": [
+      "<strong>On Sunday evening you write the plan for the week.</strong> By Wednesday a meeting runs long and it's over.",
+      "<strong>After work you have no energy left even to decide where to start.</strong> So you open Instagram.",
+      "<strong>One skipped workout.</strong> A week later it is a skipped month.",
+      "<strong>The app waits until you come back to a pile of unfinished tasks.</strong> So you would rather not come back.",
+      "<strong>This is the third time this year you're starting this goal.</strong>"
+    ],
+    "statement": "You're not someone who doesn't finish things. <span>Your plan just assumed you'd be the same person every week.</span>",
+    "small": "Ori isn't built for running company projects, and it doesn't replace therapy or a doctor."
   },
   "band": {
-    "notice": "Notice",
-    "read": "Read",
-    "reshape": "Reshape",
-    "resume": "Resume",
-    "same": "Same goal, different path"
+    "label": "What broke the plan this year:",
+    "items": [
+      "a meeting ran long",
+      "illness",
+      "exams",
+      "friends",
+      "visitors",
+      "moving house",
+      "a new project at work",
+      "holiday",
+      "kids",
+      "nothing in particular"
+    ]
   },
-  "how": {
-    "eyebrow": "How Ori works",
-    "h2": "Every app can build the plan. Ori is built for <span class=\"gold\">the week it breaks.</span>",
-    "setup_tag": "Setup · once",
-    "setup_h": "Twenty minutes, then Ori does the planning",
-    "setup_p": "Your goal, your starting point, why it matters to you and how much time you really have. Ori turns it into a roadmap of milestones and plans the next few days of sessions around your actual calendar.",
-    "s1_num": "01 - Notice",
-    "s1_h": "Ori comes to you",
-    "s1_p": "You went quiet. Ori sees it. You never have to report your own failure.",
-    "s2_num": "02 - Read",
-    "s2_h": "Capacity, not the plan",
-    "s2_p": "Skipped sessions and missing check-ins are the reading. One question confirms it.",
-    "s3_num": "03 - Reshape",
-    "s3_h": "Smaller, or different",
-    "s3_p": "Ori changes the scope and the activity itself, not only the date. A quick win instead of deep work.",
-    "s4_num": "04 - Resume",
-    "s4_h": "Not from zero",
-    "s4_p": "You carry on from where you are. Same goal, different path, no guilt.",
-    "loop": "Every cycle teaches Ori your real pace. Month six is a different product than day one."
+  "jak": {
+    "h2": "When you leave the route, Ori recalculates it.",
+    "lede": "A typical app moves your task to tomorrow. Tomorrow it is there again, only bigger. Ori does what the navigation in your car does. It notices you are off the route and finds a new one. A smaller step instead of a big one. Saturday instead of Thursday. The same goal.",
+    "p1_h": "It notices on its own.",
+    "p1_p": "When you go quiet for a few days, Ori reaches out first. You don't have to report that it isn't going well.",
+    "p2_h": "It shrinks it, or changes it.",
+    "p2_p": "It doesn't only change the date. It makes the scope smaller or picks a different activity you can manage today.",
+    "p3_h": "You carry on from where you are.",
+    "p3_p": "The same goal, a new route. The pile of unfinished tasks never shows up.",
+    "try_h": "Try it.",
+    "step1": "Tap \"Low\". You have no energy today.",
+    "step2": "Tick off the smaller step Ori suggested.",
+    "step3": "Open the Roadmap. The goal is still on track.",
+    "done": "That's what Ori does every day. So you don't have to.",
+    "reset": "Try again"
   },
   "demo": {
-    "eyebrow": "Try it",
-    "h2": "See how Ori <span class=\"gold\">re-plans a day.</span>",
-    "lede": "This is a simplified preview of the app. Tell Ori you're low on energy today, and watch what happens.",
-    "step1": "Tap “Low” - you’re running on empty today.",
-    "step2": "Tick off the smaller step Ori suggested.",
-    "step3": "Open the Roadmap to see what it did to your goal.",
-    "done": "That’s what Ori does every day - so you don’t have to.",
-    "reset": "Try again",
     "label": "An interactive preview of the Ori app",
     "day": "Thursday",
     "goal": "English B2",
-    "energy_q": "How’s your energy today?",
+    "energy_q": "How's your energy today?",
     "low": "Low",
     "mid": "Okay",
     "high": "High",
-    "says_mid": "One longer block today. Let me know how you’re doing.",
-    "says_high": "Great. The plan stands - let’s follow it.",
-    "says_low": "Got it. The long block moves to Saturday morning. Today, 10 minutes of vocabulary is enough - the streak stays.",
-    "says_done": "Done. The streak goes on - 6 days in a row.",
+    "says_mid": "One longer block today. Let me know how you're doing.",
+    "says_high": "Great. The plan stands, let's follow it.",
+    "says_low": "Got it. The long block moves to Saturday morning. Today, 10 minutes of vocabulary is enough and the streak stays.",
+    "says_done": "Done. The streak goes on, 6 days in a row.",
     "session": "Listening and grammar · 45 min",
-    "session_now": "Today’s main step",
+    "session_now": "Today's main step",
     "session_later": "Moved to Saturday, 09:00",
     "quick": "Vocabulary · 10 min",
     "quick_note": "A smaller step instead",
@@ -122,51 +143,83 @@
     "ms3_note": "From November",
     "ms4": "B2 exam",
     "ms4_note": "Goal · June 2027",
-    "road_says": "Today moved just one block. The goal stays in June - and the streak goes on.",
-    "on_track": "On track - even after today",
+    "road_says": "Today moved just one block. The goal stays in June and the streak goes on.",
+    "on_track": "On track, even after today",
     "tab_today": "Today",
     "tab_road": "Roadmap"
   },
-  "why": {
-    "eyebrow": "Why Ori works",
-    "h2": "Built on <span class=\"gold\">behaviour change,</span> not engagement.",
-    "lede": "When your capacity changes, the plan changes - not the goal.",
-    "p1_h": "We shrink the task, we don't just move it",
-    "p1_p": "A rescheduled task is the same wall a day later. A smaller one gets done - and doing something is what restarts the habit.",
-    "p2_h": "You never face the backlog",
-    "p2_p": "Coming back after a bad week is a shame problem, not a motivation problem. Ori reaches out first, so the moment of return never arrives.",
-    "p3_h": "We ask why before what",
-    "p3_p": "Passion or pressure, ambition or capacity. The intake shapes the roadmap, because a plan built on the wrong motivation dies in week three.",
-    "p4_h": "Energy sets the schedule",
-    "p4_p": "Not just the free slot in your calendar. Burnout prevention is a scheduling rule here, not a wellness section.",
-    "statement": "Engagement-optimised apps succeed when you are in the app. Ori succeeds when you are doing the thing outside it."
+  "tyden": {
+    "h2": "Your first week with Ori.",
+    "lede": "These screenshots are from the real app we're testing now. It's in English for the moment; Czech and Slovak are on the way.",
+    "rows": [
+      {
+        "when": "Day 1",
+        "h": "Twenty minutes. Then Ori plans.",
+        "p": "You tell Ori your goal and why you want it. Ori keeps asking until it is concrete. You get a route in milestones and your first steps already in the calendar.",
+        "alt": "The goal screen in Ori: Run a 5K, target date 29 December 2026, status On track and a roadmap of milestones"
+      },
+      {
+        "when": "Days 2 to 4",
+        "h": "One concrete step a day.",
+        "p": "You know how many minutes it takes and what exactly to do. The steps fit your real week, not the ideal one.",
+        "alt": "The Ori calendar with the step Easy run 1 planned for 19:40, 30 minutes"
+      },
+      {
+        "when": "Day 5",
+        "h": "Low on energy? One tap and Ori knows.",
+        "p": "One tap tells Ori how much you have today. It adjusts what it offers you. You explain nothing and write nothing.",
+        "alt": "Ori with low energy selected and today's step adjusted to it"
+      },
+      {
+        "when": "Day 8",
+        "h": "A week of silence? Ori sees it.",
+        "p": "Ori notices the quiet week and suggests one small step to get you going again.",
+        "alt": "A message from Ori: a week without a session, one small step today is enough to restart"
+      },
+      {
+        "when": "Onwards",
+        "h": "Ori learns your pace.",
+        "p": "Month six looks different from day one. So do you.",
+        "alt": ""
+      }
+    ]
   },
-  "who": {
-    "eyebrow": "Who it's for",
-    "h2": "For people who want a system that adapts to them - not the other way around.",
-    "a_who": "Young professionals · 25–35",
-    "a_h": "Ambitious, and out of decisions by 6 pm",
-    "a_1": "Stuck in decision fatigue after work.",
-    "a_2": "Can't start the side project, because working out where to begin is itself exhausting.",
-    "a_3": "Want the next step handed to them, sized for the evening they actually have.",
-    "b_who": "Achievers",
-    "b_h": "High performers who've burned out before",
-    "b_1": "A track record of delivering - and a personal project recently dropped to burnout or time.",
-    "b_2": "Looking for a system that survives the weeks they can't deliver.",
-    "b_3": "Want to be pushed on good days and protected on bad ones."
+  "kdo": {
+    "h2": "We're building it because we needed it.",
+    "p1": "We're two students. We've each started side projects before, and we ran into the same thing. The plan was ready in an evening. It fell apart the first week something else came up.",
+    "p2": "We looked for an app that expects this. None of them fit. When we talked to friends, they said they needed something like it too. So we said: we are doing this.",
+    "p3": "More people backed us than we expected. We talked the idea through with people from the field and validated it through JIC and Red Bull Basement. Now we are testing Ori with a first group of people.",
+    "sign": "Damian Knoth and Jindřich Novák",
+    "role": "founders of Ori",
+    "caption": "Co-founder",
+    "photo_d": "Damian Knoth",
+    "photo_j": "Jindřich Novák"
   },
-  "team": {
-    "eyebrow": "Who's behind Ori",
-    "h2": "We're building it because we <span class=\"gold\">hit the problem first.</span>",
-    "lede": "Both of us ran into it first-hand, running several projects at once. And both of us have taken a product from an idea to its first paying customers before.",
-    "damian": "Product strategy, business development, marketing and fundraising.",
-    "jindrich": "Product vision, AI, design and UX/UI."
+  "join": {
+    "h2": "Start the goal that, this time, <span class=\"gold\">survives.</span>",
+    "lede": "Ori is in testing. Join the waitlist and a short email from Damian arrives right away. When it's your turn, we'll write again.",
+    "note": "One email now, one when there is a spot. Nothing else. <a href=\"{{@privacy}}\">Privacy</a>",
+    "ps": "P.S. That first email asks one question. We both read the replies."
   },
-  "quote": "AI can build your plan.<span>Ori is why you still have it in <em class=\"gold\">month six.</em></span>",
+  "footer": {
+    "label": "Footer",
+    "privacy": "Privacy",
+    "app_privacy": "App privacy",
+    "faq": "FAQ",
+    "contact": "Contact"
+  },
+  "js": {
+    "invalid": "That doesn’t look like an email address.",
+    "joining": "Joining…",
+    "failed": "Something went wrong. Check your connection and try again.",
+    "btn_joined": "You’re on the list",
+    "btn_already": "Already on the list",
+    "note_joined": "Thank you. A short email is on its way.",
+    "note_already": "You’re already on the waitlist - we’ll be in touch."
+  },
   "faq": {
     "title": "Questions - Ori",
     "description": "Answers to the common questions about Ori: when it launches, what it costs, what it runs on and what happens to your data.",
-    "eyebrow": "Questions",
     "h2": "Before you <span class=\"gold\">sign up.</span>",
     "items": [
       {
@@ -213,33 +266,11 @@
     "cta_h": "Didn't find your answer?",
     "cta_p": "Write to us at <a href=\"mailto:oriapp.eu@gmail.com\">oriapp.eu@gmail.com</a> - a person answers, not a bot."
   },
-  "join": {
-    "eyebrow": "Early access",
-    "h2": "Start the goal you keep postponing.",
-    "lede": "Ori is in testing now. Join the waitlist and we'll write when your spot is ready.",
-    "note": "We only use your email to tell you about Ori - <a href=\"{{@privacy}}\">privacy</a>."
-  },
-  "footer": {
-    "label": "Footer",
-    "privacy": "Privacy",
-    "app_privacy": "App privacy",
-    "contact": "Contact"
-  },
-  "js": {
-    "invalid": "That doesn’t look like an email address.",
-    "joining": "Joining…",
-    "failed": "Something went wrong. Check your connection and try again.",
-    "btn_joined": "You’re on the list",
-    "btn_already": "Already on the list",
-    "note_joined": "Thank you. A short email is on its way.",
-    "note_already": "You’re already on the waitlist - we’ll be in touch."
-  },
   "privacy": {
     "title": "Privacy - Ori",
     "description": "How Ori handles the email address you give us when you join the waitlist.",
     "back": "Back to Ori",
     "home": "Home",
-    "eyebrow": "Privacy",
     "h1": "This website and the waitlist",
     "updated": "Last updated: 29 September 2026",
     "collect_h": "What we collect",

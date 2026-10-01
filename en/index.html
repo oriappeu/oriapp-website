@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ori - Achieve your goals without sacrificing your life</title>
-  <meta name="description" content="Ori is an AI self-development coach. Any AI can write you a plan; Ori is built for the week it breaks - it notices, reshapes the path to your real capacity, and gets you moving again. No backlog, no guilt.">
+  <title>Ori: a goal that survives a bad week</title>
+  <meta name="description" content="Ori is an AI self-development coach. It lays your goal into your calendar and, when a bad week hits, rebuilds the plan. Joining the waitlist costs nothing, and we start in the Czech Republic and Slovakia.">
   <meta name="theme-color" content="#0F0C14">
   <link rel="canonical" href="https://oriapp.eu/en/">
   <link rel="alternate" hreflang="cs" href="https://oriapp.eu/">
@@ -17,14 +17,14 @@
   <meta property="og:url" content="https://oriapp.eu/en/">
   <meta property="og:site_name" content="Ori">
   <meta property="og:locale" content="en_GB">
-  <meta property="og:title" content="Ori - Achieve your goals without sacrificing your life">
-  <meta property="og:description" content="AI can build your plan. Ori is why you still have it in month six.">
+  <meta property="og:title" content="Ori: a goal that survives a bad week">
+  <meta property="og:description" content="AI can build your plan. Ori keeps it alive when it falls apart.">
   <meta property="og:image" content="https://oriapp.eu/assets/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Ori - Achieve your goals without sacrificing your life">
-  <meta name="twitter:description" content="AI can build your plan. Ori is why you still have it in month six.">
+  <meta name="twitter:title" content="Ori: a goal that survives a bad week">
+  <meta name="twitter:description" content="AI can build your plan. Ori keeps it alive when it falls apart.">
   <meta name="twitter:image" content="https://oriapp.eu/assets/og-image.png">
 
   <link rel="icon" href="/assets/favicon.ico" sizes="any">
@@ -35,8 +35,9 @@
   <link rel="preload" href="/fonts/sora-600-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/styles.css">
-  <!-- A reload starts at the top: the browser must not restore the old position. -->
-  <script>if ('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
+  <!-- `js` gates every hidden-until-seen state, so without script the page simply reads.
+       A reload starts at the top: the browser must not restore the old position. -->
+  <script>document.documentElement.classList.add('js'); if ('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
 
   <script type="application/ld+json">
   {
@@ -46,7 +47,7 @@
     "applicationCategory": "LifestyleApplication",
     "operatingSystem": "Android, iOS, Web",
     "inLanguage": "en",
-    "description": "An AI self-development coach that plans around your real capacity and rebuilds the path when that capacity changes.",
+    "description": "An AI self-development coach that lays a goal into your calendar and rebuilds the plan when your capacity changes.",
     "url": "https://oriapp.eu/en/"
   }
   </script>
@@ -55,73 +56,56 @@
   <script defer src="https://cloud.umami.is/script.js" data-website-id="3be86478-1afd-4b48-8b94-6532dd16d602" data-domains="oriapp.eu"></script>
 </head>
 <body>
-  <div class="progress-bar" aria-hidden="true"></div>
-  <div class="aura" aria-hidden="true"><span class="g1"></span><span class="g2"></span><span class="g3"></span></div>
+<div class="progress-bar" aria-hidden="true"></div>
+<div class="aura" aria-hidden="true"><span class="g1"></span><span class="g2"></span><span class="g3"></span></div>
 
-  <header class="nav">
-    <div class="wrap">
-      <a class="brand" href="#top" aria-label="Ori, back to top">
-        <img src="/assets/icon-192.png" alt="" width="32" height="32">
-        <span>Ori</span>
-      </a>
-      <nav class="nav-links" aria-label="Sections">
-        <a href="#how">How it works</a>
-        <a href="#why">Why it works</a>
-        <a href="#who">Who it's for</a>
-        <a href="/en/faq.html">FAQ</a>
-        <div class="lang" role="group" aria-label="Language"><a href="/" hreflang="cs" lang="cs" title="Čeština">CS</a><a href="/sk/" hreflang="sk" lang="sk" title="Slovenčina">SK</a><a href="/en/" hreflang="en" lang="en" title="English" aria-current="page">EN</a></div>
-        <a class="btn btn-primary" href="#join">Join the waitlist</a>
-      </nav>
-    </div>
-  </header>
+<header class="nav">
+  <div class="bar">
+    <a class="brand" href="/en/" aria-label="Ori, back to top">
+      <img src="/assets/icon-192.png" alt="" width="32" height="32">
+      <span>Ori</span>
+    </a>
+    <nav class="links" aria-label="Sections">
+      <a href="/en/#jak">How it works</a>
+      <a href="/en/#kdo">Who's behind it</a>
+      <a href="/en/faq.html">FAQ</a>
+      <div class="lang" role="group" aria-label="Language"><a href="/" hreflang="cs" lang="cs" title="Čeština">CS</a><a href="/sk/" hreflang="sk" lang="sk" title="Slovenčina">SK</a><a href="/en/" hreflang="en" lang="en" title="English" aria-current="page">EN</a></div>
+      <a class="btn btn-primary" href="/en/#zapis">Join the waitlist</a>
+    </nav>
+  </div>
+</header>
 
   <main id="top">
     <!-- ── Hero ─────────────────────────────────────────────────────────── -->
     <section class="hero">
       <div class="wrap">
-        <div>
-          <span class="eyebrow voice">Your AI self-development coach</span>
-          <h1 class="split">Achieve your goals without sacrificing <span class="gold">your life.</span></h1>
-          <p class="lede">Any AI can write you a plan. Ori is built for the week it breaks - it notices when life gets in the way, reshapes the path to what you can really do, and gets you moving again. No backlog. No guilt.</p>
-          <form class="waitlist" id="form-hero" novalidate>
+        <div class="hero-copy">
+          <p class="who reveal" style="--i:0">For people whose plans keep running into real life.</p>
+          <h1 class="split">A goal that survives <span class="gold">a bad week.</span></h1>
+          <p class="lede reveal" style="--i:2">Tell Ori what you want to achieve. In twenty minutes you have the route to it laid into your calendar. And when a week comes that you can't keep up with, Ori rebuilds the plan. It doesn't wait for you to come back to a pile of tasks.</p>
+          <form class="waitlist reveal" style="--i:3" id="form-hero" novalidate>
             <label class="hp" aria-hidden="true">Leave this empty <input type="text" name="company" tabindex="-1" autocomplete="off"></label>
-            <input type="email" name="email" placeholder="you@example.com" autocomplete="email" required aria-label="Your email address">
+            <input type="email" id="email-hero" name="email" placeholder="you@example.com" autocomplete="email" required aria-label="Your email address">
             <button class="btn btn-primary" type="submit">Join the waitlist</button>
           </form>
-          <p class="form-note" role="status" aria-live="polite">Early access opens in the Czech Republic and Slovakia first. We'll write when your spot is ready - <a href="/en/privacy.html">privacy</a>.</p>
+          <p class="form-note reveal" style="--i:4" role="status" aria-live="polite">Joining costs nothing. We start in the Czech Republic and Slovakia. A short email from Damian arrives right away. <a href="/en/privacy.html">Privacy</a></p>
+          <p class="proof reveal" style="--i:5">
+            <span>Validated with</span>
+            <svg viewBox="160 400 680 200" aria-label="JIC" role="img"><path d="M160 560h160V400h40v200H160zM480 400h40v200h-40zM640 400h200v40H680v120h160v40H640z" fill="currentColor"/></svg>
+            <span>and Red Bull Basement 2026</span>
+          </p>
         </div>
 
-        <div class="hero-visual reveal" aria-label="An example of Ori re-planning a day">
+        <div class="hero-visual reveal" style="--i:2" aria-label="An example of Ori re-planning a day">
           <div class="phone glass story">
             <div class="phone-head"><b>Thursday</b><span>Run a half-marathon</span></div>
-            <div class="gps">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-              On track
-            </div>
-            <div class="ori-says">
-              <b>Ori</b>
-              Heavy week at work. Your long run moved to Saturday morning - tonight, a 15-minute mobility session keeps the streak alive.
-            </div>
-            <div class="row moved">
-              <span class="bar" style="background: var(--health)"></span>
-              <div><div class="t">Long run · 60 min</div><div class="m"><span class="now">Today, 18:00</span><span class="later">Moved to Saturday, 09:00</span></div></div>
-            </div>
-            <div class="row quick">
-              <span class="bar" style="background: var(--health)"></span>
-              <div><div class="t">Mobility · 15 min</div><div class="m">A quick win instead</div></div>
-              <span class="time">20:30</span>
-            </div>
-            <div class="row habit">
-              <span class="bar" style="background: var(--learning)"></span>
-              <div><div class="t">Read 20 pages</div><div class="m">Habit · after dinner</div></div>
-              <span class="time">21:00</span>
-            </div>
+            <div class="gps"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>On track</div>
+            <div class="ori-says"><b>Ori</b>Heavy week at work. Your long run moves to Saturday morning. Tonight, 15 minutes of mobility keeps the streak alive.</div>
+            <div class="row moved"><span class="bar" style="background: var(--health)"></span><div><div class="t">Long run · 60 min</div><div class="m"><span class="now">Today, 18:00</span><span class="later">Moved to Saturday, 09:00</span></div></div></div>
+            <div class="row quick"><span class="bar" style="background: var(--health)"></span><div><div class="t">Mobility · 15 min</div><div class="m">A smaller step instead</div></div><span class="time">20:30</span></div>
+            <div class="row habit"><span class="bar" style="background: var(--learning)"></span><div><div class="t">Read 20 pages</div><div class="m">Habit · after dinner</div></div><span class="time">21:00</span></div>
             <div class="progress">
-              <svg viewBox="0 0 46 46" aria-hidden="true">
-                <circle cx="23" cy="23" r="19" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="4"/>
-                <circle class="ring" cx="23" cy="23" r="19" fill="none" stroke="#E9C464" stroke-width="4" stroke-linecap="round"
-                        stroke-dasharray="119.4" stroke-dashoffset="29.8" transform="rotate(-90 23 23)"/>
-              </svg>
+              <svg viewBox="0 0 46 46" aria-hidden="true"><circle cx="23" cy="23" r="19" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="4"/><circle class="ring" cx="23" cy="23" r="19" fill="none" stroke="#E9C464" stroke-width="4" stroke-linecap="round" stroke-dasharray="119.4" stroke-dashoffset="29.8" transform="rotate(-90 23 23)"/></svg>
               <p class="t"><b>Milestone 2 · Build to 10 km</b><br>3 of 4 sessions done</p>
             </div>
           </div>
@@ -129,166 +113,107 @@
       </div>
     </section>
 
-    <!-- ── Validated with ───────────────────────────────────────────────── -->
-    <section class="trust" aria-label="Validated with">
-      <div class="wrap reveal">
-        <span class="trust-label">Validated with</span>
-        <span class="trust-logo" role="img" aria-label="JIC">
-          <svg viewBox="160 400 680 200" aria-hidden="true"><path d="M160 560h160V400h40v200H160zM480 400h40v200h-40zM640 400h200v40H680v120h160v40H640z" fill="currentColor"/></svg>
-        </span>
-        <span class="trust-sep" aria-hidden="true"></span>
-        <span class="trust-name">Red Bull Basement 2026</span>
-      </div>
-    </section>
-
-    <!-- ── The problem ──────────────────────────────────────────────────── -->
-    <section id="problem">
+    <!-- ── Do you recognise this? A week, then the lines you may know ───── -->
+    <section id="poznavas">
       <div class="wrap">
-        <div class="section-head reveal">
-          <span class="eyebrow">The problem</span>
-          <h2 class="split">Everyone can make a plan now. Almost nobody <span class="gold">finishes one.</span></h2>
+        <h2 class="reveal">Sound familiar?</h2>
+        <div class="week-wrap glass reveal" id="week" role="img" aria-label="A week where the plan falls apart: a new plan on Monday, a meeting breaks it on Wednesday, by Sunday there is a pile and a new plan.">
+          <div class="week" aria-hidden="true">
+            <div class="day">
+              <b>Mo</b>
+              <div class="slot"><div class="chip fresh"><i></i><div><span class="t">English</span><span class="m">45 min</span></div></div></div>
+              <p>New plan. This time it will work.</p>
+            </div>
+            <div class="day">
+              <b>Tu</b>
+              <div class="slot"><div class="chip done"><i></i><div><span class="t">English</span><span class="m">45 min</span></div><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div></div>
+              <p>Going well.</p>
+            </div>
+            <div class="day turn">
+              <b>We</b>
+              <div class="slot"><div class="chip cut"><i></i><div><span class="t">English</span><span class="m">45 min</span></div></div></div>
+              <p>The meeting ran long. Tomorrow, then.</p>
+            </div>
+            <div class="day">
+              <b>Th</b>
+              <div class="slot">
+                <div class="chip carried"><i></i><div><span class="t">English</span><span class="m">from Wed</span></div></div>
+                <div class="chip"><i></i><div><span class="t">English</span><span class="m">45 min</span></div></div>
+              </div>
+              <p>Tomorrow it will be 90 minutes.</p>
+            </div>
+            <div class="day">
+              <b>Fr</b>
+              <div class="slot">
+                <div class="chip carried dim"><i></i><div><span class="t">English</span><span class="m">from Wed</span></div></div>
+                <div class="chip carried dim"><i></i><div><span class="t">English</span><span class="m">from Thu</span></div></div>
+                <div class="chip dim"><i></i><div><span class="t">English</span><span class="m">45 min</span></div></div>
+              </div>
+              <p>Friends. No point even opening it.</p>
+            </div>
+            <div class="day">
+              <b>Sa</b>
+              <div class="slot"><div class="pile"><div class="chip front"><i></i><div><span class="t">4 behind</span><span class="m">English</span></div></div></div></div>
+              <p>The pile.</p>
+            </div>
+            <div class="day">
+              <b>Su</b>
+              <div class="slot"><div class="chip fresh"><i></i><div><span class="t">New plan</span><span class="m">English</span></div></div></div>
+              <p>This time it will work.</p>
+            </div>
+          </div>
         </div>
-        <div class="grid-3">
-          <article class="card glass reveal">
-            <span class="num">01</span>
-            <h3>The plan became free</h3>
-            <p>Any AI writes a credible roadmap in seconds. That stopped being the hard part.</p>
-          </article>
-          <article class="card glass reveal">
-            <span class="num">02</span>
-            <h3>Real life breaks it</h3>
-            <p>A crunch at work, a bad week, one skipped session. The plan assumes a constant version of you that does not exist.</p>
-          </article>
-          <article class="card glass reveal">
-            <span class="num">03</span>
-            <h3>Restarting costs everything</h3>
-            <p>Every tool waits for you to come back and face an untouched backlog. Most people never come back.</p>
-          </article>
-        </div>
-        <p class="statement reveal">We spend more time managing our lives than improving them.</p>
+        <ul class="recog reveal">
+        <li><strong>On Sunday evening you write the plan for the week.</strong> By Wednesday a meeting runs long and it's over.</li>
+        <li><strong>After work you have no energy left even to decide where to start.</strong> So you open Instagram.</li>
+        <li><strong>One skipped workout.</strong> A week later it is a skipped month.</li>
+        <li><strong>The app waits until you come back to a pile of unfinished tasks.</strong> So you would rather not come back.</li>
+        <li><strong>This is the third time this year you're starting this goal.</strong></li>
+        </ul>
+        <p class="statement reveal">You're not someone who doesn't finish things. <span>Your plan just assumed you'd be the same person every week.</span></p>
+        <p class="small reveal">Ori isn't built for running company projects, and it doesn't replace therapy or a doctor.</p>
       </div>
     </section>
 
-    <!-- ── The loop, running ─────────────────────────────────────────── -->
-    <div class="band" aria-hidden="true">
-      <div class="band-track">
-        <span>Notice <i>◆</i></span><span>Read <i>◆</i></span><span>Reshape <i>◆</i></span><span>Resume <i>◆</i></span><span>Same goal, different path <i>◆</i></span>
-        <span>Notice <i>◆</i></span><span>Read <i>◆</i></span><span>Reshape <i>◆</i></span><span>Resume <i>◆</i></span><span>Same goal, different path <i>◆</i></span>
-      </div>
+    <!-- ── What broke the plan this year ────────────────────────────────── -->
+    <div class="band reveal">
+      <p class="band-label" aria-hidden="true">What broke the plan this year:</p>
+      <p class="sr-only">What broke the plan this year: a meeting ran long, illness, exams, friends, visitors, moving house, a new project at work, holiday, kids, nothing in particular.</p>
+      <div class="band-mask" aria-hidden="true"><div class="pills"><span>a meeting ran long</span><span>illness</span><span>exams</span><span>friends</span><span>visitors</span><span>moving house</span><span>a new project at work</span><span>holiday</span><span>kids</span><span>nothing in particular</span><span class="dup">a meeting ran long</span><span class="dup">illness</span><span class="dup">exams</span><span class="dup">friends</span><span class="dup">visitors</span><span class="dup">moving house</span><span class="dup">a new project at work</span><span class="dup">holiday</span><span class="dup">kids</span><span class="dup">nothing in particular</span></div></div>
     </div>
 
-    <!-- ── How it works ─────────────────────────────────────────────────── -->
-    <section id="how">
+    <!-- ── How it works: the model of the app, and the words ────────────── -->
+    <section id="jak">
       <div class="wrap">
-        <div class="section-head reveal">
-          <span class="eyebrow">How Ori works</span>
-          <h2 class="split">Every app can build the plan. Ori is built for <span class="gold">the week it breaks.</span></h2>
-        </div>
-
-        <div class="setup glass reveal">
-          <span class="tag">Setup · once</span>
-          <div>
-            <h3>Twenty minutes, then Ori does the planning</h3>
-            <p>Your goal, your starting point, why it matters to you and how much time you really have. Ori turns it into a roadmap of milestones and plans the next few days of sessions around your actual calendar.</p>
-          </div>
-        </div>
-
-        <div class="grid-4">
-          <article class="card glass-soft step reveal">
-            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg></div>
-            <span class="num">01 - Notice</span>
-            <h3>Ori comes to you</h3>
-            <p>You went quiet. Ori sees it. You never have to report your own failure.</p>
-          </article>
-          <article class="card glass-soft step reveal">
-            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></div>
-            <span class="num">02 - Read</span>
-            <h3>Capacity, not the plan</h3>
-            <p>Skipped sessions and missing check-ins are the reading. One question confirms it.</p>
-          </article>
-          <article class="card glass-soft step reveal">
-            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h10M4 17h6M18 4v16M15 17l3 3 3-3"/></svg></div>
-            <span class="num">03 - Reshape</span>
-            <h3>Smaller, or different</h3>
-            <p>Ori changes the scope and the activity itself, not only the date. A quick win instead of deep work.</p>
-          </article>
-          <article class="card glass-soft step reveal">
-            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-            <span class="num">04 - Resume</span>
-            <h3>Not from zero</h3>
-            <p>You carry on from where you are. Same goal, different path, no guilt.</p>
-          </article>
-        </div>
-        <p class="loop-note reveal">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg>
-          Every cycle teaches Ori your real pace. Month six is a different product than day one.
-        </p>
-      </div>
-    </section>
-
-    <!-- ── Try it: a small working model of the app ─────────────────────── -->
-    <section id="try">
-      <div class="wrap">
-        <div class="try-copy">
-          <div class="section-head reveal">
-            <span class="eyebrow">Try it</span>
-            <h2 class="split">See how Ori <span class="gold">re-plans a day.</span></h2>
-            <p class="lede">This is a simplified preview of the app. Tell Ori you're low on energy today, and watch what happens.</p>
-          </div>
-          <ol class="try-steps reveal">
-            <li data-step="1"><span class="n">1</span><span>Tap “Low” - you’re running on empty today.</span></li>
-            <li data-step="2"><span class="n">2</span><span>Tick off the smaller step Ori suggested.</span></li>
-            <li data-step="3"><span class="n">3</span><span>Open the Roadmap to see what it did to your goal.</span></li>
-          </ol>
-          <p class="try-done" aria-live="polite"><span>That’s what Ori does every day - so you don’t have to.</span> <button type="button" class="try-reset">Try again</button></p>
-        </div>
-
         <div class="device reveal" role="group" aria-label="An interactive preview of the Ori app">
           <div class="demo" data-energy="mid" data-tab="today" data-step="1">
             <div class="demo-screen" data-screen="today" role="tabpanel" id="demo-today" aria-labelledby="demo-tab-today">
               <div class="phone-head"><b>Thursday</b><span>English B2</span></div>
-              <p class="demo-q">How’s your energy today?</p>
-              <div class="demo-energy" role="group" aria-label="How’s your energy today?">
+              <p class="demo-q">How's your energy today?</p>
+              <div class="demo-energy" role="group" aria-label="How's your energy today?">
                 <button type="button" data-set-energy="low" aria-pressed="false">Low</button>
                 <button type="button" data-set-energy="mid" aria-pressed="true">Okay</button>
                 <button type="button" data-set-energy="high" aria-pressed="false">High</button>
               </div>
               <div class="demo-says" aria-live="polite">
                 <b>Ori</b>
-                <span class="v v-mid">One longer block today. Let me know how you’re doing.</span>
-                <span class="v v-high">Great. The plan stands - let’s follow it.</span>
-                <span class="v v-low">Got it. The long block moves to Saturday morning. Today, 10 minutes of vocabulary is enough - the streak stays.</span>
-                <span class="v v-done">Done. The streak goes on - 6 days in a row.</span>
+                <span class="v v-mid">One longer block today. Let me know how you're doing.</span>
+                <span class="v v-high">Great. The plan stands, let's follow it.</span>
+                <span class="v v-low">Got it. The long block moves to Saturday morning. Today, 10 minutes of vocabulary is enough and the streak stays.</span>
+                <span class="v v-done">Done. The streak goes on, 6 days in a row.</span>
               </div>
-              <div class="row d-session">
-                <span class="bar" style="background: var(--learning)"></span>
-                <div><div class="t">Listening and grammar · 45 min</div><div class="m"><span class="now">Today’s main step</span><span class="later">Moved to Saturday, 09:00</span></div></div>
-                <span class="time">18:30</span>
-              </div>
+              <div class="row d-session"><span class="bar" style="background: var(--learning)"></span><div><div class="t">Listening and grammar · 45 min</div><div class="m"><span class="now">Today's main step</span><span class="later">Moved to Saturday, 09:00</span></div></div><span class="time">18:30</span></div>
               <div class="d-quick-slot"><div>
-                <div class="row d-quick">
-                  <span class="bar" style="background: var(--learning)"></span>
-                  <div><div class="t">Vocabulary · 10 min</div><div class="m">A smaller step instead</div></div>
-                  <button type="button" class="demo-check" role="checkbox" aria-checked="false" aria-label="Mark as done">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-                  </button>
+                <div class="row d-quick"><span class="bar" style="background: var(--learning)"></span><div><div class="t">Vocabulary · 10 min</div><div class="m">A smaller step instead</div></div>
+                  <button type="button" class="demo-check" role="checkbox" aria-checked="false" aria-label="Mark as done"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></button>
                 </div>
               </div></div>
-              <div class="row">
-                <span class="bar" style="background: var(--rest)"></span>
-                <div><div class="t">English podcast</div><div class="m">Habit · before bed</div></div>
-                <span class="time">21:00</span>
-              </div>
+              <div class="row"><span class="bar" style="background: var(--rest)"></span><div><div class="t">English podcast</div><div class="m">Habit · before bed</div></div><span class="time">21:00</span></div>
               <div class="progress demo-ms">
-                <svg viewBox="0 0 46 46" aria-hidden="true">
-                  <circle cx="23" cy="23" r="19" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="4"/>
-                  <circle class="d-ring" cx="23" cy="23" r="19" fill="none" stroke="#E9C464" stroke-width="4" stroke-linecap="round"
-                          stroke-dasharray="119.4" transform="rotate(-90 23 23)"/>
-                </svg>
+                <svg viewBox="0 0 46 46" aria-hidden="true"><circle cx="23" cy="23" r="19" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="4"/><circle class="d-ring" cx="23" cy="23" r="19" fill="none" stroke="#E9C464" stroke-width="4" stroke-linecap="round" stroke-dasharray="119.4" transform="rotate(-90 23 23)"/></svg>
                 <p class="t"><b>Milestone 2 · B1 grammar</b><br><span class="c2">2 of 4 steps done</span><span class="c3">3 of 4 steps done</span></p>
               </div>
             </div>
-
             <div class="demo-screen" data-screen="road" role="tabpanel" id="demo-road" aria-labelledby="demo-tab-road">
               <div class="phone-head"><b>Roadmap</b><span>English B2</span></div>
               <ol class="demo-road">
@@ -297,158 +222,114 @@
                 <li><i></i><div><b>Milestone 3 · Speaking with a tutor</b><span>From November</span></div></li>
                 <li><i></i><div><b>B2 exam</b><span>Goal · June 2027</span></div></li>
               </ol>
-              <div class="demo-says"><b>Ori</b><span>Today moved just one block. The goal stays in June - and the streak goes on.</span></div>
-              <p class="gps">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-                On track - even after today
-              </p>
+              <div class="demo-says"><b>Ori</b><span>Today moved just one block. The goal stays in June and the streak goes on.</span></div>
+              <p class="gps"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>On track, even after today</p>
             </div>
-
             <div class="demo-tabs" role="tablist" aria-label="Ori">
-              <button type="button" role="tab" id="demo-tab-today" aria-controls="demo-today" aria-selected="true" data-set-tab="today">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
-                Today
-              </button>
-              <button type="button" role="tab" id="demo-tab-road" aria-controls="demo-road" aria-selected="false" data-set-tab="road">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l2.9 6.2 6.6.8-4.9 4.6 1.3 6.6L12 17l-5.9 3.2 1.3-6.6L2.5 9l6.6-.8z"/></svg>
-                Roadmap
-              </button>
+              <button type="button" role="tab" id="demo-tab-today" aria-controls="demo-today" aria-selected="true" data-set-tab="today"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>Today</button>
+              <button type="button" role="tab" id="demo-tab-road" aria-controls="demo-road" aria-selected="false" data-set-tab="road"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l2.9 6.2 6.6.8-4.9 4.6 1.3 6.6L12 17l-5.9 3.2 1.3-6.6L2.5 9l6.6-.8z"/></svg>Roadmap</button>
             </div>
+          </div>
+        </div>
+
+        <div class="copy">
+          <h2 class="reveal">When you leave the route, Ori recalculates it.</h2>
+          <p class="lede reveal">A typical app moves your task to tomorrow. Tomorrow it is there again, only bigger. Ori does what the navigation in your car does. It notices you are off the route and finds a new one. A smaller step instead of a big one. Saturday instead of Thursday. The same goal.</p>
+          <div class="points reveal">
+            <p><b>It notices on its own.</b>When you go quiet for a few days, Ori reaches out first. You don't have to report that it isn't going well.</p>
+            <p><b>It shrinks it, or changes it.</b>It doesn't only change the date. It makes the scope smaller or picks a different activity you can manage today.</p>
+            <p><b>You carry on from where you are.</b>The same goal, a new route. The pile of unfinished tasks never shows up.</p>
+          </div>
+          <div class="try reveal">
+            <h3>Try it.</h3>
+            <ol class="try-steps">
+              <li data-step="1"><span class="n">1</span><span>Tap "Low". You have no energy today.</span></li>
+              <li data-step="2"><span class="n">2</span><span>Tick off the smaller step Ori suggested.</span></li>
+              <li data-step="3"><span class="n">3</span><span>Open the Roadmap. The goal is still on track.</span></li>
+            </ol>
+            <p class="try-done" aria-live="polite"><span>That's what Ori does every day. So you don't have to.</span> <button type="button" class="try-reset">Try again</button></p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ── Why it works ─────────────────────────────────────────────────── -->
-    <section id="why">
+    <!-- ── The first week, on real screens ──────────────────────────────── -->
+    <section id="tyden">
       <div class="wrap">
-        <div class="section-head reveal">
-          <span class="eyebrow">Why Ori works</span>
-          <h2 class="split">Built on <span class="gold">behaviour change,</span> not engagement.</h2>
-          <p class="lede">When your capacity changes, the plan changes - not the goal.</p>
-        </div>
-        <div class="grid-2">
-          <article class="principle glass reveal">
-            <div class="dot" style="background: var(--health)"></div>
-            <h3>We shrink the task, we don't just move it</h3>
-            <p>A rescheduled task is the same wall a day later. A smaller one gets done - and doing something is what restarts the habit.</p>
-          </article>
-          <article class="principle glass reveal">
-            <div class="dot" style="background: var(--rest)"></div>
-            <h3>You never face the backlog</h3>
-            <p>Coming back after a bad week is a shame problem, not a motivation problem. Ori reaches out first, so the moment of return never arrives.</p>
-          </article>
-          <article class="principle glass reveal">
-            <div class="dot" style="background: var(--creation)"></div>
-            <h3>We ask why before what</h3>
-            <p>Passion or pressure, ambition or capacity. The intake shapes the roadmap, because a plan built on the wrong motivation dies in week three.</p>
-          </article>
-          <article class="principle glass reveal">
-            <div class="dot" style="background: var(--work)"></div>
-            <h3>Energy sets the schedule</h3>
-            <p>Not just the free slot in your calendar. Burnout prevention is a scheduling rule here, not a wellness section.</p>
-          </article>
-        </div>
-        <p class="statement reveal">Engagement-optimised apps succeed when you are in the app. Ori succeeds when you are doing the thing outside it.</p>
-      </div>
-    </section>
-
-    <!-- ── Who it's for ─────────────────────────────────────────────────── -->
-    <section id="who">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <span class="eyebrow">Who it's for</span>
-          <h2 class="split">For people who want a system that adapts to them - not the other way around.</h2>
-        </div>
-        <div class="grid-2">
-          <article class="persona glass reveal">
-            <p class="who">Young professionals · 25–35</p>
-            <h3>Ambitious, and out of decisions by 6 pm</h3>
-            <ul>
-              <li>Stuck in decision fatigue after work.</li>
-              <li>Can't start the side project, because working out where to begin is itself exhausting.</li>
-              <li>Want the next step handed to them, sized for the evening they actually have.</li>
-            </ul>
-          </article>
-          <article class="persona glass reveal">
-            <p class="who">Achievers</p>
-            <h3>High performers who've burned out before</h3>
-            <ul>
-              <li>A track record of delivering - and a personal project recently dropped to burnout or time.</li>
-              <li>Looking for a system that survives the weeks they can't deliver.</li>
-              <li>Want to be pushed on good days and protected on bad ones.</li>
-            </ul>
-          </article>
+        <h2 class="reveal">Your first week with Ori.</h2>
+        <p class="lede reveal">These screenshots are from the real app we're testing now. It's in English for the moment; Czech and Slovak are on the way.</p>
+        <div class="tl" id="route">
+          <div class="tl-row reveal">
+            <div><span class="when">Day 1</span><h3>Twenty minutes. Then Ori plans.</h3><p>You tell Ori your goal and why you want it. Ori keeps asking until it is concrete. You get a route in milestones and your first steps already in the calendar.</p></div>
+            <div class="shot"><img src="/img/day1.webp" width="600" height="800" alt="The goal screen in Ori: Run a 5K, target date 29 December 2026, status On track and a roadmap of milestones" loading="lazy"></div>
+          </div>
+          <div class="tl-row reveal">
+            <div><span class="when">Days 2 to 4</span><h3>One concrete step a day.</h3><p>You know how many minutes it takes and what exactly to do. The steps fit your real week, not the ideal one.</p></div>
+            <div class="shot"><img src="/img/day2.webp" width="600" height="385" alt="The Ori calendar with the step Easy run 1 planned for 19:40, 30 minutes" loading="lazy"></div>
+          </div>
+          <div class="tl-row reveal">
+            <div><span class="when">Day 5</span><h3>Low on energy? One tap and Ori knows.</h3><p>One tap tells Ori how much you have today. It adjusts what it offers you. You explain nothing and write nothing.</p></div>
+            <div class="shot"><img src="/img/day5.webp" width="600" height="608" alt="Ori with low energy selected and today's step adjusted to it" loading="lazy"></div>
+          </div>
+          <div class="tl-row reveal">
+            <div><span class="when">Day 8</span><h3>A week of silence? Ori sees it.</h3><p>Ori notices the quiet week and suggests one small step to get you going again.</p></div>
+            <div class="shot"><img src="/img/day8.webp" width="600" height="223" alt="A message from Ori: a week without a session, one small step today is enough to restart" loading="lazy"></div>
+          </div>
+          <div class="tl-row text-only reveal">
+            <div><span class="when">Onwards</span><h3>Ori learns your pace.</h3><p>Month six looks different from day one. So do you.</p></div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- ── Who is behind it ─────────────────────────────────────────────── -->
-    <section id="team">
+    <section id="kdo">
       <div class="wrap">
-        <div class="section-head reveal">
-          <span class="eyebrow">Who's behind Ori</span>
-          <h2 class="split">We're building it because we <span class="gold">hit the problem first.</span></h2>
-          <p class="lede">Both of us ran into it first-hand, running several projects at once. And both of us have taken a product from an idea to its first paying customers before.</p>
+        <div class="photos reveal">
+          <figure class="person"><div class="photo"><img src="/img/founder-b.jpg" width="720" height="900" alt="Damian Knoth" loading="lazy"></div><figcaption><b>Damian Knoth</b>Co-founder</figcaption></figure>
+          <figure class="person"><div class="photo"><img src="/img/founder-a.jpg" width="720" height="900" alt="Jindřich Novák" loading="lazy"></div><figcaption><b>Jindřich Novák</b>Co-founder</figcaption></figure>
         </div>
-        <div class="grid-2">
-          <article class="founder glass reveal">
-            <div class="avatar" aria-hidden="true">DK</div>
-            <div>
-              <p class="role">CEO</p>
-              <h3>Damian Knoth</h3>
-              <p>Product strategy, business development, marketing and fundraising.</p>
-            </div>
-          </article>
-          <article class="founder glass reveal">
-            <div class="avatar" aria-hidden="true">JN</div>
-            <div>
-              <p class="role">CTO</p>
-              <h3>Jindřich Novák</h3>
-              <p>Product vision, AI, design and UX/UI.</p>
-            </div>
-          </article>
+        <div class="story-copy">
+          <h2 class="reveal">We're building it because we needed it.</h2>
+          <div class="reveal">
+            <p>We're two students. We've each started side projects before, and we ran into the same thing. The plan was ready in an evening. It fell apart the first week something else came up.</p>
+            <p>We looked for an app that expects this. None of them fit. When we talked to friends, they said they needed something like it too. So we said: we are doing this.</p>
+            <p>More people backed us than we expected. We talked the idea through with people from the field and validated it through JIC and Red Bull Basement. Now we are testing Ori with a first group of people.</p>
+            <div class="sign"><b>Damian Knoth and Jindřich Novák</b><span>founders of Ori</span></div>
+          </div>
         </div>
       </div>
     </section>
-
-    <!-- ── Quote ────────────────────────────────────────────────────────── -->
-    <section class="quote">
-      <div class="wrap reveal">
-        <blockquote>AI can build your plan.<span>Ori is why you still have it in <em class="gold">month six.</em></span></blockquote>
-      </div>
-    </section>
-
 
     <!-- ── Join ─────────────────────────────────────────────────────────── -->
-    <section id="join">
+    <section id="zapis">
       <div class="wrap">
         <div class="cta glass reveal">
-          <span class="eyebrow voice">Early access</span>
-          <h2 class="split">Start the goal you keep postponing.</h2>
-          <p class="lede">Ori is in testing now. Join the waitlist and we'll write when your spot is ready.</p>
+          <h2 class="split">Start the goal that, this time, <span class="gold">survives.</span></h2>
+          <p class="lede">Ori is in testing. Join the waitlist and a short email from Damian arrives right away. When it's your turn, we'll write again.</p>
           <form class="waitlist" id="form-cta" novalidate>
             <label class="hp" aria-hidden="true">Leave this empty <input type="text" name="company" tabindex="-1" autocomplete="off"></label>
-            <input type="email" name="email" placeholder="you@example.com" autocomplete="email" required aria-label="Your email address">
+            <input type="email" id="email-cta" name="email" placeholder="you@example.com" autocomplete="email" required aria-label="Your email address">
             <button class="btn btn-primary" type="submit">Join the waitlist</button>
           </form>
-          <p class="form-note" role="status" aria-live="polite">We only use your email to tell you about Ori - <a href="/en/privacy.html">privacy</a>.</p>
+          <p class="form-note" role="status" aria-live="polite">One email now, one when there is a spot. Nothing else. <a href="/en/privacy.html">Privacy</a></p>
+          <p class="ps">P.S. That first email asks one question. We both read the replies.</p>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="wrap">
-      <span>Ori © 2026</span>
-      <nav aria-label="Footer">
-        <a href="/en/faq.html">FAQ</a>
-        <a href="/en/privacy.html">Privacy</a>
-        <a href="/app-privacy.html">App privacy</a>
-        <a href="mailto:oriapp.eu@gmail.com">Contact</a>
-      </nav>
-    </div>
-  </footer>
+<footer>
+  <div class="wrap">
+    <span>Ori © 2026</span>
+    <nav aria-label="Footer">
+      <a href="/en/privacy.html">Privacy</a>
+      <a href="/app-privacy.html">App privacy</a>
+      <a href="/en/faq.html">FAQ</a>
+      <a href="mailto:oriapp.eu@gmail.com">Contact</a>
+    </nav>
+  </div>
+</footer>
 
   <script src="/main.js" defer></script>
 </body>
