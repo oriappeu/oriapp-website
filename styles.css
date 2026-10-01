@@ -200,7 +200,7 @@ section[id] { scroll-margin-top: 56px; }
 .chip.fresh { background: rgba(205, 180, 232, 0.1); border-color: rgba(205, 180, 232, 0.28); }
 .chip.fresh i { background: var(--lavender); }
 .chip.done i { background: var(--health); }
-.chip.cut .t { display: inline-block; max-width: 100%; vertical-align: top; }
+.chip.cut .t { width: fit-content; max-width: 100%; }
 .chip.cut .t::after { content: ''; position: absolute; left: 0; right: 0; top: 55%; height: 1.5px; background: rgba(255, 255, 255, 0.55); transform: scaleX(0); transform-origin: 0 50%; transition: transform 450ms var(--ease-in-out) 520ms; }
 .chip.carried { background: transparent; border-style: dashed; border-color: rgba(255, 255, 255, 0.22); }
 .chip.carried i { background: rgba(255, 255, 255, 0.3); }
