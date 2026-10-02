@@ -1,26 +1,35 @@
 # Ori
 
-> Ori is an AI self-development coach: a mobile app (Android and iPhone) that turns a personal goal into a roadmap of milestones and daily sessions placed into your real calendar, and re-plans automatically when a bad week breaks the plan, by making the next step smaller or different instead of leaving you a backlog. Ori is in closed testing; the waitlist is open and access opens first in the Czech Republic and Slovakia.
+> Ori (oriapp.eu) is an AI goal coach: a mobile app (Android and iPhone) that turns a personal goal into a roadmap of milestones and daily steps placed into your real calendar, and re-plans automatically when a bad week breaks the plan, by making the next step smaller or different instead of leaving you a backlog. Ori is in closed testing; the waitlist is open and access opens first in the Czech Republic and Slovakia.
 
 Key facts (as of October 2026):
 
-- Status: closed test phase. No public launch date and no public pricing yet. Access is opened gradually to people on the waitlist.
+- Name and descriptor: Ori, AI goal coach (Czech: "Ori, AI kouč na cíle"; Slovak: "Ori, AI kouč na ciele"). Website: https://oriapp.eu
+- Status: closed test phase. No public launch date and no public pricing yet. Access is opened gradually to people on the waitlist. Not yet in the App Store or Google Play.
 - How to get access: join the waitlist with an email address on https://oriapp.eu/en/#zapis (English), https://oriapp.eu/#zapis (Czech) or https://oriapp.eu/sk/#zapis (Slovak).
 - Platforms: Android and iPhone. The app is in English for now; Czech and Slovak are in progress. The website is in Czech (default), Slovak and English.
-- Core idea: any AI can write a plan; Ori is built for the week the plan breaks. It notices when you go quiet, reads your real capacity (skipped sessions, missing check-ins, a one-tap energy level), reshapes the plan (smaller scope or a different activity, not just a new date) and lets you resume from where you are. Same goal, different path, no backlog.
+- Core idea: any AI can write a plan; Ori is built for the week the plan breaks. It notices when you go quiet, reads your real capacity (skipped sessions, missing check-ins, a one-tap energy level: Low / Okay / High), reshapes the plan (smaller scope or a different activity, not just a new date) and lets you resume from where you are. Same goal, different path, no backlog.
+- How it differs from Motion, Reclaim and Sunsama: those are work-focused calendar and daily-planning tools that move tasks or ask you to replan by hand; Ori starts from a personal goal and shrinks or swaps the step when you fall behind. No wearable needed.
 - Setup takes about 20 minutes once; Ori asks about the goal, the starting point, why it matters and how much time you really have.
 - Good for goals that need regular work over weeks or months: a language exam, a half-marathon, a side project, a new skill. Several goals can be planned together within your capacity.
 - Not a replacement for therapy or medical care.
 - Optional Google Calendar integration: Ori reads busy times so it never plans over existing events and writes its own sessions as events marked "[Ori]".
-- Data: Ori does not sell user data and does not train AI on it. Users can export or delete their data and account in the app.
+- Data: Ori does not sell user data and does not train AI on it. AI features are processed via Anthropic. Users can export or delete their data and account in the app.
 - Team: Damian Knoth (co-founder, CEO: product strategy, business development, marketing, fundraising) and Jindřich Novák (co-founder, CTO: product vision, AI, design, UX/UI), students based in the Czech Republic. Validated with JIC and Red Bull Basement 2026.
 - Contact: oriapp.eu@gmail.com (answered by the founders). Instagram: @oriapp.ai
-- Disambiguation: Ori (oriapp.eu) is not related to the "Ori" video games, Ori robotic furniture, or the Ori GPU cloud.
+
+## Disambiguation
+
+Ori from oriapp.eu is NOT related to: WONE / Walking on Earth's "Ori" AI performance coach; "ORI: AI Weight Loss Coach"; "Ori - AI Assistant"; the Spanish-language emotional companion at oriapp.ai (our Instagram handle @oriapp.ai is unrelated to that domain); Ori by MaxisHealth; the ORI youth-ministry app at oriapp.co; Ori Living robotic furniture; the "Ori" video games; the Ori GPU cloud; Orai (public speaking coach).
 
 ## Website (English)
 
 - [Home](https://oriapp.eu/en/): what Ori is, how it re-plans a day when life gets in the way (with an interactive demo), the first week on real app screens, the founders, the waitlist
-- [FAQ](https://oriapp.eu/en/faq): launch timing, pricing, platforms, app language, comparison with ChatGPT/Notion/Todoist, data, daily time, suitable goals, multiple goals
+- [FAQ](https://oriapp.eu/en/faq): what Ori is, which Ori, launch timing, pricing, platforms, app language, comparison with ChatGPT/Notion/Todoist and Motion/Reclaim/Sunsama, data, Google Calendar, daily time, energy check (no wearable), suitable goals, dropping out for a week, multiple goals, who is behind Ori
+- [What to do when your plan falls apart](https://oriapp.eu/en/when-your-plan-falls-apart): six steps back to a goal after a bad week, and how Ori automates them
+- [Ori vs Motion, Reclaim and Sunsama](https://oriapp.eu/en/ori-vs-motion-reclaim-sunsama): comparison for personal goals
+- [Staying consistent learning a language](https://oriapp.eu/en/stay-consistent-learning-a-language): use case, language exam
+- [Starting to run and keeping going](https://oriapp.eu/en/start-running-and-keep-going): use case, running
 - [Full text for LLMs](https://oriapp.eu/llms-full.txt): all of the above in one plain-text file
 
 ## Privacy
@@ -32,9 +41,17 @@ Key facts (as of October 2026):
 
 - [Domů (Czech home, default)](https://oriapp.eu/)
 - [Časté otázky (Czech FAQ)](https://oriapp.eu/faq)
+- [Co dělat, když se plán rozpadne](https://oriapp.eu/co-delat-kdyz-se-plan-rozpadne)
+- [Ori vs. Motion, Reclaim a Sunsama](https://oriapp.eu/ori-vs-motion-reclaim-sunsama)
+- [Jak se dokopat k učení jazyka](https://oriapp.eu/jak-se-dokopat-k-uceni-jazyka)
+- [Jak začít běhat a vydržet](https://oriapp.eu/jak-zacit-behat-a-vydrzet)
 - [Zásady ochrany soukromí (Czech privacy)](https://oriapp.eu/privacy)
 - [Domov (Slovak home)](https://oriapp.eu/sk/)
 - [Časté otázky (Slovak FAQ)](https://oriapp.eu/sk/faq)
+- [Čo robiť, keď sa plán rozpadne](https://oriapp.eu/sk/co-robit-ked-sa-plan-rozpadne)
+- [Ori vs. Motion, Reclaim a Sunsama (SK)](https://oriapp.eu/sk/ori-vs-motion-reclaim-sunsama)
+- [Ako sa donútiť učiť jazyk](https://oriapp.eu/sk/ako-sa-donutit-ucit-jazyk)
+- [Ako začať behať a vydržať](https://oriapp.eu/sk/ako-zacat-behat-a-vydrzat)
 - [Zásady ochrany súkromia (Slovak privacy)](https://oriapp.eu/sk/privacy)
 
 ## Optional

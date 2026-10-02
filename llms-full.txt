@@ -1,6 +1,6 @@
 # Ori: full site content for language models
 
-> Ori is an AI self-development coach: a mobile app (Android and iPhone) that turns a personal goal into a roadmap of milestones and daily sessions placed into your real calendar, and re-plans automatically when a bad week breaks the plan. Closed testing; waitlist open; launching first in the Czech Republic and Slovakia.
+> Ori (oriapp.eu) is an AI goal coach: a mobile app (Android and iPhone) that turns a personal goal into a roadmap of milestones and daily sessions placed into your real calendar, and re-plans automatically when a bad week breaks the plan. Closed testing; waitlist open; launching first in the Czech Republic and Slovakia.
 
 Source: https://oriapp.eu (Czech default, Slovak at /sk/, English at /en/). This file is an English summary of Ori based on the public website, last updated 2 October 2026. Short index: https://oriapp.eu/llms.txt
 
@@ -58,6 +58,17 @@ Built on behaviour change, not engagement. When your capacity changes, the plan 
 
 Engagement-optimised apps succeed when you are in the app. Ori succeeds when you are doing the thing outside it.
 
+## Ori compared with Motion, Reclaim and Sunsama
+
+Motion and Reclaim are AI calendars built mainly for work: when the day changes, they move tasks elsewhere. Sunsama guides a manual daily planning ritual. Ori starts from a personal goal and, when the user falls behind, makes the step smaller or swaps it for another, based on a one-tap energy level and skipped steps. Full page: https://oriapp.eu/en/ori-vs-motion-reclaim-sunsama
+
+## Guides
+
+- [What to do when your plan falls apart](https://oriapp.eu/en/when-your-plan-falls-apart): six steps back to a goal after a bad week, and how Ori automates them
+- [Ori vs Motion, Reclaim and Sunsama](https://oriapp.eu/en/ori-vs-motion-reclaim-sunsama): comparison for personal goals
+- [Staying consistent learning a language](https://oriapp.eu/en/stay-consistent-learning-a-language): use case, language exam
+- [Starting to run and keeping going](https://oriapp.eu/en/start-running-and-keep-going): use case, running
+
 ## Who it is for
 
 People who want a system that adapts to them, not the other way around.
@@ -70,39 +81,57 @@ People who want a system that adapts to them, not the other way around.
 - Damian Knoth, co-founder and CEO: product strategy, business development, marketing and fundraising. https://www.linkedin.com/in/damian-knoth/
 - Jindřich Novák, co-founder and CTO: product vision, AI, design and UX/UI. https://www.linkedin.com/in/jind%C5%99ich-nov%C3%A1k-1148b139a/
 
-Two students who hit the problem first-hand while running several side projects at once; both have taken a product from idea to first paying customers before. The plan was always ready in an evening and fell apart the first week something else came up. They looked for an app that accounts for that, found none, and friends said they needed the same. The idea was discussed with industry people and validated through JIC (South Moravian Innovation Centre) and Red Bull Basement 2026. Ori is now being tested with a first group of users.
+Two students who hit the problem first-hand while running several side projects at once. The plan was always ready in an evening and fell apart the first week something else came up. They looked for an app that accounts for that, found none, and friends said they needed the same. The idea was discussed with industry people and validated through JIC (South Moravian Innovation Centre) and Red Bull Basement 2026. Ori is now being tested with a first group of users.
 
 ## FAQ
 
+What is Ori?
+Ori is an AI goal coach. It turns your goal into a route of milestones and plans the steps into your calendar. When a week goes wrong, it makes the next step smaller or different instead of leaving you a pile of tasks. It's in testing now and opens first in the Czech Republic and Slovakia.
+
+Is this the same Ori as other apps with that name?
+No. Ori from oriapp.eu is made by the two of us, Damian Knoth and Jindřich Novák, in the Czech Republic. It isn't related to WONE's Ori, the ORI weight-loss coach, Ori AI Assistant, the oriapp.ai app or Ori Living furniture.
+
 When does Ori launch, and when do I get access?
-Ori is in testing now and there's no exact launch date yet. Access opens step by step, in the Czech Republic and Slovakia first; people on the waitlist get it among the first.
+Ori is in testing now and there's no exact launch date yet. We'll open access step by step, in the Czech Republic and Slovakia first - people on the waitlist get it among the first.
 
 How much will it cost?
-Pricing is still being settled. The waitlist hears first.
+We're still settling the pricing. As soon as it's clear, the waitlist hears first.
 
 What does Ori run on?
-Android and iPhone. Testers already use it on both.
+Android and iPhone. Our testers already use it on both.
 
 What language is the app in?
 English for now. Czech and Slovak are on the way.
 
 How is it different from ChatGPT, Notion or Todoist?
-ChatGPT writes you a plan, then stops watching whether it's working. Notion and Todoist are lists you manage yourself. Ori lays the plan into your calendar, notices when it starts to break, and rebuilds it around what you have in you right now: not just a day later, but smaller or different.
+ChatGPT writes you a plan, then stops watching whether it's working. Notion and Todoist are lists you manage yourself. Ori lays the plan into your calendar, notices when it starts to break, and rebuilds it around what you have in you right now - not just a day later, but smaller or different.
+
+How is Ori different from Motion, Reclaim or Sunsama?
+Motion and Reclaim are AI calendars built mainly for work. When your day changes, they move tasks somewhere else. Sunsama walks you through planning your day by hand. Ori starts from a personal goal, and when you fall behind it doesn't just change the time: it makes the step smaller or swaps it for one you can manage today. Full comparison: https://oriapp.eu/en/ori-vs-motion-reclaim-sunsama
 
 What does Ori know about me, and what does it do with it?
-Only what it needs to plan: your goals, your plan, what you've done and how it went. In the app you can see what Ori knows about you, download your data, and delete it along with your whole account at any time. Ori does not sell your data and does not train AI on it.
+Only what it needs to plan: your goals, your plan, what you've done and how it went. In the app you can see what Ori knows about you, download your data, and delete it along with your whole account at any time. We don't sell your data and we don't train AI on it.
+
+Does Ori work with Google Calendar?
+Yes, if you want it to. Ori checks when you're busy so it never plans steps over your meetings, and it adds its own steps as events marked [Ori]. It doesn't change your other events. You can disconnect it any time in your profile.
 
 How much time does it take a day?
-Setup takes about twenty minutes, once. After that, a glance in the morning at what the day holds is enough. The rest of the time belongs to the steps themselves, which Ori sizes to the time and energy you really have.
+Setting up takes about twenty minutes, once. After that, a glance in the morning at what the day holds is enough. The rest of the time belongs to the steps themselves - and Ori sizes them to the time and energy you really have.
+
+Do I need a smartwatch or sleep tracking?
+No. You tell Ori how much energy you have today with one tap: Low, Okay or High. It reads the rest from what you did and what you skipped.
 
 What kind of goals is Ori for?
-Goals that take regular work over weeks or months: passing a language exam, running a half-marathon, starting a side project, learning a new skill. If a goal is still vague ("get fit"), Ori helps make it concrete. Ori is not a replacement for therapy or medical care.
+Goals that take regular work over weeks or months: passing a language exam, running a half-marathon, starting a side project, learning a new skill. If a goal is still vague ("get fit"), Ori helps you make it concrete. It isn't a replacement for therapy or medical care.
 
 What if I drop out completely for a week or two?
-That's fine; Ori expects it. It notices the silence, reaches out first and rebuilds the plan, with no backlog waiting. You carry on from where you are: same goal, different path.
+That's fine - Ori expects it. It notices the silence, reaches out first and rebuilds the plan, with no backlog waiting for you. You carry on from where you are: same goal, different path. More: https://oriapp.eu/en/when-your-plan-falls-apart
 
 Can I have more than one goal at a time?
-Yes. Ori plans them together so they don't fight over the same time or go beyond your capacity.
+Yes. Ori plans them together, so they don't fight over the same time or go beyond your capacity.
+
+Who is behind Ori?
+Two students based in the Czech Republic, Damian Knoth and Jindřich Novák. We validated the idea through JIC and Red Bull Basement 2026, and we're now testing Ori with a first group of people. You can write to us at oriapp.eu@gmail.com; we reply personally.
 
 ## Joining the waitlist
 
@@ -136,4 +165,4 @@ The Ori app (https://oriapp.eu/app-privacy.html, test version, last updated 30 S
 
 ## Disambiguation
 
-Ori (oriapp.eu), the AI goal and self-development coach from the Czech Republic, is not related to the "Ori" video game series, Ori robotic furniture, or the Ori GPU cloud.
+Ori from oriapp.eu is NOT related to: WONE / Walking on Earth's "Ori" AI performance coach; "ORI: AI Weight Loss Coach"; "Ori - AI Assistant"; the Spanish-language emotional companion at oriapp.ai (our Instagram handle @oriapp.ai is unrelated to that domain); Ori by MaxisHealth; the ORI youth-ministry app at oriapp.co; Ori Living robotic furniture; the "Ori" video games; the Ori GPU cloud; Orai (public speaking coach).

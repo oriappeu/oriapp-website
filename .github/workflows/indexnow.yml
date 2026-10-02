@@ -1,0 +1,27 @@
+name: IndexNow ping
+
+on:
+  workflow_run:
+    workflows: ["pages-build-deployment"]
+    types: [completed]
+  workflow_dispatch: {}
+
+jobs:
+  ping:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for CDN
+        run: sleep 60
+      - name: Submit sitemap URLs to IndexNow
+        env:
+          KEY: 9afcfe6789a1b2a0996b96248ea5e740
+          HOST: oriapp.eu
+        run: |
+          set -euo pipefail
+          curl -fsSL "https://${HOST}/${KEY}.txt" | grep -qx "${KEY}"
+          URLS=$(curl -fsSL "https://${HOST}/sitemap.xml" | grep -o '<loc>[^<]*</loc>' | sed -e 's#<loc>##' -e 's#</loc>##' | jq -R . | jq -s .)
+          BODY=$(jq -n --arg host "$HOST" --arg key "$KEY" --arg loc "https://${HOST}/${KEY}.txt" --argjson urls "$URLS" \
+            '{host:$host, key:$key, keyLocation:$loc, urlList:$urls}')
+          curl -sS -o /dev/null -w "IndexNow HTTP %{http_code}\n" -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json; charset=utf-8" -d "$BODY"

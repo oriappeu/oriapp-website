@@ -3,29 +3,36 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{privacy.title}}</title>
-  <meta name="description" content="{{privacy.description}}">
+  <title>{{@article_title}}</title>
+  <meta name="description" content="{{@article_description}}">
   <meta name="theme-color" content="#0F0C14">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="{{@canonical}}">
   {{@alternates}}
 
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="article">
   <meta property="og:url" content="{{@canonical}}">
   <meta property="og:site_name" content="Ori">
   <meta property="og:locale" content="{{@locale}}">
   {{@og_alternates}}
-  <meta property="og:title" content="{{privacy.title}}">
-  <meta property="og:description" content="{{privacy.description}}">
+  <meta property="og:title" content="{{@article_title}}">
+  <meta property="og:description" content="{{@article_description}}">
   <meta property="og:image" content="{{@og_image}}">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{@article_title}}">
+  <meta name="twitter:description" content="{{@article_description}}">
+  <meta name="twitter:image" content="{{@og_image}}">
 
   <link rel="icon" href="/assets/favicon.ico" sizes="any">
   <link rel="apple-touch-icon" href="/assets/icon-180.png">
   <link rel="stylesheet" href="/styles.css">
-  <script>document.documentElement.classList.add('js');</script>
+  <link rel="describedby" type="text/plain" href="/llms.txt" title="Ori, summarised for language models">
+  <script>document.documentElement.classList.add('js'); if ('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
+  <script type="application/ld+json">
+{{@jsonld}}
+  </script>
   <script defer src="https://cloud.umami.is/script.js" data-website-id="3be86478-1afd-4b48-8b94-6532dd16d602" data-domains="oriapp.eu"></script>
 </head>
 <body>
@@ -33,33 +40,8 @@
 
   <main class="legal">
     <div class="wrap">
-      <h1>{{privacy.h1}}</h1>
-      <p>{{privacy.updated}}</p>
-
-      <h2>{{privacy.collect_h}}</h2>
-      <p>{{privacy.collect_p}}</p>
-
-      <h2>{{privacy.why_h}}</h2>
-      <p>{{privacy.why_p1}}</p>
-      <p>{{privacy.why_p2}}</p>
-
-      <h2>{{privacy.visits_h}}</h2>
-      <p>{{privacy.visits_p}}</p>
-
-      <h2>{{privacy.where_h}}</h2>
-      <p>{{privacy.where_p}}</p>
-
-      <h2>{{privacy.long_h}}</h2>
-      <p>{{privacy.long_p}}</p>
-
-      <h2>{{privacy.rights_h}}</h2>
-      <p>{{privacy.rights_p}}</p>
-
-      <h2>{{privacy.app_h}}</h2>
-      <p>{{privacy.app_p}}</p>
-
-      <h2>{{footer.contact}}</h2>
-      <p>Ori · <a href="mailto:oriapp.eu@gmail.com">oriapp.eu@gmail.com</a></p>
+{{@article_body}}
+      <p><a class="btn btn-primary" href="{{@home}}#zapis">{{article.cta}}</a></p>
     </div>
   </main>
 

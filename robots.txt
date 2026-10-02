@@ -29,7 +29,7 @@ User-agent: DuckAssistBot
 Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /
 
-# Everyone else
+# Everyone else (Googlebot, Bingbot, SeznamBot, …)
 User-agent: *
 Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /

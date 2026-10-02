@@ -1,12 +1,12 @@
 {
   "meta": {
-    "title": "Ori: cieľ, ktorý prežije aj zlý týždeň",
-    "description": "Ori je AI kouč osobného rozvoja. Rozloží tvoj cieľ do kalendára a keď príde zlý týždeň, plán prestavia. Zápis nič nestojí, začíname v Česku a na Slovensku.",
+    "title": "Ori, AI kouč na ciele | Cieľ, ktorý prežije aj zlý týždeň",
+    "description": "Ori je AI kouč osobného rozvoja. Tvoj cieľ rozloží do kalendára a keď príde zlý týždeň, ďalší krok zmenší, namiesto toho, aby ti nechal kopu úloh.",
     "og_description": "Plán ti postaví AI. Ori ho udrží, keď sa rozpadne."
   },
   "seo": {
-    "org_description": "Ori je startup z Česka, ktorý vyvíja AI kouča osobného rozvoja. Aplikácia rozloží cieľ do kalendára a keď sa plán začne rozpadať, prestavia ho podľa skutočnej kapacity a energie používateľa.",
-    "app_alt": "AI kouč osobného rozvoja a adaptívny plánovač cieľov",
+    "org_description": "Ori je startup z Česka, ktorý vyvíja AI kouča osobného rozvoja. Aplikácia rozloží cieľ do kalendára a keď sa plán začne rozpadať, prestaví ho podľa skutočnej kapacity a energie používateľa.",
+    "app_alt": "Ori, AI kouč na ciele",
     "app_description": "Ori je AI kouč osobného rozvoja pre Android a iPhone. Z cieľa zostaví cestu po míľnikoch a kroky naplánuje do skutočného kalendára. Keď sa plán začne rozpadať, Ori si to všimne, ozve sa prvý a úlohy zmenší alebo zmení podľa aktuálnej kapacity a energie, nielen presunie. Aplikácia je v testovacej fáze, prístup sa otvára postupne cez čakaciu listinu, najskôr v Česku a na Slovensku.",
     "features": [
       "Dvadsaťminútové nastavenie, ktoré z cieľa urobí cestu po míľnikoch",
@@ -21,10 +21,12 @@
       "Prehľad o tvojich dátach, ich stiahnutie a vymazanie kedykoľvek"
     ],
     "audience": "Ľudia, ktorým do plánov stále lezie život: mladí profesionáli (25 až 35) a výkonní ľudia, ktorí už zažili vyhorenie.",
-    "keywords": "AI kouč, osobný rozvoj, aplikácia na ciele, plánovanie cieľov, adaptívny plán, návyky, prevencia vyhorenia, dosiahnutie cieľov",
+    "keywords": "AI kouč, AI kouč na ciele, osobný rozvoj, aplikácia na ciele, plánovanie cieľov, adaptívny plán, návyky, prevencia vyhorenia",
     "damian": "Spoluzakladateľ a CEO Ori. Produktová stratégia, obchod, marketing a financovanie.",
     "jindrich": "Spoluzakladateľ a CTO Ori. Vízia produktu, AI, dizajn a UX/UI.",
-    "crumb_faq": "Časté otázky"
+    "crumb_faq": "Časté otázky",
+    "disambiguation": "Ori z oriapp.eu je AI kouč na ciele z Česka od Damiana Knotha a Jindřicha Nováka. Nesúvisí s Ori od WONE (Walking on Earth), s aplikáciou ORI na chudnutie, s Ori AI Assistant, s aplikáciou z oriapp.ai, s nábytkom Ori Living ani s hrami Ori.",
+    "app_sub": "AI kouč osobného rozvoja a adaptívny plánovač cieľov"
   },
   "nav": {
     "brand": "Ori, späť hore",
@@ -119,7 +121,7 @@
   },
   "jak": {
     "h2": "Keď zídeš z trasy, Ori ju prepočíta.",
-    "lede": "Bežná aplikácia ti úlohu presunie na zajtra. Zajtra tam je znova, len väčšia. Ori robí to, čo navigácia v aute. Všimne si, že si mimo trasy, a nájde novú. Menší krok namiesto veľkého. Sobota namiesto štvrtka. Rovnaký cieľ.",
+    "lede": "Ori je AI kouč na ciele: tvoj cieľ rozloží do krokov v kalendári a prepočíta ich, keď sa týždeň pokazí. Bežná aplikácia ti úlohu presunie na zajtra. Zajtra tam je znova, len väčšia. Ori robí to, čo navigácia v aute. Všimne si, že si mimo trasy, a nájde novú. Menší krok namiesto veľkého. Sobota namiesto štvrtka. Rovnaký cieľ.",
     "p1_h": "Všimne si sám.",
     "p1_p": "Keď pár dní mlčíš, Ori sa ozve prvý. Nemusíš hlásiť, že sa nedarí.",
     "p2_h": "Zmenší, alebo zmení.",
@@ -131,7 +133,8 @@
     "step2": "Odškrtni menší krok, ktorý Ori navrhol.",
     "step3": "Otvor Roadmapu. Cieľ je stále podľa plánu.",
     "done": "Presne toto robí Ori každý deň. Namiesto teba.",
-    "reset": "Skúsiť znova"
+    "reset": "Skúsiť znova",
+    "more": "Čo robiť, keď sa plán rozpadne, krok za krokom"
   },
   "demo": {
     "label": "Interaktívna ukážka aplikácie Ori",
@@ -214,7 +217,9 @@
     "caption": "spoluzakladateľ",
     "photo_d": "Damian Knoth",
     "photo_j": "Jindřich Novák",
-    "linkedin": "profil na LinkedIne"
+    "linkedin": "profil na LinkedIne",
+    "alt_d": "Damian Knoth, spoluzakladateľ Ori",
+    "alt_j": "Jindřich Novák, spoluzakladateľ Ori"
   },
   "join": {
     "h2": "Začni cieľ, ktorý tentoraz <span class=\"gold\">prežije.</span>",
@@ -227,7 +232,9 @@
     "privacy": "Zásady ochrany súkromia",
     "app_privacy": "Zásady ochrany súkromia v aplikácii",
     "faq": "Otázky",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "guide_plan": "Keď sa plán rozpadne",
+    "guide_compare": "Ori vs. Motion a Reclaim"
   },
   "js": {
     "invalid": "Toto nevyzerá ako e-mailová adresa.",
@@ -239,10 +246,18 @@
     "note_already": "Na zozname už si - ozveme sa."
   },
   "faq": {
-    "title": "Časté otázky - Ori",
+    "title": "Časté otázky | Ori, AI kouč na ciele",
     "description": "Odpovede na najčastejšie otázky o Ori: kedy vyjde, koľko bude stáť, na čom pobeží a čo sa deje s tvojimi dátami.",
     "h2": "Kým sa <span class=\"gold\">zapíšeš.</span>",
     "items": [
+      {
+        "q": "Čo je Ori?",
+        "a": "Ori je AI kouč na ciele. Z tvojho cieľa urobí cestu po míľnikoch a kroky naplánuje do tvojho kalendára. Keď sa týždeň pokazí, ďalší krok zmenší alebo zmení, namiesto toho, aby ti nechal kopu úloh. Teraz je v testovacej fáze a najskôr sa otvára v Česku a na Slovensku."
+      },
+      {
+        "q": "Je to to isté Ori ako iné aplikácie s týmto menom?",
+        "a": "Nie. Ori z oriapp.eu robíme my dvaja, Damian Knoth a Jindřich Novák, v Česku. Nesúvisí s Ori od WONE, s aplikáciou ORI na chudnutie, s Ori AI Assistant, s aplikáciou z oriapp.ai ani s nábytkom Ori Living."
+      },
       {
         "q": "Kedy Ori vyjde a kedy dostanem prístup?",
         "a": "Ori je teraz v testovacej fáze a presný dátum spustenia ešte nemáme. Prístup budeme otvárať postupne, najskôr v Česku a na Slovensku - kto je na čakacej listine, dostane ho medzi prvými."
@@ -264,24 +279,42 @@
         "a": "ChatGPT ti napíše plán, ale už nestráži, či ho zvládaš. Notion a Todoist sú zoznamy, ktoré si spravuješ ty. Ori plán rozloží do tvojho kalendára, všimne si, keď sa začne rozpadať, a prestaví ho podľa toho, na čo práve máš - nielen o deň ďalej, ale menší alebo inak."
       },
       {
+        "q": "Čím sa Ori líši od Motion, Reclaim alebo Sunsamy?",
+        "a": "Motion a Reclaim sú AI kalendáre hlavne na prácu. Keď sa deň zmení, presunú úlohy inam. Sunsama ťa prevedie plánovaním dňa, ktoré robíš ručne. Ori začína pri osobnom cieli a keď nestíhaš, nemení len čas: krok zmenší, alebo ho vymení za iný, ktorý dnes zvládneš. Podrobné porovnanie nájdeš v článku <a href=\"/sk/ori-vs-motion-reclaim-sunsama\">Ori vs. Motion, Reclaim a Sunsama</a>.",
+        "ld": "Motion a Reclaim sú AI kalendáre hlavne na prácu. Keď sa deň zmení, presunú úlohy inam. Sunsama ťa prevedie plánovaním dňa, ktoré robíš ručne. Ori začína pri osobnom cieli a keď nestíhaš, nemení len čas: krok zmenší, alebo ho vymení za iný, ktorý dnes zvládneš. Podrobné porovnanie je na https://oriapp.eu/sk/ori-vs-motion-reclaim-sunsama"
+      },
+      {
         "q": "Čo o mne Ori vie a čo s tým robí?",
         "a": "Len to, čo potrebuje na plánovanie: tvoje ciele, plán, čo z neho máš hotové a ako ti to išlo. V aplikácii máš prehľad o tom, čo o tebe Ori vie, môžeš si svoje dáta stiahnuť a kedykoľvek ich vymazať aj s celým účtom. Dáta nepredávame a netrénujeme na nich AI."
+      },
+      {
+        "q": "Funguje Ori s Google Kalendárom?",
+        "a": "Áno, ak chceš. Ori sa pozrie, kedy máš obsadené, aby ti neplánoval kroky cez stretnutia, a svoje kroky zapíše ako udalosti označené [Ori]. Iné udalosti nemení. Prepojenie môžeš kedykoľvek zrušiť v profile."
       },
       {
         "q": "Koľko času mi to denne zaberie?",
         "a": "Nastavenie zaberie raz zhruba dvadsať minút. Potom ti stačí ráno pozrieť, čo ťa v ten deň čaká. Zvyšok času patrí samotným krokom - a tie Ori prispôsobí tomu, koľko času a energie naozaj máš."
       },
       {
+        "q": "Potrebujem smart hodinky alebo sledovanie spánku?",
+        "a": "Nie. Koľko máš dnes energie, povieš Ori jedným ťuknutím: Málo, Stredne alebo Veľa. Zvyšok spozná z hotových a vynechaných krokov."
+      },
+      {
         "q": "Na aké ciele sa Ori hodí?",
-        "a": "Na ciele, ku ktorým vedie pravidelná práca počas týždňov alebo mesiacov: spraviť jazykovú skúšku, zabehnúť polmaratón, rozbehnúť vedľajší projekt, naučiť sa novú zručnosť. Keď je cieľ zatiaľ hmlistý („byť fit“), Ori ti pomôže spraviť z neho konkrétny. Ori nenahrádza terapiu ani lekársku starostlivosť."
+        "a": "Na ciele, ku ktorým vedie pravidelná práca počas týždňov alebo mesiacov: spraviť <a href=\"/sk/ako-sa-donutit-ucit-jazyk\">jazykovú skúšku</a>, zabehnúť <a href=\"/sk/ako-zacat-behat-a-vydrzat\">polmaratón</a>, rozbehnúť vedľajší projekt, naučiť sa novú zručnosť. Keď je cieľ zatiaľ hmlistý („byť fit“), Ori ti pomôže spraviť z neho konkrétny. Ori nenahrádza terapiu ani lekársku starostlivosť."
       },
       {
         "q": "Čo keď na týždeň alebo dva úplne vypadnem?",
-        "a": "Nič sa nedeje, s tým Ori počíta. Všimne si, že je ticho, ozve sa prvý a plán prestaví - bez kopy nesplnených úloh. Nadviažeš tam, kde si: rovnaký cieľ, len iná cesta."
+        "a": "Nič sa nedeje, s tým Ori počíta. Všimne si, že je ticho, ozve sa prvý a plán prestaví - bez kopy nesplnených úloh. Nadviažeš tam, kde si: rovnaký cieľ, len iná cesta. Ako na to ísť aj bez aplikácie, popisujeme v článku <a href=\"/sk/co-robit-ked-sa-plan-rozpadne\">Čo robiť, keď sa plán rozpadne</a>.",
+        "ld": "Nič sa nedeje, s tým Ori počíta. Všimne si, že je ticho, ozve sa prvý a plán prestaví - bez kopy nesplnených úloh. Nadviažeš tam, kde si: rovnaký cieľ, len iná cesta. Podrobnejšie: https://oriapp.eu/sk/co-robit-ked-sa-plan-rozpadne"
       },
       {
         "q": "Môžem mať viac cieľov naraz?",
         "a": "Áno. Ori ich naplánuje spolu, aby sa nebili o ten istý čas a neprekročili tvoju kapacitu."
+      },
+      {
+        "q": "Kto stojí za Ori?",
+        "a": "Dvaja študenti v Česku, Damian Knoth a Jindřich Novák. Nápad sme overili cez JIC a Red Bull Basement 2026 a teraz Ori testujeme s prvou skupinou ľudí. Napísať nám môžeš na <a href=\"mailto:oriapp.eu@gmail.com\">oriapp.eu@gmail.com</a>, odpovedáme my."
       }
     ],
     "cta_h": "Chýba ti tu odpoveď?",
@@ -309,5 +342,8 @@
     "rights_p": "Môžeš sa nás opýtať, čo o tebe máme, požiadať o opravu alebo o vymazanie - napíš na <a href=\"mailto:oriapp.eu@gmail.com\">oriapp.eu@gmail.com</a> z adresy, ktorú máme na zozname, a my to urobíme. Ak si myslíš, že sme s tvojimi údajmi naložili zle, napíš nám prosím najprv na rovnakú adresu - pozrieme sa na to a napravíme to. Vždy máš aj právo podať sťažnosť dozornému orgánu - na Slovensku je to Úrad na ochranu osobných údajov SR, v Česku Úřad pro ochranu osobních údajů.",
     "app_h": "Aplikácia Ori",
     "app_p": "Táto stránka sa týka len tohto webu a čakacej listiny. Keď začneš používať samotnú aplikáciu Ori, platia jej vlastné zásady ochrany súkromia, ktoré uvidíš pri založení účtu."
+  },
+  "article": {
+    "cta": "Chcem byť medzi prvými"
   }
 }

@@ -1,4 +1,4 @@
-// Structured data (schema.org JSON-LD) for the home and FAQ pages.
+// Structured data (schema.org JSON-LD) for the home, FAQ and guide pages.
 //
 // What it is: a block of machine-readable labels in each page's <head> that tells
 // Google and AI search tools who Ori is (a company, an app, two founders, a FAQ).
@@ -24,7 +24,7 @@ export const clean = (s) => String(s).replace(/<[^>]*>/g, '').replace(/ /g, ' '
 
 /**
  * @param {object} o
- * @param {'home'|'faq'} o.kind
+ * @param {'home'|'faq'|'article'} o.kind
  * @param {string} o.origin       https://oriapp.eu
  * @param {string} o.pageUrl      this page, absolute
  * @param {{code:string, root:string}} o.lang
@@ -33,9 +33,10 @@ export const clean = (s) => String(s).replace(/<[^>]*>/g, '').replace(/ /g, ' '
  * @param {string} o.modified     YYYY-MM-DD, when the content last changed
  * @param {object} o.profiles     { organization: [], damian: [], jindrich: [] } URLs
  * @param {string[]} o.languages  every language code of the site
+ * @param {object} [o.article]    for kind 'article': { h1, title, description, published, mentions }
  * @returns {string} JSON, safe inside a <script> tag
  */
-export function structuredData({ kind, origin, pageUrl, lang, t, ogImage, modified, profiles, languages }) {
+export function structuredData({ kind, origin, pageUrl, lang, t, ogImage, modified, profiles, languages, article }) {
   const id = (name) => `${origin}/#${name}`;
   const s = t.seo;
   const sameAs = (key) => (Array.isArray(profiles?.[key]) && profiles[key].length ? { sameAs: profiles[key] } : {});
@@ -44,11 +45,12 @@ export function structuredData({ kind, origin, pageUrl, lang, t, ogImage, modifi
     '@type': 'Organization',
     '@id': id('organization'),
     name: 'Ori',
-    alternateName: ['Ori app', 'Ori AI coach'],
+    alternateName: ['Ori app', 'Ori AI goal coach', 'oriapp.eu'],
     url: `${origin}/`,
     logo: { '@type': 'ImageObject', '@id': id('logo'), url: `${origin}/assets/icon-512.png`, width: 512, height: 512, caption: 'Ori' },
     image: { '@id': id('logo') },
     description: clean(s.org_description),
+    disambiguatingDescription: clean(s.disambiguation),
     slogan: clean(t.hero.h1),
     email: EMAIL,
     contactPoint: { '@type': 'ContactPoint', contactType: 'customer support', email: EMAIL, availableLanguage: languages },
@@ -76,10 +78,11 @@ export function structuredData({ kind, origin, pageUrl, lang, t, ogImage, modifi
     name: 'Ori',
     alternateName: clean(s.app_alt),
     description: clean(s.app_description),
+    disambiguatingDescription: clean(s.disambiguation),
     url: `${origin}/`,
     image: ogImage,
     applicationCategory: 'LifestyleApplication',
-    applicationSubCategory: clean(s.app_alt),
+    applicationSubCategory: clean(s.app_sub),
     operatingSystem: 'Android, iOS',
     inLanguage: 'en',
     countriesSupported: ['CZ', 'SK'],
@@ -119,8 +122,45 @@ export function structuredData({ kind, origin, pageUrl, lang, t, ogImage, modifi
         publisher: { '@id': id('organization') },
         primaryImageOfPage: { '@type': 'ImageObject', url: ogImage, width: 1200, height: 630 },
         dateModified: modified,
-        keywords: clean(s.keywords),
       },
+      app,
+      person('damian-knoth', 'Damian Knoth', 'CEO', s.damian, 'founder-b.jpg', 'damian'),
+      person('jindrich-novak', 'Jindřich Novák', 'CTO', s.jindrich, 'founder-a.jpg', 'jindrich'),
+    ];
+  } else if (kind === 'article') {
+    // A guide: the article and its breadcrumb, then the shared company, site, app and founders, so that
+    // author and publisher resolve on the page itself.
+    const names = [
+      {
+        '@type': 'Article',
+        '@id': `${pageUrl}#article`,
+        headline: article.h1,
+        description: clean(article.description),
+        inLanguage: lang.code,
+        url: pageUrl,
+        mainEntityOfPage: pageUrl,
+        image: ogImage,
+        datePublished: article.published,
+        dateModified: modified,
+        author: { '@id': id('organization') },
+        publisher: { '@id': id('organization') },
+        isPartOf: { '@id': id('website') },
+        // The comparison names the tools it compares (name and official address, nothing else).
+        mentions: [{ '@id': id('app') }, ...(article.mentions || []).map((m) => ({ '@type': 'Thing', name: m.name, url: m.url }))],
+      },
+      {
+        '@type': 'BreadcrumbList',
+        '@id': `${pageUrl}#breadcrumb`,
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Ori', item: `${origin}${lang.root}` },
+          { '@type': 'ListItem', position: 2, name: article.h1, item: pageUrl },
+        ],
+      },
+    ];
+    nodes = [
+      ...names,
+      organization,
+      website,
       app,
       person('damian-knoth', 'Damian Knoth', 'CEO', s.damian, 'founder-b.jpg', 'damian'),
       person('jindrich-novak', 'Jindřich Novák', 'CTO', s.jindrich, 'founder-a.jpg', 'jindrich'),
@@ -138,11 +178,12 @@ export function structuredData({ kind, origin, pageUrl, lang, t, ogImage, modifi
         about: { '@id': id('app') },
         publisher: { '@id': id('organization') },
         dateModified: modified,
-        // Word for word what the page shows: FAQ markup that differs from the visible text is a violation.
-        mainEntity: Object.values(t.faq.items).map(({ q, a }) => ({
+        // What the page shows, as plain text. Where an answer links to a guide, `ld` (i18n) is the same answer with
+        // the guide's address written out, so a reader of the markup alone gets the address too.
+        mainEntity: Object.values(t.faq.items).map(({ q, a, ld }) => ({
           '@type': 'Question',
           name: clean(q),
-          acceptedAnswer: { '@type': 'Answer', text: clean(a) },
+          acceptedAnswer: { '@type': 'Answer', text: clean(ld ?? a) },
         })),
       },
       {

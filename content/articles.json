@@ -1,0 +1,96 @@
+{
+  "n1": {
+    "published": "2026-10-02",
+    "paths": {
+      "cs": "co-delat-kdyz-se-plan-rozpadne",
+      "sk": "co-robit-ked-sa-plan-rozpadne",
+      "en": "when-your-plan-falls-apart"
+    },
+    "cs": {
+      "title": "Co dělat, když se plán rozpadne | Ori",
+      "description": "Týden se pokazil a plán je pryč? Nedoháněj resty. Zmenši další krok, navaž tam, kde jsi, a cíl přepočítej. Šest kroků, jak se vrátit k cíli."
+    },
+    "sk": {
+      "title": "Čo robiť, keď sa plán rozpadne | Ori",
+      "description": "Týždeň sa pokazil a plán je preč? Nedobiehaj, čo si zmeškal. Zmenši ďalší krok, nadviaž tam, kde si, a cieľ prepočítaj. Šesť krokov späť k cieľu."
+    },
+    "en": {
+      "title": "What to do when your plan falls apart | Ori",
+      "description": "A bad week broke your plan? Don't try to catch up. Shrink the next step, pick up where you are and recalculate the goal. Six steps back on track."
+    }
+  },
+  "n2": {
+    "published": "2026-10-02",
+    "paths": {
+      "cs": "ori-vs-motion-reclaim-sunsama",
+      "sk": "ori-vs-motion-reclaim-sunsama",
+      "en": "ori-vs-motion-reclaim-sunsama"
+    },
+    "mentions": [
+      {
+        "name": "Motion",
+        "url": "https://www.usemotion.com/"
+      },
+      {
+        "name": "Reclaim",
+        "url": "https://reclaim.ai/"
+      },
+      {
+        "name": "Sunsama",
+        "url": "https://www.sunsama.com/"
+      }
+    ],
+    "cs": {
+      "title": "Ori vs. Motion, Reclaim a Sunsama: co se hodí na cíle",
+      "description": "Motion a Reclaim přesouvají úkoly v pracovním kalendáři, Sunsama vede ruční plán dne. Ori začíná u osobního cíle a krok zmenší, když nestíháš."
+    },
+    "sk": {
+      "title": "Ori vs. Motion, Reclaim a Sunsama: čo sa hodí na ciele",
+      "description": "Motion a Reclaim presúvajú úlohy v pracovnom kalendári, Sunsama vedie ručný plán dňa. Ori začína pri osobnom cieli a krok zmenší, keď nestíhaš."
+    },
+    "en": {
+      "title": "Ori vs Motion, Reclaim and Sunsama for personal goals",
+      "description": "Motion and Reclaim move tasks around a work calendar; Sunsama guides a manual daily plan. Ori starts from a personal goal and shrinks the step."
+    }
+  },
+  "n3": {
+    "published": "2026-10-02",
+    "paths": {
+      "cs": "jak-se-dokopat-k-uceni-jazyka",
+      "sk": "ako-sa-donutit-ucit-jazyk",
+      "en": "stay-consistent-learning-a-language"
+    },
+    "cs": {
+      "title": "Jak se dokopat k učení jazyka, když po práci nemáš sílu",
+      "description": "Angličtina na B2, ale po práci nemáš sílu ani začít? Nastav si malé denní minimum, nepřijď o sérii ani ve špatném týdnu a dojdi ke zkoušce."
+    },
+    "sk": {
+      "title": "Ako sa donútiť učiť jazyk, keď po práci nemáš silu",
+      "description": "Angličtina na B2, ale po práci nemáš silu ani začať? Nastav si malé denné minimum, nepríď o sériu ani v zlom týždni a dôjdi ku skúške."
+    },
+    "en": {
+      "title": "How to stay consistent learning a language when tired",
+      "description": "Studying for a language exam after work? Set a small daily minimum, keep your streak through bad weeks and keep the exam date in sight."
+    }
+  },
+  "n4": {
+    "published": "2026-10-02",
+    "paths": {
+      "cs": "jak-zacit-behat-a-vydrzet",
+      "sk": "ako-zacat-behat-a-vydrzat",
+      "en": "start-running-and-keep-going"
+    },
+    "cs": {
+      "title": "Jak začít běhat a vydržet, i když máš nabitý týden",
+      "description": "Chceš běhat, ale po pár týdnech to vždycky skončí? Začni menšími úseky, plánuj podle skutečného týdne a vrať se po pauze bez dohánění."
+    },
+    "sk": {
+      "title": "Ako začať behať a vydržať, aj keď máš nabitý týždeň",
+      "description": "Chceš behať, ale po pár týždňoch to vždy skončí? Začni menšími úsekmi, plánuj podľa skutočného týždňa a vráť sa po pauze bez dobiehania."
+    },
+    "en": {
+      "title": "How to start running and keep going when life gets busy",
+      "description": "Want to run but always stop after a few weeks? Start smaller, plan around your real week and come back after a break without catching up."
+    }
+  }
+}
