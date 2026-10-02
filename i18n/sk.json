@@ -36,7 +36,7 @@
     "cta": "Chcem prístup"
   },
   "hero": {
-    "who": "Ori je AI kouč pre ľudí, ktorým do plánov stále lezie život.",
+    "who": "Pre ľudí, ktorým do plánov stále lezie život.",
     "h1": "Cieľ, ktorý prežije aj <span class=\"gold\">zlý týždeň.</span>",
     "lede": "Povieš Ori, čo chceš dosiahnuť. Za dvadsať minút máš cestu k cieľu rozloženú do svojho kalendára. A keď príde týždeň, v ktorom nestíhaš, Ori plán prestavia. Nečaká, kým sa vrátiš ku kope úloh.",
     "note": "Zápis nič nestojí. Začíname v Česku a na Slovensku. Hneď ti príde krátky e-mail od Damiana. <a href=\"{{@privacy}}\">Zásady ochrany súkromia</a>",
