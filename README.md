@@ -19,6 +19,7 @@ Czech is the default at `/`, Slovak at `/sk/`, English at `/en/`.
 | `img/` | the app screenshots (first week) and the founders' photos |
 | `app-privacy.html` | the Ori app's privacy policy, hand-written, English only, outside the build |
 | `404.html`, `robots.txt` | the usual |
+| `seznam-wmt-….txt` | Seznam Webmaster ownership verification (keep it; the name and content must stay exactly as issued) |
 | `assets/` | icons and the social preview images (`og-cs.png`, `og-sk.png`, `og-image.png` for English) |
 
 **Changing a text:** edit it in `i18n/<lang>.json` (all three languages must keep the same keys - the
