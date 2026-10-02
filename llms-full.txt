@@ -1,0 +1,139 @@
+# Ori: full site content for language models
+
+> Ori is an AI self-development coach: a mobile app (Android and iPhone) that turns a personal goal into a roadmap of milestones and daily sessions placed into your real calendar, and re-plans automatically when a bad week breaks the plan. Closed testing; waitlist open; launching first in the Czech Republic and Slovakia.
+
+Source: https://oriapp.eu (Czech default, Slovak at /sk/, English at /en/). This file is an English summary of Ori based on the public website, last updated 2 October 2026. Short index: https://oriapp.eu/llms.txt
+
+Taglines:
+- English: "A goal that survives a bad week." / "AI can build your plan. Ori keeps it alive when it falls apart."
+- Czech: "Cíl, který přežije i špatný týden." / Slovak: "Cieľ, ktorý prežije aj zlý týždeň."
+
+---
+
+## The problem
+
+Everyone can make a plan now. Almost nobody finishes one.
+
+1. The plan became free. Any AI writes a credible roadmap in seconds. That stopped being the hard part.
+2. Real life breaks it. A crunch at work, a bad week, one skipped session. The plan assumes a constant version of you that does not exist.
+3. Restarting costs everything. Every tool waits for you to come back and face an untouched backlog. Most people never come back.
+
+A typical week: you write the plan on Sunday evening; on Wednesday a meeting runs late and the plan is gone. After work there is no energy left even to decide where to start. One skipped training becomes a skipped month. The app waits for you to return to a pile of unfinished tasks, so you don't return. It is the third time this year you start the same goal. You are not someone who doesn't follow through; your plan assumed every week would be the same.
+
+## How Ori works
+
+Every app can build the plan. Ori is built for the week it breaks. Ori works like car navigation: when you leave the route, it notices and finds a new one. A smaller step instead of a big one. Saturday instead of Thursday. Same goal.
+
+Setup (once, about 20 minutes): you tell Ori your goal, your starting point, why it matters to you and how much time you really have. Ori asks follow-up questions until the goal is concrete, then turns it into a roadmap of milestones and plans the next few days of sessions around your actual calendar.
+
+Then a continuous cycle:
+
+1. Notice: you went quiet, Ori sees it and reaches out first. You never have to report your own failure.
+2. Read: capacity, not the plan. Skipped sessions and missing check-ins are the signal; one question confirms it. A one-tap daily energy check (Low / Okay / High) also tells Ori how much you have today.
+3. Reshape: smaller, or different. Ori changes the scope and the activity itself, not only the date. A quick win instead of deep work.
+4. Resume: not from zero. You carry on from where you are. Same goal, different path, no backlog, no guilt.
+
+Every cycle teaches Ori your real pace. Month six is a different product than day one.
+
+Illustrative example: Thursday, goal "Run a half-marathon". Heavy week at work. Ori moves the 60-minute long run from today 18:00 to Saturday 09:00 and suggests a 15-minute mobility session tonight so the streak stays alive. Milestone 2 ("Build to 10 km") remains on track.
+
+Illustrative example: goal "English B2", exam target June 2027. The user taps "Low" energy. Ori moves the 45-minute listening and grammar block to Saturday morning and offers 10 minutes of vocabulary instead. The streak continues and the roadmap still shows the goal on track for June.
+
+## Your first week with Ori
+
+- Day 1: twenty minutes, then Ori plans. You get a milestone roadmap and the first steps directly in your calendar.
+- Days 2 to 4: one concrete step a day. You know how many minutes it takes and exactly what to do. Steps fit your real week, not the ideal one.
+- Day 5: low energy? One tap and Ori adjusts what it offers today. No explaining, no typing.
+- Day 8: a week of silence? Ori notices and suggests one small step to restart.
+- After that: Ori learns your pace.
+
+## Why Ori works
+
+Built on behaviour change, not engagement. When your capacity changes, the plan changes, not the goal.
+
+- We shrink the task, we don't just move it. A rescheduled task is the same wall a day later. A smaller one gets done, and doing something is what restarts the habit.
+- You never face the backlog. Coming back after a bad week is a shame problem, not a motivation problem. Ori reaches out first, so the moment of return never arrives.
+- We ask why before what. Passion or pressure, ambition or capacity. The intake shapes the roadmap, because a plan built on the wrong motivation dies in week three.
+- Energy sets the schedule, not just the free slot in your calendar. Burnout prevention is a scheduling rule, not a wellness section.
+
+Engagement-optimised apps succeed when you are in the app. Ori succeeds when you are doing the thing outside it.
+
+## Who it is for
+
+People who want a system that adapts to them, not the other way around.
+
+- Young professionals (25 to 35): ambitious, and out of decisions by 6 pm. Stuck in decision fatigue after work, can't start the side project because working out where to begin is itself exhausting, want the next step handed to them, sized for the evening they actually have.
+- Achievers: high performers who have burned out before. A track record of delivering, and a personal project recently dropped to burnout or lack of time. Want a system that survives the weeks they can't deliver: pushed on good days, protected on bad ones.
+
+## Who is behind Ori
+
+- Damian Knoth, co-founder and CEO: product strategy, business development, marketing and fundraising. https://www.linkedin.com/in/damian-knoth/
+- Jindřich Novák, co-founder and CTO: product vision, AI, design and UX/UI. https://www.linkedin.com/in/jind%C5%99ich-nov%C3%A1k-1148b139a/
+
+Two students who hit the problem first-hand while running several side projects at once; both have taken a product from idea to first paying customers before. The plan was always ready in an evening and fell apart the first week something else came up. They looked for an app that accounts for that, found none, and friends said they needed the same. The idea was discussed with industry people and validated through JIC (South Moravian Innovation Centre) and Red Bull Basement 2026. Ori is now being tested with a first group of users.
+
+## FAQ
+
+When does Ori launch, and when do I get access?
+Ori is in testing now and there's no exact launch date yet. Access opens step by step, in the Czech Republic and Slovakia first; people on the waitlist get it among the first.
+
+How much will it cost?
+Pricing is still being settled. The waitlist hears first.
+
+What does Ori run on?
+Android and iPhone. Testers already use it on both.
+
+What language is the app in?
+English for now. Czech and Slovak are on the way.
+
+How is it different from ChatGPT, Notion or Todoist?
+ChatGPT writes you a plan, then stops watching whether it's working. Notion and Todoist are lists you manage yourself. Ori lays the plan into your calendar, notices when it starts to break, and rebuilds it around what you have in you right now: not just a day later, but smaller or different.
+
+What does Ori know about me, and what does it do with it?
+Only what it needs to plan: your goals, your plan, what you've done and how it went. In the app you can see what Ori knows about you, download your data, and delete it along with your whole account at any time. Ori does not sell your data and does not train AI on it.
+
+How much time does it take a day?
+Setup takes about twenty minutes, once. After that, a glance in the morning at what the day holds is enough. The rest of the time belongs to the steps themselves, which Ori sizes to the time and energy you really have.
+
+What kind of goals is Ori for?
+Goals that take regular work over weeks or months: passing a language exam, running a half-marathon, starting a side project, learning a new skill. If a goal is still vague ("get fit"), Ori helps make it concrete. Ori is not a replacement for therapy or medical care.
+
+What if I drop out completely for a week or two?
+That's fine; Ori expects it. It notices the silence, reaches out first and rebuilds the plan, with no backlog waiting. You carry on from where you are: same goal, different path.
+
+Can I have more than one goal at a time?
+Yes. Ori plans them together so they don't fight over the same time or go beyond your capacity.
+
+## Joining the waitlist
+
+Email address only. Right after signing up you get one short email from Damian (it contains one question; both founders read the replies), and one more when your spot is ready. Nothing else.
+- English: https://oriapp.eu/en/#zapis
+- Czech: https://oriapp.eu/#zapis
+- Slovak: https://oriapp.eu/sk/#zapis
+
+## Privacy summary
+
+Website and waitlist (https://oriapp.eu/en/privacy.html, last updated 29 September 2026):
+- Stored: email address, time of signup, page language. Legal basis: consent (GDPR Art. 6(1)(a)), withdrawable at any time.
+- Analytics: Umami, cookieless, no profiling, no stored IP addresses (legitimate interest, GDPR Art. 6(1)(f)).
+- Processors: Supabase (database), Resend (email). Fonts are self-hosted.
+- Retention: until you ask for removal or until after public launch, when the list is cleared.
+- Supervisory authority: Úřad pro ochranu osobních údajů (Czech Republic).
+
+The Ori app (https://oriapp.eu/app-privacy.html, test version, last updated 30 September 2026):
+- Operator: the founder, Czech Republic. Contact: oriapp.eu@gmail.com.
+- Stored: account (email, hashed password via Supabase Auth, or name/email/picture via Google sign-in); goals, milestones, sessions, habits, tasks and feedback; a short per-goal summary (max 800 characters) the user can see, edit and delete; an AI usage log without the text of goals or answers.
+- Processors: Supabase (EU region; database and sign-in), Anthropic (generates roadmaps and sessions from goal text; API data is not used for training; no Google Calendar data is ever sent to it), YouTube Data API (search keywords only), Render and Vercel (hosting).
+- Google Calendar (optional): scopes calendar.calendarlist.readonly, calendar.events.readonly and calendar.events.owned. Ori reads busy times to avoid conflicts and creates or updates only its own "[Ori]" events. Calendar data is not sold, not used for ads, not used to train AI, not sent to AI services. Complies with the Google API Services User Data Policy, including Limited Use. Disconnect in Profile → Integrations.
+- Export and deletion in the app: Profile → Privacy & Security → Export my data / Delete my account. By email, deletion within 14 days.
+- No ads, no data sale, no sharing with anyone else.
+
+## Contact
+
+- Email: oriapp.eu@gmail.com (a person answers, not a bot)
+- Instagram: https://www.instagram.com/oriapp.ai/
+- Website: https://oriapp.eu
+
+## Disambiguation
+
+Ori (oriapp.eu), the AI goal and self-development coach from the Czech Republic, is not related to the "Ori" video game series, Ori robotic furniture, or the Ori GPU cloud.

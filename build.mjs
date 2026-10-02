@@ -152,6 +152,8 @@ const entries = PAGES.flatMap((page) => LANGS.map((lang) => [
   `    <xhtml:link rel="alternate" hreflang="x-default" href="${ORIGIN}${url(LANGS.find((l) => l.code === 'en'), page)}"/>`,
   '  </url>',
 ].join('\n')));
+// The app's privacy page is hand-written, English only: one entry, no language siblings.
+entries.push(['  <url>', `    <loc>${ORIGIN}/app-privacy.html</loc>`, `    <lastmod>${MODIFIED}</lastmod>`, '  </url>'].join('\n'));
 writeFileSync('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${entries.join('\n')}

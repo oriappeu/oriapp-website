@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://oriapp.eu/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="cs" href="https://oriapp.eu/"/>
     <xhtml:link rel="alternate" hreflang="sk" href="https://oriapp.eu/sk/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://oriapp.eu/en/"/>
@@ -10,7 +10,7 @@
   </url>
   <url>
     <loc>https://oriapp.eu/sk/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="cs" href="https://oriapp.eu/"/>
     <xhtml:link rel="alternate" hreflang="sk" href="https://oriapp.eu/sk/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://oriapp.eu/en/"/>
@@ -18,7 +18,7 @@
   </url>
   <url>
     <loc>https://oriapp.eu/en/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="cs" href="https://oriapp.eu/"/>
     <xhtml:link rel="alternate" hreflang="sk" href="https://oriapp.eu/sk/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://oriapp.eu/en/"/>
@@ -26,7 +26,7 @@
   </url>
   <url>
     <loc>https://oriapp.eu/privacy.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="cs" href="https://oriapp.eu/privacy.html"/>
     <xhtml:link rel="alternate" hreflang="sk" href="https://oriapp.eu/sk/privacy.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://oriapp.eu/en/privacy.html"/>
@@ -34,7 +34,7 @@
   </url>
   <url>
     <loc>https://oriapp.eu/sk/privacy.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="cs" href="https://oriapp.eu/privacy.html"/>
     <xhtml:link rel="alternate" hreflang="sk" href="https://oriapp.eu/sk/privacy.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://oriapp.eu/en/privacy.html"/>
@@ -42,7 +42,7 @@
   </url>
   <url>
     <loc>https://oriapp.eu/en/privacy.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="cs" href="https://oriapp.eu/privacy.html"/>
     <xhtml:link rel="alternate" hreflang="sk" href="https://oriapp.eu/sk/privacy.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://oriapp.eu/en/privacy.html"/>
@@ -50,7 +50,7 @@
   </url>
   <url>
     <loc>https://oriapp.eu/faq.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="cs" href="https://oriapp.eu/faq.html"/>
     <xhtml:link rel="alternate" hreflang="sk" href="https://oriapp.eu/sk/faq.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://oriapp.eu/en/faq.html"/>
@@ -58,7 +58,7 @@
   </url>
   <url>
     <loc>https://oriapp.eu/sk/faq.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="cs" href="https://oriapp.eu/faq.html"/>
     <xhtml:link rel="alternate" hreflang="sk" href="https://oriapp.eu/sk/faq.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://oriapp.eu/en/faq.html"/>
@@ -66,10 +66,14 @@
   </url>
   <url>
     <loc>https://oriapp.eu/en/faq.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="cs" href="https://oriapp.eu/faq.html"/>
     <xhtml:link rel="alternate" hreflang="sk" href="https://oriapp.eu/sk/faq.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://oriapp.eu/en/faq.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://oriapp.eu/en/faq.html"/>
+  </url>
+  <url>
+    <loc>https://oriapp.eu/app-privacy.html</loc>
+    <lastmod>2026-10-02</lastmod>
   </url>
 </urlset>

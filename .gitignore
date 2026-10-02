@@ -1,2 +1,7 @@
 # Marketing material, not part of the site
 oriapp-seo*
+
+# Marketing material and any zip: never part of the published site
+*.zip
+marketing/
+Marketing*

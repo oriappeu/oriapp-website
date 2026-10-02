@@ -10,7 +10,8 @@ Czech is the default at `/`, Slovak at `/sk/`, English at `/en/`.
 | `i18n/cs.json`, `sk.json`, `en.json` | every word on the site, one file per language |
 | `build.mjs` | writes the finished pages from the two above |
 | `structured-data.mjs`, `profiles.json` | the schema.org markup for the home and FAQ pages, and the founders' profile links it uses |
-| `llms.txt` | a plain-language summary of Ori for AI crawlers (hand-written, English) |
+| `llms.txt`, `llms-full.txt` | plain-language summaries of Ori for AI crawlers: a short index and the full text (hand-written, English) |
+| `.well-known/security.txt` | how to report a security problem (RFC 9116) |
 | `index.html`, `faq.html`, `privacy.html`, `sk/…`, `en/…`, `sitemap.xml` | **generated** - never edit by hand |
 | `styles.css` | the app's design system (AURA, dark), as a stylesheet |
 | `main.js` | the waitlist form and all the motion |
@@ -61,6 +62,19 @@ Validate after a change: https://validator.schema.org and https://search.google.
 - The marketing package `oriapp-seo.zip` (2026-10-01) was the starting point; it was rewritten against the
   redesigned site (it still carried the old slogan, "check-ins" and a line that Ori is not for team projects).
   The zip is git-ignored and is not part of the site.
+
+**GEO (being found and quoted by AI search):** `robots.txt` welcomes the named AI crawlers and states the
+site's content signals (search, AI answers and AI training are all allowed, as it is public marketing
+content; change a `yes` to `no` to withdraw). `llms.txt` is the short index and `llms-full.txt` the full text.
+**Keep them true:** update both when pricing, the launch date, platforms, the app's language or either privacy
+policy change (llms-full.txt repeats the app policy's main points, so it must change in the same step as the
+policy). `.well-known/security.txt` expires on 2027-10-01 - bump its `Expires` before then. Every page head
+points agents at `llms.txt` (`rel="describedby"`) because GitHub Pages cannot send the `Link` header the
+marketing package assumed. Not used on purpose: `.well-known/api-catalog` (Ori has no public API, and this host
+cannot give a file without an extension the media type the standard asks for) and `_headers` (Cloudflare and
+Netlify only); both would need a different host.
+**Pending (last step of the data-system work):** the updated privacy policy for the website and the app, and
+Terms of use (marketing package, `Marketing web.zip`, kept outside git). They are not on the site yet.
 
 **Going back to the previous design:** the site as it was before the redesign (cards, eyebrows, the
 marquee) is the tag `pre-redesign`. To restore it without losing history:
