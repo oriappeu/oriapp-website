@@ -100,6 +100,41 @@ if (navEntry?.type === 'reload') {
   window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
 }
 
+// ── In-page links ───────────────────────────────────────────────────────────
+// A link to a section of THIS page (the menu, "Join the waitlist") scrolls there
+// without putting "#zapis" in the address bar, and a link to the page itself (the
+// logo) scrolls to the top instead of reloading. Without script every link still
+// works as a plain anchor. A modified click (new tab, new window) is left alone.
+const samePage = (p) => p.replace(/index\.html$/, '').replace(/\.html$/, '').replace(/\/$/, '');
+function sectionFor(link) {
+  let u;
+  try { u = new URL(link.getAttribute('href'), location.href); } catch { return null; }
+  if (u.origin !== location.origin || samePage(u.pathname) !== samePage(location.pathname)) return null;
+  return u.hash ? document.getElementById(decodeURIComponent(u.hash.slice(1))) : document.body;
+}
+document.addEventListener('click', (e) => {
+  const link = e.target.closest?.('a[href]');
+  if (!link || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+  if (link.target && link.target !== '_self') return;
+  const target = sectionFor(link);
+  if (!target) return;
+  e.preventDefault();
+  if (target === document.body) window.scrollTo({ top: 0, behavior: reduceMotion() ? 'auto' : 'smooth' });
+  else {
+    target.scrollIntoView({ behavior: reduceMotion() ? 'auto' : 'smooth', block: 'start' });
+    // Keyboard and screen-reader focus follow the scroll.
+    if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+    target.focus({ preventScroll: true });
+  }
+  if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+});
+function reduceMotion() { return matchMedia('(prefers-reduced-motion: reduce)').matches; }
+// Arriving from another page ("/#zapis" from the FAQ menu): the browser jumps to the
+// section by itself, then the section name is dropped from the address.
+if (location.hash) {
+  window.addEventListener('load', () => setTimeout(() => history.replaceState(null, '', location.pathname + location.search), 80), { once: true });
+}
+
 // ── Motion ──────────────────────────────────────────────────────────────────
 // Every effect below has a job (styles.css says which). Reduced motion keeps
 // the page still; pointer effects wait for a real mouse.

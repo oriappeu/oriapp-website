@@ -38,6 +38,8 @@ may only add an address; the backend then sends the thank-you email. Both are de
 `backend/lib/waitlistWelcome.js`); `tests/waitlist-check.mjs` and `tests/waitlist-welcome-check.mjs` there
 prove what the key can and cannot do.
 
+**In-page links:** the menu, the "join" buttons and the logo scroll within the page (main.js) without leaving a #section name in the address bar; without script they are plain anchors, and a ctrl-click still opens the real link. Section names (jak, kdo, zapis, ...) are Czech words used in all languages.
+
 **Preview locally:** the pages use absolute paths (`/styles.css`), so serve the folder rather than opening
 a file: `npx serve .` in this folder.
 
