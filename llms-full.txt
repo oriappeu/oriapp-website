@@ -113,7 +113,7 @@ Email address only. Right after signing up you get one short email from Damian (
 
 ## Privacy summary
 
-Website and waitlist (https://oriapp.eu/en/privacy.html, last updated 29 September 2026):
+Website and waitlist (https://oriapp.eu/en/privacy, last updated 29 September 2026):
 - Stored: email address, time of signup, page language. Legal basis: consent (GDPR Art. 6(1)(a)), withdrawable at any time.
 - Analytics: Umami, cookieless, no profiling, no stored IP addresses (legitimate interest, GDPR Art. 6(1)(f)).
 - Processors: Supabase (database), Resend (email). Fonts are self-hosted.

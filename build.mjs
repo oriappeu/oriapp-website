@@ -79,7 +79,9 @@ for (const { code } of LANGS) {
 }
 
 const lookup = (o, key) => key.split('.').reduce((v, k) => (v == null ? v : v[k]), o);
-const url = (lang, page) => `${lang.root}${page.path}`;
+// The public address of a page: no .html (GitHub Pages serves /faq as faq.html, and /faq.html still works,
+// with its canonical pointing here). The file written to disk keeps its .html name.
+const url = (lang, page) => `${lang.root}${page.path.replace(/\.html$/, '')}`;
 // faq.items is a list in the JSON (the typography pass turns it into an object keyed 0, 1, 2…).
 const faqItems = (t) => Object.values(t.faq.items);
 
@@ -92,7 +94,7 @@ for (const page of PAGES) {
       locale: lang.locale,
       canonical: ORIGIN + url(lang, page),
       home: lang.root,
-      privacy: `${lang.root}privacy.html`,
+      privacy: `${lang.root}privacy`,
       og_image: ORIGIN + lang.og,
       alternates: [
         ...LANGS.map((l) => `<link rel="alternate" hreflang="${l.code}" href="${ORIGIN}${url(l, page)}">`),
@@ -112,7 +114,7 @@ for (const page of PAGES) {
       // The form's messages, for main.js. `<` is escaped so no text can close the script tag.
       i18n: JSON.stringify(t.js).replace(/</g, '\\u003c'),
       // The questions: native <details>, so they open without script and for every reader.
-      faq_page: `${lang.root}faq.html`,
+      faq_page: `${lang.root}faq`,
       // The week's "do you recognise this" lines, and the moving band of what broke the plan
       // (the band's list twice, so it loops without a seam; the second set is hidden on reduced motion).
       recog_items: Object.values(t.week.items).map((li) => `<li>${li}</li>`).join('\n        '),

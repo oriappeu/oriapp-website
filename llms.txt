@@ -20,22 +20,22 @@ Key facts (as of October 2026):
 ## Website (English)
 
 - [Home](https://oriapp.eu/en/): what Ori is, how it re-plans a day when life gets in the way (with an interactive demo), the first week on real app screens, the founders, the waitlist
-- [FAQ](https://oriapp.eu/en/faq.html): launch timing, pricing, platforms, app language, comparison with ChatGPT/Notion/Todoist, data, daily time, suitable goals, multiple goals
+- [FAQ](https://oriapp.eu/en/faq): launch timing, pricing, platforms, app language, comparison with ChatGPT/Notion/Todoist, data, daily time, suitable goals, multiple goals
 - [Full text for LLMs](https://oriapp.eu/llms-full.txt): all of the above in one plain-text file
 
 ## Privacy
 
-- [Website and waitlist privacy policy](https://oriapp.eu/en/privacy.html): email-only waitlist, cookieless Umami analytics, Supabase and Resend as processors
+- [Website and waitlist privacy policy](https://oriapp.eu/en/privacy): email-only waitlist, cookieless Umami analytics, Supabase and Resend as processors
 - [App privacy policy](https://oriapp.eu/app-privacy.html): what the app stores, AI processing via Anthropic, Google Calendar scopes and Limited Use, retention, export and deletion
 
 ## Other languages
 
 - [Domů (Czech home, default)](https://oriapp.eu/)
-- [Časté otázky (Czech FAQ)](https://oriapp.eu/faq.html)
-- [Zásady ochrany soukromí (Czech privacy)](https://oriapp.eu/privacy.html)
+- [Časté otázky (Czech FAQ)](https://oriapp.eu/faq)
+- [Zásady ochrany soukromí (Czech privacy)](https://oriapp.eu/privacy)
 - [Domov (Slovak home)](https://oriapp.eu/sk/)
-- [Časté otázky (Slovak FAQ)](https://oriapp.eu/sk/faq.html)
-- [Zásady ochrany súkromia (Slovak privacy)](https://oriapp.eu/sk/privacy.html)
+- [Časté otázky (Slovak FAQ)](https://oriapp.eu/sk/faq)
+- [Zásady ochrany súkromia (Slovak privacy)](https://oriapp.eu/sk/privacy)
 
 ## Optional
 
