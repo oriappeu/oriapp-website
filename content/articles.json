@@ -19,40 +19,6 @@
       "description": "A bad week broke your plan? Don't try to catch up. Shrink the next step, pick up where you are and recalculate the goal. Six steps back on track."
     }
   },
-  "n2": {
-    "published": "2026-10-02",
-    "paths": {
-      "cs": "ori-vs-motion-reclaim-sunsama",
-      "sk": "ori-vs-motion-reclaim-sunsama",
-      "en": "ori-vs-motion-reclaim-sunsama"
-    },
-    "mentions": [
-      {
-        "name": "Motion",
-        "url": "https://www.usemotion.com/"
-      },
-      {
-        "name": "Reclaim",
-        "url": "https://reclaim.ai/"
-      },
-      {
-        "name": "Sunsama",
-        "url": "https://www.sunsama.com/"
-      }
-    ],
-    "cs": {
-      "title": "Ori vs. Motion, Reclaim a Sunsama: co se hodí na cíle",
-      "description": "Motion a Reclaim přesouvají úkoly v pracovním kalendáři, Sunsama vede ruční plán dne. Ori začíná u osobního cíle a krok zmenší, když nestíháš."
-    },
-    "sk": {
-      "title": "Ori vs. Motion, Reclaim a Sunsama: čo sa hodí na ciele",
-      "description": "Motion a Reclaim presúvajú úlohy v pracovnom kalendári, Sunsama vedie ručný plán dňa. Ori začína pri osobnom cieli a krok zmenší, keď nestíhaš."
-    },
-    "en": {
-      "title": "Ori vs Motion, Reclaim and Sunsama for personal goals",
-      "description": "Motion and Reclaim move tasks around a work calendar; Sunsama guides a manual daily plan. Ori starts from a personal goal and shrinks the step."
-    }
-  },
   "n3": {
     "published": "2026-10-02",
     "paths": {

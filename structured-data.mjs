@@ -33,7 +33,7 @@ export const clean = (s) => String(s).replace(/<[^>]*>/g, '').replace(/ /g, ' '
  * @param {string} o.modified     YYYY-MM-DD, when the content last changed
  * @param {object} o.profiles     { organization: [], damian: [], jindrich: [] } URLs
  * @param {string[]} o.languages  every language code of the site
- * @param {object} [o.article]    for kind 'article': { h1, title, description, published, mentions }
+ * @param {object} [o.article]    for kind 'article': { h1, title, description, published }
  * @returns {string} JSON, safe inside a <script> tag
  */
 export function structuredData({ kind, origin, pageUrl, lang, t, ogImage, modified, profiles, languages, article }) {
@@ -145,8 +145,7 @@ export function structuredData({ kind, origin, pageUrl, lang, t, ogImage, modifi
         author: { '@id': id('organization') },
         publisher: { '@id': id('organization') },
         isPartOf: { '@id': id('website') },
-        // The comparison names the tools it compares (name and official address, nothing else).
-        mentions: [{ '@id': id('app') }, ...(article.mentions || []).map((m) => ({ '@type': 'Thing', name: m.name, url: m.url }))],
+        mentions: [{ '@id': id('app') }],
       },
       {
         '@type': 'BreadcrumbList',

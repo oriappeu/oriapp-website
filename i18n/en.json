@@ -234,7 +234,7 @@
     "faq": "FAQ",
     "contact": "Contact",
     "guide_plan": "When your plan falls apart",
-    "guide_compare": "Ori vs Motion and Reclaim"
+    "terms": "Terms of use"
   },
   "js": {
     "invalid": "That doesn’t look like an email address.",
@@ -273,15 +273,6 @@
       {
         "q": "What language is the app in?",
         "a": "English for now. Czech and Slovak are on the way."
-      },
-      {
-        "q": "How is it different from ChatGPT, Notion or Todoist?",
-        "a": "ChatGPT writes you a plan, then stops watching whether it's working. Notion and Todoist are lists you manage yourself. Ori lays the plan into your calendar, notices when it starts to break, and rebuilds it around what you have in you right now - not just a day later, but smaller or different."
-      },
-      {
-        "q": "How is Ori different from Motion, Reclaim or Sunsama?",
-        "a": "Motion and Reclaim are AI calendars built mainly for work. When your day changes, they move tasks somewhere else. Sunsama walks you through planning your day by hand. Ori starts from a personal goal, and when you fall behind it doesn't just change the time: it makes the step smaller or swaps it for one you can manage today. There's a full comparison in <a href=\"/en/ori-vs-motion-reclaim-sunsama\">Ori vs Motion, Reclaim and Sunsama</a>.",
-        "ld": "Motion and Reclaim are AI calendars built mainly for work. When your day changes, they move tasks somewhere else. Sunsama walks you through planning your day by hand. Ori starts from a personal goal, and when you fall behind it doesn't just change the time: it makes the step smaller or swaps it for one you can manage today. Full comparison: https://oriapp.eu/en/ori-vs-motion-reclaim-sunsama"
       },
       {
         "q": "What does Ori know about me, and what does it do with it?",
@@ -326,7 +317,7 @@
     "back": "Back to Ori",
     "home": "Home",
     "h1": "This website and the waitlist",
-    "updated": "Last updated: 29 September 2026",
+    "updated": "Last updated: 3 October 2026",
     "collect_h": "What we collect",
     "collect_p": "When you join the waitlist, we keep your email address, the time you joined and the language of the page - so we write to you in Czech, Slovak or English. Nothing else - the form has no other fields.",
     "why_h": "Why",
@@ -341,7 +332,8 @@
     "rights_h": "Your rights",
     "rights_p": "You can ask us what we hold about you, ask us to correct it, or ask us to delete it - write to <a href=\"mailto:oriapp.eu@gmail.com\">oriapp.eu@gmail.com</a> from the address you signed up with and we'll do it. If you think we've handled your data wrongly, please tell us first at the same address - we'll look into it and put it right. You also always have the right to complain to the Czech data protection authority, the Úřad pro ochranu osobních údajů.",
     "app_h": "The Ori app",
-    "app_p": "This page covers only this website and its waitlist. Once you use the Ori app itself, its own privacy policy applies, which you see when you create an account."
+    "app_p": "This page covers only this website and its waitlist. Once you use the Ori app itself, its own privacy policy applies, which you see when you create an account.",
+    "operator": "Ori is operated by its founders, Damian K. and Jindřich N., Czech Republic."
   },
   "article": {
     "cta": "Join the waitlist"

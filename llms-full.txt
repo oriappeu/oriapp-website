@@ -58,14 +58,9 @@ Built on behaviour change, not engagement. When your capacity changes, the plan 
 
 Engagement-optimised apps succeed when you are in the app. Ori succeeds when you are doing the thing outside it.
 
-## Ori compared with Motion, Reclaim and Sunsama
-
-Motion and Reclaim are AI calendars built mainly for work: when the day changes, they move tasks elsewhere. Sunsama guides a manual daily planning ritual. Ori starts from a personal goal and, when the user falls behind, makes the step smaller or swaps it for another, based on a one-tap energy level and skipped steps. Full page: https://oriapp.eu/en/ori-vs-motion-reclaim-sunsama
-
 ## Guides
 
 - [What to do when your plan falls apart](https://oriapp.eu/en/when-your-plan-falls-apart): six steps back to a goal after a bad week, and how Ori automates them
-- [Ori vs Motion, Reclaim and Sunsama](https://oriapp.eu/en/ori-vs-motion-reclaim-sunsama): comparison for personal goals
 - [Staying consistent learning a language](https://oriapp.eu/en/stay-consistent-learning-a-language): use case, language exam
 - [Starting to run and keeping going](https://oriapp.eu/en/start-running-and-keep-going): use case, running
 
@@ -103,12 +98,6 @@ Android and iPhone. Our testers already use it on both.
 What language is the app in?
 English for now. Czech and Slovak are on the way.
 
-How is it different from ChatGPT, Notion or Todoist?
-ChatGPT writes you a plan, then stops watching whether it's working. Notion and Todoist are lists you manage yourself. Ori lays the plan into your calendar, notices when it starts to break, and rebuilds it around what you have in you right now - not just a day later, but smaller or different.
-
-How is Ori different from Motion, Reclaim or Sunsama?
-Motion and Reclaim are AI calendars built mainly for work. When your day changes, they move tasks somewhere else. Sunsama walks you through planning your day by hand. Ori starts from a personal goal, and when you fall behind it doesn't just change the time: it makes the step smaller or swaps it for one you can manage today. Full comparison: https://oriapp.eu/en/ori-vs-motion-reclaim-sunsama
-
 What does Ori know about me, and what does it do with it?
 Only what it needs to plan: your goals, your plan, what you've done and how it went. In the app you can see what Ori knows about you, download your data, and delete it along with your whole account at any time. We don't sell your data and we don't train AI on it.
 
@@ -142,20 +131,25 @@ Email address only. Right after signing up you get one short email from Damian (
 
 ## Privacy summary
 
-Website and waitlist (https://oriapp.eu/en/privacy, last updated 29 September 2026):
+Website and waitlist (https://oriapp.eu/en/privacy, last updated 3 October 2026):
+- Operator: Ori is operated by its founders, Damian K. and Jindřich N., Czech Republic.
 - Stored: email address, time of signup, page language. Legal basis: consent (GDPR Art. 6(1)(a)), withdrawable at any time.
 - Analytics: Umami, cookieless, no profiling, no stored IP addresses (legitimate interest, GDPR Art. 6(1)(f)).
 - Processors: Supabase (database), Resend (email). Fonts are self-hosted.
 - Retention: until you ask for removal or until after public launch, when the list is cleared.
 - Supervisory authority: Úřad pro ochranu osobních údajů (Czech Republic).
 
-The Ori app (https://oriapp.eu/app-privacy.html, test version, last updated 30 September 2026):
-- Operator: the founder, Czech Republic. Contact: oriapp.eu@gmail.com.
+The Ori app (https://oriapp.eu/app-privacy.html, test version, last updated 3 October 2026):
+- Operator: its founders, Damian K. and Jindřich N., Czech Republic. Contact: oriapp.eu@gmail.com.
 - Stored: account (email, hashed password via Supabase Auth, or name/email/picture via Google sign-in); goals, milestones, sessions, habits, tasks and feedback; a short per-goal summary (max 800 characters) the user can see, edit and delete; an AI usage log without the text of goals or answers.
 - Processors: Supabase (EU region; database and sign-in), Anthropic (generates roadmaps and sessions from goal text; API data is not used for training; no Google Calendar data is ever sent to it), YouTube Data API (search keywords only), Render and Vercel (hosting).
 - Google Calendar (optional): scopes calendar.calendarlist.readonly, calendar.events.readonly and calendar.events.owned. Ori reads busy times to avoid conflicts and creates or updates only its own "[Ori]" events. Calendar data is not sold, not used for ads, not used to train AI, not sent to AI services. Complies with the Google API Services User Data Policy, including Limited Use. Disconnect in Profile → Integrations.
 - Export and deletion in the app: Profile → Privacy & Security → Export my data / Delete my account. By email, deletion within 14 days.
 - No ads, no data sale, no sharing with anyone else.
+
+## Terms of use
+
+The test version is free of charge and by invitation (https://oriapp.eu/terms, English, effective 3 October 2026). Ori is not yet a registered company; the service is operated jointly by Damian Knoth and Jindřich Novák, natural persons in the Czech Republic. Users must be at least 16. The AI features are produced by AI models (currently Anthropic) and can be wrong; Ori gives no medical, psychological, financial or legal advice and is not a crisis service. Users own their content and can export their data and delete their account in the app. Czech law applies; consumers keep their statutory rights.
 
 ## Contact
 

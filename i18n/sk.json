@@ -234,7 +234,7 @@
     "faq": "Otázky",
     "contact": "Kontakt",
     "guide_plan": "Keď sa plán rozpadne",
-    "guide_compare": "Ori vs. Motion a Reclaim"
+    "terms": "Podmienky používania"
   },
   "js": {
     "invalid": "Toto nevyzerá ako e-mailová adresa.",
@@ -273,15 +273,6 @@
       {
         "q": "V akom jazyku je aplikácia?",
         "a": "Zatiaľ v angličtine. Češtinu a slovenčinu chystáme."
-      },
-      {
-        "q": "Čím sa líši od ChatGPT, Notionu alebo Todoistu?",
-        "a": "ChatGPT ti napíše plán, ale už nestráži, či ho zvládaš. Notion a Todoist sú zoznamy, ktoré si spravuješ ty. Ori plán rozloží do tvojho kalendára, všimne si, keď sa začne rozpadať, a prestaví ho podľa toho, na čo práve máš - nielen o deň ďalej, ale menší alebo inak."
-      },
-      {
-        "q": "Čím sa Ori líši od Motion, Reclaim alebo Sunsamy?",
-        "a": "Motion a Reclaim sú AI kalendáre hlavne na prácu. Keď sa deň zmení, presunú úlohy inam. Sunsama ťa prevedie plánovaním dňa, ktoré robíš ručne. Ori začína pri osobnom cieli a keď nestíhaš, nemení len čas: krok zmenší, alebo ho vymení za iný, ktorý dnes zvládneš. Podrobné porovnanie nájdeš v článku <a href=\"/sk/ori-vs-motion-reclaim-sunsama\">Ori vs. Motion, Reclaim a Sunsama</a>.",
-        "ld": "Motion a Reclaim sú AI kalendáre hlavne na prácu. Keď sa deň zmení, presunú úlohy inam. Sunsama ťa prevedie plánovaním dňa, ktoré robíš ručne. Ori začína pri osobnom cieli a keď nestíhaš, nemení len čas: krok zmenší, alebo ho vymení za iný, ktorý dnes zvládneš. Podrobné porovnanie je na https://oriapp.eu/sk/ori-vs-motion-reclaim-sunsama"
       },
       {
         "q": "Čo o mne Ori vie a čo s tým robí?",
@@ -326,7 +317,7 @@
     "back": "Späť na Ori",
     "home": "Domov",
     "h1": "Tento web a čakacia listina",
-    "updated": "Naposledy upravené: 29. septembra 2026",
+    "updated": "Naposledy upravené: 3. októbra 2026",
     "collect_h": "Čo ukladáme",
     "collect_p": "Keď sa zapíšeš na čakaciu listinu, uložíme si tvoju e-mailovú adresu, čas zápisu a jazyk stránky - aby sme ti písali po česky, po slovensky, alebo po anglicky. Nič viac - formulár iné polia nemá.",
     "why_h": "Prečo",
@@ -341,7 +332,8 @@
     "rights_h": "Tvoje práva",
     "rights_p": "Môžeš sa nás opýtať, čo o tebe máme, požiadať o opravu alebo o vymazanie - napíš na <a href=\"mailto:oriapp.eu@gmail.com\">oriapp.eu@gmail.com</a> z adresy, ktorú máme na zozname, a my to urobíme. Ak si myslíš, že sme s tvojimi údajmi naložili zle, napíš nám prosím najprv na rovnakú adresu - pozrieme sa na to a napravíme to. Vždy máš aj právo podať sťažnosť dozornému orgánu - na Slovensku je to Úrad na ochranu osobných údajov SR, v Česku Úřad pro ochranu osobních údajů.",
     "app_h": "Aplikácia Ori",
-    "app_p": "Táto stránka sa týka len tohto webu a čakacej listiny. Keď začneš používať samotnú aplikáciu Ori, platia jej vlastné zásady ochrany súkromia, ktoré uvidíš pri založení účtu."
+    "app_p": "Táto stránka sa týka len tohto webu a čakacej listiny. Keď začneš používať samotnú aplikáciu Ori, platia jej vlastné zásady ochrany súkromia, ktoré uvidíš pri založení účtu.",
+    "operator": "Ori prevádzkujú jeho zakladatelia Damian K. a Jindřich N., Česká republika."
   },
   "article": {
     "cta": "Chcem byť medzi prvými"

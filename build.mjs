@@ -12,7 +12,7 @@
 // Placeholders: {{a.b}} is a text from the language file (it may carry inline
 // HTML, e.g. the gold phrase of a headline); {{@name}} is filled in here -
 // lang, locale, canonical, alternates, switch, home, privacy, faq_page,
-// faq_items, jsonld, og_alternates, og_image, i18n, guide_plan, guide_compare.
+// faq_items, jsonld, og_alternates, og_image, i18n, guide_plan.
 // A missing text, or a key one language has and another lacks, stops the build.
 //
 // Guides (long-form pages): content/articles.json lists them (slug per language, title,
@@ -137,7 +137,7 @@ for (const page of PAGES) {
       if (!md.h1) throw new Error(`${file} has no "# " heading`);
       article = {
         id: page.id, h1: clean(md.h1), title: meta.title, description: meta.description,
-        published: ARTICLES[page.id].published, mentions: ARTICLES[page.id].mentions,
+        published: ARTICLES[page.id].published,
         body: ['cs', 'sk'].includes(lang.code) ? tie(md.html) : md.html,
       };
     }
@@ -168,9 +168,8 @@ for (const page of PAGES) {
       i18n: JSON.stringify(t.js).replace(/</g, '\\u003c'),
       // The questions: native <details>, so they open without script and for every reader.
       faq_page: `${lang.root}faq`,
-      // The two guides the footer and the "how it works" section point to.
+      // The guide the footer and the "how it works" section point to.
       guide_plan: url(lang, guide('n1')),
-      guide_compare: url(lang, guide('n2')),
       // The week's "do you recognise this" lines, and the moving band of what broke the plan
       // (the band's list twice, so it loops without a seam; the second set is hidden on reduced motion).
       recog_items: Object.values(t.week.items).map((li) => `<li>${li}</li>`).join('\n        '),
@@ -214,8 +213,10 @@ const entries = PAGES.flatMap((page) => LANGS.map((lang) => [
   `    <xhtml:link rel="alternate" hreflang="x-default" href="${ORIGIN}${url(LANGS.find((l) => l.code === 'en'), page)}"/>`,
   '  </url>',
 ].join('\n')));
-// The app's privacy page is hand-written, English only: one entry, no language siblings.
-entries.push(['  <url>', `    <loc>${ORIGIN}/app-privacy.html</loc>`, `    <lastmod>${fileModified('app-privacy.html')}</lastmod>`, '  </url>'].join('\n'));
+// The hand-written, English-only pages (the app's privacy policy, the Terms of Use): one entry each, no language siblings.
+for (const [loc, file] of [['/app-privacy.html', 'app-privacy.html'], ['/terms', 'terms.html']]) {
+  entries.push(['  <url>', `    <loc>${ORIGIN}${loc}</loc>`, `    <lastmod>${fileModified(file)}</lastmod>`, '  </url>'].join('\n'));
+}
 writeFileSync('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${entries.join('\n')}

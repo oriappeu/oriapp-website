@@ -42,6 +42,8 @@ const langOf = (html) => html.match(/<html lang="([^"]+)"/)?.[1];
 const LOCALES = { cs: 'cs_CZ', sk: 'sk_SK', en: 'en_GB' };
 const exists = (path) => path in pages || (path !== '/' && existsSync(root + path.slice(1)) && !path.endsWith('/'));
 
+// Hand-written, English-only pages outside the build: no hreflang or structured data of their own.
+const HAND = new Set(['/app-privacy.html', '/terms']);
 const rows = [];
 const titles = new Map();
 const descriptions = new Map();
@@ -86,7 +88,7 @@ for (const [url, { file, html }] of Object.entries(pages)) {
       const back = [...pages[path].html.matchAll(/<link rel="alternate" hreflang="([^"]+)" href="([^"]+)">/g)].map((m) => `${m[1]}=${m[2]}`).sort().join();
       if (back !== hl.map((x) => `${x[0]}=${x[1]}`).sort().join()) { fail(url, `${path} does not list the same hreflang set back`); row.hreflang = 'BAD'; }
     }
-  } else if (url !== '/app-privacy.html') { fail(url, 'no hreflang links'); row.hreflang = 'none'; } else row.hreflang = 'n/a';
+  } else if (!HAND.has(url)) { fail(url, 'no hreflang links'); row.hreflang = 'none'; } else row.hreflang = 'n/a';
 
   // JSON-LD
   const blocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
@@ -107,7 +109,7 @@ for (const [url, { file, html }] of Object.entries(pages)) {
     if (/<script/i.test(b[1])) fail(url, 'JSON-LD holds an unescaped <script');
     if (['cs', 'sk'].includes(lang) && / |&nbsp;/.test(b[1])) { fail(url, 'JSON-LD holds a no-break space'); row.ld = 'BAD'; }
   }
-  if (!blocks.length && url !== '/app-privacy.html' && !/\/privacy$/.test(url)) { fail(url, 'no JSON-LD'); row.ld = 'none'; }
+  if (!blocks.length && !HAND.has(url) && !/\/privacy$/.test(url)) { fail(url, 'no JSON-LD'); row.ld = 'none'; }
   if (blocks.length > 1) fail(url, `${blocks.length} JSON-LD blocks (expected 1)`);
   if (['cs', 'sk'].includes(lang) && / |&nbsp;/.test(title + desc)) fail(url, 'title or description holds a no-break space');
 
@@ -118,8 +120,7 @@ for (const [url, { file, html }] of Object.entries(pages)) {
   }
 
   // links and images
-  // The hand-written app policy is left as it is (it links the website policy as /privacy.html, which works).
-  for (const m of url === '/app-privacy.html' ? [] : html.matchAll(/<a\b([^>]*)>/g)) {
+  for (const m of html.matchAll(/<a\b([^>]*)>/g)) {
     const href = m[1].match(/href="([^"]*)"/)?.[1];
     if (!href || /^(mailto:|tel:|#)/.test(href)) continue;
     if (/^https?:\/\//.test(href) && !href.startsWith(ORIGIN)) {
@@ -140,6 +141,12 @@ for (const [url, { file, html }] of Object.entries(pages)) {
     const visible = html.replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>|<!--[\s\S]*?-->/g, '').replace(/<[^>]*>/g, ' ');
     const dash = visible.match(/.{0,30}[–—].{0,30}/);
     if (dash) fail(url, `dash character in the text: "${dash[0].trim()}"`);
+  }
+
+  // the site names no competitor (founders' rule, 2026-10-03): not in the text, the head or the structured data
+  if (url !== '/app-privacy.html') {
+    const named = html.replace(/<style[\s\S]*?<\/style>|<!--[\s\S]*?-->/g, '').match(/.{0,30}\b(Motion|Reclaim|Sunsama|ChatGPT|Notion|Todoist)\b.{0,30}/);
+    if (named) fail(url, `names a competitor: "${named[0].trim()}"`);
   }
 
   // FAQ: the markup lists the page's questions, in order
@@ -176,6 +183,8 @@ if (lastmods.length !== locs.length || lastmods.some((x) => !/^\d{4}-\d{2}-\d{2}
 for (const f of ['llms.txt', 'llms-full.txt']) {
   const text = read(f);
   if (/\r/.test(text)) fail(f, 'has CR characters');
+  const named = text.match(/.{0,30}\b(Motion|Reclaim|Sunsama|ChatGPT|Notion|Todoist)\b.{0,30}/);
+  if (named) fail(f, `names a competitor: "${named[0].trim()}"`);
   for (const m of text.matchAll(/https:\/\/oriapp\.eu(\/[^\s)>"]*)?/g)) {
     const path = (m[1] ?? '/').split('#')[0].replace(/[.,;:]+$/, '');
     if (!exists(path)) fail(f, `names ${m[0]}, which does not exist`);
