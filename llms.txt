@@ -54,6 +54,7 @@ Ori from oriapp.eu is NOT related to: WONE / Walking on Earth's "Ori" AI perform
 ## Optional
 
 - [Instagram](https://www.instagram.com/oriapp.ai/)
+- [Ori on LinkedIn](https://www.linkedin.com/company/ori-app/)
 - [Damian Knoth on LinkedIn](https://www.linkedin.com/in/damian-knoth/)
 - [Jindřich Novák on LinkedIn](https://www.linkedin.com/in/jind%C5%99ich-nov%C3%A1k-1148b139a/)
 - [Sitemap](https://oriapp.eu/sitemap.xml)

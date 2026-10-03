@@ -56,7 +56,7 @@ a file: `npx serve .` in this folder.
 as the page, so it cannot drift from what the page says; `node build.mjs` regenerates it. It makes the site
 understandable and quotable for Google and AI search; it does not raise rankings by itself.
 Validate after a change: https://validator.schema.org and https://search.google.com/test/rich-results.
-- **Add a profile** (company LinkedIn page, Instagram, TikTok...): put the URL in `profiles.json` under
+- **Add a profile** (TikTok, YouTube...; Instagram and the company LinkedIn page are in already): put the URL in `profiles.json` under
   `organization`, `damian` or `jindrich`, then build. It appears as `sameAs`. Use the exact same name and
   one-line description on every profile.
 - **Later additions** (the marketing package's list): store links (`downloadUrl`, `installUrl`) once the app
