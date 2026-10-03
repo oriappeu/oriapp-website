@@ -145,6 +145,7 @@ The Ori app (https://oriapp.eu/app-privacy.html, test version, last updated 3 Oc
 - Processors: Supabase (EU region; database and sign-in), Anthropic (generates roadmaps and sessions from goal text; API data is not used for training; no Google Calendar data is ever sent to it), YouTube Data API (search keywords only), Render and Vercel (hosting).
 - Google Calendar (optional): scopes calendar.calendarlist.readonly, calendar.events.readonly and calendar.events.owned. Ori reads busy times to avoid conflicts and creates or updates only its own "[Ori]" events. Calendar data is not sold, not used for ads, not used to train AI, not sent to AI services. Complies with the Google API Services User Data Policy, including Limited Use. Disconnect in Profile → Integrations.
 - Export and deletion in the app: Profile → Privacy & Security → Export my data / Delete my account. By email, deletion within 14 days.
+- Security: HTTPS in transit; encryption at rest (Supabase, EU); database rules (row-level security) so each account reads only its own rows; Google tokens stored where only the server can read them; secret keys only on the server; hashed passwords; a fresh sign-in before account deletion or a password change; private export storage with expiring download links; production access limited to the people who operate Ori.
 - No ads, no data sale, no sharing with anyone else.
 
 ## Terms of use

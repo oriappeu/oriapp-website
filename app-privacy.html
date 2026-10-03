@@ -78,6 +78,21 @@
   <p>Ori's use and transfer of information received from Google APIs adheres to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements.</p>
   <p>You can disconnect Google Calendar in the app at any time (Profile → Integrations). Disconnecting revokes Ori's access at Google and deletes the stored token; you can choose to remove upcoming [Ori] events at the same time. You can also revoke access at <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>.</p>
 
+  <h2>How we protect your data</h2>
+  <p>This applies to everything Ori stores, and above all to the most sensitive part: what comes from your Google account (the times of your calendar events and the access token Google issues).</p>
+  <ul>
+    <li><strong>Encryption in transit:</strong> everything between the app, Ori's server and our providers travels over HTTPS (TLS).</li>
+    <li><strong>Encryption at rest:</strong> the database and the file storage are run by Supabase (EU region), which encrypts stored data.</li>
+    <li><strong>Each account sees only its own data:</strong> the database itself, not only the app, allows every account to read and change only its own rows (row-level security).</li>
+    <li><strong>Google tokens stay on the server:</strong> your Google Calendar access token is kept in a table that no app or browser can read; only Ori's server can. Secret keys live only on the server, never in the app. When you disconnect Google Calendar or delete your account, the token is deleted and Ori's access is revoked at Google.</li>
+    <li><strong>Calendar data is kept to a minimum:</strong> Ori reads event times only to plan around them. Event titles are shown only to you, the history of past days keeps only busy times, and calendar data is never sent to AI services.</li>
+    <li><strong>Passwords:</strong> stored only as hashes by Supabase Auth; Ori never sees them.</li>
+    <li><strong>Sensitive actions need a fresh sign-in:</strong> deleting your account and changing your password.</li>
+    <li><strong>Downloads:</strong> your data export is kept in private storage and handed to you through a link that expires.</li>
+    <li><strong>Restricted access:</strong> only the people who operate Ori can reach the production database and the server settings.</li>
+  </ul>
+  <p>No method of transmission or storage is completely secure. If a personal data breach is likely to put your rights at risk, Ori will tell you and the competent authority as the law requires.</p>
+
   <h2>Retention and deletion</h2>
   <p>Your data stays as long as your account exists. During the test phase the database may be reset between rounds; testers are told beforehand.</p>
   <p>You can delete your account and everything linked to it yourself, in the app: Profile → Privacy &amp; Security → Delete my account. Deleting also revokes Ori's access to your Google Calendar. If you cannot sign in, email <a href="mailto:oriapp.eu@gmail.com">oriapp.eu@gmail.com</a> from the address you signed up with; deletion is then done within 14 days.</p>
