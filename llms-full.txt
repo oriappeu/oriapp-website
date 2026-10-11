@@ -131,10 +131,11 @@ Email address only. Right after signing up you get one short email from Damian (
 
 ## Privacy summary
 
-Website and waitlist (https://oriapp.eu/en/privacy, last updated 3 October 2026):
+Website and waitlist (https://oriapp.eu/en/privacy, last updated 11 October 2026):
 - Operator: Ori is operated by its founders, Damian K. and Jindřich N., Czech Republic.
 - Stored: email address, time of signup, page language. Legal basis: consent (GDPR Art. 6(1)(a)), withdrawable at any time.
 - Analytics: Umami, cookieless, no profiling, no stored IP addresses (legitimate interest, GDPR Art. 6(1)(f)).
+- Hosting and delivery: GitHub Pages behind Cloudflare; they see IP addresses to serve and protect the site and set no cookies. Google Tag Manager is loaded but runs no tags and stores nothing yet; consent will be asked before anything that stores cookies is added (legitimate interest, GDPR Art. 6(1)(f)).
 - Processors: Supabase (database), Resend (email). Fonts are self-hosted.
 - Retention: until you ask for removal or until after public launch, when the list is cleared.
 - Supervisory authority: Úřad pro ochranu osobních údajů (Czech Republic).

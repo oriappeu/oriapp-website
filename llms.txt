@@ -32,7 +32,7 @@ Ori from oriapp.eu is NOT related to: WONE / Walking on Earth's "Ori" AI perform
 
 ## Privacy
 
-- [Website and waitlist privacy policy](https://oriapp.eu/en/privacy): email-only waitlist, cookieless Umami analytics, Supabase and Resend as processors
+- [Website and waitlist privacy policy](https://oriapp.eu/en/privacy): email-only waitlist, cookieless Umami analytics, Supabase and Resend as processors, hosting on GitHub Pages behind Cloudflare, Google Tag Manager loaded with no tags and no cookies yet
 - [App privacy policy](https://oriapp.eu/app-privacy.html): what the app stores, AI processing via Anthropic, Google Calendar scopes and Limited Use, retention, export and deletion
 - [Terms of use](https://oriapp.eu/terms): the rules for the free test version (English): access by invitation, no fees, AI features and their limits, data and account deletion
 

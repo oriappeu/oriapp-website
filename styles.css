@@ -110,7 +110,8 @@ section[id] { scroll-margin-top: 56px; }
 .nav.scrolled { background: rgba(15, 12, 20, 0.86); border-bottom-color: var(--line); }
 .nav .bar { display: flex; align-items: center; justify-content: space-between; height: 72px; gap: 16px; padding: 0 clamp(20px, 4vw, 56px); }
 .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font: 600 20px var(--display); }
-.brand img { width: 32px; height: 32px; border-radius: 9px; }
+/* The logo is decoration (the link carries its name), so it is a background, not an <img>. */
+.brand .mark { flex: none; width: 32px; height: 32px; border-radius: 9px; background: url(/assets/icon-192.png) center / cover; }
 .links { display: flex; align-items: center; gap: 28px; font-size: 15px; font-weight: 600; }
 .links > a { position: relative; text-decoration: none; color: var(--sub); transition: color 160ms ease; }
 .links > a:hover { color: var(--text); }
