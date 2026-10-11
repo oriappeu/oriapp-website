@@ -1,4 +1,4 @@
-# FAQ | Ori, the AI goal coach
+# FAQ: launch, price and data | Ori, the AI goal coach
 
 ## What is Ori?
 

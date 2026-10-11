@@ -235,6 +235,8 @@
     "faq": "Otázky",
     "contact": "Kontakt",
     "guide_plan": "Keď sa plán rozpadne",
+    "guide_language": "Učenie jazyka",
+    "guide_running": "Začať behať",
     "terms": "Podmienky používania"
   },
   "js": {
@@ -313,7 +315,7 @@
     "cta_p": "Napíš nám na <a href=\"mailto:oriapp.eu@gmail.com\">oriapp.eu@gmail.com</a> - odpovedáme my, nie robot."
   },
   "privacy": {
-    "title": "Zásady ochrany súkromia - Ori",
+    "title": "Ochrana súkromia: web a čakacia listina | Ori",
     "description": "Ako Ori narába s e-mailom, ktorý nám dáš pri zápise na čakaciu listinu.",
     "back": "Späť na Ori",
     "home": "Domov",
@@ -337,6 +339,8 @@
     "operator": "Ori prevádzkujú jeho zakladatelia Damian K. a Jindřich N., Česká republika."
   },
   "article": {
-    "cta": "Chcem byť medzi prvými"
+    "cta": "Chcem byť medzi prvými",
+    "byline": "Tím Ori",
+    "updated": "Aktualizované"
   }
 }

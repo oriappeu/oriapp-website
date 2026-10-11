@@ -1,4 +1,4 @@
-# How to stay consistent learning a language when you're tired after work
+# How to keep learning a language when you're tired after work
 
 Don't rely on willpower. Set a small daily minimum you can manage even on a bad day, tie it to something you already do, and treat the exam date as a milestone, not a whip.
 

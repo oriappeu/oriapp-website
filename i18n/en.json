@@ -180,7 +180,7 @@
         "when": "Day 1",
         "h": "Twenty minutes. Then Ori plans.",
         "p": "You tell Ori your goal and why you want it. Ori keeps asking until it is concrete. You get a route in milestones and your first steps already in the calendar.",
-        "alt": "The goal screen in Ori: Run a 5K, target date 29 December 2026, status On track and a roadmap of milestones"
+        "alt": "Ori goal screen: Run a 5K by 29 December 2026, status On track, with a roadmap of milestones"
       },
       {
         "when": "Days 2 to 4",
@@ -235,6 +235,8 @@
     "faq": "FAQ",
     "contact": "Contact",
     "guide_plan": "When your plan falls apart",
+    "guide_language": "Learning a language",
+    "guide_running": "Starting to run",
     "terms": "Terms of use"
   },
   "js": {
@@ -247,7 +249,7 @@
     "note_already": "You’re already on the waitlist - we’ll be in touch."
   },
   "faq": {
-    "title": "FAQ | Ori, the AI goal coach",
+    "title": "FAQ: launch, price and data | Ori, the AI goal coach",
     "description": "Answers to the common questions about Ori: when it launches, what it costs, what it runs on and what happens to your data.",
     "h2": "Before you <span class=\"gold\">sign up.</span>",
     "items": [
@@ -313,7 +315,7 @@
     "cta_p": "Write to us at <a href=\"mailto:oriapp.eu@gmail.com\">oriapp.eu@gmail.com</a> - a person answers, not a bot."
   },
   "privacy": {
-    "title": "Privacy policy - Ori",
+    "title": "Privacy policy: website and waitlist | Ori",
     "description": "How Ori handles the email address you give us when you join the waitlist.",
     "back": "Back to Ori",
     "home": "Home",
@@ -337,6 +339,8 @@
     "operator": "Ori is operated by its founders, Damian K. and Jindřich N., Czech Republic."
   },
   "article": {
-    "cta": "Join the waitlist"
+    "cta": "Join the waitlist",
+    "byline": "Ori team",
+    "updated": "Updated"
   }
 }

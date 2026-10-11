@@ -12,7 +12,7 @@
 // Placeholders: {{a.b}} is a text from the language file (it may carry inline
 // HTML, e.g. the gold phrase of a headline); {{@name}} is filled in here -
 // lang, locale, canonical, alternates, switch, home, privacy, faq_page,
-// faq_items, jsonld, og_alternates, og_image, i18n, guide_plan.
+// faq_items, jsonld, og_alternates, og_image, i18n, guide_plan, guide_language, guide_running.
 // A missing text, or a key one language has and another lacks, stops the build.
 //
 // Guides (long-form pages): content/articles.json lists them (slug per language, title,
@@ -54,7 +54,11 @@ const PROFILES = JSON.parse(readFileSync('profiles.json', 'utf8'));
 // one page does not move the date of the others. The date itself is left out of the comparison.
 const localToday = () => new Date().toLocaleDateString('sv-SE'); // YYYY-MM-DD in local time, like git's %cs
 const DATE_TOKEN = '@@MODIFIED@@';
-const withoutDate = (s) => s.replace(/\r\n/g, '\n').replace(/"dateModified": "[^"]*"/g, '"dateModified": "-"');
+// The same date as the guides show it under their heading ("11 October 2026"), written in the page's language.
+const DATE_LONG_TOKEN = '@@MODIFIED_LONG@@';
+const longDate = (iso, code) => new Intl.DateTimeFormat(code === 'en' ? 'en-GB' : code, { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(iso));
+const withoutDate = (s) => s.replace(/\r\n/g, '\n').replace(/"dateModified": "[^"]*"/g, '"dateModified": "-"')
+  .replace(/<time class="updated" datetime="[^"]*">[^<]*<\/time>/g, '<time class="updated">-</time>');
 function pageModified(file, html) {
   try {
     execSync(`git ls-files --error-unmatch -- "${file}"`, { stdio: 'ignore' });
@@ -118,6 +122,8 @@ const url = (lang, page) => `${lang.root}${pathOf(lang, page).replace(/\.html$/,
 const faqItems = (t) => Object.values(t.faq.items);
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 const guide = (id) => PAGES.find((p) => p.id === id);
+// A guide's own share image (scripts/og-images.mjs renders them), else the language's general one.
+const shareImage = (lang, page) => (page.kind === 'article' && existsSync(`assets/og-${page.id}-${lang.code}.png`) ? `/assets/og-${page.id}-${lang.code}.png` : lang.og);
 
 const modifiedOf = {}; // public URL -> YYYY-MM-DD, for the sitemap
 const written = new Set();
@@ -143,6 +149,8 @@ for (const page of PAGES) {
         published: ARTICLES[page.id].published,
         body: ['cs', 'sk'].includes(lang.code) ? tie(md.html) : md.html,
       };
+      // Under the heading: who wrote it and when it last changed (the date is filled in below).
+      article.body = article.body.replace('</h1>', `</h1>\n<p class="byline">${t.article.byline} · ${t.article.updated} <time class="updated" datetime="${DATE_TOKEN}">${DATE_LONG_TOKEN}</time></p>`);
     }
 
     const special = {
@@ -151,7 +159,7 @@ for (const page of PAGES) {
       canonical: ORIGIN + url(lang, page),
       home: lang.root,
       privacy: `${lang.root}privacy`,
-      og_image: ORIGIN + lang.og,
+      og_image: ORIGIN + shareImage(lang, page),
       alternates: [
         ...LANGS.map((l) => `<link rel="alternate" hreflang="${l.code}" href="${ORIGIN}${url(l, page)}">`),
         `<link rel="alternate" hreflang="x-default" href="${ORIGIN}${url(LANGS.find((l) => l.code === 'en'), page)}">`,
@@ -162,7 +170,7 @@ for (const page of PAGES) {
       og_alternates: LANGS.filter((l) => l !== lang).map((l) => `<meta property="og:locale:alternate" content="${l.locale}">`).join('\n  '),
       // Structured data for the home, FAQ and guide pages (structured-data.mjs). The date is filled in below.
       jsonld: page.kind ? structuredData({
-        kind: page.kind, origin: ORIGIN, pageUrl: ORIGIN + url(lang, page), lang, t, ogImage: ORIGIN + lang.og,
+        kind: page.kind, origin: ORIGIN, pageUrl: ORIGIN + url(lang, page), lang, t, ogImage: ORIGIN + shareImage(lang, page),
         modified: DATE_TOKEN, profiles: PROFILES, languages: LANGS.map((l) => l.code), article,
       }) : '',
       switch: `<div class="lang" role="group" aria-label="${t.nav.lang}">${LANGS.map((l) =>
@@ -173,6 +181,8 @@ for (const page of PAGES) {
       faq_page: `${lang.root}faq`,
       // The guide the footer and the "how it works" section point to.
       guide_plan: url(lang, guide('n1')),
+      guide_language: url(lang, guide('n3')),
+      guide_running: url(lang, guide('n4')),
       // The week's "do you recognise this" lines, and the moving band of what broke the plan
       // (the band's list twice, so it loops without a seam; the second set is hidden on reduced motion).
       recog_items: Object.values(t.week.items).map((li) => `<li>${li}</li>`).join('\n        '),
@@ -199,8 +209,8 @@ for (const page of PAGES) {
     let html = fill(fill(withPartials));
     if (/\{\{/.test(html)) throw new Error(`${page.src} [${lang.code}]: a placeholder was left unfilled`);
     html = html.replace('<!doctype html>\n', `<!doctype html>\n<!-- Generated by build.mjs from ${page.src} and i18n/${lang.code}.json - edit those, not this file. -->\n`);
-    const modified = pageModified(out, html.split(DATE_TOKEN).join(''));
-    html = html.split(DATE_TOKEN).join(modified);
+    const modified = pageModified(out, html.split(DATE_TOKEN).join('').split(DATE_LONG_TOKEN).join(''));
+    html = html.split(DATE_TOKEN).join(modified).split(DATE_LONG_TOKEN).join(longDate(modified, lang.code));
     modifiedOf[ORIGIN + url(lang, page)] = modified;
     mkdirSync(dirname(out) || '.', { recursive: true });
     writeFileSync(out, html);

@@ -76,7 +76,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p class="lede reveal" style="--i:2">{{hero.lede}}</p>
           <form class="waitlist reveal" style="--i:3" id="form-hero" novalidate>
             <label class="hp" aria-hidden="true">{{form.honeypot}} <input type="text" name="company" tabindex="-1" autocomplete="off"></label>
-            <input type="email" id="email-hero" name="email" placeholder="{{form.placeholder}}" autocomplete="email" required aria-label="{{form.label}}">
+            <input type="email" id="email-hero" name="email" placeholder="{{form.placeholder}}" autocomplete="email" enterkeyhint="send" required aria-label="{{form.label}}">
             <button class="btn btn-primary" type="submit">{{form.button}}</button>
           </form>
           <p class="form-note reveal" style="--i:4" role="status" aria-live="polite">{{hero.note}}</p>
@@ -273,8 +273,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <section id="kdo">
       <div class="wrap">
         <div class="photos reveal">
-          <figure class="person"><div class="photo"><img src="/img/founder-b.jpg" width="720" height="900" alt="{{kdo.alt_d}}" loading="lazy"></div><figcaption><span><b>{{kdo.photo_d}}</b>{{kdo.caption}}</span>{{@linkedin_damian}}</figcaption></figure>
-          <figure class="person"><div class="photo"><img src="/img/founder-a.jpg" width="720" height="900" alt="{{kdo.alt_j}}" loading="lazy"></div><figcaption><span><b>{{kdo.photo_j}}</b>{{kdo.caption}}</span>{{@linkedin_jindrich}}</figcaption></figure>
+          <figure class="person"><div class="photo"><img src="/img/founder-b.webp" width="720" height="900" alt="{{kdo.alt_d}}" loading="lazy"></div><figcaption><span><b>{{kdo.photo_d}}</b>{{kdo.caption}}</span>{{@linkedin_damian}}</figcaption></figure>
+          <figure class="person"><div class="photo"><img src="/img/founder-a.webp" width="720" height="900" alt="{{kdo.alt_j}}" loading="lazy"></div><figcaption><span><b>{{kdo.photo_j}}</b>{{kdo.caption}}</span>{{@linkedin_jindrich}}</figcaption></figure>
         </div>
         <div class="story-copy">
           <h2 class="reveal">{{kdo.h2}}</h2>
@@ -296,7 +296,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p class="lede">{{join.lede}}</p>
           <form class="waitlist" id="form-cta" novalidate>
             <label class="hp" aria-hidden="true">{{form.honeypot}} <input type="text" name="company" tabindex="-1" autocomplete="off"></label>
-            <input type="email" id="email-cta" name="email" placeholder="{{form.placeholder}}" autocomplete="email" required aria-label="{{form.label}}">
+            <input type="email" id="email-cta" name="email" placeholder="{{form.placeholder}}" autocomplete="email" enterkeyhint="send" required aria-label="{{form.label}}">
             <button class="btn btn-primary" type="submit">{{form.button}}</button>
           </form>
           <p class="form-note" role="status" aria-live="polite">{{join.note}}</p>

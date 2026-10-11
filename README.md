@@ -27,6 +27,7 @@ Czech is the default at `/`, Slovak at `/sk/`, English at `/en/`.
 | `404.html`, `robots.txt`, `favicon.ico` | the usual (`favicon.ico` is a copy of `assets/favicon.ico`: browsers ask for it at the root) |
 | `<32 hex characters>.txt`, `.github/workflows/indexnow.yml` | IndexNow: the key file, and the workflow that tells Bing, Seznam and others about the pages after every deploy |
 | `seznam-wmt-….txt` | Seznam Webmaster ownership verification (keep it; the name and content must stay exactly as issued) |
+| `scripts/og-images.mjs` | renders each guide's share image (`assets/og-<guide>-<lang>.png`) from its heading; run it after changing a guide's heading (needs `npm i --no-save playwright`) |
 | `assets/` | icons (`favicon.svg` is the logo as a vector, a white wordmark on the site's dark tile) and the social preview images (`og-cs.png`, `og-sk.png`, `og-image.png` for English) |
 
 **Changing a text:** edit it in `i18n/<lang>.json` (all three languages must keep the same keys - the
