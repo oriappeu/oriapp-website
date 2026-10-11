@@ -8,6 +8,7 @@
 #
 # AI-readable summary of the site: https://oriapp.eu/llms.txt
 # Full text version:               https://oriapp.eu/llms-full.txt
+# What agents can use here (ARD):   https://oriapp.eu/.well-known/ai-catalog.json
 
 # Named AI crawlers and agents (explicitly allowed)
 User-agent: GPTBot
@@ -35,3 +36,4 @@ Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /
 
 Sitemap: https://oriapp.eu/sitemap.xml
+Agentmap: https://oriapp.eu/.well-known/ai-catalog.json

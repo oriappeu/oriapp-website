@@ -1,0 +1,33 @@
+{
+  "name": "Ori, AI goal coach",
+  "short_name": "Ori",
+  "description": "A goal that survives a bad week. Ori turns a goal into steps in your calendar and re-plans when life gets in the way.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "browser",
+  "background_color": "#0F0C14",
+  "theme_color": "#0F0C14",
+  "icons": [
+    {
+      "src": "/assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

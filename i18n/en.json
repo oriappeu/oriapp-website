@@ -30,6 +30,7 @@
   },
   "nav": {
     "brand": "Ori, back to top",
+    "skip": "Skip to content",
     "sections": "Sections",
     "how": "How it works",
     "kdo": "Who's behind it",

@@ -14,16 +14,20 @@ Czech is the default at `/`, Slovak at `/sk/`, English at `/en/`.
 | `structured-data.mjs`, `profiles.json` | the schema.org markup for the home, FAQ and guide pages, and the founders' profile links it uses |
 | `llms.txt`, `llms-full.txt` | plain-language summaries of Ori for AI crawlers: a short index and the full text (hand-written, English) |
 | `.well-known/security.txt` | how to report a security problem (RFC 9116) |
+| `.well-known/agent-skills/<name>/SKILL.md` | instructions for AI agents (Agent Skills): what Ori is and how to join the waitlist; `index.json` beside them is **generated** by the build (name, description, digest) |
+| `.well-known/ai-catalog.json` | the ARD catalog: one list of what agents can use here (the skill, its index, `llms.txt`); robots.txt (`Agentmap:`) and every page head point to it |
 | `index.html`, `faq.html`, `privacy.html`, the guides, `sk/…`, `en/…`, `sitemap.xml` | **generated** - never edit by hand |
 | `styles.css` | the app's design system (AURA, dark), as a stylesheet |
-| `main.js` | the waitlist form and all the motion |
+| `main.js` | the waitlist form, its WebMCP tools for browser AI agents (`get_ori_overview`, `join_ori_waitlist`) and all the motion |
 | `fonts/` | Sora and Manrope, served from here (no Google Fonts request) |
 | `img/` | the app screenshots (first week) and the founders' photos |
 | `app-privacy.html`, `terms.html` | the Ori app's privacy policy and the Terms of Use (test phase), hand-written, English only, outside the build; public addresses `/app-privacy.html` and `/terms` |
+| `<page>.md` beside each guide and FAQ page (`en/faq.md`, …) | **generated** Markdown copies for AI agents, linked from the page head (`rel="alternate" type="text/markdown"`): a guide's own source, the FAQ from the word file |
+| `site.webmanifest` | the web app manifest (name, colours, icons) |
 | `404.html`, `robots.txt`, `favicon.ico` | the usual (`favicon.ico` is a copy of `assets/favicon.ico`: browsers ask for it at the root) |
 | `<32 hex characters>.txt`, `.github/workflows/indexnow.yml` | IndexNow: the key file, and the workflow that tells Bing, Seznam and others about the pages after every deploy |
 | `seznam-wmt-….txt` | Seznam Webmaster ownership verification (keep it; the name and content must stay exactly as issued) |
-| `assets/` | icons and the social preview images (`og-cs.png`, `og-sk.png`, `og-image.png` for English) |
+| `assets/` | icons (`favicon.svg` is the logo as a vector, a white wordmark on the site's dark tile) and the social preview images (`og-cs.png`, `og-sk.png`, `og-image.png` for English) |
 
 **Changing a text:** edit it in `i18n/<lang>.json` (all three languages must keep the same keys - the
 build stops otherwise), run `node build.mjs`, commit the JSON and the generated pages together.

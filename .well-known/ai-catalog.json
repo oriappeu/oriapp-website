@@ -1,0 +1,42 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "Ori",
+    "identifier": "did:web:oriapp.eu"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:oriapp.eu:skill:ori",
+      "displayName": "Ori, AI goal coach: facts and waitlist",
+      "type": "text/markdown",
+      "url": "https://oriapp.eu/.well-known/agent-skills/ori/SKILL.md",
+      "representativeQueries": [
+        "what is the Ori AI goal coach app",
+        "is Ori available yet and how much does it cost",
+        "join the Ori waitlist",
+        "does Ori work with Google Calendar"
+      ]
+    },
+    {
+      "identifier": "urn:air:oriapp.eu:skills:index",
+      "displayName": "Ori agent skills index",
+      "type": "application/json",
+      "url": "https://oriapp.eu/.well-known/agent-skills/index.json",
+      "representativeQueries": [
+        "which agent skills does oriapp.eu publish",
+        "how can an agent help someone get access to Ori"
+      ]
+    },
+    {
+      "identifier": "urn:air:oriapp.eu:docs:llms-txt",
+      "displayName": "Ori in plain language for AI (llms.txt)",
+      "type": "text/plain",
+      "url": "https://oriapp.eu/llms.txt",
+      "representativeQueries": [
+        "who is behind Ori from oriapp.eu",
+        "how does Ori re-plan when a week goes wrong",
+        "which platforms and languages does Ori support"
+      ]
+    }
+  ]
+}

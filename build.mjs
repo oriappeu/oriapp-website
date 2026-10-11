@@ -18,9 +18,10 @@
 // Guides (long-form pages): content/articles.json lists them (slug per language, title,
 // description); content/<id>.<lang>.md is the text, in the small Markdown subset that
 // markdown.mjs understands. All of them use src/article.html.
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync } from 'node:fs';
 import { dirname } from 'node:path';
 import { execSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { structuredData, clean } from './structured-data.mjs';
 import { markdown } from './markdown.mjs';
 
@@ -78,6 +79,8 @@ const profileLink = (key, name, t) => (PROFILES[key]?.[0]
   : '');
 
 const words = Object.fromEntries(LANGS.map((l) => [l.code, JSON.parse(readFileSync(`i18n/${l.code}.json`, 'utf8'))]));
+// The words as written, before the typography pass below: the Markdown copies of the pages use these.
+const plainWords = structuredClone(words);
 
 // Czech and Slovak typography: a one-letter preposition or conjunction never
 // ends a line (k, s, v, z, o, u, a, i). A no-break space ties it to the next word.
@@ -181,6 +184,8 @@ for (const page of PAGES) {
       band_text: Object.values(t.band.items).join(', '),
       faq_items: faqItems(t).map(({ q, a }) =>
         `<details class="faq-item reveal"><summary><span>${q}</span><i aria-hidden="true"></i></summary><div class="faq-body"><div><p>${a}</p></div></div></details>`).join('\n          '),
+      // The page's Markdown copy, for agents that read source rather than HTML (guides and FAQ).
+      md_alternate: ['article', 'faq'].includes(page.kind) ? `<link rel="alternate" type="text/markdown" href="${url(lang, page)}.md">` : '',
       ...(article ? { article_title: esc(article.title), article_description: esc(article.description), article_body: article.body } : {}),
     };
     const fill = (html) => html.replace(/\{\{\s*(@?[\w.]+)\s*\}\}/g, (_, key) => {
@@ -200,6 +205,17 @@ for (const page of PAGES) {
     mkdirSync(dirname(out) || '.', { recursive: true });
     writeFileSync(out, html);
     console.log(`wrote ${out}`);
+    // Its Markdown copy beside it (/en/faq.md next to /en/faq): a guide's own source; the FAQ's questions
+    // and answers from the word file, links turned into Markdown and other markup dropped.
+    if (['article', 'faq'].includes(page.kind)) {
+      const toMd = (s) => s.replace(/<a href="([^"]*)"[^>]*>(.*?)<\/a>/g, (_, href, text) => `[${text}](${href.startsWith('/') ? ORIGIN + href : href})`).replace(/<[^>]+>/g, '');
+      const p = plainWords[lang.code];
+      const md = page.kind === 'article'
+        ? readFileSync(`content/${page.id}.${lang.code}.md`, 'utf8')
+        : `# ${toMd(p.faq.title)}\n\n${p.faq.items.map(({ q, a }) => `## ${toMd(q)}\n\n${toMd(a)}\n`).join('\n')}\n${toMd(p.faq.cta_p)}\n`;
+      writeFileSync(out.replace(/\.html$/, '.md'), `${md.trimEnd()}\n\nSource: ${ORIGIN}${url(lang, page)}\n`);
+      console.log(`wrote ${out.replace(/\.html$/, '.md')}`);
+    }
   }
 }
 
@@ -223,3 +239,16 @@ ${entries.join('\n')}
 </urlset>
 `);
 console.log('wrote sitemap.xml');
+
+// The Agent Skills discovery index (https://github.com/cloudflare/agent-skills-discovery-rfc, v0.2.0):
+// one entry per .well-known/agent-skills/<name>/SKILL.md, its description taken from the file's
+// front matter and its digest from the file itself, so editing a skill and building keeps both true.
+const SKILLS_DIR = '.well-known/agent-skills';
+const skills = readdirSync(SKILLS_DIR, { withFileTypes: true }).filter((d) => d.isDirectory()).map((d) => d.name).sort().map((name) => {
+  const md = readFileSync(`${SKILLS_DIR}/${name}/SKILL.md`);
+  const description = md.toString().match(/^description: (.+)$/m)?.[1];
+  if (!description) throw new Error(`${SKILLS_DIR}/${name}/SKILL.md: no description in the front matter`);
+  return { name, type: 'skill-md', description, url: `/${SKILLS_DIR}/${name}/SKILL.md`, digest: `sha256:${createHash('sha256').update(md).digest('hex')}` };
+});
+writeFileSync(`${SKILLS_DIR}/index.json`, JSON.stringify({ $schema: 'https://schemas.agentskills.io/discovery/0.2.0/schema.json', skills }, null, 2) + '\n');
+console.log(`wrote ${SKILLS_DIR}/index.json`);

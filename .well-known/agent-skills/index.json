@@ -1,0 +1,12 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "ori",
+      "type": "skill-md",
+      "description": "Answer questions about Ori (oriapp.eu), the AI goal coach app, and help a person join its waitlist. Use when someone asks what Ori is, whether it is available, what it costs, how it handles data, or wants early access.",
+      "url": "/.well-known/agent-skills/ori/SKILL.md",
+      "digest": "sha256:bf489bb7f9104db1b0a8811e39bc4b3c7e9f027202d51c066de4c5c3cd3a38ae"
+    }
+  ]
+}

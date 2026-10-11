@@ -91,6 +91,49 @@ function attach(form) {
 
 document.querySelectorAll('form.waitlist').forEach(attach);
 
+// WebMCP (https://webmachinelearning.github.io/webmcp/): a browser AI agent acting for a person can
+// read what Ori is and put that person on the waitlist without driving the form. The same join() and
+// thank-you email as the form; the page's language picks the email's. Registered only on pages with
+// the form, and only where the browser offers the API (older Chrome builds put it on navigator).
+const modelContext = document.modelContext ?? navigator.modelContext;
+const reply = (text) => ({ content: [{ type: 'text', text }] });
+if (document.querySelector('form.waitlist') && typeof modelContext?.registerTool === 'function') {
+  const register = (tool) => {
+    try { Promise.resolve(modelContext.registerTool(tool)).catch(() => {}); } catch { /* the page works without it */ }
+  };
+  register({
+    name: 'get_ori_overview',
+    description: 'Key facts about Ori (oriapp.eu), the AI goal coach app: what it does, status, platforms, data, team, contact. Plain text, English.',
+    inputSchema: { type: 'object', properties: {} },
+    annotations: { readOnlyHint: true },
+    async execute() {
+      const res = await fetch('/llms.txt');
+      return reply(res.ok ? await res.text() : 'Could not load https://oriapp.eu/llms.txt');
+    },
+  });
+  register({
+    name: 'join_ori_waitlist',
+    description: 'Put an email address on the waitlist for Ori, the AI goal coach app, and send it the thank-you email. Use only with the address of the person you are acting for and at their explicit request. The address is stored only for the waitlist: https://oriapp.eu/en/privacy',
+    inputSchema: {
+      type: 'object',
+      properties: { email: { type: 'string', format: 'email', description: "The person's own email address" } },
+      required: ['email'],
+    },
+    async execute({ email } = {}) {
+      email = String(email ?? '').trim().toLowerCase();
+      if (!EMAIL.test(email)) return reply('That is not a valid email address.');
+      let outcome = 'failed';
+      try { outcome = await join(email); } catch { outcome = 'failed'; }
+      if (outcome === 'failed') return reply('Joining failed. Try again later, or use the form at https://oriapp.eu/en/#zapis');
+      if (outcome === 'joined') requestWelcome();
+      try { window.umami?.track(outcome === 'already' ? 'waitlist-already' : 'waitlist-joined', { form: 'webmcp', lang: LANG }); } catch { /* never block */ }
+      return reply(outcome === 'already'
+        ? `${email} is already on the Ori waitlist.`
+        : `${email} is on the Ori waitlist. A thank-you email is on its way; access opens gradually.`);
+    },
+  });
+}
+
 // A reload always starts at the top of the page, even when the address still
 // carries a section from a menu click (#jak). A link shared straight to a
 // section (oriapp.eu/#zapis) still opens there the first time.
