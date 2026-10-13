@@ -24,6 +24,7 @@ import { execSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { structuredData, clean } from './structured-data.mjs';
 import { markdown } from './markdown.mjs';
+import { htmlToMarkdown } from './html-to-md.mjs';
 
 const ORIGIN = 'https://oriapp.eu';
 const LANGS = [
@@ -194,8 +195,8 @@ for (const page of PAGES) {
       band_text: Object.values(t.band.items).join(', '),
       faq_items: faqItems(t).map(({ q, a }) =>
         `<details class="faq-item reveal"><summary><span>${q}</span><i aria-hidden="true"></i></summary><div class="faq-body"><div><p>${a}</p></div></div></details>`).join('\n          '),
-      // The page's Markdown copy, for agents that read source rather than HTML (guides and FAQ).
-      md_alternate: ['article', 'faq'].includes(page.kind) ? `<link rel="alternate" type="text/markdown" href="${url(lang, page)}.md">` : '',
+      // The page's Markdown copy, for agents that read Markdown rather than HTML (every page; see below).
+      md_alternate: `<link rel="alternate" type="text/markdown" href="/${out.replace(/\.html$/, '.md')}">`,
       ...(article ? { article_title: esc(article.title), article_description: esc(article.description), article_body: article.body } : {}),
     };
     const fill = (html) => html.replace(/\{\{\s*(@?[\w.]+)\s*\}\}/g, (_, key) => {
@@ -215,13 +216,14 @@ for (const page of PAGES) {
     mkdirSync(dirname(out) || '.', { recursive: true });
     writeFileSync(out, html);
     console.log(`wrote ${out}`);
-    // Its Markdown copy beside it (/en/faq.md next to /en/faq): a guide's own source; the FAQ's questions
-    // and answers from the word file, links turned into Markdown and other markup dropped.
-    if (['article', 'faq'].includes(page.kind)) {
+    // Its Markdown copy beside it (/en/faq.md next to /en/faq, /en/index.md for /en/): a guide's own source;
+    // the FAQ's questions and answers from the word file; the other pages converted from their HTML
+    // (html-to-md.mjs). The Cloudflare Worker in cloudflare/ serves these to agents that ask for Markdown.
+    {
       const toMd = (s) => s.replace(/<a href="([^"]*)"[^>]*>(.*?)<\/a>/g, (_, href, text) => `[${text}](${href.startsWith('/') ? ORIGIN + href : href})`).replace(/<[^>]+>/g, '');
       const p = plainWords[lang.code];
-      const md = page.kind === 'article'
-        ? readFileSync(`content/${page.id}.${lang.code}.md`, 'utf8')
+      const md = page.kind === 'article' ? readFileSync(`content/${page.id}.${lang.code}.md`, 'utf8')
+        : page.kind !== 'faq' ? htmlToMarkdown(html, ORIGIN)
         : `# ${toMd(p.faq.title)}\n\n${p.faq.items.map(({ q, a }) => `## ${toMd(q)}\n\n${toMd(a)}\n`).join('\n')}\n${toMd(p.faq.cta_p)}\n`;
       writeFileSync(out.replace(/\.html$/, '.md'), `${md.trimEnd()}\n\nSource: ${ORIGIN}${url(lang, page)}\n`);
       console.log(`wrote ${out.replace(/\.html$/, '.md')}`);

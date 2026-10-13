@@ -22,7 +22,8 @@ Czech is the default at `/`, Slovak at `/sk/`, English at `/en/`.
 | `fonts/` | Sora and Manrope, served from here (no Google Fonts request) |
 | `img/` | the app screenshots (first week) and the founders' photos |
 | `app-privacy.html`, `terms.html` | the Ori app's privacy policy and the Terms of Use (test phase), hand-written, English only, outside the build; public addresses `/app-privacy.html` and `/terms` |
-| `<page>.md` beside each guide and FAQ page (`en/faq.md`, …) | **generated** Markdown copies for AI agents, linked from the page head (`rel="alternate" type="text/markdown"`): a guide's own source, the FAQ from the word file |
+| `<page>.md` beside every page (`en/faq.md`, `en/index.md`, …) | **generated** Markdown copies for AI agents, linked from the page head (`rel="alternate" type="text/markdown"`): a guide's own source, the FAQ from the word file, the home and privacy pages converted from their HTML by `html-to-md.mjs` |
+| `cloudflare/markdown-worker.js` | the Cloudflare Worker (route `oriapp.eu/*`, fail open) that answers `Accept: text/markdown` with those copies; edit it here, then paste it into Cloudflare and deploy |
 | `site.webmanifest` | the web app manifest (name, colours, icons) |
 | `404.html`, `robots.txt`, `favicon.ico` | the usual (`favicon.ico` is a copy of `assets/favicon.ico`: browsers ask for it at the root) |
 | `<32 hex characters>.txt`, `.github/workflows/indexnow.yml` | IndexNow: the key file, and the workflow that tells Bing, Seznam and others about the pages after every deploy |
