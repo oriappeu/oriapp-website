@@ -140,9 +140,10 @@ Website and waitlist (https://oriapp.eu/en/privacy, last updated 11 October 2026
 - Retention: until you ask for removal or until after public launch, when the list is cleared.
 - Supervisory authority: Úřad pro ochranu osobních údajů (Czech Republic).
 
-The Ori app (https://oriapp.eu/app-privacy.html, test version, last updated 3 October 2026):
+The Ori app (https://oriapp.eu/app-privacy.html, test version, last updated 14 October 2026):
 - Operator: its founders, Damian K. and Jindřich N., Czech Republic. Contact: oriapp.eu@gmail.com.
 - Stored: account (email, hashed password via Supabase Auth, or name/email/picture via Google sign-in); goals, milestones, sessions, habits, tasks and feedback; a short per-goal summary (max 800 characters) the user can see, edit and delete; an AI usage log without the text of goals or answers; app-usage events (screens opened, setup and guidance steps finished, which notices Ori shows and how they are answered, session start and finish; event names and counts only, kept twelve months).
+- Session feedback: the founders read session ratings and notes, including those of users under 18, to find what goes wrong with sessions and improve them. The account is replaced by a random code and emails, phone numbers and links are removed before reading; the working copy is deleted after each review. Deleting a goal deletes its notes.
 - Processors: Supabase (EU region; database and sign-in), Anthropic (generates roadmaps and sessions from goal text; API data is not used for training; no Google Calendar data is ever sent to it), YouTube Data API (search keywords only), Render and Vercel (hosting).
 - Google Calendar (optional): scopes calendar.calendarlist.readonly, calendar.events.readonly and calendar.events.owned. Ori reads busy times to avoid conflicts and creates or updates only its own "[Ori]" events. Calendar data is not sold, not used for ads, not used to train AI, not sent to AI services. Complies with the Google API Services User Data Policy, including Limited Use. Disconnect in Profile → Integrations.
 - Export and deletion in the app: Profile → Privacy & Security → Export my data / Delete my account. By email, deletion within 14 days.
