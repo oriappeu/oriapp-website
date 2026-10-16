@@ -148,11 +148,6 @@ section[id] { scroll-margin-top: 56px; }
 .js .hero .lede.reveal { opacity: 1; }
 .proof { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 12px; margin-top: 26px; font-size: 14px; color: var(--label); }
 .proof svg, .trust svg { height: 14px; width: auto; color: rgba(255, 255, 255, 0.74); }
-/* A partner's logo in its own colours (the rocket and the wordmark, cropped from their banner). */
-.proof img.logo { height: 80px; width: auto; border-radius: 10px; }
-/* A label and its logo stay together when the line wraps. */
-.proof .pair { display: inline-flex; align-items: center; gap: 8px; }
-@media (max-width: 600px) { .proof .sep { display: none; } } /* there the pair wraps to its own line */
 @media (max-width: 960px) { .hero .wrap { grid-template-columns: 1fr; } .hero-visual { max-width: 460px; } }
 
 /* The hero's phone: a day that re-routed. */

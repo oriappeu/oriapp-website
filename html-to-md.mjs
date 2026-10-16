@@ -66,8 +66,6 @@ export function htmlToMarkdown(html, origin) {
     if (tag === 'li' && typeof lists.at(-1) === 'number') { flush(); prefix = `${++lists[lists.length - 1]}. `; }
     else if (tag in BLOCK) { flush(); prefix = BLOCK[tag]; }
     else if (tag === 'br') text += ' ';
-    // A partner's logo (the hero's proof line) keeps its name, like the JIC mark.
-    else if (tag === 'img' && /class="logo"/.test(attrs)) text += ` ${decode(attrs.match(/alt="([^"]*)"/)?.[1] ?? '')} `;
     else if (tag === 'a') {
       const href = attrs.match(/href="([^"]*)"/)?.[1];
       // In-page anchors (#zapis) and sign-up links become plain text; real links stay links.
