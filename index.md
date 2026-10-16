@@ -6,7 +6,7 @@ Pro lidi, kterým do plánů pořád leze život.
 
 Zapsání nic nestojí. Začínáme v Česku a na Slovensku. Hned ti přijde krátký e-mail od Damiana. [Zásady ochrany soukromí](https://oriapp.eu/privacy)
 
-Ověřeno s JIC a Red Bull Basement 2026
+Ověřeno s JIC a Red Bull Basement 2026 · Účastníci Pojď podnikat!
 
 ## Poznáváš se?
 
