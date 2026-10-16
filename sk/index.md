@@ -6,7 +6,7 @@ Povieš Ori, čo chceš dosiahnuť. Za dvadsať minút máš cestu k cieľu rozl
 
 Zápis nič nestojí. Začíname v Česku a na Slovensku. Hneď ti príde krátky e-mail od Damiana. [Zásady ochrany súkromia](https://oriapp.eu/sk/privacy)
 
-Overené s JIC a Red Bull Basement 2026 · Účastníci Pojď podnikat!
+Overené s JIC a Red Bull Basement 2026
 
 ## Spoznávaš sa?
 
