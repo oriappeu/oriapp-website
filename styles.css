@@ -153,8 +153,8 @@ section[id] { scroll-margin-top: 56px; }
 /* A partner's logo in its own colours: its lettering is as tall as the JIC mark and sits on the same line
    (the letters are 195 of the image's 1548 units, their foot 630 units above its bottom); the rocket stands out above and below. */
 .proof img.logo { height: 111px; width: auto; vertical-align: -47px; }
-/* A label and its logo stay together when the line wraps. */
-.proof .pair { white-space: nowrap; }
+/* The participation is a row of its own, under the JIC one; its label sits on the logo's lettering, not the rocket's middle. */
+.proof .pair { display: block; white-space: nowrap; }
 @media (max-width: 960px) { .hero .wrap { grid-template-columns: 1fr; } .hero-visual { max-width: 460px; } }
 
 /* The hero's phone: a day that re-routed. */
