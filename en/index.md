@@ -6,7 +6,7 @@ Tell Ori what you want to achieve. In twenty minutes you have the route to it la
 
 Joining costs nothing. We start in the Czech Republic and Slovakia. A short email from Damian arrives right away. [Privacy policy](https://oriapp.eu/en/privacy)
 
-Validated with JIC and Red Bull Basement 2026
+Validated with JIC and Red Bull Basement 2026, attendee of Pojď podnikat!
 
 ## Sounds familiar?
 
