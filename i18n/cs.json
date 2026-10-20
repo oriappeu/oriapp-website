@@ -247,7 +247,12 @@
     "btn_joined": "Jsi na seznamu",
     "btn_already": "Už jsi na seznamu",
     "note_joined": "Díky! Za chvíli ti přijde krátký e-mail.",
-    "note_already": "Na seznamu už jsi - ozveme se."
+    "note_already": "Na seznamu už jsi - ozveme se.",
+    "apk_preparing": "Připravuji stahování…",
+    "apk_started": "Stahování začíná. Pokud ne, klepni na tlačítko znovu.",
+    "apk_busy": "Teď je toho moc najednou. Zkus to znovu za hodinu.",
+    "apk_not_ready": "Stahování ještě není připravené. Napiš nám a soubor ti pošleme.",
+    "apk_again": "Stáhnout znovu"
   },
   "faq": {
     "title": "Časté otázky | Ori, AI kouč na cíle",
@@ -321,9 +326,9 @@
     "back": "Zpět na Ori",
     "home": "Domů",
     "h1": "Tento web a čekací listina",
-    "updated": "Naposledy upraveno: 11. října 2026",
+    "updated": "Naposledy upraveno: 20. října 2026",
     "collect_h": "Co ukládáme",
-    "collect_p": "Když se zapíšeš na čekací listinu, uložíme si tvou e-mailovou adresu, čas zápisu a jazyk stránky - abychom ti psali česky, slovensky, nebo anglicky. Nic dalšího - formulář jiná pole nemá.",
+    "collect_p": "Když se zapíšeš na čekací listinu, uložíme si tvou e-mailovou adresu, čas zápisu a jazyk stránky - abychom ti psali česky, slovensky, nebo anglicky. Pokud si tu stáhneš aplikaci pro Android, zaznamenáme si i čas a počet žádostí o odkaz ke stažení. Nic dalšího - formuláře jiná pole nemají.",
     "why_h": "Proč",
     "why_p1": "Abychom ti za zápis poděkovali (jeden krátký e-mail hned potom), dali ti vědět, až pro tebe bude přístup k Ori připravený, a napsali o spuštění Ori. Tvou adresu neprodáváme ani nesdílíme a nepošleme ti nic, co s Ori nesouvisí.",
     "why_p2": "Zpracováváme ji na základě tvého souhlasu (čl. 6 odst. 1 písm. a) GDPR), který můžeš kdykoli odvolat.",
@@ -344,5 +349,39 @@
     "cta": "Chci být mezi prvními",
     "byline": "Tým Ori",
     "updated": "Aktualizováno"
+  },
+  "setup": {
+    "title": "Nastav si Ori v telefonu | Ori",
+    "description": "Jak nainstalovat Ori na Android nebo iPhone: stáhni aplikaci pro Android nebo si Ori přidej na plochu iPhonu, krok za krokem.",
+    "joined": "Jsi na seznamu. Díky!",
+    "h1": "Nastavíš si Ori <span class=\"gold\">hned teď?</span>",
+    "lede": "Ori si můžeš do telefonu nainstalovat už dnes. Až se Ori otevře všem, dáme ti vědět.",
+    "ai": "Chceš pro testování plný přístup včetně funkcí s AI? <a href=\"mailto:oriapp.eu@gmail.com?subject=Testov%C3%A1n%C3%AD%20Ori\">Napiš zakladatelům</a> a zapneme ti je.",
+    "choose": "Vyber svůj telefon",
+    "desktop": "Jsi na počítači. Otevři tuhle stránku v telefonu: {{@canonical}}",
+    "android": {
+      "h": "Android",
+      "button": "Stáhnout pro Android",
+      "note": "Pokud ještě nejsi na čekací listině, tvůj e-mail tě na ni zapíše.",
+      "s1": "Klepni na <strong>Stáhnout pro Android</strong>. Do telefonu se stáhne soubor aplikace (.apk).",
+      "s2": "Otevři ho z oznámení nebo ze složky Stažené soubory.",
+      "s3": "Když se telefon zeptá, povol prohlížeči instalovat aplikace (Instalace neznámých aplikací). Ptá se jen poprvé.",
+      "s4": "Pokud tě varuje Google Play Protect, klepni na Další podrobnosti a pak na Přesto nainstalovat. Ori zatím není na Google Play, takže ho Google nezná.",
+      "s5": "Otevři Ori a vytvoř si účet. Použij stejný e-mail, který nám dáš pro testování, ať ti můžeme zapnout funkce s AI.",
+      "updates": "Většina aktualizací se do aplikace dostane sama, bez nového souboru. Když bude nový soubor potřeba, dáme ti vědět: nainstaluj ho přes ten starý a účet i data ti zůstanou.",
+      "fingerprint": "Pro kontrolu: SHA-256 souboru je"
+    },
+    "iphone": {
+      "h": "iPhone",
+      "s1": "Otevři <a href=\"https://oriapp-test.vercel.app\">oriapp-test.vercel.app</a> v Safari.",
+      "s2": "Klepni na tlačítko Sdílet (čtvereček se šipkou nahoru).",
+      "s3": "Sjeď níž, klepni na Přidat na plochu a pak na Přidat.",
+      "s4": "Otevři Ori z nové ikony na ploše, ne ze Safari, a vytvoř si účet. Použij stejný e-mail, který nám dáš pro testování.",
+      "s5": "Když se Ori zeptá na oznámení, povol je. Fungují jen v aplikaci otevřené z ikony, na iOS 16.4 nebo novějším.",
+      "updates": "Nic se nestahuje a nic neaktualizuje: aplikace na ploše je vždycky v nejnovější verzi."
+    },
+    "noscript": "Stahování potřebuje JavaScript. Zapni ho, nebo nám napiš a soubor ti pošleme.",
+    "help_h": "Nejde to?",
+    "help_p": "Napiš na <a href=\"mailto:oriapp.eu@gmail.com\">oriapp.eu@gmail.com</a>, jaký máš telefon. Pomůžeme ti to dokončit."
   }
 }

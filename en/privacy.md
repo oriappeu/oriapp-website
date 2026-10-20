@@ -1,12 +1,12 @@
 # This website and the waitlist
 
-Last updated: 11 October 2026
+Last updated: 20 October 2026
 
 Ori is operated by its founders, Damian K. and Jindřich N., Czech Republic.
 
 ## What we collect
 
-When you join the waitlist, we keep your email address, the time you joined and the language of the page - so we write to you in Czech, Slovak or English. Nothing else - the form has no other fields.
+When you join the waitlist, we keep your email address, the time you joined and the language of the page - so we write to you in Czech, Slovak or English. If you download the Android app here, we also note when and how many times you asked for the download link. Nothing else - the forms have no other fields.
 
 ## Why
 

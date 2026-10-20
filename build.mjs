@@ -38,6 +38,9 @@ const PAGES = [
   { src: 'src/index.html', path: '', kind: 'home' },
   { src: 'src/faq.html', path: 'faq.html', kind: 'faq' },
   { src: 'src/privacy.html', path: 'privacy.html' },
+  // The setup page invited testers land on after joining (download the Android app, add the iPhone one):
+  // noindex and left out of the sitemap - it is for people who were sent there, not a page to be found.
+  { src: 'src/setup.html', path: 'setup.html', noindex: true },
   ...Object.entries(ARTICLES).map(([id, a]) => ({
     src: 'src/article.html',
     kind: 'article',
@@ -94,7 +97,7 @@ const plainWords = structuredClone(words);
 // (a no-break space has no place in a <title>, a meta attribute or JSON-LD).
 const NBSP = String.fromCharCode(0xA0);
 const tieOnce = (s) => s.replace(new RegExp(`(^|[\\s(>${NBSP}])([ksvzouaiKSVZOUAI]) `, 'g'), `$1$2${NBSP}`);
-const UNTIED = new Set(['meta', 'seo', 'faq.title', 'faq.description', 'privacy.title', 'privacy.description']);
+const UNTIED = new Set(['meta', 'seo', 'faq.title', 'faq.description', 'privacy.title', 'privacy.description', 'setup.title', 'setup.description']);
 const tie = (v, path = '') => (UNTIED.has(path) ? v
   : typeof v === 'string' ? tieOnce(tieOnce(v))
   : Array.isArray(v) ? v.map((x, i) => tie(x, `${path}.${i}`))
@@ -231,9 +234,9 @@ for (const page of PAGES) {
   }
 }
 
-// The sitemap names every page in every language, each with its siblings. A page's lastmod is the
+// The sitemap names every indexed page in every language, each with its siblings. A page's lastmod is the
 // date it really last changed (see pageModified).
-const entries = PAGES.flatMap((page) => LANGS.map((lang) => [
+const entries = PAGES.filter((page) => !page.noindex).flatMap((page) => LANGS.map((lang) => [
   '  <url>',
   `    <loc>${ORIGIN}${url(lang, page)}</loc>`,
   `    <lastmod>${modifiedOf[ORIGIN + url(lang, page)]}</lastmod>`,

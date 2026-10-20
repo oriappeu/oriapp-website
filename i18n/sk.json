@@ -247,7 +247,12 @@
     "btn_joined": "Si na zozname",
     "btn_already": "Už si na zozname",
     "note_joined": "Vďaka! O chvíľu ti príde krátky e-mail.",
-    "note_already": "Na zozname už si - ozveme sa."
+    "note_already": "Na zozname už si - ozveme sa.",
+    "apk_preparing": "Pripravujem sťahovanie…",
+    "apk_started": "Sťahovanie začína. Ak nie, ťukni na tlačidlo znova.",
+    "apk_busy": "Teraz je toho veľa naraz. Skús to znova o hodinu.",
+    "apk_not_ready": "Sťahovanie ešte nie je pripravené. Napíš nám a súbor ti pošleme.",
+    "apk_again": "Stiahnuť znova"
   },
   "faq": {
     "title": "Časté otázky | Ori, AI kouč na ciele",
@@ -321,9 +326,9 @@
     "back": "Späť na Ori",
     "home": "Domov",
     "h1": "Tento web a čakacia listina",
-    "updated": "Naposledy upravené: 11. októbra 2026",
+    "updated": "Naposledy upravené: 20. októbra 2026",
     "collect_h": "Čo ukladáme",
-    "collect_p": "Keď sa zapíšeš na čakaciu listinu, uložíme si tvoju e-mailovú adresu, čas zápisu a jazyk stránky - aby sme ti písali po česky, po slovensky, alebo po anglicky. Nič viac - formulár iné polia nemá.",
+    "collect_p": "Keď sa zapíšeš na čakaciu listinu, uložíme si tvoju e-mailovú adresu, čas zápisu a jazyk stránky - aby sme ti písali po česky, po slovensky, alebo po anglicky. Ak si tu stiahneš aplikáciu pre Android, zaznamenáme si aj čas a počet žiadostí o odkaz na stiahnutie. Nič viac - formuláre iné polia nemajú.",
     "why_h": "Prečo",
     "why_p1": "Aby sme ti za zápis poďakovali (jeden krátky e-mail hneď potom), dali ti vedieť, keď bude pre teba prístup k Ori pripravený, a napísali o spustení Ori. Tvoju adresu nepredávame ani nezdieľame a nepošleme ti nič, čo so Ori nesúvisí.",
     "why_p2": "Spracúvame ju na základe tvojho súhlasu (čl. 6 ods. 1 písm. a) GDPR), ktorý môžeš kedykoľvek odvolať.",
@@ -344,5 +349,39 @@
     "cta": "Chcem byť medzi prvými",
     "byline": "Tím Ori",
     "updated": "Aktualizované"
+  },
+  "setup": {
+    "title": "Nastav si Ori v telefóne | Ori",
+    "description": "Ako nainštalovať Ori na Android alebo iPhone: stiahni aplikáciu pre Android alebo si Ori pridaj na plochu iPhonu, krok za krokom.",
+    "joined": "Si na zozname. Vďaka!",
+    "h1": "Nastavíš si Ori <span class=\"gold\">hneď teraz?</span>",
+    "lede": "Ori si môžeš do telefónu nainštalovať už dnes. Keď sa Ori otvorí všetkým, dáme ti vedieť.",
+    "ai": "Chceš na testovanie plný prístup vrátane funkcií s AI? <a href=\"mailto:oriapp.eu@gmail.com?subject=Testovanie%20Ori\">Napíš zakladateľom</a> a zapneme ti ich.",
+    "choose": "Vyber svoj telefón",
+    "desktop": "Si na počítači. Otvor túto stránku v telefóne: {{@canonical}}",
+    "android": {
+      "h": "Android",
+      "button": "Stiahnuť pre Android",
+      "note": "Ak ešte nie si na čakacej listine, tvoj e-mail ťa na ňu zapíše.",
+      "s1": "Ťukni na <strong>Stiahnuť pre Android</strong>. Do telefónu sa stiahne súbor aplikácie (.apk).",
+      "s2": "Otvor ho z upozornenia alebo z priečinka Stiahnuté súbory.",
+      "s3": "Keď sa telefón opýta, povoľ prehliadaču inštalovať aplikácie (Inštalácia neznámych aplikácií). Pýta sa len prvýkrát.",
+      "s4": "Ak ťa varuje Google Play Protect, ťukni na Ďalšie podrobnosti a potom na Napriek tomu nainštalovať. Ori zatiaľ nie je na Google Play, takže ho Google nepozná.",
+      "s5": "Otvor Ori a vytvor si účet. Použi rovnaký e-mail, ktorý nám dáš na testovanie, aby sme ti mohli zapnúť funkcie s AI.",
+      "updates": "Väčšina aktualizácií sa do aplikácie dostane sama, bez nového súboru. Keď bude nový súbor potrebný, dáme ti vedieť: nainštaluj ho cez ten starý a účet aj dáta ti zostanú.",
+      "fingerprint": "Na kontrolu: SHA-256 súboru je"
+    },
+    "iphone": {
+      "h": "iPhone",
+      "s1": "Otvor <a href=\"https://oriapp-test.vercel.app\">oriapp-test.vercel.app</a> v Safari.",
+      "s2": "Ťukni na tlačidlo Zdieľať (štvorček so šípkou nahor).",
+      "s3": "Posuň sa nižšie, ťukni na Pridať na plochu a potom na Pridať.",
+      "s4": "Otvor Ori z novej ikony na ploche, nie zo Safari, a vytvor si účet. Použi rovnaký e-mail, ktorý nám dáš na testovanie.",
+      "s5": "Keď sa Ori opýta na upozornenia, povoľ ich. Fungujú len v aplikácii otvorenej z ikony, na iOS 16.4 alebo novšom.",
+      "updates": "Nič sa nesťahuje a nič neaktualizuje: aplikácia na ploche je vždy v najnovšej verzii."
+    },
+    "noscript": "Sťahovanie potrebuje JavaScript. Zapni ho, alebo nám napíš a súbor ti pošleme.",
+    "help_h": "Nejde to?",
+    "help_p": "Napíš na <a href=\"mailto:oriapp.eu@gmail.com\">oriapp.eu@gmail.com</a>, aký máš telefón. Pomôžeme ti to dokončiť."
   }
 }

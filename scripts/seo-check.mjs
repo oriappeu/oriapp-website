@@ -11,7 +11,7 @@
 //   - every JSON-LD block parses, has no offers / aggregateRating / review / price, every {"@id"} reference resolves
 //   - FAQ pages: the markup lists the same questions as the page, in the same order
 //   - every internal link points at a built page or file, and none at a .html address (except /app-privacy.html)
-//   - sitemap.xml: well-formed, lists every page and nothing that does not exist
+//   - sitemap.xml: well-formed, lists every page and nothing that does not exist (noindex pages: must say so, never listed)
 //   - llms.txt and llms-full.txt: every oriapp.eu address in them exists
 //   - Czech and Slovak <title>, meta description and JSON-LD hold no no-break space
 //   - no dash characters (en, em) in visible text of the generated pages (the site writes a plain hyphen)
@@ -42,6 +42,8 @@ const langOf = (html) => html.match(/<html lang="([^"]+)"/)?.[1];
 const LOCALES = { cs: 'cs_CZ', sk: 'sk_SK', en: 'en_GB' };
 const exists = (path) => path in pages || (path !== '/' && existsSync(root + path.slice(1)) && !path.endsWith('/'));
 
+// Pages kept out of search on purpose (build.mjs `noindex`): they must say noindex and stay out of the sitemap.
+const NOINDEX = new Set(['/setup', '/sk/setup', '/en/setup']);
 // Hand-written, English-only pages outside the build: no hreflang or structured data of their own.
 const HAND = new Set(['/app-privacy.html', '/terms']);
 const rows = [];
@@ -66,8 +68,10 @@ for (const [url, { file, html }] of Object.entries(pages)) {
   if (descriptions.has(desc)) fail(url, `same description as ${descriptions.get(desc)}`); descriptions.set(desc, url);
   if (c[0] && c[0][1] !== ORIGIN + url) { fail(url, `canonical is ${c[0][1]}, expected ${ORIGIN + url}`); row.canonical = 'BAD'; }
   // (the hand-written app policy has no robots meta, which means index)
+  // (the setup pages are noindex on purpose: for invited testers, not search - see NOINDEX)
   const robotsMeta = html.match(/<meta name="robots" content="([^"]*)"/)?.[1];
-  if (robotsMeta ? !/^index/.test(robotsMeta) : url !== '/app-privacy.html') fail(url, `robots meta is "${robotsMeta}", not "index"`);
+  if (NOINDEX.has(url)) { if (!/^noindex/.test(robotsMeta ?? '')) fail(url, `robots meta is "${robotsMeta}", not "noindex"`); }
+  else if (robotsMeta ? !/^index/.test(robotsMeta) : url !== '/app-privacy.html') fail(url, `robots meta is "${robotsMeta}", not "index"`);
 
   // share tags
   const ogUrl = html.match(/<meta property="og:url" content="([^"]*)"/)?.[1];
@@ -109,7 +113,7 @@ for (const [url, { file, html }] of Object.entries(pages)) {
     if (/<script/i.test(b[1])) fail(url, 'JSON-LD holds an unescaped <script');
     if (['cs', 'sk'].includes(lang) && / |&nbsp;/.test(b[1])) { fail(url, 'JSON-LD holds a no-break space'); row.ld = 'BAD'; }
   }
-  if (!blocks.length && !HAND.has(url) && !/\/privacy$/.test(url)) { fail(url, 'no JSON-LD'); row.ld = 'none'; }
+  if (!blocks.length && !HAND.has(url) && !NOINDEX.has(url) && !/\/privacy$/.test(url)) { fail(url, 'no JSON-LD'); row.ld = 'none'; }
   if (blocks.length > 1) fail(url, `${blocks.length} JSON-LD blocks (expected 1)`);
   if (['cs', 'sk'].includes(lang) && / |&nbsp;/.test(title + desc)) fail(url, 'title or description holds a no-break space');
 
@@ -174,7 +178,8 @@ const sitemap = read('sitemap.xml');
 }
 const locs = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
 for (const l of locs) if (!(l.replace(ORIGIN, '') in pages)) fail('sitemap.xml', `lists ${l}, which is not a built page`);
-for (const u of Object.keys(pages)) if (!locs.includes(ORIGIN + u)) fail('sitemap.xml', `misses ${u}`);
+for (const u of Object.keys(pages)) if (!NOINDEX.has(u) && !locs.includes(ORIGIN + u)) fail('sitemap.xml', `misses ${u}`);
+for (const u of NOINDEX) if (locs.includes(ORIGIN + u)) fail('sitemap.xml', `lists ${u}, which is noindex`);
 if (new Set(locs).size !== locs.length) fail('sitemap.xml', 'lists an address twice');
 const lastmods = [...sitemap.matchAll(/<lastmod>([^<]+)<\/lastmod>/g)].map((m) => m[1]);
 if (lastmods.length !== locs.length || lastmods.some((x) => !/^\d{4}-\d{2}-\d{2}$/.test(x))) fail('sitemap.xml', 'a lastmod is missing or not YYYY-MM-DD');

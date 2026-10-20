@@ -247,7 +247,12 @@
     "btn_joined": "You’re on the list",
     "btn_already": "Already on the list",
     "note_joined": "Thank you. A short email is on its way.",
-    "note_already": "You’re already on the waitlist - we’ll be in touch."
+    "note_already": "You’re already on the waitlist - we’ll be in touch.",
+    "apk_preparing": "Preparing the download…",
+    "apk_started": "The download is starting. If it doesn’t, tap the button again.",
+    "apk_busy": "Too many tries for now. Try again in an hour.",
+    "apk_not_ready": "The download isn’t ready yet. Write to us and we’ll send you the file.",
+    "apk_again": "Download again"
   },
   "faq": {
     "title": "FAQ: launch, price and data | Ori, the AI goal coach",
@@ -321,9 +326,9 @@
     "back": "Back to Ori",
     "home": "Home",
     "h1": "This website and the waitlist",
-    "updated": "Last updated: 11 October 2026",
+    "updated": "Last updated: 20 October 2026",
     "collect_h": "What we collect",
-    "collect_p": "When you join the waitlist, we keep your email address, the time you joined and the language of the page - so we write to you in Czech, Slovak or English. Nothing else - the form has no other fields.",
+    "collect_p": "When you join the waitlist, we keep your email address, the time you joined and the language of the page - so we write to you in Czech, Slovak or English. If you download the Android app here, we also note when and how many times you asked for the download link. Nothing else - the forms have no other fields.",
     "why_h": "Why",
     "why_p1": "To thank you for joining (one short email, right after), to tell you when early access to Ori is ready for you, and about Ori's launch. We don't sell or share your address, and we don't send you anything unrelated to Ori.",
     "why_p2": "We process it because you asked us to (your consent, GDPR Art. 6(1)(a)). You can withdraw that at any time.",
@@ -344,5 +349,39 @@
     "cta": "Join the waitlist",
     "byline": "Ori team",
     "updated": "Updated"
+  },
+  "setup": {
+    "title": "Set up Ori on your phone | Ori",
+    "description": "How to install Ori on Android or iPhone: download the Android app or add Ori to your iPhone home screen, step by step.",
+    "joined": "You’re on the list. Thank you.",
+    "h1": "Set up Ori <span class=\"gold\">right now?</span>",
+    "lede": "You can install Ori on your phone today. When Ori opens to everyone, we’ll let you know.",
+    "ai": "Want full access with the AI features for testing? <a href=\"mailto:oriapp.eu@gmail.com?subject=Ori%20testing\">Write to the founders</a> and we’ll switch them on for you.",
+    "choose": "Choose your phone",
+    "desktop": "You’re on a computer. Open this page on your phone: {{@canonical}}",
+    "android": {
+      "h": "Android",
+      "button": "Download for Android",
+      "note": "If you’re not on the waitlist yet, your email puts you on it.",
+      "s1": "Tap <strong>Download for Android</strong>. The app’s file (.apk) downloads to your phone.",
+      "s2": "Open it from the notification or from your Downloads.",
+      "s3": "If your phone asks, allow your browser to install apps (Install unknown apps). It asks only the first time.",
+      "s4": "If Google Play Protect warns you, tap More details, then Install anyway. Ori isn’t in Google Play yet, so Google doesn’t know it.",
+      "s5": "Open Ori and create your account. Use the same email you give us for testing, so we can switch on the AI features for you.",
+      "updates": "Most updates reach the app on their own, without a new file. When a new file is needed, we’ll tell you: install it over the old one and your account and data stay.",
+      "fingerprint": "To check the file, its SHA-256 is"
+    },
+    "iphone": {
+      "h": "iPhone",
+      "s1": "Open <a href=\"https://oriapp-test.vercel.app\">oriapp-test.vercel.app</a> in Safari.",
+      "s2": "Tap the Share button (the square with an arrow pointing up).",
+      "s3": "Scroll down, tap Add to Home Screen, then Add.",
+      "s4": "Open Ori from the new icon on your home screen, not from Safari, and create your account. Use the same email you give us for testing.",
+      "s5": "When Ori asks to send you notifications, allow them. They work only in the app opened from the icon, on iOS 16.4 or newer.",
+      "updates": "There’s nothing to download and nothing to update: the app on your home screen is always the latest version."
+    },
+    "noscript": "The download needs JavaScript. Turn it on, or write to us and we’ll send you the file.",
+    "help_h": "Stuck?",
+    "help_p": "Write to <a href=\"mailto:oriapp.eu@gmail.com\">oriapp.eu@gmail.com</a> and say which phone you have. We’ll help you finish."
   }
 }
