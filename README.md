@@ -5,7 +5,7 @@ Czech is the default at `/`, Slovak at `/sk/`, English at `/en/`.
 
 | File | What it is |
 |---|---|
-| `src/index.html`, `src/faq.html`, `src/privacy.html`, `src/article.html` | the page templates - markup with `{{key}}` placeholders |
+| `src/index.html`, `src/faq.html`, `src/privacy.html`, `src/setup.html`, `src/article.html` | the page templates - markup with `{{key}}` placeholders |
 | `content/articles.json`, `content/<id>.<lang>.md` | the three guides (long-form pages): slug, title and description per language, and the text in a small Markdown subset (`markdown.mjs`) |
 | `src/_top.html`, `src/_footer.html` | the top bar and footer every page shares (`{{>top}}`, `{{>footer}}`) |
 | `i18n/cs.json`, `sk.json`, `en.json` | every word on the site, one file per language |
@@ -47,6 +47,14 @@ may only add an address; the backend then sends the thank-you email. Both are de
 (`supabase/migrations/20260929170000_website_waitlist.sql`, `20260929210000_waitlist_welcome.sql`,
 `backend/lib/waitlistWelcome.js`); `tests/waitlist-check.mjs` and `tests/waitlist-welcome-check.mjs` there
 prove what the key can and cannot do.
+
+**The setup page** (`src/setup.html`, `/setup`, `/sk/setup`, `/en/setup`; founder 2026-10-20): where invited testers
+install the app. Joining the waitlist leads there (the address travels in sessionStorage, never in the URL). Android:
+the download button asks the backend (`POST /api/apk/link`, `backend/lib/apkLink.js` in the app repository) for a
+ten-minute link to the APK in a private Supabase bucket, putting the address on the waitlist if it is not there yet;
+then the install steps. iPhone: Add to Home Screen steps. It is **noindex and not in the sitemap** on purpose
+(`noindex: true` in build.mjs, `NOINDEX` in the checker): it is for people who were sent there. AI features still
+need the founders to add the tester's address to `AI_ALLOWED_EMAILS` on Render.
 
 **In-page links:** the menu, the "join" buttons and the logo scroll within the page (main.js) without leaving a #section name in the address bar; without script they are plain anchors, and a ctrl-click still opens the real link. Section names (jak, kdo, zapis, ...) are Czech words used in all languages.
 

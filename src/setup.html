@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="{{@lang}}">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5TW9HXVZ');</script>
+<!-- End Google Tag Manager -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; object-src 'none'; base-uri 'self'">
+  <link rel="ai-catalog" href="/.well-known/ai-catalog.json">
+  <title>{{setup.title}}</title>
+  <meta name="description" content="{{setup.description}}">
+  <meta name="theme-color" content="#0F0C14">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="{{@canonical}}">
+  {{@alternates}}
+  {{@md_alternate}}
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{@canonical}}">
+  <meta property="og:site_name" content="Ori">
+  <meta property="og:locale" content="{{@locale}}">
+  {{@og_alternates}}
+  <meta property="og:title" content="{{setup.title}}">
+  <meta property="og:description" content="{{setup.description}}">
+  <meta property="og:image" content="{{@og_image}}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="/assets/favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="apple-touch-icon" href="/assets/icon-180.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="stylesheet" href="/styles.css">
+  <!-- Fetch a page of this site as the pointer settles on its link, so the click feels instant. Prefetch only: no script runs early. -->
+  <script type="speculationrules">{"prefetch": [{"where": {"href_matches": "/*"}, "eagerness": "moderate"}]}</script>
+  <script>document.documentElement.classList.add('js');</script>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="3be86478-1afd-4b48-8b94-6532dd16d602" data-domains="oriapp.eu"></script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5TW9HXVZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+{{>top}}
+
+  <main id="main" class="legal setup">
+    <div class="wrap">
+      <p class="setup-joined" hidden>{{setup.joined}}</p>
+      <h1>{{setup.h1}}</h1>
+      <p class="lede">{{setup.lede}}</p>
+      <p class="setup-ai glass">{{setup.ai}}</p>
+
+      <h2>{{setup.choose}}</h2>
+      <div class="os-pick" role="group" aria-label="{{setup.choose}}">
+        <a class="os-btn" href="#android" data-os="android">Android</a>
+        <a class="os-btn" href="#iphone" data-os="iphone">iPhone</a>
+      </div>
+      <p class="os-desktop" hidden>{{setup.desktop}}</p>
+
+      <section class="os-panel glass" id="android" aria-labelledby="android-h">
+        <h2 id="android-h">{{setup.android.h}}</h2>
+        <form class="waitlist apk-form" novalidate>
+          <input type="email" name="email" placeholder="{{form.placeholder}}" autocomplete="email" enterkeyhint="go" required aria-label="{{form.label}}">
+          <button class="btn btn-primary" type="submit">{{setup.android.button}}</button>
+        </form>
+        <p class="form-note" role="status" aria-live="polite">{{setup.android.note}}</p>
+        <noscript><p class="form-note">{{setup.noscript}}</p></noscript>
+        <ol class="steps">
+          <li>{{setup.android.s1}}</li>
+          <li>{{setup.android.s2}}</li>
+          <li>{{setup.android.s3}}</li>
+          <li>{{setup.android.s4}}</li>
+          <li>{{setup.android.s5}}</li>
+        </ol>
+        <p class="setup-small">{{setup.android.updates}}</p>
+        <p class="setup-small fingerprint" hidden>{{setup.android.fingerprint}} <code></code></p>
+      </section>
+
+      <section class="os-panel glass" id="iphone" aria-labelledby="iphone-h">
+        <h2 id="iphone-h">{{setup.iphone.h}}</h2>
+        <ol class="steps">
+          <li>{{setup.iphone.s1}}</li>
+          <li>{{setup.iphone.s2}}</li>
+          <li>{{setup.iphone.s3}}</li>
+          <li>{{setup.iphone.s4}}</li>
+          <li>{{setup.iphone.s5}}</li>
+        </ol>
+        <p class="setup-small">{{setup.iphone.updates}}</p>
+      </section>
+
+      <h2>{{setup.help_h}}</h2>
+      <p>{{setup.help_p}}</p>
+    </div>
+  </main>
+
+{{>footer}}
+
+  <script id="i18n" type="application/json">{{@i18n}}</script>
+  <script src="/main.js" defer></script>
+</body>
+</html>

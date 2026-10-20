@@ -1,12 +1,12 @@
 # Tento web a čakacia listina
 
-Naposledy upravené: 11. októbra 2026
+Naposledy upravené: 20. októbra 2026
 
 Ori prevádzkujú jeho zakladatelia Damian K. a Jindřich N., Česká republika.
 
 ## Čo ukladáme
 
-Keď sa zapíšeš na čakaciu listinu, uložíme si tvoju e-mailovú adresu, čas zápisu a jazyk stránky - aby sme ti písali po česky, po slovensky, alebo po anglicky. Nič viac - formulár iné polia nemá.
+Keď sa zapíšeš na čakaciu listinu, uložíme si tvoju e-mailovú adresu, čas zápisu a jazyk stránky - aby sme ti písali po česky, po slovensky, alebo po anglicky. Ak si tu stiahneš aplikáciu pre Android, zaznamenáme si aj čas a počet žiadostí o odkaz na stiahnutie. Nič viac - formuláre iné polia nemajú.
 
 ## Prečo
 

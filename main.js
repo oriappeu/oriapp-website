@@ -86,10 +86,88 @@ function attach(form) {
       window.umami?.track(outcome === 'already' ? 'waitlist-already' : 'waitlist-joined',
         { form: form.id, lang: document.documentElement.lang });
     } catch { /* counting must never break the form */ }
+    // On to the setup page (download the Android app, add the iPhone one), carrying the address for its
+    // download button. A moment first, so the thank-you above is seen and the count above is sent.
+    try { sessionStorage.setItem(SETUP_EMAIL, email); sessionStorage.setItem(SETUP_JOINED, '1'); } catch { /* the page asks again */ }
+    setTimeout(() => { location.href = SETUP_URL; }, 900);
   });
 }
 
-document.querySelectorAll('form.waitlist').forEach(attach);
+// The setup page, in the page's language. The address travels in sessionStorage (this tab only, gone when it
+// closes), never in the URL, so it cannot end up in a log, a history entry or an analytics referrer.
+const SETUP_URL = `${{ cs: '/', sk: '/sk/', en: '/en/' }[LANG]}setup`;
+const SETUP_EMAIL = 'ori_setup_email';
+const SETUP_JOINED = 'ori_setup_joined';
+
+document.querySelectorAll('form.waitlist:not(.apk-form)').forEach(attach);
+
+// ── The setup page (src/setup.html) ─────────────────────────────────────────────────────────────────────
+// Pick a phone (the one this browser runs on is picked for you), then follow its steps. Android's button asks
+// the backend for a ten-minute link to the APK (POST /api/apk/link, backend/lib/apkLink.js in
+// oriappeu/Ori-app-): the address goes on the waitlist if it is not there yet, and the file is never at a
+// public address. Without script both phones' steps simply show, one under the other.
+const pick = document.querySelector('.os-pick');
+if (pick) {
+  const ua = navigator.userAgent;
+  const detected = /android/i.test(ua) ? 'android'
+    : (/iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1)) ? 'iphone' : null;
+  const show = (os) => {
+    document.querySelectorAll('.os-panel').forEach((p) => { p.hidden = p.id !== os; });
+    pick.querySelectorAll('.os-btn').forEach((b) => b.setAttribute('aria-current', String(b.dataset.os === os)));
+  };
+  pick.querySelectorAll('.os-btn').forEach((b) => b.addEventListener('click', (e) => {
+    e.preventDefault();
+    show(b.dataset.os);
+    try { window.umami?.track('setup-os', { os: b.dataset.os, lang: LANG }); } catch { /* never block */ }
+  }));
+  show(detected || 'android');
+  if (!detected) document.querySelector('.os-desktop').hidden = false;
+  try {
+    if (sessionStorage.getItem(SETUP_JOINED)) document.querySelector('.setup-joined').hidden = false;
+    sessionStorage.removeItem(SETUP_JOINED);
+  } catch { /* no storage: no banner */ }
+
+  const form = document.querySelector('form.apk-form');
+  const input = form.querySelector('input[type="email"]');
+  const button = form.querySelector('button[type="submit"]');
+  const note = form.nextElementSibling;
+  const print = document.querySelector('.fingerprint');
+  try { input.value = sessionStorage.getItem(SETUP_EMAIL) || ''; } catch { /* typed by hand */ }
+  const say = (text, ok) => { note.textContent = text; note.classList.toggle('ok', !!ok); };
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = input.value.trim().toLowerCase();
+    if (!EMAIL.test(email)) { say(T.invalid); input.focus(); return; }
+    const label = button.textContent;
+    button.disabled = true;
+    say(T.apk_preparing, true);
+    let res = null, body = null;
+    try {
+      res = await fetch(`${BACKEND_URL}/api/apk/link`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, lang: LANG }),
+      });
+      body = await res.json().catch(() => null);
+    } catch { res = null; }
+    button.disabled = false;
+    if (res?.ok && body?.url) {
+      try { sessionStorage.setItem(SETUP_EMAIL, email); } catch { /* fine */ }
+      say(T.apk_started, true);
+      button.textContent = T.apk_again;
+      if (body.sha256) { print.querySelector('code').textContent = body.sha256; print.hidden = false; }
+      try { window.umami?.track('apk-download', { lang: LANG, version: body.version || '' }); } catch { /* never block */ }
+      location.href = body.url;
+      return;
+    }
+    button.textContent = label;
+    say(res?.status === 429 ? T.apk_busy
+      : body?.code === 'bad_email' ? T.invalid
+      : body?.code === 'apk_no_build' ? T.apk_not_ready
+      : T.failed);
+  });
+}
 
 // WebMCP (https://webmachinelearning.github.io/webmcp/): a browser AI agent acting for a person can
 // read what Ori is and put that person on the waitlist without driving the form. The same join() and
@@ -97,7 +175,7 @@ document.querySelectorAll('form.waitlist').forEach(attach);
 // the form, and only where the browser offers the API (older Chrome builds put it on navigator).
 const modelContext = document.modelContext ?? navigator.modelContext;
 const reply = (text) => ({ content: [{ type: 'text', text }] });
-if (document.querySelector('form.waitlist') && typeof modelContext?.registerTool === 'function') {
+if (document.querySelector('form.waitlist:not(.apk-form)') && typeof modelContext?.registerTool === 'function') {
   const register = (tool) => {
     try { Promise.resolve(modelContext.registerTool(tool)).catch(() => {}); } catch { /* the page works without it */ }
   };
