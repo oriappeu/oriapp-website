@@ -41,6 +41,9 @@ const PAGES = [
   // The setup page invited testers land on after joining (download the Android app, add the iPhone one):
   // noindex and left out of the sitemap - it is for people who were sent there, not a page to be found.
   { src: 'src/setup.html', path: 'setup.html', noindex: true },
+  // The unsubscribe page the waitlist's thank-you email links (/unsubscribe?t=<token>): noindex and out of the
+  // sitemap too. The email links the Czech address for every language; the page sends a Slovak or English browser on.
+  { src: 'src/unsubscribe.html', path: 'unsubscribe.html', noindex: true },
   ...Object.entries(ARTICLES).map(([id, a]) => ({
     src: 'src/article.html',
     kind: 'article',
@@ -97,7 +100,7 @@ const plainWords = structuredClone(words);
 // (a no-break space has no place in a <title>, a meta attribute or JSON-LD).
 const NBSP = String.fromCharCode(0xA0);
 const tieOnce = (s) => s.replace(new RegExp(`(^|[\\s(>${NBSP}])([ksvzouaiKSVZOUAI]) `, 'g'), `$1$2${NBSP}`);
-const UNTIED = new Set(['meta', 'seo', 'faq.title', 'faq.description', 'privacy.title', 'privacy.description', 'setup.title', 'setup.description']);
+const UNTIED = new Set(['meta', 'seo', 'faq.title', 'faq.description', 'privacy.title', 'privacy.description', 'setup.title', 'setup.description', 'unsubscribe.title', 'unsubscribe.description']);
 const tie = (v, path = '') => (UNTIED.has(path) ? v
   : typeof v === 'string' ? tieOnce(tieOnce(v))
   : Array.isArray(v) ? v.map((x, i) => tie(x, `${path}.${i}`))

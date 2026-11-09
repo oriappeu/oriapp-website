@@ -103,6 +103,9 @@ section[id] { scroll-margin-top: 56px; }
 .form-note { font-size: 14px; color: var(--label); margin-top: 14px; min-height: 22px; }
 .form-note.ok { color: var(--ok); }
 .form-note a { color: var(--sub); }
+/* The Turnstile check under a form's note (main.js): out of sight unless Cloudflare asks the visitor to tick it */
+.cta .captcha { display: flex; justify-content: center; }
+.captcha iframe { max-width: 100%; }
 @media (max-width: 520px) { .waitlist { flex-direction: column; } .waitlist .btn { width: 100%; } }
 
 /* ── Top bar ───────────────────────────────────────────────────────────── */
@@ -452,6 +455,9 @@ footer a:hover { color: var(--text); }
 .legal .setup-small { margin-top: 18px; font-size: 14px; color: var(--label); }
 .fingerprint code { display: block; margin-top: 6px; font-size: 12px; word-break: break-all; color: var(--sub); }
 @media (max-width: 560px) { .os-panel { padding: 22px 18px; } .os-panel .apk-form { flex-direction: column; } }
+/* The unsubscribe page (src/unsubscribe.html): a heading, a line, one button; reuses .legal and .form-note */
+.unsub .lede { margin-bottom: 24px; }
+.legal .unsub-hint { margin: 0 0 24px; }
 .faq-page section { padding-top: 72px; }
 .faq-page h1 { font-size: clamp(36px, 5vw, 54px); line-height: 1.08; }
 .faq-list { max-width: 820px; display: grid; gap: 12px; }

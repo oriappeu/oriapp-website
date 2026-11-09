@@ -5,7 +5,7 @@ Czech is the default at `/`, Slovak at `/sk/`, English at `/en/`.
 
 | File | What it is |
 |---|---|
-| `src/index.html`, `src/faq.html`, `src/privacy.html`, `src/setup.html`, `src/article.html` | the page templates - markup with `{{key}}` placeholders |
+| `src/index.html`, `src/faq.html`, `src/privacy.html`, `src/setup.html`, `src/unsubscribe.html`, `src/article.html` | the page templates - markup with `{{key}}` placeholders |
 | `content/articles.json`, `content/<id>.<lang>.md` | the three guides (long-form pages): slug, title and description per language, and the text in a small Markdown subset (`markdown.mjs`) |
 | `src/_top.html`, `src/_footer.html` | the top bar and footer every page shares (`{{>top}}`, `{{>footer}}`) |
 | `i18n/cs.json`, `sk.json`, `en.json` | every word on the site, one file per language |
@@ -18,7 +18,7 @@ Czech is the default at `/`, Slovak at `/sk/`, English at `/en/`.
 | `.well-known/ai-catalog.json` | the ARD catalog: one list of what agents can use here (the skill, its index, `llms.txt`); robots.txt (`Agentmap:`) and every page head point to it |
 | `index.html`, `faq.html`, `privacy.html`, the guides, `sk/…`, `en/…`, `sitemap.xml` | **generated** - never edit by hand |
 | `styles.css` | the app's design system (AURA, dark), as a stylesheet |
-| `main.js` | the waitlist form, its WebMCP tools for browser AI agents (`get_ori_overview`, `join_ori_waitlist`) and all the motion |
+| `main.js` | the waitlist form and its Cloudflare Turnstile check, its WebMCP tools for browser AI agents (`get_ori_overview`, `join_ori_waitlist`), the unsubscribe page and all the motion |
 | `fonts/` | Sora and Manrope, served from here (no Google Fonts request) |
 | `img/` | the app screenshots (first week) and the founders' photos |
 | `app-privacy.html`, `terms.html` | the Ori app's privacy policy and the Terms of Use (test phase), hand-written, English only, outside the build; public addresses `/app-privacy.html` and `/terms` |
@@ -42,11 +42,22 @@ breaks, which plays once when scrolled to), a quiet band of what breaks plans, t
 app, the first week on real screenshots with a gold route that follows the scroll, the founders, the
 sign-up. The screenshots in `img/day*.webp` come from the hosted app on a seeded test account.
 
-**The waitlist** writes to the `waitlist` table of Ori's live Supabase project with its public key, which
-may only add an address; the backend then sends the thank-you email. Both are defined in the app repository
-(`supabase/migrations/20260929170000_website_waitlist.sql`, `20260929210000_waitlist_welcome.sql`,
-`backend/lib/waitlistWelcome.js`); `tests/waitlist-check.mjs` and `tests/waitlist-welcome-check.mjs` there
-prove what the key can and cannot do.
+**The waitlist** form posts to Ori's backend (`POST /api/waitlist/join` with the address, the page's language and a
+Cloudflare Turnstile token; `backend/lib/waitlistJoin.js` in the app repository, security B3). The backend checks the
+token and its limits, adds the address, and a new address starts the thank-you email (`backend/lib/waitlistWelcome.js`).
+A new and a known address get the same answer, so the form thanks both alike. The site no longer writes to Supabase:
+since migration `20261104120100_waitlist_backend_only` the public key cannot add an address. Turnstile runs one widget
+per form, in managed mode, shown only when Cloudflare wants the visitor to tick it; its script loads only on pages with
+the waitlist form. **The site key** is the `TURNSTILE_SITE_KEY` constant at the top of `main.js` (public; the secret
+key is `TURNSTILE_SECRET_KEY` on Render). Until it holds the real key the form can only fail.
+
+**The unsubscribe page** (`src/unsubscribe.html`, `/unsubscribe`, `/sk/unsubscribe`, `/en/unsubscribe`): the thank-you
+email links `https://oriapp.eu/unsubscribe?t=<token>` for every language. One button posts the token to
+`POST /api/waitlist/unsubscribe` (`backend/lib/waitlistUnsubscribe.js`), which deletes that row and answers the same for
+any token. On the Czech address, a browser set to Slovak or English is sent on to its own language's page with the
+`?t=` (a script in the page's head); a language picked in the switcher wins for that tab, and the switcher keeps the
+token. The token goes nowhere else: the page has no Google Tag Manager and no Umami (Umami records the full address),
+no prefetching, and `no-referrer`. Noindex and kept out of the sitemap and the llms files, like the setup page.
 
 **The setup page** (`src/setup.html`, `/setup`, `/sk/setup`, `/en/setup`; founder 2026-10-20): where invited testers
 install the app. Joining the waitlist leads there (the address travels in sessionStorage, never in the URL). Android:

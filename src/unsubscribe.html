@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="{{@lang}}">
+<head>
+  <!-- The unsubscribe page (oriapp.eu/unsubscribe?t=<token>, linked from the waitlist's thank-you email).
+       The token in the address removes a row, so it goes nowhere else: no Google Tag Manager, no Umami (it
+       records the full address), no prefetching, and no referrer on anything this page loads or links to. -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; object-src 'none'; base-uri 'self'">
+  <script>
+    // The email links every language here (/unsubscribe?t=...), and the Czech page is that address. A browser
+    // set to Slovak or English goes on to its own language's page, the ?t= with it, before anything is drawn -
+    // unless the person picked a language in the switcher (main.js notes that for this tab).
+    (function () {
+      if (document.documentElement.lang !== 'cs') return;
+      var picked = false;
+      try { picked = !!sessionStorage.getItem('ori_lang_picked'); } catch (e) { /* no storage: the browser's language decides */ }
+      var code = String(navigator.language || '').slice(0, 2).toLowerCase();
+      if (!picked && (code === 'sk' || code === 'en')) location.replace('/' + code + '/unsubscribe' + location.search);
+    })();
+  </script>
+  <link rel="ai-catalog" href="/.well-known/ai-catalog.json">
+  <title>{{unsubscribe.title}}</title>
+  <meta name="description" content="{{unsubscribe.description}}">
+  <meta name="theme-color" content="#0F0C14">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="{{@canonical}}">
+  {{@alternates}}
+  {{@md_alternate}}
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{@canonical}}">
+  <meta property="og:site_name" content="Ori">
+  <meta property="og:locale" content="{{@locale}}">
+  {{@og_alternates}}
+  <meta property="og:title" content="{{unsubscribe.title}}">
+  <meta property="og:description" content="{{unsubscribe.description}}">
+  <meta property="og:image" content="{{@og_image}}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="/assets/favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="apple-touch-icon" href="/assets/icon-180.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="stylesheet" href="/styles.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+{{>top}}
+
+  <main id="main" class="legal unsub">
+    <div class="wrap">
+      <h1>{{unsubscribe.h1}}</h1>
+      <p class="lede">{{unsubscribe.text}}</p>
+      <p class="unsub-hint" hidden>{{unsubscribe.hint}}</p>
+      <button class="btn btn-primary unsub-btn" type="button" data-done="{{unsubscribe.done}}" disabled>{{unsubscribe.button}}</button>
+      <p class="form-note unsub-note" role="status" aria-live="polite"></p>
+    </div>
+  </main>
+
+{{>footer}}
+
+  <script id="i18n" type="application/json">{{@i18n}}</script>
+  <script src="/main.js" defer></script>
+</body>
+</html>
