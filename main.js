@@ -42,8 +42,11 @@ async function join(email, turnstileToken) {
 // One widget per waitlist form, run as soon as the page loads, so a token is usually ready before the
 // address is typed. Managed mode, and shown only when Cloudflare wants the visitor to tick it
 // (interaction-only); otherwise it stays out of sight. A token is good for one try and five minutes:
-// the widget renews an expired one by itself, and every try resets it for a fresh one.
-const captchas = []; // { slot, id, token, waiting }
+// the widget renews an expired one by itself, and every try that sent a token resets it for a fresh one.
+// When Cloudflare does show the box, `interactive` is true until it is ticked: a try made then says so
+// (T.captcha) and waits for the tick, then sends by itself, instead of failing after 20 seconds.
+const captchas = []; // { slot, id, token, waiting, interactive, onAsk }
+const ASK_WAIT_MS = 3 * 60 * 1000; // how long a try waits for the box to be ticked
 let captchaDown = false;
 const TURNSTILE_SRC = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=oriTurnstileReady';
 
@@ -66,14 +69,24 @@ function tokenNow(c) {
   } catch { /* the callback's token below */ }
   return c.token || '';
 }
-// The token for a try: the current one, or the next one the widget gives (20 seconds at most, time to
-// tick the box if Cloudflare asks), or '' when the check cannot run here.
+// The token for a try: the current one, or the next one the widget gives, or '' when the check cannot
+// run here. It waits 20 seconds for an invisible check; while the box asks to be ticked, up to
+// ASK_WAIT_MS, so the person has time to tick it.
 function tokenFor(c) {
   const now = tokenNow(c);
   if (now || !c || captchaDown) return Promise.resolve(now);
   return new Promise((resolve) => {
     c.waiting.push(resolve);
-    setTimeout(() => resolve(''), 20000);
+    const started = Date.now();
+    const check = () => {
+      if (!c.waiting.includes(resolve)) return; // settled
+      const limit = c.interactive ? ASK_WAIT_MS : 20000;
+      if (Date.now() - started >= limit) {
+        c.waiting.splice(c.waiting.indexOf(resolve), 1);
+        resolve('');
+      } else setTimeout(check, 1000);
+    };
+    setTimeout(check, 1000);
   });
 }
 // A try spends its token (the backend redeems it with Cloudflare): ask the widget for a new one.
@@ -91,6 +104,9 @@ function renderCaptcha(c) {
       language: LANG,
       callback: (token) => settle(c, token),
       'expired-callback': () => { c.token = ''; },
+      // Cloudflare shows the box: a try already waiting tells the person to tick it.
+      'before-interactive-callback': () => { c.interactive = true; c.onAsk?.(); },
+      'after-interactive-callback': () => { c.interactive = false; },
       // A failed check: a waiting try gives up now (the widget retries by itself for the next one).
       'error-callback': () => settle(c, ''),
     });
@@ -118,7 +134,7 @@ function attach(form) {
   const note = form.nextElementSibling;
   const original = { button: button.textContent };
   // The widget's place: under the form's note, so the form and its note keep their layout.
-  const captcha = { slot: document.createElement('div'), id: null, token: '', waiting: [] };
+  const captcha = { slot: document.createElement('div'), id: null, token: '', waiting: [], interactive: false, onAsk: null };
   captcha.slot.className = 'captcha';
   note.after(captcha.slot);
   captchas.push(captcha);
@@ -137,16 +153,24 @@ function attach(form) {
     button.disabled = true;
     button.textContent = T.joining;
     let outcome = 'failed';
+    let sent = false;
+    // The box is (or comes) up and not ticked yet: say so, and send as soon as it is ticked.
+    const ask = () => { note.classList.remove('ok'); note.textContent = T.captcha; };
+    captcha.onAsk = ask;
+    if (!tokenNow(captcha) && captcha.interactive) ask();
     try {
       const token = await tokenFor(captcha);
-      if (token) outcome = await join(email, token);
+      if (token) { sent = true; outcome = await join(email, token); }
+      else if (captcha.interactive) outcome = 'unticked';
     } catch { outcome = 'failed'; }
-    spend(captcha);
+    captcha.onAsk = null;
+    // Only a token the backend has redeemed is spent; an unticked box stays up as it is.
+    if (sent) spend(captcha);
     if (outcome !== 'joined') {
       button.disabled = false;
       button.textContent = original.button;
       note.classList.remove('ok');
-      note.textContent = outcome === 'invalid' ? T.invalid : T.failed;
+      note.textContent = outcome === 'invalid' ? T.invalid : outcome === 'unticked' ? T.captcha : T.failed;
       if (outcome === 'invalid') input.focus();
       return;
     }

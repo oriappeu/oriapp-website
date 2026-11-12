@@ -244,6 +244,7 @@
     "invalid": "Tohle nevypadá jako e-mailová adresa.",
     "joining": "Zapisuji…",
     "failed": "Něco se pokazilo. Zkontroluj připojení a zkus to znovu.",
+    "captcha": "Ještě zaškrtni políčko pod formulářem, že nejsi robot. Pak tě hned zapíšu.",
     "btn_joined": "Jsi na seznamu",
     "btn_already": "Už jsi na seznamu",
     "note_joined": "Díky! Za chvíli ti přijde krátký e-mail.",

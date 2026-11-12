@@ -244,6 +244,7 @@
     "invalid": "That doesn’t look like an email address.",
     "joining": "Joining…",
     "failed": "Something went wrong. Check your connection and try again.",
+    "captcha": "Tick the box below the form to show you’re not a robot, and you’re in.",
     "btn_joined": "You’re on the list",
     "btn_already": "Already on the list",
     "note_joined": "Thank you. A short email is on its way.",
