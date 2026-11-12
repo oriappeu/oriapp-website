@@ -244,7 +244,6 @@
     "invalid": "Tohle nevypadá jako e-mailová adresa.",
     "joining": "Zapisuji…",
     "failed": "Něco se pokazilo. Zkontroluj připojení a zkus to znovu.",
-    "captcha": "Ještě zaškrtni políčko pod formulářem, že nejsi robot. Pak tě hned zapíšu.",
     "btn_joined": "Jsi na seznamu",
     "btn_already": "Už jsi na seznamu",
     "note_joined": "Díky! Za chvíli ti přijde krátký e-mail.",
@@ -327,7 +326,7 @@
     "back": "Zpět na Ori",
     "home": "Domů",
     "h1": "Tento web a čekací listina",
-    "updated": "Naposledy upraveno: 12. listopadu 2026",
+    "updated": "Naposledy upraveno: 20. října 2026",
     "collect_h": "Co ukládáme",
     "collect_p": "Když se zapíšeš na čekací listinu, uložíme si tvou e-mailovou adresu, čas zápisu a jazyk stránky - abychom ti psali česky, slovensky, nebo anglicky. Pokud si tu stáhneš aplikaci pro Android, zaznamenáme si i čas a počet žádostí o odkaz ke stažení. Nic dalšího - formuláře jiná pole nemají.",
     "why_h": "Proč",
@@ -336,11 +335,10 @@
     "visits_h": "Návštěvnost",
     "visits_p": "Návštěvy webu počítáme službou Umami, která je stavěná s ohledem na soukromí: vidíme, které stránky se zobrazily, odkud návštěva přišla (třeba z odkazu na LinkedInu), zemi a typ zařízení. Nepoužívá žádné cookies, nevytváří o tobě profil a neukládá tvou IP adresu, takže z ní nepoznáme, kdo jsi. Počítáme také, kolik lidí se zapsalo na čekací listinu - bez samotných adres. Děláme to na základě našeho oprávněného zájmu vědět, jestli web funguje (čl. 6 odst. 1 písm. f) GDPR).",
     "visits_p2": "Web běží na GitHub Pages a k tobě se dostává přes Cloudflare. Jako každý webový server vidí tvou IP adresu, aby ti mohly stránku poslat a chránit web, a neukládají žádné cookies. Stránky také načítají Google Tag Manager, nástroj od Googlu, přes který budeme později spravovat měření. Zatím nic nespouští a nic ti do prohlížeče neukládá, ale při jeho načtení se tvůj prohlížeč spojí s Googlem, který vidí tvou IP adresu a stránku, na které jsi. Tito poskytovatelé mohou údaje zpracovávat i v USA v rámci EU-US Data Privacy Framework. Děláme to na základě našeho oprávněného zájmu provozovat rychlý a bezpečný web (čl. 6 odst. 1 písm. f) GDPR). Než přidáme cokoli, co ukládá cookies nebo tě sleduje, nejdřív se tě zeptáme na souhlas a tuhle stránku upravíme.",
-    "turnstile_p": "Cloudflare Turnstile - ověření, že návštěvník je člověk, na formuláři čekací listiny na webu, aby ho chránilo před boty. Dostává IP adresu návštěvníka a základní údaje z prohlížeče. Právní základ: náš oprávněný zájem na prevenci automatizovaného zneužití. Poskytovatel: Cloudflare, Inc. (USA); mezinárodní přenosy kryje rámec EU-US Data Privacy Framework.",
     "where_h": "Kde je uložená",
     "where_p": "V databázi, kterou pro nás provozuje Supabase, náš poskytovatel databáze. E-maily odesíláme přes Resend, našeho poskytovatele e-mailů. Písma stránky se načítají přímo z tohoto webu.",
     "long_h": "Jak dlouho",
-    "long_p": "Čekací listina: adresu si necháme, dokud se z ní neodhlásíš. Stačí odkaz v našem e-mailu, nebo nám napiš.",
+    "long_p": "Dokud nás nepožádáš o smazání, nebo dokud ji nepotřebujeme k pozvání - po veřejném spuštění Ori seznam smažeme.",
     "rights_h": "Tvoje práva",
     "rights_p": "Můžeš se nás zeptat, co o tobě máme, požádat o opravu nebo o smazání - napiš na <a href=\"mailto:oriapp.eu@gmail.com\">oriapp.eu@gmail.com</a> z adresy, kterou máme na seznamu, a my to uděláme. Pokud si myslíš, že jsme s tvými údaji naložili špatně, napiš nám prosím nejdřív na stejnou adresu - podíváme se na to a napravíme to. Vždy máš také právo podat stížnost u Úřadu pro ochranu osobních údajů.",
     "app_h": "Aplikace Ori",
@@ -385,14 +383,5 @@
     "noscript": "Stahování potřebuje JavaScript. Zapni ho, nebo nám napiš a soubor ti pošleme.",
     "help_h": "Nejde to?",
     "help_p": "Napiš na <a href=\"mailto:oriapp.eu@gmail.com\">oriapp.eu@gmail.com</a>, jaký máš telefon. Pomůžeme ti to dokončit."
-  },
-  "unsubscribe": {
-    "title": "Odhlásit se z Ori",
-    "description": "Smazat tuhle adresu ze seznamu Ori? Už se ti neozveme.",
-    "h1": "Odhlásit se z Ori",
-    "text": "Smazat tuhle adresu ze seznamu Ori? Už se ti neozveme.",
-    "button": "Ano, chci se odhlásit",
-    "done": "Hotovo, už nejsi na seznamu.",
-    "hint": "Tenhle odkaz není celý. Otevři ho znovu z našeho e-mailu, nebo napiš na <a href=\"mailto:oriapp.eu@gmail.com\">oriapp.eu@gmail.com</a>."
   }
 }
