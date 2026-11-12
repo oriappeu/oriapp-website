@@ -1,6 +1,6 @@
 # This website and the waitlist
 
-Last updated: 9 November 2026
+Last updated: 12 November 2026
 
 Ori is operated by its founders, Damian K. and Jindřich N., Czech Republic.
 

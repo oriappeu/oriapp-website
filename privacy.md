@@ -1,6 +1,6 @@
 # Tento web a čekací listina
 
-Naposledy upraveno: 9. listopadu 2026
+Naposledy upraveno: 12. listopadu 2026
 
 Ori provozují jeho zakladatelé Damian K. a Jindřich N., Česká republika.
 

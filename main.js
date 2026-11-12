@@ -14,7 +14,7 @@ const BACKEND_URL = 'https://ori-backend-yu2e.onrender.com';
 // T-20 step 6). It is public by design: every visitor's browser gets it. The secret key lives only on the
 // backend (TURNSTILE_SECRET_KEY on Render). Until the key is pasted the check is not loaded, so the form
 // can only answer with its failure message.
-const TURNSTILE_SITE_KEY = 'REPLACE_WITH_SITE_KEY';
+const TURNSTILE_SITE_KEY = '0x4AAAAAAF-wgIBcUGbkDQbA';
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const LANG = ['cs', 'sk', 'en'].includes(document.documentElement.lang) ? document.documentElement.lang : 'cs';
