@@ -43,7 +43,7 @@ const LOCALES = { cs: 'cs_CZ', sk: 'sk_SK', en: 'en_GB' };
 const exists = (path) => path in pages || (path !== '/' && existsSync(root + path.slice(1)) && !path.endsWith('/'));
 
 // Pages kept out of search on purpose (build.mjs `noindex`): they must say noindex and stay out of the sitemap.
-const NOINDEX = new Set(['/setup', '/sk/setup', '/en/setup']);
+const NOINDEX = new Set(['/setup', '/sk/setup', '/en/setup', '/unsubscribe', '/sk/unsubscribe', '/en/unsubscribe']);
 // Hand-written, English-only pages outside the build: no hreflang or structured data of their own.
 const HAND = new Set(['/app-privacy.html', '/terms']);
 const rows = [];
@@ -68,7 +68,7 @@ for (const [url, { file, html }] of Object.entries(pages)) {
   if (descriptions.has(desc)) fail(url, `same description as ${descriptions.get(desc)}`); descriptions.set(desc, url);
   if (c[0] && c[0][1] !== ORIGIN + url) { fail(url, `canonical is ${c[0][1]}, expected ${ORIGIN + url}`); row.canonical = 'BAD'; }
   // (the hand-written app policy has no robots meta, which means index)
-  // (the setup pages are noindex on purpose: for invited testers, not search - see NOINDEX)
+  // (the setup pages are noindex on purpose: for invited testers, not search - see NOINDEX; so are the unsubscribe pages)
   const robotsMeta = html.match(/<meta name="robots" content="([^"]*)"/)?.[1];
   if (NOINDEX.has(url)) { if (!/^noindex/.test(robotsMeta ?? '')) fail(url, `robots meta is "${robotsMeta}", not "noindex"`); }
   else if (robotsMeta ? !/^index/.test(robotsMeta) : url !== '/app-privacy.html') fail(url, `robots meta is "${robotsMeta}", not "index"`);

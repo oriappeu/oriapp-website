@@ -1,6 +1,6 @@
 # This website and the waitlist
 
-Last updated: 20 October 2026
+Last updated: 12 November 2026
 
 Ori is operated by its founders, Damian K. and Jindřich N., Czech Republic.
 
@@ -20,13 +20,15 @@ We count visits to this website with Umami, an analytics service built for priva
 
 The website is hosted on GitHub Pages and delivered through Cloudflare. Like any web server, they see your IP address in order to send you the page and keep the site safe, and they set no cookies. The pages also load Google Tag Manager, a Google tool we will use later to manage measurement. Right now it runs nothing and stores nothing in your browser, but loading it connects your browser to Google, which sees your IP address and the page you are on. These providers may process data in the USA under the EU-US Data Privacy Framework. We rely on our legitimate interest in running a fast and safe website (GDPR Art. 6(1)(f)). Before we add anything that stores cookies or tracks you, we will ask for your consent first and update this page.
 
+Cloudflare Turnstile - a check that the visitor is human, on the website's waitlist form, to keep it free of bots. It receives the visitor's IP address and basic browser signals. Legal basis: our legitimate interest in preventing automated abuse. Provider: Cloudflare, Inc. (United States); international transfers are covered by the EU-US Data Privacy Framework.
+
 ## Where it is kept
 
 In a database run for us by Supabase, our database provider. Emails are sent through Resend, our email provider. The page's fonts are served by this website itself.
 
 ## How long
 
-Until you ask us to remove it, or until we no longer need it to invite you - after Ori's public launch we clear the list.
+Waitlist: kept until you leave the list (unsubscribe). Use the link in our email, or write to us.
 
 ## Your rights
 

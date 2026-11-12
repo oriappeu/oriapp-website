@@ -1,50 +1,131 @@
-// oriapp.eu - the sign-up form and the page's motion.
+// oriapp.eu - the sign-up form, the unsubscribe page and the page's motion.
 //
-// The waitlist writes to the `waitlist` table of Ori's own Supabase project
-// (migration 20260929170000_website_waitlist.sql in oriappeu/Ori-app-): the
-// public key may add an address and do nothing else. Plain fetch against
-// Supabase's REST API - no client library to download for one insert. The key
-// below is the project's PUBLIC key (the same one every copy of the app
-// carries); what it may do is decided by row-level security, not by hiding it.
+// The waitlist form posts to Ori's backend, POST /api/waitlist/join (backend/lib/waitlistJoin.js in
+// oriappeu/Ori-app-, security B3): { email, lang, turnstileToken }. The backend checks the Cloudflare
+// Turnstile token and its limits, adds the address, and a new address starts the thank-you email there.
+// The site no longer writes to Supabase itself: migration 20261104120100_waitlist_backend_only took that
+// away from the public key. A new and a known address get the same answer (200), so the page cannot tell
+// them apart and says the same thank-you to both.
 
-const SUPABASE_URL = 'https://sdtxwrooupkrpociynlb.supabase.co';
-const SUPABASE_ANON_KEY = 'sb_publishable_M6IB1lkNmyhZiFri3_kiOA_kBcR6xkP';
+const BACKEND_URL = 'https://ori-backend-yu2e.onrender.com';
+
+// Cloudflare Turnstile, the check that a person and not a script sent the form. The founder pastes the
+// PUBLIC site key from the Cloudflare dashboard here (Turnstile → the oriapp.eu widget → Site Key; task
+// T-20 step 6). It is public by design: every visitor's browser gets it. The secret key lives only on the
+// backend (TURNSTILE_SECRET_KEY on Render). Until the key is pasted the check is not loaded, so the form
+// can only answer with its failure message.
+const TURNSTILE_SITE_KEY = '0x4AAAAAAF-wgIBcUGbkDQbA';
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const LANG = ['cs', 'sk', 'en'].includes(document.documentElement.lang) ? document.documentElement.lang : 'cs';
-
-// After a new address is in, the backend is told to send the thank-you email
-// (backend/lib/waitlistWelcome.js in oriappeu/Ori-app-). The ping carries
-// nothing - the backend emails only addresses on the list it has never
-// thanked - and nothing waits for it: keepalive lets it finish even if the
-// page closes, and the backend also sweeps on a timer if it never arrives.
-const BACKEND_URL = 'https://ori-backend-yu2e.onrender.com';
-function requestWelcome() {
-  try { fetch(`${BACKEND_URL}/api/waitlist/welcome`, { method: 'POST', keepalive: true }).catch(() => {}); } catch { /* never block the form */ }
-}
 
 // The form speaks the page's language: build.mjs writes its messages into the
 // page from i18n/<lang>.json.
 let T = {};
 try { T = JSON.parse(document.getElementById('i18n')?.textContent || '{}'); } catch { T = {}; }
 
-async function join(email) {
-  const res = await fetch(`${SUPABASE_URL}/rest/v1/waitlist`, {
+// 'joined' (200, a new or a known address alike), 'invalid' (400: the backend refused the address) or
+// 'failed' (403 a bad or spent token, 429 too many tries, 503 the list or Cloudflare is down, no network).
+async function join(email, turnstileToken) {
+  const res = await fetch(`${BACKEND_URL}/api/waitlist/join`, {
     method: 'POST',
-    headers: {
-      apikey: SUPABASE_ANON_KEY,
-      Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
-      'Content-Type': 'application/json',
-      Prefer: 'return=minimal',
-    },
+    headers: { 'Content-Type': 'application/json' },
     // The page's language decides the thank-you email's (cs, sk or en).
-    body: JSON.stringify({ email, lang: LANG }),
+    body: JSON.stringify({ email, lang: LANG, turnstileToken }),
   });
   if (res.ok) return 'joined';
-  const body = await res.json().catch(() => null);
-  // 23505: the address is already on the list - that is a success to the person.
-  if (res.status === 409 || body?.code === '23505') return 'already';
+  if (res.status === 400) return 'invalid';
   return 'failed';
+}
+
+// ── Turnstile ───────────────────────────────────────────────────────────────
+// One widget per waitlist form, run as soon as the page loads, so a token is usually ready before the
+// address is typed. Managed mode, and shown only when Cloudflare wants the visitor to tick it
+// (interaction-only); otherwise it stays out of sight. A token is good for one try and five minutes:
+// the widget renews an expired one by itself, and every try that sent a token resets it for a fresh one.
+// When Cloudflare does show the box, `interactive` is true until it is ticked: a try made then says so
+// (T.captcha) and waits for the tick, then sends by itself, instead of failing after 20 seconds.
+const captchas = []; // { slot, id, token, waiting, interactive, onAsk }
+const ASK_WAIT_MS = 3 * 60 * 1000; // how long a try waits for the box to be ticked
+let captchaDown = false;
+const TURNSTILE_SRC = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=oriTurnstileReady';
+
+function settle(c, token) {
+  c.token = token;
+  c.waiting.splice(0).forEach((done) => done(token));
+}
+function captchaFailed() {
+  captchaDown = true;
+  captchas.forEach((c) => settle(c, ''));
+}
+// The widget's token right now, or ''.
+function tokenNow(c) {
+  if (!c) return '';
+  try {
+    if (c.id != null && window.turnstile) {
+      if (window.turnstile.isExpired?.(c.id)) return '';
+      return window.turnstile.getResponse(c.id) || c.token || '';
+    }
+  } catch { /* the callback's token below */ }
+  return c.token || '';
+}
+// The token for a try: the current one, or the next one the widget gives, or '' when the check cannot
+// run here. It waits 20 seconds for an invisible check; while the box asks to be ticked, up to
+// ASK_WAIT_MS, so the person has time to tick it.
+function tokenFor(c) {
+  const now = tokenNow(c);
+  if (now || !c || captchaDown) return Promise.resolve(now);
+  return new Promise((resolve) => {
+    c.waiting.push(resolve);
+    const started = Date.now();
+    const check = () => {
+      if (!c.waiting.includes(resolve)) return; // settled
+      const limit = c.interactive ? ASK_WAIT_MS : 20000;
+      if (Date.now() - started >= limit) {
+        c.waiting.splice(c.waiting.indexOf(resolve), 1);
+        resolve('');
+      } else setTimeout(check, 1000);
+    };
+    setTimeout(check, 1000);
+  });
+}
+// A try spends its token (the backend redeems it with Cloudflare): ask the widget for a new one.
+function spend(c) {
+  if (!c) return;
+  c.token = '';
+  try { if (c.id != null) window.turnstile?.reset(c.id); } catch { /* the next try waits for a fresh token */ }
+}
+function renderCaptcha(c) {
+  try {
+    c.id = window.turnstile.render(c.slot, {
+      sitekey: TURNSTILE_SITE_KEY,
+      appearance: 'interaction-only',
+      theme: 'dark',
+      language: LANG,
+      callback: (token) => settle(c, token),
+      'expired-callback': () => { c.token = ''; },
+      // Cloudflare shows the box: a try already waiting tells the person to tick it.
+      'before-interactive-callback': () => { c.interactive = true; c.onAsk?.(); },
+      'after-interactive-callback': () => { c.interactive = false; },
+      // A failed check: a waiting try gives up now (the widget retries by itself for the next one).
+      'error-callback': () => settle(c, ''),
+    });
+  } catch { settle(c, ''); }
+}
+function startCaptchas() {
+  if (!captchas.length) return;
+  if (TURNSTILE_SITE_KEY === 'REPLACE_WITH_SITE_KEY') {
+    console.warn('oriapp.eu: no Turnstile site key yet (TURNSTILE_SITE_KEY in main.js), so the waitlist form cannot send.');
+    captchaFailed();
+    return;
+  }
+  window.oriTurnstileReady = () => captchas.forEach(renderCaptcha);
+  const script = document.createElement('script');
+  script.src = TURNSTILE_SRC;
+  script.async = true;
+  // Blocked or offline: a try fails at once with the form's failure message instead of waiting.
+  script.addEventListener('error', captchaFailed);
+  document.head.append(script);
 }
 
 function attach(form) {
@@ -52,6 +133,11 @@ function attach(form) {
   const button = form.querySelector('button[type="submit"]');
   const note = form.nextElementSibling;
   const original = { button: button.textContent };
+  // The widget's place: under the form's note, so the form and its note keep their layout.
+  const captcha = { slot: document.createElement('div'), id: null, token: '', waiting: [], interactive: false, onAsk: null };
+  captcha.slot.className = 'captcha';
+  note.after(captcha.slot);
+  captchas.push(captcha);
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -67,24 +153,35 @@ function attach(form) {
     button.disabled = true;
     button.textContent = T.joining;
     let outcome = 'failed';
-    try { outcome = await join(email); } catch { outcome = 'failed'; }
-    if (outcome === 'failed') {
+    let sent = false;
+    // The box is (or comes) up and not ticked yet: say so, and send as soon as it is ticked.
+    const ask = () => { note.classList.remove('ok'); note.textContent = T.captcha; };
+    captcha.onAsk = ask;
+    if (!tokenNow(captcha) && captcha.interactive) ask();
+    try {
+      const token = await tokenFor(captcha);
+      if (token) { sent = true; outcome = await join(email, token); }
+      else if (captcha.interactive) outcome = 'unticked';
+    } catch { outcome = 'failed'; }
+    captcha.onAsk = null;
+    // Only a token the backend has redeemed is spent; an unticked box stays up as it is.
+    if (sent) spend(captcha);
+    if (outcome !== 'joined') {
       button.disabled = false;
       button.textContent = original.button;
       note.classList.remove('ok');
-      note.textContent = T.failed;
+      note.textContent = outcome === 'invalid' ? T.invalid : outcome === 'unticked' ? T.captcha : T.failed;
+      if (outcome === 'invalid') input.focus();
       return;
     }
-    if (outcome === 'joined') requestWelcome();
     input.value = '';
     input.disabled = true;
-    button.textContent = outcome === 'already' ? T.btn_already : T.btn_joined;
+    button.textContent = T.btn_joined;
     note.classList.add('ok');
-    note.textContent = outcome === 'already' ? T.note_already : T.note_joined;
+    note.textContent = T.note_joined;
     // Counted in Umami as an event - which form and which language, never the address.
     try {
-      window.umami?.track(outcome === 'already' ? 'waitlist-already' : 'waitlist-joined',
-        { form: form.id, lang: document.documentElement.lang });
+      window.umami?.track('waitlist-joined', { form: form.id, lang: document.documentElement.lang });
     } catch { /* counting must never break the form */ }
     // On to the setup page (download the Android app, add the iPhone one), carrying the address for its
     // download button. A moment first, so the thank-you above is seen and the count above is sent.
@@ -100,6 +197,8 @@ const SETUP_EMAIL = 'ori_setup_email';
 const SETUP_JOINED = 'ori_setup_joined';
 
 document.querySelectorAll('form.waitlist:not(.apk-form)').forEach(attach);
+// Only pages with a waitlist form load Turnstile (the setup page's download form does not use it).
+startCaptchas();
 
 // ── The setup page (src/setup.html) ─────────────────────────────────────────────────────────────────────
 // Pick a phone (the one this browser runs on is picked for you), then follow its steps. Android's button asks
@@ -169,6 +268,51 @@ if (pick) {
   });
 }
 
+// ── The unsubscribe page (src/unsubscribe.html) ─────────────────────────────────────────────────────────
+// The thank-you email links https://oriapp.eu/unsubscribe?t=<token> (backend/lib/waitlistWelcome.js in
+// oriappeu/Ori-app-). One tap posts the token to POST /api/waitlist/unsubscribe (lib/waitlistUnsubscribe.js),
+// which deletes that row; it answers 200 whether or not the token was on the list. The token goes nowhere
+// else: the page loads no analytics and sends no referrer, and no event carries it.
+const unsubButton = document.querySelector('.unsub-btn');
+if (unsubButton) {
+  const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+  const token = (new URLSearchParams(location.search).get('t') || '').trim();
+  const valid = UUID.test(token);
+  const note = document.querySelector('.unsub-note');
+  // The language switcher keeps the token, and a pick tells the Czech page not to send this tab on to the
+  // browser's language (the script in the page's head).
+  document.querySelectorAll('.lang a').forEach((a) => {
+    if (valid) a.href = `${a.getAttribute('href')}?t=${encodeURIComponent(token)}`;
+    a.addEventListener('click', () => { try { sessionStorage.setItem('ori_lang_picked', '1'); } catch { /* the browser's language decides */ } });
+  });
+  if (!valid) {
+    // No token, or one cut short (a mail app that broke the link): say so; the button stays off.
+    document.querySelector('.unsub-hint').hidden = false;
+  } else {
+    unsubButton.disabled = false;
+    unsubButton.addEventListener('click', async () => {
+      unsubButton.disabled = true;
+      let res = null;
+      try {
+        res = await fetch(`${BACKEND_URL}/api/waitlist/unsubscribe`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ t: token }),
+        });
+      } catch { res = null; }
+      if (res?.ok) {
+        unsubButton.hidden = true;
+        note.classList.add('ok');
+        note.textContent = unsubButton.dataset.done;
+        return;
+      }
+      unsubButton.disabled = false;
+      note.classList.remove('ok');
+      note.textContent = T.failed;
+    });
+  }
+}
+
 // WebMCP (https://webmachinelearning.github.io/webmcp/): a browser AI agent acting for a person can
 // read what Ori is and put that person on the waitlist without driving the form. The same join() and
 // thank-you email as the form; the page's language picks the email's. Registered only on pages with
@@ -200,14 +344,19 @@ if (document.querySelector('form.waitlist:not(.apk-form)') && typeof modelContex
     async execute({ email } = {}) {
       email = String(email ?? '').trim().toLowerCase();
       if (!EMAIL.test(email)) return reply('That is not a valid email address.');
+      // The same anti-bot check as the form: the token one of the page's Turnstile widgets holds right now.
+      const captcha = captchas.find((c) => tokenNow(c));
+      if (!captcha) {
+        return reply('The page has no anti-bot token yet (Cloudflare Turnstile has not finished, or was blocked), so it cannot join now. Wait a few seconds and try again; if it keeps failing, ask the person to use the form at https://oriapp.eu/en/#zapis');
+      }
       let outcome = 'failed';
-      try { outcome = await join(email); } catch { outcome = 'failed'; }
+      try { outcome = await join(email, tokenNow(captcha)); } catch { outcome = 'failed'; }
+      spend(captcha);
+      if (outcome === 'invalid') return reply('That is not a valid email address.');
       if (outcome === 'failed') return reply('Joining failed. Try again later, or use the form at https://oriapp.eu/en/#zapis');
-      if (outcome === 'joined') requestWelcome();
-      try { window.umami?.track(outcome === 'already' ? 'waitlist-already' : 'waitlist-joined', { form: 'webmcp', lang: LANG }); } catch { /* never block */ }
-      return reply(outcome === 'already'
-        ? `${email} is already on the Ori waitlist.`
-        : `${email} is on the Ori waitlist. A thank-you email is on its way; access opens gradually.`);
+      try { window.umami?.track('waitlist-joined', { form: 'webmcp', lang: LANG }); } catch { /* never block */ }
+      // The backend answers a known address like a new one, so this cannot say which it was.
+      return reply(`${email} is on the Ori waitlist. If it was new to the list, a thank-you email is on its way; access opens gradually.`);
     },
   });
 }

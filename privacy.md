@@ -1,6 +1,6 @@
 # Tento web a čekací listina
 
-Naposledy upraveno: 20. října 2026
+Naposledy upraveno: 12. listopadu 2026
 
 Ori provozují jeho zakladatelé Damian K. a Jindřich N., Česká republika.
 
@@ -20,13 +20,15 @@ Návštěvy webu počítáme službou Umami, která je stavěná s ohledem na so
 
 Web běží na GitHub Pages a k tobě se dostává přes Cloudflare. Jako každý webový server vidí tvou IP adresu, aby ti mohly stránku poslat a chránit web, a neukládají žádné cookies. Stránky také načítají Google Tag Manager, nástroj od Googlu, přes který budeme později spravovat měření. Zatím nic nespouští a nic ti do prohlížeče neukládá, ale při jeho načtení se tvůj prohlížeč spojí s Googlem, který vidí tvou IP adresu a stránku, na které jsi. Tito poskytovatelé mohou údaje zpracovávat i v USA v rámci EU-US Data Privacy Framework. Děláme to na základě našeho oprávněného zájmu provozovat rychlý a bezpečný web (čl. 6 odst. 1 písm. f) GDPR). Než přidáme cokoli, co ukládá cookies nebo tě sleduje, nejdřív se tě zeptáme na souhlas a tuhle stránku upravíme.
 
+Cloudflare Turnstile - ověření, že návštěvník je člověk, na formuláři čekací listiny na webu, aby ho chránilo před boty. Dostává IP adresu návštěvníka a základní údaje z prohlížeče. Právní základ: náš oprávněný zájem na prevenci automatizovaného zneužití. Poskytovatel: Cloudflare, Inc. (USA); mezinárodní přenosy kryje rámec EU-US Data Privacy Framework.
+
 ## Kde je uložená
 
 V databázi, kterou pro nás provozuje Supabase, náš poskytovatel databáze. E-maily odesíláme přes Resend, našeho poskytovatele e-mailů. Písma stránky se načítají přímo z tohoto webu.
 
 ## Jak dlouho
 
-Dokud nás nepožádáš o smazání, nebo dokud ji nepotřebujeme k pozvání - po veřejném spuštění Ori seznam smažeme.
+Čekací listina: adresu si necháme, dokud se z ní neodhlásíš. Stačí odkaz v našem e-mailu, nebo nám napiš.
 
 ## Tvoje práva
 
